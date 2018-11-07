@@ -1,0 +1,17 @@
+{
+  "name": "hash",
+  "version": "1.0.0",
+  "description": "programma per ordine dei commercialisti provincia di Ancona, lavoro per tesi",
+  "repository": "dundee91/tesi",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron app.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^3.0.2"
+  },
+  "dependencies": {
+    "electron-packager": "^12.2.0"
+  }
+}
