@@ -43,7 +43,7 @@ app.once('ready', () => {
     { 
       label: 'Info',
       submenu: [
-        {label: 'Chi siamo',
+        {label: 'Sito web',
       click: function(){
         electron.shell.openExternal('http://www.odcec.an.it/')
       }},
