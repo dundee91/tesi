@@ -1,23 +1,18 @@
 html, body, .container-fluid {
-  background-color: #D6D8DC;
+  background-color: white;
 }
 
 .text-input {
-  color: pink;
-  background-color: wheat;
-  font-size: 24px;
-  font-style: initial;
+  font-size: 12px;
 }
 
 .hash-output {
-  color: lightcoral;
   font-size: 16px;
   letter-spacing: 2px;
   white-space: pre-wrap;
 }
 
 .hash-heading {
-  color: yellowgreen;
   font-weight: normal;
 }
 
