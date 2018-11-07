@@ -1,7 +1,6 @@
-# Hash
+# Programma Riclassificazione
 
-Simple [Electron](http://electron.atom.io) application that shows the hash
-values of entered text using different algorithms.
+Semplice applicazione basata su [Electron](http://electron.atom.io) che calcola i codici di riclassificazione e gli indici di un'azienda
 
 ![screenshot](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)
 
