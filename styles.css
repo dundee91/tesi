@@ -16,4 +16,6 @@ html, body, .container-fluid {
   font-weight: normal;
 }
 
-
+.mainWrapper{
+  margin: 25px;
+}

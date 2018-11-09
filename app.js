@@ -11,7 +11,7 @@ let tray = null
 let window = null
 
 // aspetta fino a che l'app non è pronta
-app.once('ready', () => {
+app.on('ready', () => {
 
   // Creo icona nella barra delle icone
  tray = new Tray(iconPath)
@@ -65,6 +65,7 @@ app.once('ready', () => {
  ]
  const iconMenu = Menu.buildFromTemplate(menuIcona)
  tray.setContextMenu(iconMenu)
+ tray.setToolTip('Riclassificazione Aziende')
 
 
   // Creo la finestra iniziale

@@ -4,11 +4,12 @@
 <head>
   <meta charset="utf-8">
 
-  <title>tavola per INPUT DATI</title>
+  <title>Riclassificazione Aziende</title>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./photon.min.css">
 
   <!-- Scripts -->
   <script>
@@ -20,32 +21,29 @@
 </head>
 
 <body>
-  <form>
-    <div id="container" class="container-fluid">
-<h2>Dati Anagrafici</h2>
+  <div class="mainWrapper">
+    <h2>Dati Anagrafici</h2>
+    <form>
       <!-- Azienda -->
-      <div class="row">
-        <div class="col-md-6">
-          <h3 class="hash-heading">Azienda</h3>
-          <input id="text-input" class="form-control text-input" placeholder="Nome azienda">
-        </div>
+      <div class="form-group">
+        <label class="hash-heading">Azienda</label>
+        <input id="azienda" type="text" class="form-control text-input" placeholder="Nome azienda">
       </div>
-
-      <!-- Sede legale -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-          <h3 class="hash-heading">Sede legale</h3>
-          <input id="text-sedelegale" class="form-control text-sedelegale">
-        </div>
+      <!-- Sede -->
+      <div class="form-group">
+        <label class="hash-heading">Sede</label>
+        <input id="sede" type="text" class="form-control text-input">
       </div>
-      
       <!-- Responsabile -->
-      <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-            <h3 class="hash-heading">Responsabile</h3>
-            <input id="text-responsabile" class="form-control text-responsabile">
-          </div>
-        </div>
+      <div class="form-group">
+        <label class="hash-heading">Responsabile</label>
+        <input id="responsabile" type="text" class="form-control text-input">
+      </div>
+      <!-- Anno fondazione -->
+      <div class="form-group">
+        <label class="hash-heading">Anno di fondazione</label>
+        <input id="annoFondazione" type="text" class="form-control text-input">
+      </div>
 
       <!-- MD5 row 
     <div class="row">
@@ -83,13 +81,15 @@
     </div>
     -->
 
+    </form>
     <!-- Bottone per salvataggio -->
-    <div class="row">
-        <button type:"button" class="btn btn-primary">Salva</button>
-    </div>
-
-    </div>
-  </form>
+    <button id="salvataggio" class="btn btn-default">Salva</button>
+    <!-- Bottone per annullo -->
+    <button id="annullo" class="btn btn-default">Annulla</button>
+  </div>
+  <script>
+    require('./index.js')
+  </script>
 
 </body>
 
