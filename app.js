@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Menu} = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 const path = require('path')
 const url = require('url')
 const electron = require('electron')
@@ -24,40 +24,52 @@ app.once('ready', () => {
   //Creo il menù
   var menu = Menu.buildFromTemplate([
     {
-        label: 'File',
-        submenu: [
-            {label:'Importa file'},
-            {label:'Salva'},
-            {label:'Salva con nome'},
-        ]
-    },
-    { 
-      label: 'Opzioni',
+      label: 'File',
       submenu: [
-        {label: 'Rilancia',
-      click(){
-        app.relaunch()
-        app.quit()
-      }},
-      ]
-    },
-    { 
-      label: 'Info',
-      submenu: [
-        {label: 'Sito web',
-      click: function(){
-        electron.shell.openExternal('http://www.odcec.an.it/')
-      }},
+        { label: 'Nuovo Progetto' },
+        { label: 'Apri' },
+        { type: "separator" },
+        { label: 'Salva' },
+        { label: 'Salva con nome' },
+        { label: 'Chiudi' },
+        { type: "separator" },
+        {
+          label: 'Rilancia',
+          click() {
+            app.relaunch()
+            app.quit()
+          }
+        },
+        {
+          label: 'Esci', click() {
+            app.quit()
+          }
+        },
       ]
     },
     {
-      label: 'Esci',
-        click(){
-          app.quit()
-      }
+      label: 'Strumenti',
+      submenu: [
+        { label: 'Modifica anno di partenza' },
+        { label: 'Aggiungi anno' },
+        { label: 'Rimuovi ultimo anno' },
+        { label: 'Aggiungi anno (forecast)' },
+        { label: 'Rimuovi ultimo anno (forecast)' },
+      ]
+    },
+    {
+      label: 'Info',
+      submenu: [
+        {
+          label: 'Sito web',
+          click: function () {
+            electron.shell.openExternal('http://www.odcec.an.it/')
+          }
+        },
+      ]
     }
-])
-Menu.setApplicationMenu(menu); 
+  ])
+  Menu.setApplicationMenu(menu);
 
 
   // Carica un URL nella finestra al locale index.html
