@@ -34,17 +34,23 @@ app.once('ready', () => {
         { label: 'Chiudi' },
         { type: "separator" },
         {
-          label: 'Rilancia',
-          click() {
-            app.relaunch()
-            app.quit()
-          }
-        },
-        {
           label: 'Esci', click() {
             app.quit()
           }
         },
+      ]
+    },
+    {
+      label: 'Visualizza',
+      submenu: [
+        {role: 'reload', label: 'Ricarica'},
+        {role: 'toggledevtools', label: 'Ispeziona'},
+        {type: 'separator'},
+        {role: 'resetzoom', label: 'Ripristina zoom'},
+        {role: 'zoomin', label: 'Aumenta zoom'},
+        {role: 'zoomout', label: 'Diminuisci zoom'},
+        {type: 'separator'},
+        {role: 'togglefullscreen', label: 'Modalità schermo intero'}
       ]
     },
     {
@@ -55,6 +61,18 @@ app.once('ready', () => {
         { label: 'Rimuovi ultimo anno' },
         { label: 'Aggiungi anno (forecast)' },
         { label: 'Rimuovi ultimo anno (forecast)' },
+      ]
+    },
+    {
+      label: 'Opzioni',
+      submenu: [
+        {role: 'undo', label: 'Annulla'},
+        {type: 'separator'},
+        {role: 'cut', label: 'Taglia'},
+        {role: 'copy', label: 'Copia'},
+        {role: 'paste', label:'Incolla'},
+        {role: 'delete', label:'Cancella'},
+        {role: 'selectall', label:'Seleziona tutto'}
       ]
     },
     {
