@@ -3,11 +3,70 @@ const path = require('path')
 const url = require('url')
 const electron = require('electron')
 const fs = require('fs')
+const MenuItem = electron.MenuItem
+const Tray = electron.Tray
+const iconPath = path.join(__dirname, 'logo1.png')
 
+let tray = null
 let window = null
 
 // aspetta fino a che l'app non è pronta
 app.once('ready', () => {
+
+  // Creo icona nella barra delle icone
+ tray = new Tray(iconPath)
+// e menu sull'icona
+ let menuIcona = [
+   {
+     label: 'Audio',
+     submenu: [
+       {
+         label: 'Basso',
+         type: 'radio',
+         checked: true
+       },
+       {
+         label: 'Alto',
+         type: 'radio'
+       }
+     ]
+   },
+   {
+     label: 'Video',
+     submenu: [
+       {
+         label: '1280x720',
+         type: 'radio',
+         checked: true
+       },
+       {
+         label: '1920x1080',
+         type: 'radio'
+       }
+     ]
+   },
+   {
+     type: 'separator'
+   },
+   {
+     label: 'Sito',
+     click: function () {
+       electron.shell.openExternal('http://www.odcec.an.it/')
+     }
+   },
+   {
+     type: 'separator'
+   },
+   {
+     label: 'Chiudi', click() {
+       app.quit()
+     }
+   }
+ ]
+ const iconMenu = Menu.buildFromTemplate(menuIcona)
+ tray.setContextMenu(iconMenu)
+
+
   // Creo la finestra iniziale
   window = new BrowserWindow({
     // Imposto l'altezza iniziale a 1000px
@@ -43,14 +102,14 @@ app.once('ready', () => {
     {
       label: 'Visualizza',
       submenu: [
-        {role: 'reload', label: 'Ricarica'},
-        {role: 'toggledevtools', label: 'Ispeziona'},
-        {type: 'separator'},
-        {role: 'resetzoom', label: 'Ripristina zoom'},
-        {role: 'zoomin', label: 'Aumenta zoom'},
-        {role: 'zoomout', label: 'Diminuisci zoom'},
-        {type: 'separator'},
-        {role: 'togglefullscreen', label: 'Modalità schermo intero'}
+        { role: 'reload', label: 'Ricarica' },
+        { role: 'toggledevtools', label: 'Ispeziona' },
+        { type: 'separator' },
+        { role: 'resetzoom', label: 'Ripristina zoom' },
+        { role: 'zoomin', label: 'Aumenta zoom' },
+        { role: 'zoomout', label: 'Diminuisci zoom' },
+        { type: 'separator' },
+        { role: 'togglefullscreen', label: 'Modalità schermo intero' }
       ]
     },
     {
@@ -66,13 +125,13 @@ app.once('ready', () => {
     {
       label: 'Opzioni',
       submenu: [
-        {role: 'undo', label: 'Annulla'},
-        {type: 'separator'},
-        {role: 'cut', label: 'Taglia'},
-        {role: 'copy', label: 'Copia'},
-        {role: 'paste', label:'Incolla'},
-        {role: 'delete', label:'Cancella'},
-        {role: 'selectall', label:'Seleziona tutto'}
+        { role: 'undo', label: 'Annulla' },
+        { type: 'separator' },
+        { role: 'cut', label: 'Taglia' },
+        { role: 'copy', label: 'Copia' },
+        { role: 'paste', label: 'Incolla' },
+        { role: 'delete', label: 'Cancella' },
+        { role: 'selectall', label: 'Seleziona tutto' }
       ]
     },
     {
@@ -87,8 +146,37 @@ app.once('ready', () => {
       ]
     }
   ])
-  Menu.setApplicationMenu(menu);
+  Menu.setApplicationMenu(menu)
 
+
+  //menù per tasto destro
+  const ctxMenu = new Menu()
+
+  ctxMenu.append(new MenuItem({
+    role: 'undo', label: 'Annulla'
+  }))
+  ctxMenu.append(new MenuItem({
+    role: 'reload', label: 'Ricarica'
+  }))
+  ctxMenu.append(new MenuItem({
+    type: 'separator'
+  }))
+  ctxMenu.append(new MenuItem({
+    role: 'cut', label: 'Taglia'
+  }))
+  ctxMenu.append(new MenuItem({
+    role: 'copy', label: 'Copia'
+  }))
+  ctxMenu.append(new MenuItem({
+    role: 'paste', label: 'Incolla'
+  }))
+  ctxMenu.append(new MenuItem({
+    role: 'selectall', label: 'Seleziona tutto'
+  }))
+
+  window.webContents.on('context-menu', function (e, params) {
+    ctxMenu.popup(window, params.x, params.y)
+  })
 
   // Carica un URL nella finestra al locale index.html
   window.loadURL(url.format({
