@@ -154,6 +154,12 @@ app.on('ready', () => {
   const ctxMenu = new Menu()
 
   ctxMenu.append(new MenuItem({
+    role: 'toggledevtools', label: 'Ispeziona'
+  }))
+  ctxMenu.append(new MenuItem({
+    type: 'separator'
+  }))
+  ctxMenu.append(new MenuItem({
     role: 'undo', label: 'Annulla'
   }))
   ctxMenu.append(new MenuItem({
