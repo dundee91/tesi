@@ -2,7 +2,10 @@ const fs = require('fs')
 const path = require('path')
 
 var data = new Date()
-var oggi = data.toLocaleDateString()
+var giorno = data.getDate()
+var mese = data.getMonth()
+var anno = data.getFullYear()
+var oggi = anno + '-' + mese + '-' + giorno
 
 bottoneSalvataggio = document.getElementById('salvataggio')
 bottoneAnnullo = document.getElementById('annullo')
@@ -23,8 +26,10 @@ bottoneSalvataggio.addEventListener('click', function () {
     let annoFondazioneAzienda = annoFondazione.value
     fs.writeFile(file, contenuto, function (err) {
         if (err) {
+            window.alert("Errore")
             return console.log("Errore")
         }
+        window.alert("File creato!")
         console.log("file creato")
     })
 })
