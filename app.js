@@ -6,6 +6,7 @@ const fs = require('fs')
 const MenuItem = electron.MenuItem
 const Tray = electron.Tray
 const iconPath = path.join(__dirname, 'logo1.png')
+const dialog = app.dialog
 
 let tray = null
 let window = null
@@ -14,58 +15,58 @@ let window = null
 app.on('ready', () => {
 
   // Creo icona nella barra delle icone
- tray = new Tray(iconPath)
-// e menu sull'icona
- let menuIcona = [
-   {
-     label: 'Audio',
-     submenu: [
-       {
-         label: 'Basso',
-         type: 'radio',
-         checked: true
-       },
-       {
-         label: 'Alto',
-         type: 'radio'
-       }
-     ]
-   },
-   {
-     label: 'Video',
-     submenu: [
-       {
-         label: '1280x720',
-         type: 'radio',
-         checked: true
-       },
-       {
-         label: '1920x1080',
-         type: 'radio'
-       }
-     ]
-   },
-   {
-     type: 'separator'
-   },
-   {
-     label: 'Sito',
-     click: function () {
-       electron.shell.openExternal('http://www.odcec.an.it/')
-     }
-   },
-   {
-     type: 'separator'
-   },
-   {
-     label: 'Chiudi', click() {
-       app.quit()
-     }
-   }
- ]
- const iconMenu = Menu.buildFromTemplate(menuIcona)
- tray.setContextMenu(iconMenu)
- tray.setToolTip('Riclassificazione Aziende')
+  tray = new Tray(iconPath)
+  // e menu sull'icona
+  let menuIcona = [
+    {
+      label: 'Audio',
+      submenu: [
+        {
+          label: 'Basso',
+          type: 'radio',
+          checked: true
+        },
+        {
+          label: 'Alto',
+          type: 'radio'
+        }
+      ]
+    },
+    {
+      label: 'Video',
+      submenu: [
+        {
+          label: '1280x720',
+          type: 'radio',
+          checked: true
+        },
+        {
+          label: '1920x1080',
+          type: 'radio'
+        }
+      ]
+    },
+    {
+      type: 'separator'
+    },
+    {
+      label: 'Sito',
+      click: function () {
+        electron.shell.openExternal('http://www.odcec.an.it/')
+      }
+    },
+    {
+      type: 'separator'
+    },
+    {
+      label: 'Chiudi', click() {
+        app.quit()
+      }
+    }
+  ]
+  const iconMenu = Menu.buildFromTemplate(menuIcona)
+  tray.setContextMenu(iconMenu)
+  tray.setToolTip('Riclassificazione Aziende')
 
 
   // Creo la finestra iniziale
@@ -80,7 +81,6 @@ app.on('ready', () => {
     show: false
   })
 
-
   //Creo il menù
   var menu = Menu.buildFromTemplate([
     {
@@ -89,7 +89,6 @@ app.on('ready', () => {
         { label: 'Nuovo Progetto' },
         { label: 'Apri' },
         { type: "separator" },
-        { label: 'Salva' },
         { label: 'Salva con nome' },
         { label: 'Chiudi' },
         { type: "separator" },
