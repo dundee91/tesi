@@ -12,6 +12,8 @@
     "electron": "^3.0.2"
   },
   "dependencies": {
-    "electron-packager": "^12.2.0"
+    "electron-packager": "^12.2.0",
+    "electron-scroller": "^0.6.2",
+    "electron-tabs": "^0.9.4"
   }
 }

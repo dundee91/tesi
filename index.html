@@ -10,6 +10,21 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./photon.min.css">
+  <link rel="stylesheet" href="node_modules/electron-tabs/electron-tabs.css">
+  <script>
+    jQuery(document).ready(function () {
+      jQuery('.tabs .tab-links a').on('click', function (e) {
+        var currentAttrValue = jQuery(this).attr('href');
+
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+        e.preventDefault();
+      });
+    });</script>
 
   <!-- Scripts -->
   <script>
@@ -21,31 +36,117 @@
 </head>
 
 <body>
-  <div class="mainWrapper">
-    <h2>Dati Anagrafici</h2>
-    <form>
-      <!-- Azienda -->
-      <div class="form-group">
-        <label class="hash-heading">Azienda</label>
-        <input id="azienda" type="text" class="form-control text-input" placeholder="Nome azienda">
+  <div class="tabs">
+    <ul class="tab-links">
+      <li class="active">
+        <a href="#tab1">Dati Anagrafici</a>
+      </li>
+      <li>
+        <a href=#tab2">Analisi qualitativa</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="tab1" class="tab active">
+        tab 1
       </div>
-      <!-- Sede -->
-      <div class="form-group">
-        <label class="hash-heading">Sede</label>
-        <input id="sede" type="text" class="form-control text-input">
+      <div id="tab2" class="tab">
+        tab 2
       </div>
-      <!-- Responsabile -->
-      <div class="form-group">
-        <label class="hash-heading">Responsabile</label>
-        <input id="responsabile" type="text" class="form-control text-input">
-      </div>
-      <!-- Anno fondazione -->
-      <div class="form-group">
-        <label class="hash-heading">Anno di fondazione</label>
-        <input id="annoFondazione" type="text" class="form-control text-input">
-      </div>
+    </div>
+  </div>
 
-      <!-- MD5 row 
+  <div class="bodyForm">
+
+
+      <h3>Dati Anagrafici</h3>
+      <br>
+      <form>
+        <!-- Ragione Sociale -->
+        <div class="form-group">
+          <div>
+            <label class="etichetta">Ragione Sociale</label>
+          </div>
+          <div>
+            <input id="input" type="text" class="form-control text-input" placeholder="Nome azienda">
+          </div>
+        </div>
+        <!-- Partita IVA -->
+        <div class="form-group">
+          <div>
+            <label class="etichetta">Partita IVA</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- Settore di produzione -->
+        <div class="form-group">
+          <div><label class="etichetta">Settore di produzione</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- Contratto collettivo applicato (CCNL) -->
+        <div class="form-group">
+          <div><label class="etichetta">Contratto collettivo applicato (CCNL)</label></div>
+          <div></div><input id="input" type="text" class="form-control text-input">
+        </div>
+        <!-- Numero Dipendenti -->
+        <div class="form-group">
+          <div><label class="etichetta">Numero dipendenti</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <h3>Sede</h3>
+        <br>
+        <!-- Indirizzo -->
+        <div class="form-group">
+          <div><label class="etichetta">Indirizzo</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- Comune -->
+        <div class="form-group">
+          <div><label class="etichetta">Comune</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- Provincia -->
+        <div class="form-group">
+          <div><label class="etichetta">Provincia</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- CAP -->
+        <div class="form-group">
+          <div><label class="etichetta">CAP</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <h3>Contatti</h3>
+        <br>
+        <!-- Referente -->
+        <div class="form-group">
+          <div><label class="etichetta">Referente</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- Telefono -->
+        <div class="form-group">
+          <div><label class="etichetta">Telefono</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- Fax -->
+        <div class="form-group">
+          <div><label class="etichetta">Fax</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- E-mail -->
+        <div class="form-group">
+          <div><label class="etichetta">E-mail</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- Sito Web -->
+        <div class="form-group">
+          <div><label class="etichetta">Sito web</label></div>
+          <div><input id="input" type="text" class="form-control text-input"></div>
+        </div>
+        <!-- Note -->
+        <div class="form-group">
+          <div><label class="etichetta">Note</label></div>
+          <div><textarea id="note" type="text" class="form-control text-input"></textarea></div>
+        </div>
+
+        <!-- MD5 row 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h3 class="hash-heading">Descrizione</h3>
@@ -54,7 +155,7 @@
     </div>
     -->
 
-      <!-- SHA-1 row
+        <!-- SHA-1 row
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h3 class="hash-heading">SHA-1</h3>
@@ -63,7 +164,7 @@
     </div>
     -->
 
-      <!-- SHA-256 row 
+        <!-- SHA-256 row 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h3 class="hash-heading">SHA-256</h3>
@@ -72,7 +173,7 @@
     </div>
     -->
 
-      <!-- SHA-512 row 
+        <!-- SHA-512 row 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h3 class="hash-heading">SHA-512</h3>
@@ -81,16 +182,18 @@
     </div>
     -->
 
-    </form>
-    <!-- Bottone per salvataggio -->
-    <button id="salvataggio" class="btn btn-default">Salva</button>
-    <!-- Bottone per lettura -->
-    <button id="lettura" class="btn btn-default">Leggi</button>
+      </form>
+      <!-- Bottone per salvataggio -->
+      <button id="salvataggio" class="btn btn-default">Salva</button>
+      <!-- Bottone per lettura -->
+      <button id="lettura" class="btn btn-default">Leggi</button>
+    </div>
+    <script>
+      require('./index.js')
+    </script>
   </div>
-  <script>
-    require('./index.js')
-  </script>
-
+  </div>
 </body>
+
 
 </html>

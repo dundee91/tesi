@@ -71,14 +71,14 @@ app.on('ready', () => {
 
   // Creo la finestra iniziale
   window = new BrowserWindow({
-    // Imposto l'altezza iniziale a 1000px
-    width: 1000,
     // Imposto la larghezza iniziale a 800px
-    height: 800,
+    width: 800,
+    // Imposto l'altezza iniziale a 1000px
+    height: 1000,
     // Imposto il colore di sfondo
     backgroundColor: "#D6D8DC",
     // non mostra la finestra fino a che non è pronta
-    show: false
+    show: false    
   })
 
   //Creo il menù
