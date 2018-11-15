@@ -53,7 +53,6 @@ bottoneSalvataggio.addEventListener('click', function () {
     let fidiEdUtilizzi = document.getElementById('fidiEdUtilizzi').value
     let conclusioni = document.getElementById('conclusioni').value
 
-
     //let file = path.join(pathName, 'Riclassificazione Azienda - ' + oggi + '.txt')
 
     let contenuto =
@@ -101,18 +100,19 @@ bottoneSalvataggio.addEventListener('click', function () {
             window.alert("non hai salvato il file...")
             return console.log("non hai salvato il file")
         }
-
-        fs.writeFile(filename, contenuto, function (err) {
+        //salvo file sotto formato .json
+        fs.writeFile(filename + ".json", contenuto, function (err) {
             if (err) {
                 window.alert("Errore: " + err.message)
+                alert.name()
                 return console.log("Errore: " + err.message)
             }
+
             window.alert("File creato!")
             console.log("file creato")
         })
     })
 })
-
 
 bottoneLettura.addEventListener('click', function () {
     dialog.showOpenDialog((filename) => {

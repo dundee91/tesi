@@ -78,7 +78,7 @@ app.on('ready', () => {
     // Imposto il colore di sfondo
     backgroundColor: "#D6D8DC",
     // non mostra la finestra fino a che non è pronta
-    show: false    
+    show: false
   })
 
   //Creo il menù

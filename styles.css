@@ -3,7 +3,7 @@
   height: 100%;
   margin: 0;
   background-color: white;
-  overflow: scroll;
+	overflow: scroll;
 }
 
 .hash-output {
@@ -33,39 +33,38 @@ h3{
   width: 40%;
 }
 
-/* Style the tab */
+/* Stile della tab */
 .tab {
 	overflow: hidden;
-	border: 1px solid #ccc;
-	background-color: #f1f1f1;
+	border: 1px solid white;
+	background-color: white;
 }
 
-/* Style the buttons that are used to open the tab content */
+/* Stile dei bottoni delle tab*/
 .tab button {
-	background-color: inherit;
+	background-color: white;
 	float: left;
 	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 14px 16px;
-	transition: 0.3s;
+	cursor: grab;
+	padding: 7px 8px;
+	transition: 1s;
+	font-family: 'Segoe UI';
 }
 
-/* Change background color of buttons on hover */
+/* Cambia colore del bottone quando ci si passa sopra con il cursore */
 .tab button:hover {
-	background-color: #ddd;
+	background-color: lightcoral;
 }
 
-/* Create an active/current tablink class */
+/* Stile del bottone della tab attiva */
 .tab button.active {
-	background-color: #ccc;
+	background-color:lightcoral;
 }
 
 /* Style the tab content */
 .tabcontent {
 	display: none;
 	padding: 6px 12px;
-	border: 1px solid #ccc;
 	border-top: none;
 	animation:  fadeEffect 1s; /* Fading effect takes 1 second */
 }
