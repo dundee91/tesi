@@ -11,20 +11,6 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./photon.min.css">
   <link rel="stylesheet" href="node_modules/electron-tabs/electron-tabs.css">
-  <script>
-    jQuery(document).ready(function () {
-      jQuery('.tabs .tab-links a').on('click', function (e) {
-        var currentAttrValue = jQuery(this).attr('href');
-
-        // Show/Hide Tabs
-        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
-
-        // Change/remove current tab to active
-        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
-
-        e.preventDefault();
-      });
-    });</script>
 
   <!-- Scripts -->
   <script>
@@ -36,29 +22,16 @@
 </head>
 
 <body>
-  <div class="tabs">
-    <ul class="tab-links">
-      <li class="active">
-        <a href="#tab1">Dati Anagrafici</a>
-      </li>
-      <li>
-        <a href=#tab2">Analisi qualitativa</a>
-      </li>
-    </ul>
-    <div class="tab-content">
-      <div id="tab1" class="tab active">
-        tab 1
-      </div>
-      <div id="tab2" class="tab">
-        tab 2
-      </div>
-    </div>
+  <!-- Tab links -->
+  <div class="tab">
+    <button class="tablinks" onclick="apriTab(event, 'Dati Anagrafici')" id="defaultOpen">Dati Anagrafici</button>
+    <button class="tablinks" onclick="apriTab(event, 'Analisi Qualitativa')">Analisi Qualitativa</button>
+    <button class="tablinks" onclick="apriTab(event, 'Tokyo')">Tokyo</button>
   </div>
 
-  <div class="bodyForm">
-
-
-      <h3>Dati Anagrafici</h3>
+  <!-- Tab content -->
+  <div id="Dati Anagrafici" class="tabcontent">
+    <div class="bodyForm">
       <br>
       <form>
         <!-- Ragione Sociale -->
@@ -67,120 +40,119 @@
             <label class="etichetta">Ragione Sociale</label>
           </div>
           <div>
-            <input id="input" type="text" class="form-control text-input" placeholder="Nome azienda">
+            <input id="ragioneSociale" type="text" class="form-control text-input" placeholder="Nome azienda">
           </div>
         </div>
         <!-- Partita IVA -->
         <div class="form-group">
-          <div>
-            <label class="etichetta">Partita IVA</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
-        </div>
+          <div><label class="etichetta">Partita IVA</label></div>
+          <div><input id="partitaIVA" type="text" class="form-control text-input"></div>
+          </div>
         <!-- Settore di produzione -->
         <div class="form-group">
           <div><label class="etichetta">Settore di produzione</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="settoreProduzione" type="text" class="form-control text-input"></div>
         </div>
         <!-- Contratto collettivo applicato (CCNL) -->
         <div class="form-group">
           <div><label class="etichetta">Contratto collettivo applicato (CCNL)</label></div>
-          <div></div><input id="input" type="text" class="form-control text-input">
+          <div><input id="contrattoCollettivo" type="text" class="form-control text-input"></div>
         </div>
         <!-- Numero Dipendenti -->
         <div class="form-group">
           <div><label class="etichetta">Numero dipendenti</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="numeroDipendenti" type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  class="form-control text-input"></div>
         </div>
         <h3>Sede</h3>
         <br>
         <!-- Indirizzo -->
         <div class="form-group">
           <div><label class="etichetta">Indirizzo</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="indirizzo" type="text" class="form-control text-input"></div>
         </div>
         <!-- Comune -->
         <div class="form-group">
           <div><label class="etichetta">Comune</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="comune" type="text" class="form-control text-input"></div>
         </div>
         <!-- Provincia -->
         <div class="form-group">
           <div><label class="etichetta">Provincia</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="provincia" type="text" class="form-control text-input"></div>
         </div>
         <!-- CAP -->
         <div class="form-group">
           <div><label class="etichetta">CAP</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="cap" type="text" maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control text-input"></div>
         </div>
         <h3>Contatti</h3>
         <br>
         <!-- Referente -->
         <div class="form-group">
           <div><label class="etichetta">Referente</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="referente" type="text" class="form-control text-input"></div>
         </div>
         <!-- Telefono -->
         <div class="form-group">
           <div><label class="etichetta">Telefono</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="telefono" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control text-input"></div>
         </div>
         <!-- Fax -->
         <div class="form-group">
           <div><label class="etichetta">Fax</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="fax" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control text-input"></div>
         </div>
         <!-- E-mail -->
         <div class="form-group">
           <div><label class="etichetta">E-mail</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="email" type="text" class="form-control text-input"></div>
         </div>
         <!-- Sito Web -->
         <div class="form-group">
           <div><label class="etichetta">Sito web</label></div>
-          <div><input id="input" type="text" class="form-control text-input"></div>
+          <div><input id="sitoWeb" type="text" class="form-control text-input"></div>
         </div>
         <!-- Note -->
         <div class="form-group">
           <div><label class="etichetta">Note</label></div>
-          <div><textarea id="note" type="text" class="form-control text-input"></textarea></div>
+          <div><textarea id="note" type="text" class="form-control text-area"></textarea></div>
         </div>
 
         <!-- MD5 row 
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h3 class="hash-heading">Descrizione</h3>
-        <pre id="md5-output" class="hash-output"> </pre>
-      </div>
-    </div>
-    -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h3 class="hash-heading">Descrizione</h3>
+                  <pre id="md5-output" class="hash-output"> </pre>
+                </div>
+              </div>
+              -->
 
         <!-- SHA-1 row
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h3 class="hash-heading">SHA-1</h3>
-        <pre id="sha1-output" class="hash-output"> </pre>
-      </div>
-    </div>
-    -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h3 class="hash-heading">SHA-1</h3>
+                  <pre id="sha1-output" class="hash-output"> </pre>
+                </div>
+              </div>
+              -->
 
         <!-- SHA-256 row 
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h3 class="hash-heading">SHA-256</h3>
-        <pre id="sha256-output" class="hash-output"> </pre>
-      </div>
-    </div>
-    -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h3 class="hash-heading">SHA-256</h3>
+                  <pre id="sha256-output" class="hash-output"> </pre>
+                </div>
+              </div>
+              -->
 
         <!-- SHA-512 row 
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h3 class="hash-heading">SHA-512</h3>
-        <pre id="sha512-output" class="hash-output"> </pre>
-      </div>
-    </div>
-    -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h3 class="hash-heading">SHA-512</h3>
+                  <pre id="sha512-output" class="hash-output"> </pre>
+                </div>
+              </div>
+              -->
 
       </form>
       <!-- Bottone per salvataggio -->
@@ -188,10 +160,152 @@
       <!-- Bottone per lettura -->
       <button id="lettura" class="btn btn-default">Leggi</button>
     </div>
-    <script>
-      require('./index.js')
-    </script>
   </div>
+
+  <div id="Analisi Qualitativa" class="tabcontent">
+    <div class="bodyForm">
+      <br>
+      <form>
+        <!-- Storia Azienda -->
+        <div class="form-group">
+          <div>
+            <label class="etichetta">Breve storia dell'azienda</label>
+          </div>
+          <textarea id="storiaAzienda" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Titolari -->
+        <div class="form-group">
+          <div>
+            <label class="etichetta">Titolari/Managment</label></div>
+            <textarea id="titolari" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Descrizione Attuale -->
+        <div class="form-group">
+          <div><label class="etichetta">Descrizione Attuale</label></div>
+          <textarea id="descrizioneAttuale" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Prodotto -->
+        <div class="form-group">
+          <div><label class="etichetta">Prodotto</label></div>
+          <textarea id="prodotto" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Mercato del Prodotto -->
+        <div class="form-group">
+          <div><label class="etichetta">Mercato del prodotto</label></div>
+          <textarea id="mercatoProdotto" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Politiche di produzione e lavorazione -->
+        <div class="form-group">
+          <div><label class="etichetta">Politiche di produzione e lavorazione</label></div>
+          <textarea id="politicheProduzione" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Politiche di distribuzione e canali -->
+        <div class="form-group">
+          <div><label class="etichetta">Politiche di distribuzione e canali</label></div>
+          <textarea id="politicheDistribuzione" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Principali fornitori -->
+        <div class="form-group">
+          <div><label class="etichetta">Principali fornitori</label></div>
+          <textarea id="principaliFornitori" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Principali clienti -->
+        <div class="form-group">
+          <div><label class="etichetta">Principali clienti</label></div>
+          <textarea id="principaliClienti" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Rapporti contrattuali rilevanti -->
+        <div class="form-group">
+          <div><label class="etichetta">Rapporti contrattuali rilevanti</label></div>
+          <textarea id="rapportiContrattuali" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Internazionalizzazione -->
+        <div class="form-group">
+          <div><label class="etichetta">Internazionalizzazione</label></div>
+          <textarea id="internazionalizzazione" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Personale -->
+        <div class="form-group">
+          <div><label class="etichetta">Personale</label></div>
+          <textarea id="personale" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Struttura degli investimenti (immobili/impianti e macchinari/capitale umano) -->
+        <div class="form-group">
+          <div><label class="etichetta">Struttura degli investimenti (immobili/impianti e macchinari/capitale umano)</label></div>
+          <textarea id="strutturaInvestimenti" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Marchi, brevetti, know how, RS, altri intangibili -->
+        <div class="form-group">
+          <div><label class="etichetta">Marchi, brevetti, know how, RS, altri intangibili</label></div>
+          <textarea id="marchiBrevetti" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Tipologia di rischi -->
+        <div class="form-group">
+          <div><label class="etichetta">Tipologia di rischi</label></div>
+          <textarea id="tipologiaRischi" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Altre Informazioni utili -->
+        <div class="form-group">
+          <div><label class="etichetta">Altre informazioni utili</label></div>
+          <textarea id="informazioniUtili" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Finalità della richiesta -->
+        <div class="form-group">
+          <div><label class="etichetta">Finalità della richiesta</label></div>
+          <textarea id="finalitaRichiesta" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Fidi ed utilizzi con il sistema bancario (mutui, leasing ed altre garanzie prestate) -->
+        <div class="form-group">
+          <div><label class="etichetta">Fidi ed utilizzi con il sistema bancario (mutui, leasing ed altre garanzie prestate)</label></div>
+          <textarea id="fidiEdUtilizzi" type="text" class="form-control text-area"></textarea>
+        </div>
+        <!-- Conclusioni -->
+        <div class="form-group">
+          <div><label class="etichetta">Conclusioni</label></div>
+          <textarea id="conclusioni" type="text" class="form-control text-area"></textarea>
+        </div>
+      </form>
+      <!-- Bottone per salvataggio -->
+      <button id="salvataggio" class="btn btn-default">Salva</button>
+      <!-- Bottone per lettura -->
+      <button id="lettura" class="btn btn-default">Leggi</button>
+    </div>
+  </div>
+
+  <div id="Tokyo" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+
+  <script>
+    require('./index.js')
+  </script>
+  <script>
+    function apriTab(evt, cityName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
   </div>
 </body>
 

@@ -11,58 +11,89 @@ var anno = data.getFullYear()
 bottoneSalvataggio = document.getElementById('salvataggio')
 bottoneLettura = document.getElementById('lettura')
 
-ragioneSociale = document.getElementById('ragioneSociale')
-partitaIVA = document.getElementById('partitaIVA')
-settoreProduzione = document.getElementById('settoreProduzione')
-contrattoCollettivo = document.getElementById('contrattoCollettivo')
-indirizzo = document.getElementById('indirizzo')
-comune = document.getElementById('comune')
-cap = document.getElementById('cap')
-provincia = document.getElementById('provincia')
-referente = document.getElementById('referente')
-telefono = document.getElementById('telefono')
-fax = document.getElementById('fax')
-email = document.getElementById('email')
-sitoWeb = document.getElementById('sitoWeb')
-numeroDipendenti = document.getElementById('numeroDipendenti')
-note = document.getElementById('note')
-
 let pathName = path.join(__dirname, 'Files')
 
 bottoneSalvataggio.addEventListener('click', function () {
 
-    //let file = path.join(pathName, 'Riclassificazione Azienda - ' + oggi + '.txt')
-    let ragioneSocialeTxt = ragioneSociale.value
-    let settoreProduzioneTxt = settoreProduzione.value
-    let partitaIVATxt = partitaIVA.value
-    let contrattoCollettivoTxt = contrattoCollettivo.value
-    let indirizzoTxt = indirizzo.value
-    let comuneTxt = comune.value
-    let capTxt = cap.value
-    let provinciaTxt = provincia.value
-    let referenteTxt = referente.value
-    let telefonoTxt = telefono.value
-    let faxTxt = fax.value
-    let emailTxt = email.value
-    let sitoWebTxt = sitoWeb.value
-    let numeroDipendentiTxt = numeroDipendenti.value
-    let noteTxt = note.value
+    // Anagrafica Aziendale
+    let ragioneSociale = document.getElementById('ragioneSociale').value
+    let partitaIVA = document.getElementById('partitaIVA').value
+    let settoreProduzione = document.getElementById('settoreProduzione').value
+    let contrattoCollettivo = document.getElementById('contrattoCollettivo').value
+    let numeroDipendenti = document.getElementById('numeroDipendenti').value
+    let indirizzo = document.getElementById('indirizzo').value
+    let comune = document.getElementById('comune').value
+    let provincia = document.getElementById('provincia').value
+    let cap = document.getElementById('cap').value
+    let referente = document.getElementById('referente').value
+    let telefono = document.getElementById('telefono').value
+    let fax = document.getElementById('fax').value
+    let email = document.getElementById('email').value
+    let sitoWeb = document.getElementById('sitoWeb').value
+    let note = document.getElementById('note').value
 
-    let contenuto = ragioneSocialeTxt + "\r\n" +
-    settoreProduzioneTxt + "\r\n" + 
-    partitaIVATxt + "\r\n" + 
-    contrattoCollettivoTxt + "\r\n" + 
-    indirizzoTxt + "\r\n" + 
-    comuneTxt + "\r\n" + 
-    capTxt + "\r\n" + 
-    provinciaTxt + "\r\n" + 
-    referenteTxt + "\r\n" + 
-    telefonoTxt + "\r\n" +
-    faxTxt + "\r\n" + 
-    emailTxt + "\r\n" + 
-    sitoWebTxt + "\r\n" + 
-    numeroDipendentiTxt + "\r\n" + 
-    noteTxt
+    // Analisi Quantitativa
+    let storiaAzienda = document.getElementById('storiaAzienda').value
+    let titolari = document.getElementById('titolari').value
+    let descrizioneAttuale = document.getElementById('descrizioneAttuale').value
+    let prodotto = document.getElementById('prodotto').value
+    let mercatoProdotto = document.getElementById('mercatoProdotto').value
+    let politicheProduzione = document.getElementById('politicheProduzione').value
+    let politicheDistribuzione = document.getElementById('politicheDistribuzione').value
+    let principaliFornitori = document.getElementById('principaliFornitori').value
+    let principaliClienti = document.getElementById('principaliClienti').value
+    let rapportiContrattuali = document.getElementById('rapportiContrattuali').value
+    let internazionalizzazione = document.getElementById('internazionalizzazione').value
+    let personale = document.getElementById('personale').value
+    let strutturaInvestimenti = document.getElementById('strutturaInvestimenti').value
+    let marchiBrevetti = document.getElementById('marchiBrevetti').value
+    let tipologiaRischi = document.getElementById('tipologiaRischi').value
+    let informazioniUtili = document.getElementById('informazioniUtili').value
+    let finalitaRichiesta = document.getElementById('finalitaRichiesta').value
+    let fidiEdUtilizzi = document.getElementById('fidiEdUtilizzi').value
+    let conclusioni = document.getElementById('conclusioni').value
+
+
+    //let file = path.join(pathName, 'Riclassificazione Azienda - ' + oggi + '.txt')
+
+    let contenuto =
+        // Anagrafica Aziendale
+        ragioneSociale + "\r\n" +
+        settoreProduzione + "\r\n" +
+        partitaIVA + "\r\n" +
+        contrattoCollettivo + "\r\n" +
+        numeroDipendenti + "\r\n" +
+        indirizzo + "\r\n" +
+        comune + "\r\n" +
+        provincia + "\r\n" +
+        cap + "\r\n" +
+        referente + "\r\n" +
+        telefono + "\r\n" +
+        fax + "\r\n" +
+        email + "\r\n" +
+        sitoWeb + "\r\n" +
+        note + "\r\n" +
+        // Analisi Quantitativa
+        storiaAzienda + "\r\n" +
+        titolari + "\r\n" +
+        descrizioneAttuale + "\r\n" +
+        prodotto + "\r\n" +
+        mercatoProdotto + "\r\n" +
+        politicheProduzione + "\r\n" +
+        politicheDistribuzione + "\r\n" +
+        principaliFornitori + "\r\n" +
+        principaliClienti + "\r\n" +
+        rapportiContrattuali + "\r\n" +
+        internazionalizzazione + "\r\n" +
+        personale + "\r\n" +
+        strutturaInvestimenti + "\r\n" +
+        marchiBrevetti + "\r\n" +
+        tipologiaRischi + "\r\n" +
+        informazioniUtili + "\r\n" +
+        finalitaRichiesta + "\r\n" +
+        fidiEdUtilizzi + "\r\n" +
+        conclusioni
+
 
     //mostro finestra per salvataggio file
     dialog.showSaveDialog((filename) => {
@@ -100,5 +131,4 @@ bottoneLettura.addEventListener('click', function () {
             console.log("file creato")
         })
     })
-
 })
