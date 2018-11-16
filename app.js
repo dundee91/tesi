@@ -7,7 +7,6 @@ const MenuItem = electron.MenuItem
 const Tray = electron.Tray
 const iconPath = path.join(__dirname, 'logo1.png')
 const dialog = app.dialog
-const ipc = require('electron').ipcRenderer
 
 let tray = null
 let window = null
@@ -92,6 +91,7 @@ app.on('ready', () => {
         { type: "separator" },
         {
           label: 'Salva con nome',
+          //passo alla classe index.js dove c'è la funzione di salvataggio
           click: function (menuItem, currentWindow){
             currentWindow.webContents.send('salva')
           }
