@@ -2,19 +2,14 @@ const fs = require('fs')
 const path = require('path')
 const app = require('electron').remote
 const dialog = app.dialog
+const ipc = require('electron').ipcRenderer
 
 var data = new Date()
 var giorno = data.getDate()
 var mese = data.getMonth()
 var anno = data.getFullYear()
 
-bottoneSalvataggio = document.getElementById('salvataggio')
-bottoneLettura = document.getElementById('lettura')
-
-let pathName = path.join(__dirname, 'Files')
-
-bottoneSalvataggio.addEventListener('click', function () {
-
+ipc.on('salva', function(ev, data){
     // Anagrafica Aziendale
     let ragioneSociale = document.getElementById('ragioneSociale').value
     let partitaIVA = document.getElementById('partitaIVA').value
@@ -58,8 +53,8 @@ bottoneSalvataggio.addEventListener('click', function () {
     let contenuto =
         // Anagrafica Aziendale
         ragioneSociale + "\r\n" +
-        settoreProduzione + "\r\n" +
         partitaIVA + "\r\n" +
+        settoreProduzione + "\r\n" +
         contrattoCollettivo + "\r\n" +
         numeroDipendenti + "\r\n" +
         indirizzo + "\r\n" +
@@ -113,6 +108,10 @@ bottoneSalvataggio.addEventListener('click', function () {
         })
     })
 })
+
+bottoneLettura = document.getElementById('lettura')
+
+let pathName = path.join(__dirname, 'Files')
 
 bottoneLettura.addEventListener('click', function () {
     dialog.showOpenDialog((filename) => {
