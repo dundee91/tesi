@@ -3,14 +3,6 @@ const path = require('path')
 const app = require('electron').remote
 const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
-const storage = require('electron-storage')
-
-var data = new Date()
-var giorno = data.getDate()
-var mese = data.getMonth()
-var anno = data.getFullYear()
-
-let pathName = path.join(__dirname, 'Files')
 
 ipc.on('salva', function (ev, data) {
     // Anagrafica Aziendale
@@ -96,8 +88,8 @@ ipc.on('salva', function (ev, data) {
     //mostro finestra per salvataggio file
     dialog.showSaveDialog((filename) => {
         if (filename == undefined) {
-            window.alert("non hai salvato il file...")
-            return console.log("non hai salvato il file")
+            window.alert("non hai salvato il progetto...")
+            return console.log("non hai salvato il progetto")
         }
         //salvo file sotto formato .json
         fs.writeFile(filename + ".json", json, function (err) {
@@ -107,7 +99,7 @@ ipc.on('salva', function (ev, data) {
                 return console.log("Errore: " + err.message)
             }
 
-            window.alert("File creato!")
+            window.alert("Progetto Salvato!")
             console.log("file creato")
         })
     })
@@ -168,8 +160,7 @@ ipc.on('apri', function (ev, data) {
             document.getElementById('fidiEdUtilizzi').value = testo[0].fidiEdUtilizzi
             document.getElementById('conclusioni').value = testo[0].conclusioni
 
-            window.alert("File letto!")
-            console.log("file letto")
+            console.log("file aperto")
         })
     })
 })
