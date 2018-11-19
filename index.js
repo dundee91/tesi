@@ -4,6 +4,7 @@ const app = require('electron').remote
 const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
 
+// salvataggio progetto
 ipc.on('salva', function (ev, data) {
     // Anagrafica Aziendale
     let ragioneSociale = document.getElementById('ragioneSociale').value
@@ -105,6 +106,7 @@ ipc.on('salva', function (ev, data) {
     })
 })
 
+// apertura progetto salvato
 ipc.on('apri', function (ev, data) {
 
     //mostro finestra per apertura file
@@ -164,3 +166,28 @@ ipc.on('apri', function (ev, data) {
         })
     })
 })
+
+// apertura tab
+function apriTab(evt, cityName) {
+    // dichiaro le variabili
+    var i, tabcontent, tablinks;
+
+    // Prendo tutti gli elementi con la classe "tabcontent" e li nascondo
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Prendo tutti gli elementi con la classe "tablings" e rimuovo la classe "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Mostro la tab corrente, e aggiungo la classe "active" al bottone che apre la tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // Clicco l'elemento con "defaultOpen"
+  document.getElementById("defaultOpen").click();

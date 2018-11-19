@@ -47,7 +47,7 @@
         <div class="form-group">
           <div><label class="etichetta">Partita IVA</label></div>
           <div class="text-input"><input id="partitaIVA" type="text" class="form-control text-input"></div>
-          </div>
+        </div>
         <!-- Settore di produzione -->
         <div class="form-group">
           <div><label class="etichetta">Settore di produzione</label></div>
@@ -61,7 +61,8 @@
         <!-- Numero Dipendenti -->
         <div class="form-group">
           <div><label class="etichetta">Numero dipendenti</label></div>
-          <div class="text-input"><input id="numeroDipendenti" type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  class="form-control text-input"></div>
+          <div class="text-input"><input id="numeroDipendenti" type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              class="form-control text-input"></div>
         </div>
         <h3>Sede</h3>
         <br>
@@ -83,7 +84,8 @@
         <!-- CAP -->
         <div class="form-group">
           <div><label class="etichetta">CAP</label></div>
-          <div class="text-input"><input id="cap" type="text" maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control text-input"></div>
+          <div class="text-input"><input id="cap" type="text" maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              class="form-control text-input"></div>
         </div>
         <h3>Contatti</h3>
         <br>
@@ -95,12 +97,14 @@
         <!-- Telefono -->
         <div class="form-group">
           <div><label class="etichetta">Telefono</label></div>
-          <div class="text-input"><input id="telefono" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control text-input"></div>
+          <div class="text-input"><input id="telefono" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              class="form-control text-input"></div>
         </div>
         <!-- Fax -->
         <div class="form-group">
           <div><label class="etichetta">Fax</label></div>
-          <div class="text-input"><input id="fax" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control text-input"></div>
+          <div class="text-input"><input id="fax" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              class="form-control text-input"></div>
         </div>
         <!-- E-mail -->
         <div class="form-group">
@@ -173,7 +177,7 @@
         <div class="form-group">
           <div>
             <label class="etichetta">Titolari/Managment</label></div>
-            <div class="text-input"><textarea id="titolari" type="text" class="form-control text-area"></textarea></div>
+          <div class="text-input"><textarea id="titolari" type="text" class="form-control text-area"></textarea></div>
         </div>
         <!-- Descrizione Attuale -->
         <div class="form-group">
@@ -252,7 +256,8 @@
         </div>
         <!-- Fidi ed utilizzi con il sistema bancario (mutui, leasing ed altre garanzie prestate) -->
         <div class="form-group">
-          <div><label class="etichetta">Fidi ed utilizzi con il sistema bancario (mutui, leasing ed altre garanzie prestate)</label></div>
+          <div><label class="etichetta">Fidi ed utilizzi con il sistema bancario (mutui, leasing ed altre garanzie
+              prestate)</label></div>
           <div class="text-input"><textarea id="fidiEdUtilizzi" type="text" class="form-control text-area"></textarea></div>
         </div>
         <!-- Conclusioni -->
@@ -270,37 +275,12 @@
   </div>
 
   <div id="Stato Patrimoniale" class="tabcontent">
-      <h3>Stato Patrimoniale</h3>
-      <p>Va scritta la parte dello stato patrimoniale.</p>
-    </div>
+    <h3>Stato Patrimoniale</h3>
+    <p>Va scritta la parte dello stato patrimoniale.</p>
+  </div>
 
   <script>
     require('./index.js')
-  </script>
-  <script>
-    function apriTab(evt, cityName) {
-      // Declare all variables
-      var i, tabcontent, tablinks;
-
-      // Get all elements with class="tabcontent" and hide them
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-
-      // Get all elements with class="tablinks" and remove the class "active"
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-
-      // Show the current tab, and add an "active" class to the button that opened the tab
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
   </script>
   </div>
 </body>
