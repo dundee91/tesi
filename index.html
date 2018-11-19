@@ -282,6 +282,33 @@
   <script>
     require('./index.js')
   </script>
+  <script>
+    // Clicco l'elemento con "defaultOpen"
+    document.getElementById("defaultOpen").click();
+
+    // apertura tab
+    function apriTab(evt, nomeTab) {
+        // dichiaro le variabili
+        var i, tabcontent, tablinks;
+    
+        // Prendo tutti gli elementi con la classe "tabcontent" e li nascondo
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+    
+        // Prendo tutti gli elementi con la classe "tablings" e rimuovo la classe "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+    
+        // Mostro la tab corrente, e aggiungo la classe "active" al bottone che apre la tab
+        document.getElementById(nomeTab).style.display = "block";
+        evt.currentTarget.className += " active";
+        console.log("cambio tab")
+      }
+  </script>
   </div>
 </body>
 

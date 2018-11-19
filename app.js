@@ -86,9 +86,8 @@ app.on('ready', () => {
     {
       label: 'File',
       submenu: [
-        { label: 'Nuovo Progetto' },
         {
-          label: 'Apri',
+          label: 'Apri progetto',
           //passo alla classe index.js dove c'è la funzione di apertura
           click: function (menuItem, currentWindow){
             currentWindow.webContents.send('apri')
@@ -102,7 +101,6 @@ app.on('ready', () => {
             currentWindow.webContents.send('salva')
           }
         },
-        { label: 'Chiudi' },
         { type: "separator" },
         {
           label: 'Esci', click() {
@@ -206,4 +204,18 @@ app.on('ready', () => {
   window.once('ready-to-show', () => {
     window.show()
   })
+
+  window.on('close', function(e){
+    var choice = require('electron').dialog.showMessageBox(this,
+        {
+          type: 'question',
+          buttons: ['Yes', 'No'],
+          title: 'Conferma',
+          message: 'Sei sicuro di voler uscire?'
+       });
+       if(choice == 1){
+         e.preventDefault();
+       }
+    })
+
 })

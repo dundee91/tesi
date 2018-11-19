@@ -90,10 +90,10 @@ ipc.on('salva', function (ev, data) {
     dialog.showSaveDialog((filename) => {
         if (filename == undefined) {
             window.alert("non hai salvato il progetto...")
-            return console.log("non hai salvato il progetto")
+            return console.log("progetto non salvato")
         }
-        //salvo file sotto formato .json
-        fs.writeFile(filename + ".json", json, function (err) {
+        //salvo file
+        fs.writeFile(filename, json, function (err) {
             if (err) {
                 window.alert("Errore: " + err.message)
                 alert.name()
@@ -101,7 +101,7 @@ ipc.on('salva', function (ev, data) {
             }
 
             window.alert("Progetto Salvato!")
-            console.log("file creato")
+            console.log("progetto salvato")
         })
     })
 })
@@ -115,79 +115,56 @@ ipc.on('apri', function (ev, data) {
             alert("Nessun file selezionato")
             console.log("Nessun file selezionato")
         }
-        var filename = filenames[0]
-        fs.readFile(filename, function (err, data) {
-            if (err) {
-                window.alert("Errore durante la lettura del file: " + err.message)
-                return console.log("Errore durante la lettura del file: " + err.message)
-            }
-            let testo = JSON.parse(data)
+        else {
+            var filename = filenames[0]
+            fs.readFile(filename, function (err, data) {
+                if (err) {
+                    window.alert("Errore durante la lettura del file: " + err.message)
+                    return console.log("Errore durante la lettura del file: " + err.message)
+                }
+                let testo = JSON.parse(data)
 
-            // Leggo tutti i dati del json
-            // Anagrafica Aziendale
-            document.getElementById('ragioneSociale').value = testo[0].ragioneSociale
-            document.getElementById('partitaIVA').value = testo[0].partitaIVA
-            document.getElementById('settoreProduzione').value = testo[0].settoreProduzione
-            document.getElementById('contrattoCollettivo').value = testo[0].contrattoCollettivo
-            document.getElementById('numeroDipendenti').value = testo[0].numeroDipendenti
-            document.getElementById('indirizzo').value = testo[0].indirizzo
-            document.getElementById('comune').value = testo[0].comune
-            document.getElementById('provincia').value = testo[0].provincia
-            document.getElementById('cap').value = testo[0].cap
-            document.getElementById('referente').value = testo[0].referente
-            document.getElementById('telefono').value = testo[0].telefono
-            document.getElementById('fax').value = testo[0].fax
-            document.getElementById('email').value = testo[0].email
-            document.getElementById('sitoWeb').value = testo[0].sitoWeb
-            document.getElementById('note').value = testo[0].note
+                // Leggo tutti i dati del json
+                // Anagrafica Aziendale
+                document.getElementById('ragioneSociale').value = testo[0].ragioneSociale
+                document.getElementById('partitaIVA').value = testo[0].partitaIVA
+                document.getElementById('settoreProduzione').value = testo[0].settoreProduzione
+                document.getElementById('contrattoCollettivo').value = testo[0].contrattoCollettivo
+                document.getElementById('numeroDipendenti').value = testo[0].numeroDipendenti
+                document.getElementById('indirizzo').value = testo[0].indirizzo
+                document.getElementById('comune').value = testo[0].comune
+                document.getElementById('provincia').value = testo[0].provincia
+                document.getElementById('cap').value = testo[0].cap
+                document.getElementById('referente').value = testo[0].referente
+                document.getElementById('telefono').value = testo[0].telefono
+                document.getElementById('fax').value = testo[0].fax
+                document.getElementById('email').value = testo[0].email
+                document.getElementById('sitoWeb').value = testo[0].sitoWeb
+                document.getElementById('note').value = testo[0].note
 
-            // Analisi Quantitativa
-            document.getElementById('storiaAzienda').value = testo[0].storiaAzienda
-            document.getElementById('titolari').value = testo[0].titolari
-            document.getElementById('descrizioneAttuale').value = testo[0].descrizioneAttuale
-            document.getElementById('prodotto').value = testo[0].prodotto
-            document.getElementById('mercatoProdotto').value = testo[0].mercatoProdotto
-            document.getElementById('politicheProduzione').value = testo[0].politicheProduzione
-            document.getElementById('politicheDistribuzione').value = testo[0].politicheDistribuzione
-            document.getElementById('principaliFornitori').value = testo[0].principaliFornitori
-            document.getElementById('principaliClienti').value = testo[0].principaliClienti
-            document.getElementById('rapportiContrattuali').value = testo[0].rapportiContrattuali
-            document.getElementById('internazionalizzazione').value = testo[0].internazionalizzazione
-            document.getElementById('personale').value = testo[0].personale
-            document.getElementById('strutturaInvestimenti').value = testo[0].strutturaInvestimenti
-            document.getElementById('marchiBrevetti').value = testo[0].marchiBrevetti
-            document.getElementById('tipologiaRischi').value = testo[0].tipologiaRischi
-            document.getElementById('informazioniUtili').value = testo[0].informazioniUtili
-            document.getElementById('finalitaRichiesta').value = testo[0].finalitaRichiesta
-            document.getElementById('fidiEdUtilizzi').value = testo[0].fidiEdUtilizzi
-            document.getElementById('conclusioni').value = testo[0].conclusioni
+                // Analisi Quantitativa
+                document.getElementById('storiaAzienda').value = testo[0].storiaAzienda
+                document.getElementById('titolari').value = testo[0].titolari
+                document.getElementById('descrizioneAttuale').value = testo[0].descrizioneAttuale
+                document.getElementById('prodotto').value = testo[0].prodotto
+                document.getElementById('mercatoProdotto').value = testo[0].mercatoProdotto
+                document.getElementById('politicheProduzione').value = testo[0].politicheProduzione
+                document.getElementById('politicheDistribuzione').value = testo[0].politicheDistribuzione
+                document.getElementById('principaliFornitori').value = testo[0].principaliFornitori
+                document.getElementById('principaliClienti').value = testo[0].principaliClienti
+                document.getElementById('rapportiContrattuali').value = testo[0].rapportiContrattuali
+                document.getElementById('internazionalizzazione').value = testo[0].internazionalizzazione
+                document.getElementById('personale').value = testo[0].personale
+                document.getElementById('strutturaInvestimenti').value = testo[0].strutturaInvestimenti
+                document.getElementById('marchiBrevetti').value = testo[0].marchiBrevetti
+                document.getElementById('tipologiaRischi').value = testo[0].tipologiaRischi
+                document.getElementById('informazioniUtili').value = testo[0].informazioniUtili
+                document.getElementById('finalitaRichiesta').value = testo[0].finalitaRichiesta
+                document.getElementById('fidiEdUtilizzi').value = testo[0].fidiEdUtilizzi
+                document.getElementById('conclusioni').value = testo[0].conclusioni
 
-            console.log("file aperto")
-        })
+                console.log("file aperto")
+            })
+        }
     })
 })
-
-// apertura tab
-function apriTab(evt, cityName) {
-    // dichiaro le variabili
-    var i, tabcontent, tablinks;
-
-    // Prendo tutti gli elementi con la classe "tabcontent" e li nascondo
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-
-    // Prendo tutti gli elementi con la classe "tablings" e rimuovo la classe "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Mostro la tab corrente, e aggiungo la classe "active" al bottone che apre la tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-
-  // Clicco l'elemento con "defaultOpen"
-  document.getElementById("defaultOpen").click();
