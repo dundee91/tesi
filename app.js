@@ -87,7 +87,13 @@ app.on('ready', () => {
       label: 'File',
       submenu: [
         { label: 'Nuovo Progetto' },
-        { label: 'Apri' },
+        {
+          label: 'Apri',
+          //passo alla classe index.js dove c'è la funzione di apertura
+          click: function (menuItem, currentWindow){
+            currentWindow.webContents.send('apri')
+          }
+        },
         { type: "separator" },
         {
           label: 'Salva con nome',
@@ -153,7 +159,6 @@ app.on('ready', () => {
     }
   ])
   Menu.setApplicationMenu(menu)
-
 
   //menù per tasto destro
   const ctxMenu = new Menu()

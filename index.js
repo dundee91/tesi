@@ -10,7 +10,9 @@ var giorno = data.getDate()
 var mese = data.getMonth()
 var anno = data.getFullYear()
 
-ipc.on('salva', function(ev, data){
+let pathName = path.join(__dirname, 'Files')
+
+ipc.on('salva', function (ev, data) {
     // Anagrafica Aziendale
     let ragioneSociale = document.getElementById('ragioneSociale').value
     let partitaIVA = document.getElementById('partitaIVA').value
@@ -53,41 +55,41 @@ ipc.on('salva', function(ev, data){
 
     let contenuto = [{
         // Anagrafica Aziendale
-        "ragioneSociale" : ragioneSociale,
-        "partitaIVA" : partitaIVA,
-        "settoreProduzione" : settoreProduzione,
-        "contrattoCollettivo" : contrattoCollettivo,
-        "numeroDipendenti" : numeroDipendenti,
-        "indirizzo" : indirizzo,
-        "comune" : comune,
-        "provincia" : provincia,
-        "cap" : cap,
-        "referente" : referente,
-        "telefono" : telefono,
-        "fax" : fax,
-        "email" : email,
-        "sitoWeb" : sitoWeb,
-        "note" : note,
+        "ragioneSociale": ragioneSociale,
+        "partitaIVA": partitaIVA,
+        "settoreProduzione": settoreProduzione,
+        "contrattoCollettivo": contrattoCollettivo,
+        "numeroDipendenti": numeroDipendenti,
+        "indirizzo": indirizzo,
+        "comune": comune,
+        "provincia": provincia,
+        "cap": cap,
+        "referente": referente,
+        "telefono": telefono,
+        "fax": fax,
+        "email": email,
+        "sitoWeb": sitoWeb,
+        "note": note,
         // Analisi Quantitativa
-        "storiaAzienda" : storiaAzienda,
-        "titolari" : titolari,
-        "descrizioneAttuale" : descrizioneAttuale,
-        "prodotto" : prodotto,
-        "mercatoProdotto" : mercatoProdotto,
-        "politicheProduzione" : politicheProduzione,
-        "politicheDistribuzione" : politicheDistribuzione,
-        "principaliFornitori" : principaliFornitori,
-        "principaliClienti" : principaliClienti,
-        "rapportiContrattuali" : rapportiContrattuali,
-        "internazionalizzazione" : internazionalizzazione,
-        "personale" : personale,
-        "strutturaInvestimenti" : strutturaInvestimenti,
-        "marchiBrevetti" : marchiBrevetti,
-        "tipologiaRischi" : tipologiaRischi,
-        "informazioniUtili" : informazioniUtili,
-        "finalitaRichiesta" : finalitaRichiesta,
-        "fidiEdUtilizzi" : fidiEdUtilizzi,
-        "conclusioni" : conclusioni
+        "storiaAzienda": storiaAzienda,
+        "titolari": titolari,
+        "descrizioneAttuale": descrizioneAttuale,
+        "prodotto": prodotto,
+        "mercatoProdotto": mercatoProdotto,
+        "politicheProduzione": politicheProduzione,
+        "politicheDistribuzione": politicheDistribuzione,
+        "principaliFornitori": principaliFornitori,
+        "principaliClienti": principaliClienti,
+        "rapportiContrattuali": rapportiContrattuali,
+        "internazionalizzazione": internazionalizzazione,
+        "personale": personale,
+        "strutturaInvestimenti": strutturaInvestimenti,
+        "marchiBrevetti": marchiBrevetti,
+        "tipologiaRischi": tipologiaRischi,
+        "informazioniUtili": informazioniUtili,
+        "finalitaRichiesta": finalitaRichiesta,
+        "fidiEdUtilizzi": fidiEdUtilizzi,
+        "conclusioni": conclusioni
     }]
 
     var json = JSON.stringify(contenuto);
@@ -112,25 +114,61 @@ ipc.on('salva', function(ev, data){
     })
 })
 
-bottoneLettura = document.getElementById('lettura')
+ipc.on('apri', function (ev, data) {
 
-let pathName = path.join(__dirname, 'Files')
-
-bottoneLettura.addEventListener('click', function () {
+    //mostro finestra per apertura file
     dialog.showOpenDialog((filename) => {
         if (filename == undefined) {
             alert("Nessun file selezionato")
             console.log("Nessun file selezionato")
         }
-
-        fs.readFileSync(filename, function (err, data) {
+        fs.readFile('Files/funzionera.json', function (err, data) {
             if (err) {
                 window.alert("Errore durante la lettura del file: " + err.message)
                 return console.log("Errore durante la lettura del file: " + err.message)
             }
-            contenuto.value = data
-            window.alert("File creato!")
-            console.log("file creato")
+            let testo = JSON.parse(data)
+
+            // Anagrafica Aziendale
+            document.getElementById('ragioneSociale').value = testo[0].ragioneSociale
+            document.getElementById('partitaIVA').value = testo[0].partitaIVA
+            document.getElementById('settoreProduzione').value = testo[0].settoreProduzione
+            document.getElementById('contrattoCollettivo').value = testo[0].contrattoCollettivo
+            document.getElementById('numeroDipendenti').value = testo[0].numeroDipendenti
+            document.getElementById('indirizzo').value = testo[0].indirizzo
+            document.getElementById('comune').value = testo[0].comune
+            document.getElementById('provincia').value = testo[0].provincia
+            document.getElementById('cap').value = testo[0].cap
+            document.getElementById('referente').value = testo[0].referente
+            document.getElementById('telefono').value = testo[0].telefono
+            document.getElementById('fax').value = testo[0].fax
+            document.getElementById('email').value = testo[0].email
+            document.getElementById('sitoWeb').value = testo[0].sitoWeb
+            document.getElementById('note').value = testo[0].note
+
+            // Analisi Quantitativa
+            document.getElementById('storiaAzienda').value = testo[0].storiaAzienda
+            document.getElementById('titolari').value = testo[0].titolari
+            document.getElementById('descrizioneAttuale').value = testo[0].descrizioneAttuale
+            document.getElementById('prodotto').value = testo[0].prodotto
+            document.getElementById('mercatoProdotto').value = testo[0].mercatoProdotto
+            document.getElementById('politicheProduzione').value = testo[0].politicheProduzione
+            document.getElementById('politicheDistribuzione').value = testo[0].politicheDistribuzione
+            document.getElementById('principaliFornitori').value = testo[0].principaliFornitori
+            document.getElementById('principaliClienti').value = testo[0].principaliClienti
+            document.getElementById('rapportiContrattuali').value = testo[0].rapportiContrattuali
+            document.getElementById('internazionalizzazione').value = testo[0].internazionalizzazione
+            document.getElementById('personale').value = testo[0].personale
+            document.getElementById('strutturaInvestimenti').value = testo[0].strutturaInvestimenti
+            document.getElementById('marchiBrevetti').value = testo[0].marchiBrevetti
+            document.getElementById('tipologiaRischi').value = testo[0].tipologiaRischi
+            document.getElementById('informazioniUtili').value = testo[0].informazioniUtili
+            document.getElementById('finalitaRichiesta').value = testo[0].finalitaRichiesta
+            document.getElementById('fidiEdUtilizzi').value = testo[0].fidiEdUtilizzi
+            document.getElementById('conclusioni').value = testo[0].conclusioni
+
+            window.alert("File letto!")
+            console.log("file letto")
         })
     })
 })
