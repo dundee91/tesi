@@ -3,6 +3,7 @@ const path = require('path')
 const app = require('electron').remote
 const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
+const storage = require('electron-storage')
 
 var data = new Date()
 var giorno = data.getDate()
@@ -50,44 +51,46 @@ ipc.on('salva', function(ev, data){
 
     //let file = path.join(pathName, 'Riclassificazione Azienda - ' + oggi + '.txt')
 
-    let contenuto =
+    let contenuto = [{
         // Anagrafica Aziendale
-        ragioneSociale + "\r\n" +
-        partitaIVA + "\r\n" +
-        settoreProduzione + "\r\n" +
-        contrattoCollettivo + "\r\n" +
-        numeroDipendenti + "\r\n" +
-        indirizzo + "\r\n" +
-        comune + "\r\n" +
-        provincia + "\r\n" +
-        cap + "\r\n" +
-        referente + "\r\n" +
-        telefono + "\r\n" +
-        fax + "\r\n" +
-        email + "\r\n" +
-        sitoWeb + "\r\n" +
-        note + "\r\n" +
+        "ragioneSociale" : ragioneSociale,
+        "partitaIVA" : partitaIVA,
+        "settoreProduzione" : settoreProduzione,
+        "contrattoCollettivo" : contrattoCollettivo,
+        "numeroDipendenti" : numeroDipendenti,
+        "indirizzo" : indirizzo,
+        "comune" : comune,
+        "provincia" : provincia,
+        "cap" : cap,
+        "referente" : referente,
+        "telefono" : telefono,
+        "fax" : fax,
+        "email" : email,
+        "sitoWeb" : sitoWeb,
+        "note" : note,
         // Analisi Quantitativa
-        storiaAzienda + "\r\n" +
-        titolari + "\r\n" +
-        descrizioneAttuale + "\r\n" +
-        prodotto + "\r\n" +
-        mercatoProdotto + "\r\n" +
-        politicheProduzione + "\r\n" +
-        politicheDistribuzione + "\r\n" +
-        principaliFornitori + "\r\n" +
-        principaliClienti + "\r\n" +
-        rapportiContrattuali + "\r\n" +
-        internazionalizzazione + "\r\n" +
-        personale + "\r\n" +
-        strutturaInvestimenti + "\r\n" +
-        marchiBrevetti + "\r\n" +
-        tipologiaRischi + "\r\n" +
-        informazioniUtili + "\r\n" +
-        finalitaRichiesta + "\r\n" +
-        fidiEdUtilizzi + "\r\n" +
-        conclusioni
+        "storiaAzienda" : storiaAzienda,
+        "titolari" : titolari,
+        "descrizioneAttuale" : descrizioneAttuale,
+        "prodotto" : prodotto,
+        "mercatoProdotto" : mercatoProdotto,
+        "politicheProduzione" : politicheProduzione,
+        "politicheDistribuzione" : politicheDistribuzione,
+        "principaliFornitori" : principaliFornitori,
+        "principaliClienti" : principaliClienti,
+        "rapportiContrattuali" : rapportiContrattuali,
+        "internazionalizzazione" : internazionalizzazione,
+        "personale" : personale,
+        "strutturaInvestimenti" : strutturaInvestimenti,
+        "marchiBrevetti" : marchiBrevetti,
+        "tipologiaRischi" : tipologiaRischi,
+        "informazioniUtili" : informazioniUtili,
+        "finalitaRichiesta" : finalitaRichiesta,
+        "fidiEdUtilizzi" : fidiEdUtilizzi,
+        "conclusioni" : conclusioni
+    }]
 
+    var json = JSON.stringify(contenuto);
 
     //mostro finestra per salvataggio file
     dialog.showSaveDialog((filename) => {
@@ -96,7 +99,7 @@ ipc.on('salva', function(ev, data){
             return console.log("non hai salvato il file")
         }
         //salvo file sotto formato .json
-        fs.writeFile(filename + ".json", contenuto, function (err) {
+        fs.writeFile(filename + ".json", json, function (err) {
             if (err) {
                 window.alert("Errore: " + err.message)
                 alert.name()
