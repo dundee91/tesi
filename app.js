@@ -19,37 +19,6 @@ app.on('ready', () => {
   // e menu sull'icona
   let menuIcona = [
     {
-      label: 'Audio',
-      submenu: [
-        {
-          label: 'Basso',
-          type: 'radio',
-          checked: true
-        },
-        {
-          label: 'Alto',
-          type: 'radio'
-        }
-      ]
-    },
-    {
-      label: 'Video',
-      submenu: [
-        {
-          label: '1280x720',
-          type: 'radio',
-          checked: true
-        },
-        {
-          label: '1920x1080',
-          type: 'radio'
-        }
-      ]
-    },
-    {
-      type: 'separator'
-    },
-    {
       label: 'Sito',
       click: function () {
         electron.shell.openExternal('http://www.odcec.an.it/')
