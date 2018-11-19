@@ -51,8 +51,7 @@ ipc.on('salva', function (ev, data) {
     let fidiEdUtilizzi = document.getElementById('fidiEdUtilizzi').value
     let conclusioni = document.getElementById('conclusioni').value
 
-    //let file = path.join(pathName, 'Riclassificazione Azienda - ' + oggi + '.txt')
-
+    //creo array per json
     let contenuto = [{
         // Anagrafica Aziendale
         "ragioneSociale": ragioneSociale,
@@ -117,18 +116,20 @@ ipc.on('salva', function (ev, data) {
 ipc.on('apri', function (ev, data) {
 
     //mostro finestra per apertura file
-    dialog.showOpenDialog((filename) => {
-        if (filename == undefined) {
+    dialog.showOpenDialog((filenames) => {
+        if (filenames == undefined) {
             alert("Nessun file selezionato")
             console.log("Nessun file selezionato")
         }
-        fs.readFile('Files/funzionera.json', function (err, data) {
+        var filename = filenames[0]
+        fs.readFile(filename, function (err, data) {
             if (err) {
                 window.alert("Errore durante la lettura del file: " + err.message)
                 return console.log("Errore durante la lettura del file: " + err.message)
             }
             let testo = JSON.parse(data)
 
+            // Leggo tutti i dati del json
             // Anagrafica Aziendale
             document.getElementById('ragioneSociale').value = testo[0].ragioneSociale
             document.getElementById('partitaIVA').value = testo[0].partitaIVA
