@@ -186,5 +186,4 @@ app.on('ready', () => {
          e.preventDefault();
        }
     })
-
 })

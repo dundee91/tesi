@@ -25,8 +25,8 @@
   <div class="tab">
     <button class="tablinks" onclick="apriTab(event, 'Dati Anagrafici')" id="defaultOpen">Dati Anagrafici</button>
     <button class="tablinks" onclick="apriTab(event, 'Analisi Qualitativa')">Analisi Qualitativa</button>
-    <button class="tablinks" onclick="apriTab(event, 'Conto Economico')">Conto Economico</button>
     <button class="tablinks" onclick="apriTab(event, 'Stato Patrimoniale')">Stato Patrimoniale</button>
+    <button class="tablinks" onclick="apriTab(event, 'Conto Economico')">Conto Economico</button>
   </div>
 
   <!-- Tab content -->
@@ -269,14 +269,62 @@
     </div>
   </div>
 
+  <div id="Stato Patrimoniale" class="tabcontent">
+    <div class="bodyForm">
+      <br>
+      <form>
+        <h3>Stato Patrimoniale Attivo</h3>
+        <h4>Crediti verso soci</h4>
+        <!-- Crediti verso soci (parte richiamata)-->
+        <div class="form-group">
+          <div>
+            <label class="etichetta">Crediti verso soci (parte richiamata)</label>
+          </div>
+          <div class="text-input">
+            <input id="creditiVersoSoci" type="text" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          </div>
+        </div>
+              
+        <h4>Immobilizzazioni</h4>
+        <h5>I. Immateriali</h5>
+        
+        <!-- Costi di impianto e ampliamento-->
+        <div class="form-group">
+          <div>
+            <h6> 1) Costi di impianto e ampliamento</h6>
+          </div>
+          <div class="text-input">
+            <input id="costiImpiantoAmpliamento" type="text" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          </div>
+        </div>
+      
+        <!-- Costi di ricerca e sviluppo-->
+        <div class="form-group">
+          <div>
+            <h6> 2) Costi di ricerca e sviluppo</h6>
+          </div>
+          <div class="text-input">
+            <input id="costiRicercaSviluppo" type="text" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          </div>
+        </div>
+
+        <!-- Diritti di brevetto -->
+        <div class="form-group">
+          <div>
+            <h6> 3) Diritti di brevetto</h6>
+          </div>
+          <div class="text-input">
+            <input id="dirittiBrevetto" type="text" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
   <div id="Conto Economico" class="tabcontent">
     <h3>Conto Economico</h3>
     <p>Va scritta la parte del conto economico.</p>
-  </div>
-
-  <div id="Stato Patrimoniale" class="tabcontent">
-    <h3>Stato Patrimoniale</h3>
-    <p>Va scritta la parte dello stato patrimoniale.</p>
   </div>
 
   <script>
