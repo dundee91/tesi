@@ -284,27 +284,29 @@
             <input id="creditiVersoSoci" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
-              
+
         <h4>Immobilizzazioni</h4>
         <h5>I. Immateriali</h5>
-        
+
         <!-- Costi di impianto e ampliamento-->
         <div class="form-group">
           <div>
             <h6> 1) Costi di impianto e ampliamento</h6>
           </div>
           <div class="text-input">
-            <input id="costiImpiantoAmpliamento" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="costiImpiantoAmpliamento" type="number" name="immobilizzazioniImmateriali" class="form-control text-input"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
-      
+
         <!-- Costi di ricerca e sviluppo-->
         <div class="form-group">
           <div>
             <h6> 2) Costi di ricerca e sviluppo</h6>
           </div>
           <div class="text-input">
-            <input id="costiRicercaSviluppo" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="costiRicercaSviluppo" type="number" name="immobilizzazioniImmateriali" class="form-control text-input"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
 
@@ -314,7 +316,8 @@
             <h6> 3) Diritti di brevetto</h6>
           </div>
           <div class="text-input">
-            <input id="dirittiBrevetto" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="dirittiBrevetto" type="number" name="immobilizzazioniImmateriali" class="form-control text-input"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
 
@@ -324,52 +327,55 @@
             <h6> 4) Concessioni, licenze e marchi</h6>
           </div>
           <div class="text-input">
-            <input id="concessioniLicenzeMarchi" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="concessioniLicenzeMarchi" type="number" name="immobilizzazioniImmateriali" class="form-control text-input"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
-        
+
         <!-- Avviamento -->
         <div class="form-group">
           <div>
             <h6> 5) Avviamento</h6>
           </div>
           <div class="text-input">
-            <input id="avviamento" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="avviamento" type="number" name="immobilizzazioniImmateriali" class="form-control number-input"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
-        
+
         <!-- Immobilizzazioni in corso -->
         <div class="form-group">
           <div>
             <h6> 6) Immobilizzazioni in corso</h6>
           </div>
           <div class="text-input">
-            <input id="immobilizzazioniCorso" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="immobilizzazioniCorso" type="number" name="immobilizzazioniImmateriali" class="form-control number-input"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
-        
+
         <!-- Altro -->
         <div class="form-group">
           <div>
             <h6> 7) Altro</h6>
           </div>
           <div class="text-input">
-            <input id="immobilizzazioniAltro" type="number" class="form-control number-input">
+            <input id="immobilizzazioniAltro" type="number" name="immobilizzazioniImmateriali" class="form-control number-input">
           </div>
         </div>
-                
+
         <!-- Totale Immobilizzazioni Immateriali -->
         <div class="form-group">
           <div>
             <h6> Totale Immobilizzazioni Immateriali</h6>
           </div>
           <div class="text-input">
-            <input id="totaleImmobilizzazioniImmateriali">
+            <input id="totaleImmobilizzazioniImmateriali" onchange="totaleImmobilizzazioniImmateriali()">
           </div>
         </div>
-        
+
         <h5>II. Materiali</h5>
-        
+
         <!-- Terreni e fabbricati -->
         <div class="form-group">
           <div>
@@ -379,7 +385,7 @@
             <input id="terreniFabbricati" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
-      
+
         <!-- Impianti e macchinario-->
         <div class="form-group">
           <div>
@@ -409,7 +415,7 @@
             <input id="altriBeni" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
-        
+
         <!-- Immobilizzazioni in corso e acconti -->
         <div class="form-group">
           <div>
@@ -419,7 +425,7 @@
             <input id="immobilizzazioniCorsoAcconti" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
-                                
+
         <!-- Totale Immobilizzazioni Materiali -->
         <div class="form-group">
           <div>
@@ -430,183 +436,183 @@
           </div>
         </div>
 
-                
+
         <h5>III. Finanziarie</h5>
-        
+
         <h6>III. Finanziarie</h5>
 
-            <h6> 1) Partecipazioni in  e fabbricati</h6>
+          <h6> 1) Partecipazioni in e fabbricati</h6>
 
-            
-        <!-- Imprese controllate -->
-        <div class="form-group">
-          <div>
-            <h6> a) Imprese controllate</h6>
-          </div>
-          <div class="text-input">
-            <input id="impreseControllate" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
-      
-        <!-- Imprese collegate -->
-        <div class="form-group">
-          <div>
-            <h6> b) Imprese collegate</h6>
-          </div>
-          <div class="text-input">
-            <input id="impreseCollegate" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
 
-        <!-- Imprese controllanti -->
-        <div class="form-group">
-          <div>
-            <h6> c) Imprese controllanti</h6>
+          <!-- Imprese controllate -->
+          <div class="form-group">
+            <div>
+              <h6> a) Imprese controllate</h6>
+            </div>
+            <div class="text-input">
+              <input id="impreseControllate" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-          <div class="text-input">
-            <input id="impreseControllanti" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
 
-        <!-- Altre imprese -->
-        <div class="form-group">
-          <div>
-            <h6> d) Altre imprese</h6>
+          <!-- Imprese collegate -->
+          <div class="form-group">
+            <div>
+              <h6> b) Imprese collegate</h6>
+            </div>
+            <div class="text-input">
+              <input id="impreseCollegate" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-          <div class="text-input">
-            <input id="altreImprese" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
 
-        <h6> 2) Crediti</h6>
+          <!-- Imprese controllanti -->
+          <div class="form-group">
+            <div>
+              <h6> c) Imprese controllanti</h6>
+            </div>
+            <div class="text-input">
+              <input id="impreseControllanti" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
+          </div>
 
-        <h7> a) verso imprese controllate</h7>
-        
-        <!-- entro 12 mesi -->
-        <div class="form-group">
-          <div>
-            <h6> entro 12 mesi</h6>
+          <!-- Altre imprese -->
+          <div class="form-group">
+            <div>
+              <h6> d) Altre imprese</h6>
+            </div>
+            <div class="text-input">
+              <input id="altreImprese" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-          <div class="text-input">
-            <input id="creditiImpreseControllateEntro12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
-                  
-        <!-- oltre 12 mesi -->
-        <div class="form-group">
-          <div>
-            <h6> oltre 12 mesi</h6>
-          </div>
-          <div class="text-input">
-            <input id="creditiImpreseControllateOltre12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
 
-        <h7> b) verso imprese collegate</h7>
-        
-        <!-- entro 12 mesi -->
-        <div class="form-group">
-          <div>
-            <h6> entro 12 mesi</h6>
-          </div>
-          <div class="text-input">
-            <input id="creditiImpreseCollegateEntro12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
-                  
-        <!-- oltre 12 mesi -->
-        <div class="form-group">
-          <div>
-            <h6> oltre 12 mesi</h6>
-          </div>
-          <div class="text-input">
-            <input id="creditiImpreseCollegateOltre12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
+          <h6> 2) Crediti</h6>
 
-        <h7> c) verso imprese controllanti</h7>
-        
-        <!-- entro 12 mesi -->
-        <div class="form-group">
-          <div>
-            <h6> entro 12 mesi</h6>
-          </div>
-          <div class="text-input">
-            <input id="creditiImpreseControllantiEntro12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
-                  
-        <!-- oltre 12 mesi -->
-        <div class="form-group">
-          <div>
-            <h6> oltre 12 mesi</h6>
-          </div>
-          <div class="text-input">
-            <input id="creditiImpreseControllantiOltre12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
+          <h7> a) verso imprese controllate</h7>
 
-        <h7> d) verso altre imprese</h7>
-        
-        <!-- entro 12 mesi -->
-        <div class="form-group">
-          <div>
-            <h6> entro 12 mesi</h6>
+          <!-- entro 12 mesi -->
+          <div class="form-group">
+            <div>
+              <h6> entro 12 mesi</h6>
+            </div>
+            <div class="text-input">
+              <input id="creditiImpreseControllateEntro12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-          <div class="text-input">
-            <input id="creditiAltreImpreseEntro12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
-                  
-        <!-- oltre 12 mesi -->
-        <div class="form-group">
-          <div>
-            <h6> oltre 12 mesi</h6>
-          </div>
-          <div class="text-input">
-            <input id="creditiAltreImpreseOltre12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-          </div>
-        </div>
 
-        <!-- Altri titoli -->
-        <div class="form-group">
-          <div>
-            <h6> 3) Altri titoli</h6>
+          <!-- oltre 12 mesi -->
+          <div class="form-group">
+            <div>
+              <h6> oltre 12 mesi</h6>
+            </div>
+            <div class="text-input">
+              <input id="creditiImpreseControllateOltre12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-          <div class="text-input">
-            <input id="altriTitoli" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+
+          <h7> b) verso imprese collegate</h7>
+
+          <!-- entro 12 mesi -->
+          <div class="form-group">
+            <div>
+              <h6> entro 12 mesi</h6>
+            </div>
+            <div class="text-input">
+              <input id="creditiImpreseCollegateEntro12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-        </div>
-        
-        <!-- Azioni proprie -->
-        <div class="form-group">
-          <div>
-            <h6> 4) Azioni proprie</h6>
+
+          <!-- oltre 12 mesi -->
+          <div class="form-group">
+            <div>
+              <h6> oltre 12 mesi</h6>
+            </div>
+            <div class="text-input">
+              <input id="creditiImpreseCollegateOltre12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-          <div class="text-input">
-            <input id="azioniProprie" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+
+          <h7> c) verso imprese controllanti</h7>
+
+          <!-- entro 12 mesi -->
+          <div class="form-group">
+            <div>
+              <h6> entro 12 mesi</h6>
+            </div>
+            <div class="text-input">
+              <input id="creditiImpreseControllantiEntro12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-        </div>
-                        
-        <!-- Totale Immobilizzazioni Finanziarie -->
-        <div class="form-group">
-          <div>
-            <h6> Totale Immobilizzazioni Finanziarie</h6>
+
+          <!-- oltre 12 mesi -->
+          <div class="form-group">
+            <div>
+              <h6> oltre 12 mesi</h6>
+            </div>
+            <div class="text-input">
+              <input id="creditiImpreseControllantiOltre12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-          <div class="text-input">
-            <input id="totaleImmobilizzazioniFinanziarie">
+
+          <h7> d) verso altre imprese</h7>
+
+          <!-- entro 12 mesi -->
+          <div class="form-group">
+            <div>
+              <h6> entro 12 mesi</h6>
+            </div>
+            <div class="text-input">
+              <input id="creditiAltreImpreseEntro12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-        </div>
-            
-        <!-- Totale Immobilizzazioni -->
-        <div class="form-group">
-          <div>
-            <h5> Totale Immobilizzazioni Finanziarie</h5>
+
+          <!-- oltre 12 mesi -->
+          <div class="form-group">
+            <div>
+              <h6> oltre 12 mesi</h6>
+            </div>
+            <div class="text-input">
+              <input id="creditiAltreImpreseOltre12Mesi" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-          <div class="text-input">
-            <input id="totaleImmobilizzazioni">
+
+          <!-- Altri titoli -->
+          <div class="form-group">
+            <div>
+              <h6> 3) Altri titoli</h6>
+            </div>
+            <div class="text-input">
+              <input id="altriTitoli" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
           </div>
-        </div>
+
+          <!-- Azioni proprie -->
+          <div class="form-group">
+            <div>
+              <h6> 4) Azioni proprie</h6>
+            </div>
+            <div class="text-input">
+              <input id="azioniProprie" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            </div>
+          </div>
+
+          <!-- Totale Immobilizzazioni Finanziarie -->
+          <div class="form-group">
+            <div>
+              <h6> Totale Immobilizzazioni Finanziarie</h6>
+            </div>
+            <div class="text-input">
+              <input id="totaleImmobilizzazioniFinanziarie">
+            </div>
+          </div>
+
+          <!-- Totale Immobilizzazioni -->
+          <div class="form-group">
+            <div>
+              <h5> Totale Immobilizzazioni Finanziarie</h5>
+            </div>
+            <div class="text-input">
+              <input id="totaleImmobilizzazioni">
+            </div>
+          </div>
 
 
       </form>
@@ -627,26 +633,40 @@
 
     // apertura tab
     function apriTab(evt, nomeTab) {
-        // dichiaro le variabili
-        var i, tabcontent, tablinks;
-    
-        // Prendo tutti gli elementi con la classe "tabcontent" e li nascondo
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-    
-        // Prendo tutti gli elementi con la classe "tablings" e rimuovo la classe "active"
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-    
-        // Mostro la tab corrente, e aggiungo la classe "active" al bottone che apre la tab
-        document.getElementById(nomeTab).style.display = "block";
-        evt.currentTarget.className += " active";
-        console.log("cambio tab")
+      // dichiaro le variabili
+      var i, tabcontent, tablinks;
+
+      // Prendo tutti gli elementi con la classe "tabcontent" e li nascondo
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
       }
+
+      // Prendo tutti gli elementi con la classe "tablings" e rimuovo la classe "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Mostro la tab corrente, e aggiungo la classe "active" al bottone che apre la tab
+      document.getElementById(nomeTab).style.display = "block";
+      evt.currentTarget.className += " active";
+      console.log("cambio tab")
+    }
+  </script>
+  <script type="text/javascript">
+    function totaleImmobilizzazioniImmateriali() {
+      console.log('accesso alla funzione')
+      var arr = document.getElementsByName('immobilizzazioniImmateriali');
+      var tot = 0;
+      for (var i = 0; i < arr.length; i++) {
+        if (parseInt(arr[i].value))
+          tot += parseInt(arr[i].value);
+      }
+      console.log('somma fatta')
+      document.getElementById('totaleImmobilizzazioniImmateriali').value = tot;
+    }
+
   </script>
   </div>
 </body>
