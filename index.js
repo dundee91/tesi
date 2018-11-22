@@ -45,7 +45,10 @@ ipc.on('salva', function (ev, data) {
     let conclusioni = document.getElementById('conclusioni').value
 
     //Stato Patrimoniale
+    // A. Crediti verso soci
     var creditiVersoSoci = document.getElementById('creditiVersoSoci').value
+    // B. Immobilizzazioni
+    // I. Immateriali
     var costiImpiantoAmpliamento = document.getElementById('costiImpiantoAmpliamento').value
     var costiRicercaSviluppo = document.getElementById('costiRicercaSviluppo').value
     var dirittiBrevetto = document.getElementById('dirittiBrevetto').value
@@ -53,10 +56,41 @@ ipc.on('salva', function (ev, data) {
     var avviamento = document.getElementById('avviamento').value
     var immobilizzazioniCorso = document.getElementById('immobilizzazioniCorso').value
     var immobilizzazioniAltro = document.getElementById('immobilizzazioniAltro').value
-    var totaleImmobilizzazioniImmateriali = 
-        parseFloat(costiImpiantoAmpliamento) + parseFloat(costiRicercaSviluppo) + parseFloat(dirittiBrevetto) + parseFloat(concessioniLicenzeMarchi) + 
+    var totaleImmobilizzazioniImmateriali =
+        parseFloat(costiImpiantoAmpliamento) + parseFloat(costiRicercaSviluppo) + parseFloat(dirittiBrevetto) + parseFloat(concessioniLicenzeMarchi) +
         parseFloat(avviamento) + parseFloat(immobilizzazioniCorso) + parseFloat(immobilizzazioniAltro)
     document.getElementById('totaleImmobilizzazioniImmateriali').value = totaleImmobilizzazioniImmateriali
+    // II. Materiali
+    var terreniFabbricati = document.getElementById('terreniFabbricati').value
+    var impiantiMacchinario = document.getElementById('impiantiMacchinario').value
+    var attrezzatureIndustriali = document.getElementById('attrezzatureIndustriali').value
+    var altriBeni = document.getElementById('altriBeni').value
+    var immobilizzazioniCorsoAcconti = document.getElementById('immobilizzazioniCorsoAcconti').value
+    var totaleImmobilizzazioniMateriali = parseFloat(terreniFabbricati) + parseFloat(impiantiMacchinario) + parseFloat(attrezzatureIndustriali) + parseFloat(altriBeni) +
+        parseFloat(immobilizzazioniCorsoAcconti)
+    document.getElementById('totaleImmobilizzazioniMateriali').value = totaleImmobilizzazioniMateriali
+    // III. Finanziarie
+    var impreseControllate = document.getElementById('impreseControllate').value
+    var impreseCollegate = document.getElementById('impreseCollegate').value
+    var impreseControllanti = document.getElementById('impreseControllanti').value
+    var altreImprese = document.getElementById('altreImprese').value
+    var creditiImpreseControllateEntro12Mesi = document.getElementById('creditiImpreseControllateEntro12Mesi').value
+    var creditiImpreseControllateOltre12Mesi = document.getElementById('creditiImpreseControllateOltre12Mesi').value
+    var creditiImpreseCollegateEntro12Mesi = document.getElementById('creditiImpreseCollegateEntro12Mesi').value
+    var creditiImpreseCollegateOltre12Mesi = document.getElementById('creditiImpreseCollegateOltre12Mesi').value
+    var creditiImpreseControllantiEntro12Mesi = document.getElementById('creditiImpreseControllantiEntro12Mesi').value
+    var creditiImpreseControllantiOltre12Mesi = document.getElementById('creditiImpreseControllantiOltre12Mesi').value
+    var creditiAltreImpreseEntro12Mesi = document.getElementById('creditiAltreImpreseEntro12Mesi').value
+    var creditiAltreImpreseOltre12Mesi = document.getElementById('creditiAltreImpreseOltre12Mesi').value
+    var altriTitoli = document.getElementById('altriTitoli').value
+    var azioniProprie = document.getElementById('azioniProprie').value
+    var totaleImmobilizzazioniFinanziarie =  
+        parseFloat(impreseControllate) + parseFloat(impreseCollegate) + parseFloat(impreseControllanti) + parseFloat(altreImprese) +
+        parseFloat(creditiImpreseControllateEntro12Mesi) + parseFloat(creditiImpreseControllateOltre12Mesi) + parseFloat(creditiImpreseCollegateEntro12Mesi) + 
+        parseFloat(creditiImpreseCollegateOltre12Mesi) + parseFloat(creditiImpreseControllantiEntro12Mesi) + parseFloat(creditiImpreseControllantiOltre12Mesi) + 
+        parseFloat(creditiAltreImpreseEntro12Mesi) + parseFloat(creditiAltreImpreseOltre12Mesi) + parseFloat(altriTitoli) + parseFloat(azioniProprie)
+    document.getElementById('totaleImmobilizzazioniFinanziarie').value = totaleImmobilizzazioniFinanziarie
+
 
     //creo array per json
     let contenuto = [{
@@ -96,8 +130,12 @@ ipc.on('salva', function (ev, data) {
         "finalitaRichiesta": finalitaRichiesta,
         "fidiEdUtilizzi": fidiEdUtilizzi,
         "conclusioni": conclusioni,
-        // Stato Patrimoniale
+
+        // STATO PATRIMONIALE
+        // A. Crediti verso soci
         "creditiVersoSoci": creditiVersoSoci,
+        // B. Immobilizzazioni
+        // I. Immateriali
         "costiImpiantoAmpliamento": costiImpiantoAmpliamento,
         "costiRicercaSviluppo": costiRicercaSviluppo,
         "dirittiBrevetto": dirittiBrevetto,
@@ -105,7 +143,30 @@ ipc.on('salva', function (ev, data) {
         "avviamento": avviamento,
         "immobilizzazioniCorso": immobilizzazioniCorso,
         "immobilizzazioniAltro": immobilizzazioniAltro,
-        "totaleImmobilizzazioniImmateriali": totaleImmobilizzazioniImmateriali
+        "totaleImmobilizzazioniImmateriali": totaleImmobilizzazioniImmateriali,
+        // II. Materiali
+        "terreniFabbricati": terreniFabbricati,
+        "impiantiMacchinario": impiantiMacchinario,
+        "attrezzatureIndustriali": attrezzatureIndustriali,
+        "altriBeni": altriBeni,
+        "immobilizzazioniCorsoAcconti": immobilizzazioniCorsoAcconti,
+        "totaleImmobilizzazioniMateriali": totaleImmobilizzazioniMateriali,
+        // III. Finanziarie
+        "impreseControllate": impreseControllate,
+        "impreseCollegate": impreseCollegate,
+        "impreseControllanti": impreseControllanti,
+        "altreImprese": altreImprese,
+        "creditiImpreseControllateEntro12Mesi": creditiImpreseControllateEntro12Mesi,
+        "creditiImpreseControllateOltre12Mesi": creditiImpreseControllateOltre12Mesi,
+        "creditiImpreseCollegateEntro12Mesi": creditiImpreseCollegateEntro12Mesi,
+        "creditiImpreseCollegateOltre12Mesi": creditiImpreseCollegateOltre12Mesi,
+        "creditiImpreseControllantiEntro12Mesi": creditiImpreseControllantiEntro12Mesi,
+        "creditiImpreseControllantiOltre12Mesi": creditiImpreseControllantiOltre12Mesi,
+        "creditiAltreImpreseEntro12Mesi": creditiAltreImpreseEntro12Mesi,
+        "creditiAltreImpreseOltre12Mesi": creditiAltreImpreseOltre12Mesi,
+        "altriTitoli": altriTitoli,
+        "azioniProprie": azioniProprie,
+        "totaleImmobilizzazioniFinanziarie": totaleImmobilizzazioniFinanziarie
     }]
 
     var json = JSON.stringify(contenuto);
@@ -187,9 +248,12 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('fidiEdUtilizzi').value = testo[0].fidiEdUtilizzi
                 document.getElementById('conclusioni').value = testo[0].conclusioni
 
-                //Stato Patrimoniale
+                //STATO PATRIMONIALE
+        // A. Crediti verso soci
                 document.getElementById('creditiVersoSoci').value = testo[0].creditiVersoSoci
-                document.getElementById('costiImpiantoAmpliamento').value = testo[0].costiImpiantoAmpliamento 
+                // B. Immobilizzazioni
+                // I. Immateriali
+                document.getElementById('costiImpiantoAmpliamento').value = testo[0].costiImpiantoAmpliamento
                 document.getElementById('costiRicercaSviluppo').value = testo[0].costiRicercaSviluppo
                 document.getElementById('dirittiBrevetto').value = testo[0].dirittiBrevetto
                 document.getElementById('concessioniLicenzeMarchi').value = testo[0].concessioniLicenzeMarchi
@@ -197,6 +261,29 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('immobilizzazioniCorso').value = testo[0].immobilizzazioniCorso
                 document.getElementById('immobilizzazioniAltro').value = testo[0].immobilizzazioniAltro
                 document.getElementById('totaleImmobilizzazioniImmateriali').value = testo[0].totaleImmobilizzazioniImmateriali
+                // II. Materiali
+                document.getElementById('terreniFabbricati').value = testo[0].terreniFabbricati
+                document.getElementById('impiantiMacchinario').value = testo[0].impiantiMacchinario
+                document.getElementById('attrezzatureIndustriali').value = testo[0].attrezzatureIndustriali
+                document.getElementById('altriBeni').value = testo[0].altriBeni
+                document.getElementById('immobilizzazioniCorsoAcconti').value = testo[0].immobilizzazioniCorsoAcconti
+                document.getElementById('totaleImmobilizzazioniMateriali').value = testo[0].totaleImmobilizzazioniMateriali
+                // III. Finanziarie
+                document.getElementById('impreseControllate').value = testo[0].impreseControllate,
+                document.getElementById('impreseCollegate').value = testo[0].impreseCollegate,
+                document.getElementById('impreseControllanti').value = testo[0].impreseControllanti,
+                document.getElementById('altreImprese').value = testo[0].altreImprese,
+                document.getElementById('creditiImpreseControllateEntro12Mesi').value = testo[0].creditiImpreseControllateEntro12Mesi,
+                document.getElementById('creditiImpreseControllateOltre12Mesi').value = testo[0].creditiImpreseControllateOltre12Mesi,
+                document.getElementById('creditiImpreseCollegateEntro12Mesi').value = testo[0].creditiImpreseCollegateEntro12Mesi,
+                document.getElementById('creditiImpreseCollegateOltre12Mesi').value = testo[0].creditiImpreseCollegateOltre12Mesi,
+                document.getElementById('creditiImpreseControllantiEntro12Mesi').value = testo[0].creditiImpreseControllantiEntro12Mesi,
+                document.getElementById('creditiImpreseControllantiOltre12Mesi').value = testo[0].creditiImpreseControllantiOltre12Mesi,
+                document.getElementById('creditiAltreImpreseEntro12Mesi').value = testo[0].creditiAltreImpreseEntro12Mesi,
+                document.getElementById('creditiAltreImpreseOltre12Mesi').value = testo[0].creditiAltreImpreseOltre12Mesi,
+                document.getElementById('altriTitoli').value = testo[0].altriTitoli,
+                document.getElementById('azioniProprie').value = testo[0].azioniProprie,
+                document.getElementById('totaleImmobilizzazioniFinanziarie').value = testo[0].totaleImmobilizzazioniFinanziarie
 
                 console.log("file aperto")
             })
