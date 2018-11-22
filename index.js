@@ -90,7 +90,9 @@ ipc.on('salva', function (ev, data) {
         parseFloat(creditiImpreseCollegateOltre12Mesi) + parseFloat(creditiImpreseControllantiEntro12Mesi) + parseFloat(creditiImpreseControllantiOltre12Mesi) + 
         parseFloat(creditiAltreImpreseEntro12Mesi) + parseFloat(creditiAltreImpreseOltre12Mesi) + parseFloat(altriTitoli) + parseFloat(azioniProprie)
     document.getElementById('totaleImmobilizzazioniFinanziarie').value = totaleImmobilizzazioniFinanziarie
-
+    var totaleImmobilizzazioni = 
+        parseFloat(totaleImmobilizzazioniImmateriali) + parseFloat(totaleImmobilizzazioniMateriali) + parseFloat(totaleImmobilizzazioniFinanziarie)
+        document.getElementById('totaleImmobilizzazioni').value = totaleImmobilizzazioni
 
     //creo array per json
     let contenuto = [{
@@ -166,7 +168,9 @@ ipc.on('salva', function (ev, data) {
         "creditiAltreImpreseOltre12Mesi": creditiAltreImpreseOltre12Mesi,
         "altriTitoli": altriTitoli,
         "azioniProprie": azioniProprie,
-        "totaleImmobilizzazioniFinanziarie": totaleImmobilizzazioniFinanziarie
+        "totaleImmobilizzazioniFinanziarie": totaleImmobilizzazioniFinanziarie,
+        // Totale
+        "totaleImmobilizzazioni": totaleImmobilizzazioni
     }]
 
     var json = JSON.stringify(contenuto);
@@ -284,6 +288,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('altriTitoli').value = testo[0].altriTitoli,
                 document.getElementById('azioniProprie').value = testo[0].azioniProprie,
                 document.getElementById('totaleImmobilizzazioniFinanziarie').value = testo[0].totaleImmobilizzazioniFinanziarie
+                document.getElementById('totaleImmobilizzazioni').value = testo[0].totaleImmobilizzazioni
 
                 console.log("file aperto")
             })
