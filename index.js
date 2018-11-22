@@ -44,6 +44,20 @@ ipc.on('salva', function (ev, data) {
     let fidiEdUtilizzi = document.getElementById('fidiEdUtilizzi').value
     let conclusioni = document.getElementById('conclusioni').value
 
+    //Stato Patrimoniale
+    var creditiVersoSoci = document.getElementById('creditiVersoSoci').value
+    var costiImpiantoAmpliamento = document.getElementById('costiImpiantoAmpliamento').value
+    var costiRicercaSviluppo = document.getElementById('costiRicercaSviluppo').value
+    var dirittiBrevetto = document.getElementById('dirittiBrevetto').value
+    var concessioniLicenzeMarchi = document.getElementById('concessioniLicenzeMarchi').value
+    var avviamento = document.getElementById('avviamento').value
+    var immobilizzazioniCorso = document.getElementById('immobilizzazioniCorso').value
+    var immobilizzazioniAltro = document.getElementById('immobilizzazioniAltro').value
+    var totaleImmobilizzazioniImmateriali = 
+        parseFloat(costiImpiantoAmpliamento) + parseFloat(costiRicercaSviluppo) + parseFloat(dirittiBrevetto) + parseFloat(concessioniLicenzeMarchi) + 
+        parseFloat(avviamento) + parseFloat(immobilizzazioniCorso) + parseFloat(immobilizzazioniAltro)
+    document.getElementById('totaleImmobilizzazioniImmateriali').value = totaleImmobilizzazioniImmateriali
+
     //creo array per json
     let contenuto = [{
         // Anagrafica Aziendale
@@ -81,7 +95,17 @@ ipc.on('salva', function (ev, data) {
         "informazioniUtili": informazioniUtili,
         "finalitaRichiesta": finalitaRichiesta,
         "fidiEdUtilizzi": fidiEdUtilizzi,
-        "conclusioni": conclusioni
+        "conclusioni": conclusioni,
+        // Stato Patrimoniale
+        "creditiVersoSoci": creditiVersoSoci,
+        "costiImpiantoAmpliamento": costiImpiantoAmpliamento,
+        "costiRicercaSviluppo": costiRicercaSviluppo,
+        "dirittiBrevetto": dirittiBrevetto,
+        "concessioniLicenzeMarchi": concessioniLicenzeMarchi,
+        "avviamento": avviamento,
+        "immobilizzazioniCorso": immobilizzazioniCorso,
+        "immobilizzazioniAltro": immobilizzazioniAltro,
+        "totaleImmobilizzazioniImmateriali": totaleImmobilizzazioniImmateriali
     }]
 
     var json = JSON.stringify(contenuto);
@@ -162,6 +186,17 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('finalitaRichiesta').value = testo[0].finalitaRichiesta
                 document.getElementById('fidiEdUtilizzi').value = testo[0].fidiEdUtilizzi
                 document.getElementById('conclusioni').value = testo[0].conclusioni
+
+                //Stato Patrimoniale
+                document.getElementById('creditiVersoSoci').value = testo[0].creditiVersoSoci
+                document.getElementById('costiImpiantoAmpliamento').value = testo[0].costiImpiantoAmpliamento 
+                document.getElementById('costiRicercaSviluppo').value = testo[0].costiRicercaSviluppo
+                document.getElementById('dirittiBrevetto').value = testo[0].dirittiBrevetto
+                document.getElementById('concessioniLicenzeMarchi').value = testo[0].concessioniLicenzeMarchi
+                document.getElementById('avviamento').value = testo[0].avviamento
+                document.getElementById('immobilizzazioniCorso').value = testo[0].immobilizzazioniCorso
+                document.getElementById('immobilizzazioniAltro').value = testo[0].immobilizzazioniAltro
+                document.getElementById('totaleImmobilizzazioniImmateriali').value = testo[0].totaleImmobilizzazioniImmateriali
 
                 console.log("file aperto")
             })

@@ -281,7 +281,7 @@
             <label class="etichetta">Crediti verso soci (parte richiamata)</label>
           </div>
           <div class="text-input">
-            <input id="creditiVersoSoci" type="text" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="creditiVersoSoci" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
               
@@ -294,7 +294,7 @@
             <h6> 1) Costi di impianto e ampliamento</h6>
           </div>
           <div class="text-input">
-            <input id="costiImpiantoAmpliamento" type="text" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="costiImpiantoAmpliamento" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
       
@@ -304,7 +304,7 @@
             <h6> 2) Costi di ricerca e sviluppo</h6>
           </div>
           <div class="text-input">
-            <input id="costiRicercaSviluppo" type="text" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="costiRicercaSviluppo" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
         </div>
 
@@ -314,7 +314,57 @@
             <h6> 3) Diritti di brevetto</h6>
           </div>
           <div class="text-input">
-            <input id="dirittiBrevetto" type="text" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="dirittiBrevetto" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          </div>
+        </div>
+
+        <!-- Concessioni, licenze e marchi -->
+        <div class="form-group">
+          <div>
+            <h6> 4) Concessioni, licenze e marchi</h6>
+          </div>
+          <div class="text-input">
+            <input id="concessioniLicenzeMarchi" type="number" class="form-control text-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          </div>
+        </div>
+        
+        <!-- Avviamento -->
+        <div class="form-group">
+          <div>
+            <h6> 5) Avviamento</h6>
+          </div>
+          <div class="text-input">
+            <input id="avviamento" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          </div>
+        </div>
+        
+        <!-- Immobilizzazioni in corso -->
+        <div class="form-group">
+          <div>
+            <h6> 6) Immobilizzazioni in corso</h6>
+          </div>
+          <div class="text-input">
+            <input id="immobilizzazioniCorso" type="number" class="form-control number-input" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          </div>
+        </div>
+        
+        <!-- Altro -->
+        <div class="form-group">
+          <div>
+            <h6> 7) Altro</h6>
+          </div>
+          <div class="text-input">
+            <input id="immobilizzazioniAltro" type="number" class="form-control number-input">
+          </div>
+        </div>
+                
+        <!-- Totale Immobilizzazioni Immateriali -->
+        <div class="form-group">
+          <div>
+            <h6> Totale Immobilizzazioni Immateriali</h6>
+          </div>
+          <div class="text-input">
+            <input id="totaleImmobilizzazioniImmateriali">
           </div>
         </div>
 
