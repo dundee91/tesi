@@ -56,10 +56,7 @@ ipc.on('salva', function (ev, data) {
     var avviamento = document.getElementById('avviamento').value
     var immobilizzazioniCorso = document.getElementById('immobilizzazioniCorso').value
     var immobilizzazioniAltro = document.getElementById('immobilizzazioniAltro').value
-    var totaleImmobilizzazioniImmateriali =
-        parseFloat(costiImpiantoAmpliamento) + parseFloat(costiRicercaSviluppo) + parseFloat(dirittiBrevetto) + parseFloat(concessioniLicenzeMarchi) +
-        parseFloat(avviamento) + parseFloat(immobilizzazioniCorso) + parseFloat(immobilizzazioniAltro)
-    document.getElementById('totaleImmobilizzazioniImmateriali').value = totaleImmobilizzazioniImmateriali
+    var totaleImmobilizzazioniImmateriali = document.getElementById('totaleImmobilizzazioniImmateriali').value
     // II. Materiali
     var terreniFabbricati = document.getElementById('terreniFabbricati').value
     var impiantiMacchinario = document.getElementById('impiantiMacchinario').value

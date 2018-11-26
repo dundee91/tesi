@@ -295,7 +295,7 @@
           </div>
           <div class="text-input">
             <input id="costiImpiantoAmpliamento" type="number" name="immobilizzazioniImmateriali" class="form-control text-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+              oninput="this.value=this.value.replace(/[^0-9]/g,''); sommaImmobilizzazioniImmateriali()">
           </div>
         </div>
 
@@ -306,7 +306,7 @@
           </div>
           <div class="text-input">
             <input id="costiRicercaSviluppo" type="number" name="immobilizzazioniImmateriali" class="form-control text-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+              oninput="this.value=this.value.replace(/[^0-9]/g,''); sommaImmobilizzazioniImmateriali()">
           </div>
         </div>
 
@@ -317,7 +317,7 @@
           </div>
           <div class="text-input">
             <input id="dirittiBrevetto" type="number" name="immobilizzazioniImmateriali" class="form-control text-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+              oninput="this.value=this.value.replace(/[^0-9]/g,''); sommaImmobilizzazioniImmateriali()">
           </div>
         </div>
 
@@ -328,7 +328,7 @@
           </div>
           <div class="text-input">
             <input id="concessioniLicenzeMarchi" type="number" name="immobilizzazioniImmateriali" class="form-control text-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+              oninput="this.value=this.value.replace(/[^0-9]/g,''); sommaImmobilizzazioniImmateriali()">
           </div>
         </div>
 
@@ -339,7 +339,7 @@
           </div>
           <div class="text-input">
             <input id="avviamento" type="number" name="immobilizzazioniImmateriali" class="form-control number-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+              oninput="this.value=this.value.replace(/[^0-9]/g,''); sommaImmobilizzazioniImmateriali()">
           </div>
         </div>
 
@@ -350,7 +350,7 @@
           </div>
           <div class="text-input">
             <input id="immobilizzazioniCorso" type="number" name="immobilizzazioniImmateriali" class="form-control number-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+              oninput="this.value=this.value.replace(/[^0-9]/g,''); sommaImmobilizzazioniImmateriali()">
           </div>
         </div>
 
@@ -360,7 +360,8 @@
             <h6> 7) Altro</h6>
           </div>
           <div class="text-input">
-            <input id="immobilizzazioniAltro" type="number" name="immobilizzazioniImmateriali" class="form-control number-input">
+            <input id="immobilizzazioniAltro" type="number" name="immobilizzazioniImmateriali" class="form-control number-input"
+              oninput="sommaImmobilizzazioniImmateriali()">
           </div>
         </div>
 
@@ -370,7 +371,7 @@
             <h6> Totale Immobilizzazioni Immateriali</h6>
           </div>
           <div class="text-input">
-            <input id="totaleImmobilizzazioniImmateriali" onchange="totaleImmobilizzazioniImmateriali()">
+            <input id="totaleImmobilizzazioniImmateriali">
           </div>
         </div>
 
@@ -654,19 +655,7 @@
       console.log("cambio tab")
     }
   </script>
-  <script type="text/javascript">
-    function totaleImmobilizzazioniImmateriali() {
-      console.log('accesso alla funzione')
-      var arr = document.getElementsByName('immobilizzazioniImmateriali');
-      var tot = 0;
-      for (var i = 0; i < arr.length; i++) {
-        if (parseInt(arr[i].value))
-          tot += parseInt(arr[i].value);
-      }
-      console.log('somma fatta')
-      document.getElementById('totaleImmobilizzazioniImmateriali').value = tot;
-    }
-
+  <script src="statoPatrimoniale.js">
   </script>
   </div>
 </body>
