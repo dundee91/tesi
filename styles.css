@@ -12,13 +12,21 @@
   white-space: pre-wrap;
 }
 
-.text-input{
-  width: 620px;
+.form-group input{
+	width: 300px;
 }
 
 .etichetta {
-  font-weight: bold;
+	font-weight: normal !important;
+	width: 40%;
 }
+
+.etichetta, .form-group input
+{
+	float: none;
+	display: inline-block;
+	vertical-align: middle;
+}    
 
 .bodyForm{
   margin: 25px;
