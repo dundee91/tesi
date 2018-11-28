@@ -1,15 +1,9 @@
-var validate = function(e) {
+var validate = function (e) {
     var t = e.value;
     e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
-  }
-  /* negativi
-  var charCode = (e.which) ? e.which : e.keyCode;
-  if (charCode != 46 && charCode > 31 
-     && (charCode < 48 || charCode > 57))
-  return false;
-  */
+}
 
-function somme(){
+function somme() {
 
     sommaImmobilizzazioniImmateriali()
     sommaImmobilizzazioniMateriali()
@@ -31,7 +25,7 @@ function sommaImmobilizzazioniImmateriali() {
     document.getElementById('totaleImmobilizzazioniImmateriali').value = tot.toFixed(2);
 }
 
-function sommaImmobilizzazioniMateriali(){
+function sommaImmobilizzazioniMateriali() {
     var arr = document.getElementsByName('immobilizzazioniMateriali');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
@@ -41,7 +35,7 @@ function sommaImmobilizzazioniMateriali(){
     document.getElementById('totaleImmobilizzazioniMateriali').value = tot.toFixed(2);
 }
 
-function sommaImmobilizzazioniFinanziarie(){
+function sommaImmobilizzazioniFinanziarie() {
     var arr = document.getElementsByName('immobilizzazioniFinanziarie');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {

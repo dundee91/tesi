@@ -16,11 +16,19 @@
 	width: 300px;
 }
 
+h5{
+	font-weight: bold;
+	color: brown
+}
+
 .etichetta {
 	font-weight: normal !important;
 	width: 40%;
 }
 
+.form-control input totale{
+
+}
 .etichetta, .form-group input
 {
 	float: none;
