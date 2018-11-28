@@ -287,122 +287,95 @@
         <!-- Costi di impianto e ampliamento-->
         <div class="form-group">
           <label class="etichetta">1) Costi di impianto e ampliamento</label>
-            <input id="costiImpiantoAmpliamento" type="number" name="immobilizzazioniImmateriali" class="form-control"
-              oninput="validate(this); somme()">
+          <input id="costiImpiantoAmpliamento" type="number" name="immobilizzazioniImmateriali" class="form-control"
+            oninput="validate(this); somme()">
         </div>
 
         <!-- Costi di ricerca e sviluppo-->
         <div class="form-group">
-            <label class="etichetta"> 2) Costi di ricerca e sviluppo</label>
-            <input id="costiRicercaSviluppo" type="number" name="immobilizzazioniImmateriali" class="form-control"
-              oninput="validate(this); somme()">
+          <label class="etichetta"> 2) Costi di ricerca e sviluppo</label>
+          <input id="costiRicercaSviluppo" type="number" name="immobilizzazioniImmateriali" class="form-control"
+            oninput="validate(this); somme()">
         </div>
 
         <!-- Diritti di brevetto -->
         <div class="form-group">
-            <label class="etichetta"> 3) Diritti di brevetto</label>
-            <input id="dirittiBrevetto" type="number" name="immobilizzazioniImmateriali" class="form-control"
-              oninput="validate(this); somme()">
+          <label class="etichetta"> 3) Diritti di brevetto</label>
+          <input id="dirittiBrevetto" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); somme()">
         </div>
 
         <!-- Concessioni, licenze e marchi -->
         <div class="form-group">
-            <label class="etichetta"> 4) Concessioni, licenze e marchi</label>
-            <input id="concessioniLicenzeMarchi" type="number" name="immobilizzazioniImmateriali" class="form-control"
-              oninput="validate(this); somme()">
+          <label class="etichetta"> 4) Concessioni, licenze e marchi</label>
+          <input id="concessioniLicenzeMarchi" type="number" name="immobilizzazioniImmateriali" class="form-control"
+            oninput="validate(this); somme()">
         </div>
 
         <!-- Avviamento -->
         <div class="form-group">
-            <label class="etichetta"> 5) Avviamento</label>
-            <input id="avviamento" type="number" name="immobilizzazioniImmateriali" class="form-control"
-              oninput="validate(this); somme()">
+          <label class="etichetta"> 5) Avviamento</label>
+          <input id="avviamento" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); somme()">
         </div>
 
         <!-- Immobilizzazioni in corso -->
         <div class="form-group">
-            <label class="etichetta"> 6) Immobilizzazioni in corso</label>
-            <input id="immobilizzazioniCorso" type="number" name="immobilizzazioniImmateriali" class="form-control"
-              oninput="validate(this); somme()">
+          <label class="etichetta"> 6) Immobilizzazioni in corso</label>
+          <input id="immobilizzazioniCorso" type="number" name="immobilizzazioniImmateriali" class="form-control"
+            oninput="validate(this); somme()">
         </div>
 
         <!-- Altro -->
         <div class="form-group">
-            <label class="etichetta"> 7) Altro</label>
-            <input id="immobilizzazioniAltro" type="number" name="immobilizzazioniImmateriali" class="form-control"
+          <label class="etichetta"> 7) Altro</label>
+          <input id="immobilizzazioniAltro" type="number" name="immobilizzazioniImmateriali" class="form-control"
             oninput="validate(this); somme()">
         </div>
 
         <!-- Totale Immobilizzazioni Immateriali -->
         <div class="form-group">
-            <label class="etichetta"> Totale Immobilizzazioni Immateriali</label>
-            <input id="totaleImmobilizzazioniImmateriali" class="form-control" readonly>
+          <label class="etichetta"> Totale Immobilizzazioni Immateriali</label>
+          <input id="totaleImmobilizzazioniImmateriali" class="form-control" readonly>
         </div>
 
         <h5>II. Materiali</h5>
 
         <!-- Terreni e fabbricati -->
         <div class="form-group">
-          <div>
-            <h6> 1) Terreni e fabbricati</h6>
-          </div>
-          <div class="text-input">
-            <input id="terreniFabbricati" type="number" name="immobilizzazioniMateriali" class="form-control text-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-          </div>
+          <label class="etichetta"> 1) Terreni e fabbricati</label>
+          <input id="terreniFabbricati" type="number" name="immobilizzazioniMateriali" class="form-control text-input"
+            oninput="validate(this); somme()">
         </div>
 
         <!-- Impianti e macchinario-->
         <div class="form-group">
-          <div>
-            <h6> 2) Impianti e macchinario</h6>
-          </div>
-          <div class="text-input">
-            <input id="impiantiMacchinario" type="number" name="immobilizzazioniMateriali" class="form-control text-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-          </div>
+          <label class="etichetta"> 2) Impianti e macchinario</label>
+          <input id="impiantiMacchinario" type="number" name="immobilizzazioniMateriali" class="form-control text-input"
+            oninput="validate(this); somme()">
         </div>
         <!-- Attrezzature industriali -->
         <div class="form-group">
-          <div>
-            <h6> 3) Attrezzature industriali</h6>
-          </div>
-          <div class="text-input">
-            <input id="attrezzatureIndustriali" type="number" name="immobilizzazioniMateriali" class="form-control text-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-          </div>
+          <label class="etichetta"> 3) Attrezzature industriali</label>
+          <input id="attrezzatureIndustriali" type="number" name="immobilizzazioniMateriali" class="form-control text-input"
+            oninput="validate(this); somme()">
         </div>
 
         <!-- Altri beni -->
         <div class="form-group">
-          <div>
-            <h6> 4) Altri beni</h6>
-          </div>
-          <div class="text-input">
-            <input id="altriBeni" type="number" name="immobilizzazioniMateriali" class="form-control text-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-          </div>
+          <label class="etichetta"> 4) Altri beni</label>
+          <input id="altriBeni" type="number" name="immobilizzazioniMateriali" class="form-control text-input" oninput="validate(this); somme()">
         </div>
 
         <!-- Immobilizzazioni in corso e acconti -->
         <div class="form-group">
-          <div>
-            <h6> 5) Immobilizzazioni in corso e acconti</h6>
-          </div>
-          <div class="text-input">
-            <input id="immobilizzazioniCorsoAcconti" type="number" name="immobilizzazioniMateriali" class="form-control number-input"
-              oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-          </div>
+          <label class="etichetta"> 5) Immobilizzazioni in corso e acconti</label>
+          <input id="immobilizzazioniCorsoAcconti" type="number" name="immobilizzazioniMateriali" class="form-control number-input"
+            oninput="validate(this); somme()">
         </div>
 
         <!-- Totale Immobilizzazioni Materiali -->
         <div class="form-group">
-          <div>
-            <h6> Totale Immobilizzazioni Materiali</h6>
-          </div>
-          <div class="text-input">
-            <input id="totaleImmobilizzazioniMateriali" class="form-control number-input" readonly>
-          </div>
+          <label class="etichetta"> Totale Immobilizzazioni Materiali</label>
+          <input id="totaleImmobilizzazioniMateriali" class="form-control number-input" readonly>
         </div>
 
 
@@ -415,46 +388,30 @@
 
           <!-- Imprese controllate -->
           <div class="form-group">
-            <div>
-              <h6> a) Imprese controllate</h6>
-            </div>
-            <div class="text-input">
-              <input id="impreseControllate" type="number" name="immobilizzazioniFinanziarie" class="form-control text-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> a) Imprese controllate</label>
+            <input id="impreseControllate" type="number" name="immobilizzazioniFinanziarie" class="form-control text-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- Imprese collegate -->
           <div class="form-group">
-            <div>
-              <h6> b) Imprese collegate</h6>
-            </div>
-            <div class="text-input">
-              <input id="impreseCollegate" type="number" name="immobilizzazioniFinanziarie" class="form-control text-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> b) Imprese collegate</label>
+            <input id="impreseCollegate" type="number" name="immobilizzazioniFinanziarie" class="form-control text-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- Imprese controllanti -->
           <div class="form-group">
-            <div>
-              <h6> c) Imprese controllanti</h6>
-            </div>
-            <div class="text-input">
-              <input id="impreseControllanti" type="number" name="immobilizzazioniFinanziarie" class="form-control text-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> c) Imprese controllanti</label>
+            <input id="impreseControllanti" type="number" name="immobilizzazioniFinanziarie" class="form-control text-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- Altre imprese -->
           <div class="form-group">
-            <div>
-              <h6> d) Altre imprese</h6>
-            </div>
-            <div class="text-input">
-              <input id="altreImprese" type="number" name="immobilizzazioniFinanziarie" class="form-control text-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> d) Altre imprese</label>
+            <input id="altreImprese" type="number" name="immobilizzazioniFinanziarie" class="form-control text-input"
+              oninput="validate(this); somme()">
           </div>
 
           <h6> 2) Crediti</h6>
@@ -463,138 +420,90 @@
 
           <!-- entro 12 mesi -->
           <div class="form-group">
-            <div>
-              <h6> entro 12 mesi</h6>
-            </div>
-            <div class="text-input">
-              <input id="creditiImpreseControllateEntro12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> entro 12 mesi</label>
+            <input id="creditiImpreseControllateEntro12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- oltre 12 mesi -->
           <div class="form-group">
-            <div>
-              <h6> oltre 12 mesi</h6>
-            </div>
-            <div class="text-input">
-              <input id="creditiImpreseControllateOltre12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> oltre 12 mesi</label>
+            <input id="creditiImpreseControllateOltre12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <h7> b) verso imprese collegate</h7>
 
           <!-- entro 12 mesi -->
           <div class="form-group">
-            <div>
-              <h6> entro 12 mesi</h6>
-            </div>
-            <div class="text-input">
-              <input id="creditiImpreseCollegateEntro12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> entro 12 mesi</label>
+            <input id="creditiImpreseCollegateEntro12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- oltre 12 mesi -->
           <div class="form-group">
-            <div>
-              <h6> oltre 12 mesi</h6>
-            </div>
-            <div class="text-input">
-              <input id="creditiImpreseCollegateOltre12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> oltre 12 mesi</label>
+            <input id="creditiImpreseCollegateOltre12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <h7> c) verso imprese controllanti</h7>
 
           <!-- entro 12 mesi -->
           <div class="form-group">
-            <div>
-              <h6> entro 12 mesi</h6>
-            </div>
-            <div class="text-input">
-              <input id="creditiImpreseControllantiEntro12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> entro 12 mesi</label>
+            <input id="creditiImpreseControllantiEntro12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- oltre 12 mesi -->
           <div class="form-group">
-            <div>
-              <h6> oltre 12 mesi</h6>
-            </div>
-            <div class="text-input">
-              <input id="creditiImpreseControllantiOltre12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> oltre 12 mesi</label>
+            <input id="creditiImpreseControllantiOltre12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <h7> d) verso altre imprese</h7>
 
           <!-- entro 12 mesi -->
           <div class="form-group">
-            <div>
-              <h6> entro 12 mesi</h6>
-            </div>
-            <div class="text-input">
-              <input id="creditiAltreImpreseEntro12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> entro 12 mesi</label>
+            <input id="creditiAltreImpreseEntro12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- oltre 12 mesi -->
           <div class="form-group">
-            <div>
-              <h6> oltre 12 mesi</h6>
-            </div>
-            <div class="text-input">
-              <input id="creditiAltreImpreseOltre12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> oltre 12 mesi</label>
+            <input id="creditiAltreImpreseOltre12Mesi" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- Altri titoli -->
           <div class="form-group">
-            <div>
-              <h6> 3) Altri titoli</h6>
-            </div>
-            <div class="text-input">
-              <input id="altriTitoli" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> 3) Altri titoli</label>
+            <input id="altriTitoli" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- Azioni proprie -->
           <div class="form-group">
-            <div>
-              <h6> 4) Azioni proprie</h6>
-            </div>
-            <div class="text-input">
-              <input id="azioniProprie" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); somme()">
-            </div>
+            <label class="etichetta"> 4) Azioni proprie</label>
+            <input id="azioniProprie" type="number" name="immobilizzazioniFinanziarie" class="form-control number-input"
+              oninput="validate(this); somme()">
           </div>
 
           <!-- Totale Immobilizzazioni Finanziarie -->
           <div class="form-group">
-            <div>
-              <h6> Totale Immobilizzazioni Finanziarie</h6>
-            </div>
-            <div class="text-input">
-              <input id="totaleImmobilizzazioniFinanziarie" class="form-control number-input" readonly>
-            </div>
+            <label class="etichetta"> Totale Immobilizzazioni Finanziarie</label>
+            <input id="totaleImmobilizzazioniFinanziarie" class="form-control number-input" readonly>
           </div>
 
           <!-- Totale Immobilizzazioni -->
           <div class="form-group">
-            <div>
-              <h5> Totale Immobilizzazioni Finanziarie</h5>
-            </div>
-            <div class="text-input">
-              <input id="totaleImmobilizzazioni" class="form-control number-input" readonly>
-            </div>
+            <h5 class="etichetta"> Totale Immobilizzazioni Finanziarie</h5>
+            <input id="totaleImmobilizzazioni" class="form-control number-input" readonly>
           </div>
 
 
