@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu, remote } = require('electron')
 const path = require('path')
 const url = require('url')
 const electron = require('electron')
@@ -36,8 +36,7 @@ app.on('ready', () => {
   const iconMenu = Menu.buildFromTemplate(menuIcona)
   tray.setContextMenu(iconMenu)
   tray.setToolTip('Riclassificazione Aziende')
-
-
+  
   // Creo la finestra iniziale
   window = new BrowserWindow({
     // Imposto la larghezza iniziale a 800px

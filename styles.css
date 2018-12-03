@@ -18,7 +18,8 @@
 
 h5{
 	font-weight: bold;
-	color: brown
+	color: brown;
+	font-style: italic
 }
 
 .etichetta {
@@ -26,8 +27,8 @@ h5{
 	width: 40%;
 }
 
-.totale{
-	background-color: rosybrown
+.form-group .totale{
+	background-color: rgb(204, 255, 51)
 }
 .etichetta, .form-group input
 {

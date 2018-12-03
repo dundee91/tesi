@@ -71,21 +71,21 @@ ipc.on('salva', function (ev, data) {
     var impreseCollegate = document.getElementById('impreseCollegate').value
     var impreseControllanti = document.getElementById('impreseControllanti').value
     var altreImprese = document.getElementById('altreImprese').value
-    var creditiImpreseControllateEntro12Mesi = document.getElementById('creditiImpreseControllateEntro12Mesi').value
-    var creditiImpreseControllateOltre12Mesi = document.getElementById('creditiImpreseControllateOltre12Mesi').value
-    var creditiImpreseCollegateEntro12Mesi = document.getElementById('creditiImpreseCollegateEntro12Mesi').value
-    var creditiImpreseCollegateOltre12Mesi = document.getElementById('creditiImpreseCollegateOltre12Mesi').value
-    var creditiImpreseControllantiEntro12Mesi = document.getElementById('creditiImpreseControllantiEntro12Mesi').value
-    var creditiImpreseControllantiOltre12Mesi = document.getElementById('creditiImpreseControllantiOltre12Mesi').value
-    var creditiAltreImpreseEntro12Mesi = document.getElementById('creditiAltreImpreseEntro12Mesi').value
-    var creditiAltreImpreseOltre12Mesi = document.getElementById('creditiAltreImpreseOltre12Mesi').value
-    var altriTitoli = document.getElementById('altriTitoli').value
+    var creditiImpreseControllateEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value
+    var creditiImpreseControllateOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value
+    var creditiImpreseCollegateEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value
+    var creditiImpreseCollegateOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value
+    var creditiImpreseControllantiEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value
+    var creditiImpreseControllantiOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value
+    var creditiAltreImpreseEntro12Mesi = document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value
+    var creditiAltreImpreseOltre12Mesi = document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value
+    var altriTitoliImmobilizzazioni = document.getElementById('altriTitoliImmobilizzazioni').value
     var azioniProprie = document.getElementById('azioniProprie').value
     var totaleImmobilizzazioniFinanziarie =  
         parseFloat(impreseControllate) + parseFloat(impreseCollegate) + parseFloat(impreseControllanti) + parseFloat(altreImprese) +
         parseFloat(creditiImpreseControllateEntro12Mesi) + parseFloat(creditiImpreseControllateOltre12Mesi) + parseFloat(creditiImpreseCollegateEntro12Mesi) + 
         parseFloat(creditiImpreseCollegateOltre12Mesi) + parseFloat(creditiImpreseControllantiEntro12Mesi) + parseFloat(creditiImpreseControllantiOltre12Mesi) + 
-        parseFloat(creditiAltreImpreseEntro12Mesi) + parseFloat(creditiAltreImpreseOltre12Mesi) + parseFloat(altriTitoli) + parseFloat(azioniProprie)
+        parseFloat(creditiAltreImpreseEntro12Mesi) + parseFloat(creditiAltreImpreseOltre12Mesi) + parseFloat(altriTitoliImmobilizzazioni) + parseFloat(azioniProprie)
     document.getElementById('totaleImmobilizzazioniFinanziarie').value = totaleImmobilizzazioniFinanziarie
     var totaleImmobilizzazioni = 
         parseFloat(totaleImmobilizzazioniImmateriali) + parseFloat(totaleImmobilizzazioniMateriali) + parseFloat(totaleImmobilizzazioniFinanziarie)
@@ -155,15 +155,15 @@ ipc.on('salva', function (ev, data) {
         "impreseCollegate": impreseCollegate,
         "impreseControllanti": impreseControllanti,
         "altreImprese": altreImprese,
-        "creditiImpreseControllateEntro12Mesi": creditiImpreseControllateEntro12Mesi,
-        "creditiImpreseControllateOltre12Mesi": creditiImpreseControllateOltre12Mesi,
-        "creditiImpreseCollegateEntro12Mesi": creditiImpreseCollegateEntro12Mesi,
-        "creditiImpreseCollegateOltre12Mesi": creditiImpreseCollegateOltre12Mesi,
-        "creditiImpreseControllantiEntro12Mesi": creditiImpreseControllantiEntro12Mesi,
-        "creditiImpreseControllantiOltre12Mesi": creditiImpreseControllantiOltre12Mesi,
-        "creditiAltreImpreseEntro12Mesi": creditiAltreImpreseEntro12Mesi,
-        "creditiAltreImpreseOltre12Mesi": creditiAltreImpreseOltre12Mesi,
-        "altriTitoli": altriTitoli,
+        "creditiImmobilizzazioniImpreseControllateEntro12Mesi": creditiImpreseControllateEntro12Mesi,
+        "creditiImmobilizzazioniImpreseControllateOltre12Mesi": creditiImpreseControllateOltre12Mesi,
+        "creditiImmobilizzazioniImpreseCollegateEntro12Mesi": creditiImpreseCollegateEntro12Mesi,
+        "creditiImmobilizzazioniImpreseCollegateOltre12Mesi": creditiImpreseCollegateOltre12Mesi,
+        "creditiImmobilizzazioniImpreseControllantiEntro12Mesi": creditiImpreseControllantiEntro12Mesi,
+        "creditiImmobilizzazioniImpreseControllantiOltre12Mesi": creditiImpreseControllantiOltre12Mesi,
+        "creditiImmobilizzazioniAltreImpreseEntro12Mesi": creditiAltreImpreseEntro12Mesi,
+        "creditiImmobilizzazioniAltreImpreseOltre12Mesi": creditiAltreImpreseOltre12Mesi,
+        "altriTitoliImmobilizzazioni": altriTitoliImmobilizzazioni,
         "azioniProprie": azioniProprie,
         "totaleImmobilizzazioniFinanziarie": totaleImmobilizzazioniFinanziarie,
         // Totale
@@ -282,7 +282,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('creditiImpreseControllantiOltre12Mesi').value = testo[0].creditiImpreseControllantiOltre12Mesi,
                 document.getElementById('creditiAltreImpreseEntro12Mesi').value = testo[0].creditiAltreImpreseEntro12Mesi,
                 document.getElementById('creditiAltreImpreseOltre12Mesi').value = testo[0].creditiAltreImpreseOltre12Mesi,
-                document.getElementById('altriTitoli').value = testo[0].altriTitoli,
+                document.getElementById('altriTitoliImmobilizzazioni').value = testo[0].altriTitoliImmobilizzazioni,
                 document.getElementById('azioniProprie').value = testo[0].azioniProprie,
                 document.getElementById('totaleImmobilizzazioniFinanziarie').value = testo[0].totaleImmobilizzazioniFinanziarie
                 document.getElementById('totaleImmobilizzazioni').value = testo[0].totaleImmobilizzazioni
