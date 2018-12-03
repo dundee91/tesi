@@ -12,7 +12,8 @@ function somme() {
     var totaleImmobilizzazioniImmateriali = document.getElementById('totaleImmobilizzazioniImmateriali').value
     var totaleImmobilizzazioniMateriali = document.getElementById('totaleImmobilizzazioniMateriali').value
     var totaleImmobilizzazioniFinanziarie = document.getElementById('totaleImmobilizzazioniFinanziarie').value
-    document.getElementById('totaleImmobilizzazioni').value = parseFloat(totaleImmobilizzazioniImmateriali) + parseFloat(totaleImmobilizzazioniMateriali) + parseFloat(totaleImmobilizzazioniFinanziarie)
+    var totaleImmobilizzazioni = parseFloat(totaleImmobilizzazioniImmateriali) + parseFloat(totaleImmobilizzazioniMateriali) + parseFloat(totaleImmobilizzazioniFinanziarie)
+    document.getElementById('totaleImmobilizzazioni').value = totaleImmobilizzazioni.toFixed(2)
 }
 
 function sommaImmobilizzazioniImmateriali() {
