@@ -27,6 +27,26 @@ function somme() {
     var totaleRettifiche = document.getElementById('totaleRettifiche').value
 
     // E) Proventi e oneri straordinari
+    sommaProventiOneriStraordinari()
+    var totalePartiteStraordinarie = document.getElementById('totalePartiteStraordinarie').value
+
+    // Risultato prima delle imposte
+    var risultatoPrimaDelleImposte = parseFloat(totaleValoreProduzione) - parseFloat(totaleCostiProduzione) + 
+    parseFloat(totaleProventiOneriFinanziari) + parseFloat(totaleRettifiche) + parseFloat(totalePartiteStraordinarie)
+    document.getElementById('risultatoPrimaImposte').value = risultatoPrimaDelleImposte.toFixed(2)
+
+    // Imposte
+    var imposteRedditoEsercizio = document.getElementById('imposteRedditoEsercizio').value
+    if(imposteRedditoEsercizio == ""){
+        var totaleImposteRedditoEsercizio = 0 
+    }
+    else{
+        var totaleImposteRedditoEsercizio = (parseFloat(imposteRedditoEsercizio)).toFixed(2)
+    }
+
+    // Utile (perdite) dell'esercizio
+    var utilePerditeEsercizio = parseFloat(risultatoPrimaDelleImposte) - parseFloat(totaleImposteRedditoEsercizio)
+    document.getElementById('utilePerditeEsercizio').value = utilePerditeEsercizio.toFixed(2)
 
 }
 
@@ -86,5 +106,22 @@ function sommaRettifiche() {
 
     var tot = parseFloat(totRiv) - parseFloat(totSva)
     document.getElementById('totaleRettifiche').value = tot.toFixed(2);
+}
+
+function sommaProventiOneriStraordinari() {
+    var arrProventi = document.getElementsByName('proventiStraordinari');
+    var totProventi = 0;
+    for (var i = 0; i < arrProventi.length; i++) {
+        if (parseFloat(arrProventi[i].value))
+        totProventi += parseFloat(arrProventi[i].value);
+    }
+    var arrOneri = document.getElementsByName('oneriStraordinari');
+    var totOneri = 0;
+    for (var i = 0; i < arrOneri.length; i++) {
+        if (parseFloat(arrOneri[i].value))
+        totOneri += parseFloat(arrOneri[i].value);
+    }
+    var tot = parseFloat(totProventi) - parseFloat(totOneri)
+    document.getElementById('totalePartiteStraordinarie').value = tot.toFixed(2);
 }
 

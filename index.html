@@ -1369,6 +1369,64 @@
           <input id="totaleRettifiche" class="form-control totale" readonly>
         </div>
         
+      <h4>E) Proventi e oneri straordinari</h4>
+
+      <!-- 20) Proventi Straordinari -->
+      <div class="form-group">
+          <label class="etichetta">20) Proventi Straordinari</label>
+          <input id="proventiStraordinari" type="number" name="proventiStraordinari" class="form-control" oninput="validate(this); somme()">
+        </div>
+  
+      <!-- Plusvalenze da alienazioni -->
+      <div class="form-group">
+          <label class="etichetta">Plusvalenze da alienazioni</label>
+          <input id="plusvalenzeAlienazioni" type="number" name="proventiStraordinari" class="form-control"
+            oninput="validate(this); somme()">
+        </div>
+  
+        <!-- 21) Oneri Straordinari -->
+        <div class="form-group">
+            <label class="etichetta">21) Oneri Straordinari</label>
+            <input id="oneriStraordinari" type="number" name="oneriStraordinari" class="form-control" oninput="validate(this); somme()">
+          </div>
+    
+        <!-- Minusvalenze da alienazioni -->
+        <div class="form-group">
+            <label class="etichetta">Minusvalenze da alienazioni</label>
+            <input id="minusvalenzeAlienazioni" type="number" name="oneriStraordinari" class="form-control"
+              oninput="validate(this); somme()">
+          </div>
+
+        <!-- Imposte relative ad esercizi precedenti -->
+        <div class="form-group">
+            <label class="etichetta">Imposte relative ad esercizi precedenti</label>
+            <input id="imposteRelativeEserciziPrecedenti" type="number" name="oneriStraordinari" class="form-control"
+              oninput="validate(this); somme()">
+          </div>
+  
+          <!-- Totale Partite Straordinarie -->
+          <div class="form-group">
+            <h5 class="etichetta"> Totale Partite Straordinarie </h5>
+            <input id="totalePartiteStraordinarie" class="form-control totale" readonly>
+          </div>
+
+          <!-- Risultato prima delle Imposte -->
+          <div class="form-group">
+            <h5 class="etichetta"> Risultato prima delle Imposte </h5>
+            <input id="risultatoPrimaImposte" class="form-control totale" readonly>
+          </div>
+
+        <!-- 22) Imposte sul reddito dell'esercizio, correnti, differite e anticipate -->
+        <div class="form-group">
+          <label class="etichetta">22) Imposte sul reddito dell'esercizio, correnti, differite e anticipate</label>
+          <input id="imposteRedditoEsercizio" type="number" name="imposteRedditoEsercizio" class="form-control" oninput="validate(this); somme()">
+        </div>
+          
+          <!-- 23) Utile (perdite) dell'esercizio -->
+          <div class="form-group">
+            <h5 class="etichetta"> 23) Utile (perdite) dell'esercizio </h5>
+            <input id="utilePerditeEsercizio" class="form-control totale" readonly>
+          </div>
 
     </div>
   </div>

@@ -246,41 +246,23 @@ ipc.on('salva', function (ev, data) {
     var svalutazioniTitoliIscrittiAttivoCircolante = document.getElementById('svalutazioniTitoliIscrittiAttivoCircolante').value
     var svalutazioniStrumentiFinanziariDerivati = document.getElementById('svalutazioniStrumentiFinanziariDerivati').value
     var totaleRettifiche = document.getElementById('totaleRettifiche').value
+
+    // E) Proventi e oneri straordinari
+    var proventiStraordinari = document.getElementById('proventiStraordinari').value
+    var plusvalenzeAlienazioni = document.getElementById('plusvalenzeAlienazioni').value
+    var oneriStraordinari = document.getElementById('oneriStraordinari').value
+    var minusvalenzeAlienazioni = document.getElementById('minusvalenzeAlienazioni').value
+    var imposteRelativeEserciziPrecedenti = document.getElementById('imposteRelativeEserciziPrecedenti').value
+    var totalePartiteStraordinarie = document.getElementById('totalePartiteStraordinarie').value
+
+    // Risultato prima delle imposte
+    var risultatoPrimaImposte = document.getElementById('risultatoPrimaImposte').value
+    // Imposte
+    var imposteRedditoEsercizio = document.getElementById('imposteRedditoEsercizio').value
+    // Utile (perdite) dell'esercizio
+    var utilePerditeEsercizio = document.getElementById('utilePerditeEsercizio').value
+
     /*
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
     var  = document.getElementById('').value
     var  = document.getElementById('').value
     var  = document.getElementById('').value
@@ -524,7 +506,22 @@ ipc.on('salva', function (ev, data) {
         "svalutazioniImmobilizzazioniFinanziarie" : svalutazioniImmobilizzazioniFinanziarie,
         "svalutazioniTitoliIscrittiAttivoCircolante" : svalutazioniTitoliIscrittiAttivoCircolante,
         "svalutazioniStrumentiFinanziariDerivati" : svalutazioniStrumentiFinanziariDerivati,
-        "totaleRettifiche" : totaleRettifiche
+        "totaleRettifiche" : totaleRettifiche,
+
+        // E) Proventi e oneri straordinari
+        "proventiStraordinari" : proventiStraordinari,
+        "plusvalenzeAlienazioni" : plusvalenzeAlienazioni,
+        "oneriStraordinari" : oneriStraordinari,
+        "minusvalenzeAlienazioni" : minusvalenzeAlienazioni,
+        "imposteRelativeEserciziPrecedenti" : imposteRelativeEserciziPrecedenti,
+        "totalePartiteStraordinarie" : totalePartiteStraordinarie,
+
+        // Risultato prima delle imposte
+        "risultatoPrimaImposte" : risultatoPrimaImposte,
+        // Imposte
+        'imposteRedditoEsercizio' : imposteRedditoEsercizio,
+        // Utile (perdite) dell'esercizio
+        'utilePerditeEsercizio' : utilePerditeEsercizio
     }]
 
     var json = JSON.stringify(contenuto);
@@ -804,6 +801,21 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('svalutazioniTitoliIscrittiAttivoCircolante').value = testo[0].svalutazioniTitoliIscrittiAttivoCircolante
                 document.getElementById('svalutazioniStrumentiFinanziariDerivati').value = testo[0].svalutazioniStrumentiFinanziariDerivati
                 document.getElementById('totaleRettifiche').value = testo[0].totaleRettifiche
+
+                // E) Proventi e oneri straordinari
+                document.getElementById('proventiStraordinari').value = testo[0].proventiStraordinari
+                document.getElementById('plusvalenzeAlienazioni').value = testo[0].plusvalenzeAlienazioni
+                document.getElementById('oneriStraordinari').value = testo[0].oneriStraordinari
+                document.getElementById('minusvalenzeAlienazioni').value = testo[0].minusvalenzeAlienazioni
+                document.getElementById('imposteRelativeEserciziPrecedenti').value = testo[0].imposteRelativeEserciziPrecedenti
+                document.getElementById('totalePartiteStraordinarie').value = testo[0].totalePartiteStraordinarie
+
+                // Risultato prima delle Imposte
+                document.getElementById('risultatoPrimaImposte').value = testo[0].risultatoPrimaImposte
+                // Imposte
+                document.getElementById('imposteRedditoEsercizio').value = testo[0].imposteRedditoEsercizio
+                // Utile (perdite) dell'esercizio
+                document.getElementById('utilePerditeEsercizio').value = testo[0].utilePerditeEsercizio
 
                 console.log("file aperto")
             })
