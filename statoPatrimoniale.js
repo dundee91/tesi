@@ -66,12 +66,18 @@ function somme() {
         var totaleTrattamentoFineRapporto = (parseFloat(trattamentoFineRapporto)).toFixed(2)
     }
 
+    // D) Debiti
+    sommaDebiti()
+    var totaleDebiti = document.getElementById('totaleDebiti').value
+
     // E) Ratei e risconti
     sommaRateiRiscontiPassivi()
     var totaleRateiRiscontiAttivi = document.getElementById('totaleRateiRiscontiPassivi').value
 
     // TOTALE PASSIVO
-    totalePassivo = parseFloat(totalePatrimonioNetto) + parseFloat(totaleFondiRischiOneri) + parseFloat(totaleTrattamentoFineRapporto) + parseFloat(totaleRateiRiscontiAttivi)
+    totalePassivo = parseFloat(totalePatrimonioNetto) + parseFloat(totaleFondiRischiOneri) + 
+    parseFloat(totaleTrattamentoFineRapporto) + parseFloat(totaleDebiti) + parseFloat(totaleRateiRiscontiAttivi)
+    
     document.getElementById('totalePassivo').value = totalePassivo.toFixed(2)
 }
 
@@ -185,4 +191,12 @@ function sommaRateiRiscontiPassivi() {
     document.getElementById('totaleRateiRiscontiPassivi').value = tot.toFixed(2);
 }
 
-
+function sommaDebiti() {
+    var arr = document.getElementsByName('debiti');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (parseFloat(arr[i].value))
+            tot += parseFloat(arr[i].value);
+    }
+    document.getElementById('totaleDebiti').value = tot.toFixed(2);
+}

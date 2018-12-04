@@ -151,6 +151,35 @@ ipc.on('salva', function (ev, data) {
     var trattamentoFineRapporto = document.getElementById('trattamentoFineRapporto').value
 
     // D. Debiti
+    var obbligazioniEntro12Mesi = document.getElementById('obbligazioniEntro12Mesi').value
+    var obbligazioniOltre12Mesi = document.getElementById('obbligazioniOltre12Mesi').value
+    var obbligazioniConvertibiliEntro12Mesi = document.getElementById('obbligazioniConvertibiliEntro12Mesi').value
+    var obbligazioniConvertibiliOltre12Mesi = document.getElementById('obbligazioniConvertibiliOltre12Mesi').value
+    var debitiVersoSociFinanziamentiEntro12Mesi = document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value
+    var debitiVersoSociFinanziamentiOltre12Mesi = document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value
+    var debitiVersoBancheEntro12Mesi = document.getElementById('debitiVersoBancheEntro12Mesi').value
+    var debitiVersoBancheOltre12Mesi = document.getElementById('debitiVersoBancheOltre12Mesi').value
+    var debitiVersoAltriFinanziatoriEntro12Mesi = document.getElementById('debitiVersoAltriFinanziatoriEntro12Mesi').value
+    var debitiVersoAltriFinanziatoriOltre12Mesi = document.getElementById('debitiVersoAltriFinanziatoriOltre12Mesi').value
+    var accontiEntro12Mesi = document.getElementById('accontiEntro12Mesi').value
+    var accontiOltre12Mesi = document.getElementById('accontiOltre12Mesi').value
+    var debitiVersoFornitoriEntro12Mesi = document.getElementById('debitiVersoFornitoriEntro12Mesi').value
+    var debitiVersoFornitoriOltre12Mesi = document.getElementById('debitiVersoFornitoriOltre12Mesi').value
+    var debitiRappresentatiTitoliCreditoEntro12Mesi = document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value
+    var debitiRappresentatiTitoliCreditooltre12Mesi = document.getElementById('debitiRappresentatiTitoliCreditooltre12Mesi').value
+    var debitiVersoImpreseControllateEntro12Mesi = document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value
+    var debitiVersoImpreseControllateOltre12Mesi = document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value
+    var debitiVersoImpreseCollegateEntro12Mesi = document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value
+    var debitiVersoImpreseCollegateOltre12Mesi = document.getElementById('debitiVersoImpreseCollegateOltre12Mesi').value
+    var debitiVersoControllantiEntro12Mesi = document.getElementById('debitiVersoControllantiEntro12Mesi').value
+    var debitiVersoControllantiOltre12Mesi = document.getElementById('debitiVersoControllantiOltre12Mesi').value
+    var debitiTributariEntro12Mesi = document.getElementById('debitiTributariEntro12Mesi').value
+    var debitiTributariOltre12Mesi = document.getElementById('debitiTributariOltre12Mesi').value
+    var debitiVersoIstituiPrevidenzaEntro12Mesi = document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value
+    var debitiVersoIstituiPrevidenzaOltre12Mesi = document.getElementById('debitiVersoIstituiPrevidenzaOltre12Mesi').value
+    var altriDebitiEntro12Mesi = document.getElementById('altriDebitiEntro12Mesi').value
+    var altriDebitiOltre12Mesi = document.getElementById('altriDebitiOltre12Mesi').value
+    var totaleDebiti = document.getElementById('totaleDebiti').value
 
     // E. ratei e risconti
     var rateiRiscontiPassivo = document.getElementById('rateiRiscontiPassivo').value
@@ -159,42 +188,6 @@ ipc.on('salva', function (ev, data) {
 
     // TOTALE PASSIVO
     var totalePassivo = document.getElementById('totalePassivo').value
-
-
-
-    /*
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
-*/
 
     //creo array per json
     let contenuto = [{
@@ -339,6 +332,35 @@ ipc.on('salva', function (ev, data) {
         "trattamentoFineRapporto": trattamentoFineRapporto,
 
         // D. Debiti
+        "obbligazioniEntro12Mesi": obbligazioniEntro12Mesi,
+        "obbligazioniOltre12Mesi": obbligazioniOltre12Mesi,
+        "obbligazioniConvertibiliEntro12Mesi": obbligazioniConvertibiliEntro12Mesi,
+        "obbligazioniConvertibiliOltre12Mesi": obbligazioniConvertibiliOltre12Mesi,
+        "debitiVersoSociFinanziamentiEntro12Mesi": debitiVersoSociFinanziamentiEntro12Mesi,
+        "debitiVersoSociFinanziamentiOltre12Mesi": debitiVersoSociFinanziamentiOltre12Mesi,
+        "debitiVersoBancheEntro12Mesi": debitiVersoBancheEntro12Mesi,
+        "debitiVersoBancheOltre12Mesi": debitiVersoBancheOltre12Mesi,
+        "debitiVersoAltriFinanziatoriEntro12Mesi": debitiVersoAltriFinanziatoriEntro12Mesi,
+        "debitiVersoAltriFinanziatoriOltre12Mesi": debitiVersoAltriFinanziatoriOltre12Mesi,
+        "accontiEntro12Mesi": accontiEntro12Mesi,
+        "accontiOltre12Mesi": accontiOltre12Mesi,
+        "debitiVersoFornitoriEntro12Mesi": debitiVersoFornitoriEntro12Mesi,
+        "debitiVersoFornitoriOltre12Mesi": debitiVersoFornitoriOltre12Mesi,
+        "debitiRappresentatiTitoliCreditoEntro12Mesi": debitiRappresentatiTitoliCreditoEntro12Mesi,
+        "debitiRappresentatiTitoliCreditooltre12Mesi": debitiRappresentatiTitoliCreditooltre12Mesi,
+        "debitiVersoImpreseControllateEntro12Mesi": debitiVersoImpreseControllateEntro12Mesi,
+        "debitiVersoImpreseControllateOltre12Mesi": debitiVersoImpreseControllateOltre12Mesi,
+        "debitiVersoImpreseCollegateEntro12Mesi": debitiVersoImpreseCollegateEntro12Mesi,
+        "debitiVersoImpreseCollegateOltre12Mesi": debitiVersoImpreseCollegateOltre12Mesi,
+        "debitiVersoControllantiEntro12Mesi": debitiVersoControllantiEntro12Mesi,
+        "debitiVersoControllantiOltre12Mesi": debitiVersoControllantiOltre12Mesi,
+        "debitiTributariEntro12Mesi": debitiTributariEntro12Mesi,
+        "debitiTributariOltre12Mesi": debitiTributariOltre12Mesi,
+        "debitiVersoIstituiPrevidenzaEntro12Mesi": debitiVersoIstituiPrevidenzaEntro12Mesi,
+        "debitiVersoIstituiPrevidenzaOltre12Mesi": debitiVersoIstituiPrevidenzaOltre12Mesi,
+        "altriDebitiEntro12Mesi": altriDebitiEntro12Mesi,
+        "altriDebitiOltre12Mesi": altriDebitiOltre12Mesi,
+        "totaleDebiti": totaleDebiti,
 
         // E. ratei e risconti
         "rateiRiscontiPassivo": rateiRiscontiPassivo,
@@ -428,7 +450,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('fidiEdUtilizzi').value = testo[0].fidiEdUtilizzi
                 document.getElementById('conclusioni').value = testo[0].conclusioni
 
-                //STATO PATRIMONIALE
+                /* STATO PATRIMONIALE ATTIVO */
                 // A. Crediti verso soci
                 document.getElementById('creditiVersoSoci').value = testo[0].creditiVersoSoci
                 // B. Immobilizzazioni
@@ -505,6 +527,69 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('totaleRateiRiscontiAttivi').value = testo[0].totaleRateiRiscontiAttivi
                 // TOTALE ATTIVO
                 document.getElementById('totaleAttivo').value = testo[0].totaleAttivo
+
+                /* STATO PATRIMONIALE PASSIVO */
+                // A. Patrimonio Netto
+                document.getElementById('capitale').value = testo[0].capitale
+                document.getElementById('riservaSovrapprezzoAzioni').value = testo[0].riservaSovrapprezzoAzioni
+                document.getElementById('riserveRivalutazione').value = testo[0].riserveRivalutazione
+                document.getElementById('riservaLegale').value = testo[0].riservaLegale
+                document.getElementById('riserveStatutarie').value = testo[0].riserveStatutarie
+                document.getElementById('altreRiserve').value = testo[0].altreRiserve
+                document.getElementById('riservaOperazioniCopertura').value = testo[0].riservaOperazioniCopertura
+                document.getElementById('utilePortatoNuovo').value = testo[0].utilePortatoNuovo
+                document.getElementById('utileEsercizio').value = testo[0].utileEsercizio
+                document.getElementById('riservaNegativaAzioniProprie').value = testo[0].riservaNegativaAzioniProprie
+                document.getElementById('totalePatrimonioNetto').value = testo[0].totalePatrimonioNetto
+
+                // B. Fondi per rischi e oneri
+                document.getElementById('trattamentoQuiescenzaObblighiSimili').value = testo[0].trattamentoQuiescenzaObblighiSimili
+                document.getElementById('imposteAncheDifferite').value = testo[0].imposteAncheDifferite
+                document.getElementById('strumentiFinanziariDerivatiPassivi').value = testo[0].strumentiFinanziariDerivatiPassivi
+                document.getElementById('altriFondi').value = testo[0].altriFondi
+                document.getElementById('totaleFondiRischiOneri').value = testo[0].totaleFondiRischiOneri
+
+                // C. Trattamento fine rapporto
+                document.getElementById('trattamentoFineRapporto').value = testo[0].trattamentoFineRapporto
+
+                // D. Debiti
+                document.getElementById('obbligazioniEntro12Mesi').value = testo[0].obbligazioniEntro12Mesi
+                document.getElementById('obbligazioniOltre12Mesi').value = testo[0].obbligazioniOltre12Mesi
+                document.getElementById('obbligazioniConvertibiliEntro12Mesi').value = testo[0].obbligazioniConvertibiliEntro12Mesi
+                document.getElementById('obbligazioniConvertibiliOltre12Mesi').value = testo[0].obbligazioniConvertibiliOltre12Mesi
+                document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value = testo[0].debitiVersoSociFinanziamentiEntro12Mesi
+                document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value = testo[0].debitiVersoSociFinanziamentiOltre12Mesi
+                document.getElementById('debitiVersoBancheEntro12Mesi').value = testo[0].debitiVersoBancheEntro12Mesi
+                document.getElementById('debitiVersoBancheOltre12Mesi').value = testo[0].debitiVersoBancheOltre12Mesi
+                document.getElementById('debitiVersoAltriFinanziatoriEntro12Mesi').value = testo[0].debitiVersoAltriFinanziatoriEntro12Mesi
+                document.getElementById('debitiVersoAltriFinanziatoriOltre12Mesi').value = testo[0].debitiVersoAltriFinanziatoriOltre12Mesi
+                document.getElementById('accontiEntro12Mesi').value = testo[0].accontiEntro12Mesi
+                document.getElementById('accontiOltre12Mesi').value = testo[0].accontiOltre12Mesi
+                document.getElementById('debitiVersoFornitoriEntro12Mesi').value = testo[0].debitiVersoFornitoriEntro12Mesi
+                document.getElementById('debitiVersoFornitoriOltre12Mesi').value = testo[0].debitiVersoFornitoriOltre12Mesi
+                document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value = testo[0].debitiRappresentatiTitoliCreditoEntro12Mesi
+                document.getElementById('debitiRappresentatiTitoliCreditooltre12Mesi').value = testo[0].debitiRappresentatiTitoliCreditooltre12Mesi
+                document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value = testo[0].debitiVersoImpreseControllateEntro12Mesi
+                document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value = testo[0].debitiVersoImpreseControllateOltre12Mesi
+                document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value = testo[0].debitiVersoImpreseCollegateEntro12Mesi
+                document.getElementById('debitiVersoImpreseCollegateOltre12Mesi').value = testo[0].debitiVersoImpreseCollegateOltre12Mesi
+                document.getElementById('debitiVersoControllantiEntro12Mesi').value = testo[0].debitiVersoControllantiEntro12Mesi
+                document.getElementById('debitiVersoControllantiOltre12Mesi').value = testo[0].debitiVersoControllantiOltre12Mesi
+                document.getElementById('debitiTributariEntro12Mesi').value = testo[0].debitiTributariEntro12Mesi
+                document.getElementById('debitiTributariOltre12Mesi').value = testo[0].debitiTributariOltre12Mesi
+                document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value = testo[0].debitiVersoIstituiPrevidenzaEntro12Mesi
+                document.getElementById('debitiVersoIstituiPrevidenzaOltre12Mesi').value = testo[0].debitiVersoIstituiPrevidenzaOltre12Mesi
+                document.getElementById('altriDebitiEntro12Mesi').value = testo[0].altriDebitiEntro12Mesi
+                document.getElementById('altriDebitiOltre12Mesi').value = testo[0].altriDebitiOltre12Mesi
+                document.getElementById('totaleDebiti').value = testo[0].totaleDebiti
+
+                // E. ratei e risconti
+                document.getElementById('rateiRiscontiPassivo').value = testo[0].rateiRiscontiPassivo
+                document.getElementById('aggioPrestiti').value = testo[0].aggioPrestiti
+                document.getElementById('totaleRateiRiscontiPassivi').value = testo[0].totaleRateiRiscontiPassivi
+
+                // TOTALE PASSIVO
+                document.getElementById('totalePassivo').value = testo[0].totalePassivo
 
                 console.log("file aperto")
             })
