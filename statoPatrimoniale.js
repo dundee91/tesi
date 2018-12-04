@@ -58,12 +58,12 @@ function somme() {
     var totaleFondiRischiOneri = document.getElementById('totaleFondiRischiOneri').value
 
     // C) Trattamento Fine Rapporto
-    var trattamentoFineRapporto = document.getElementById('trattamentoFineRapporto').value
-    if(trattamentoFineRapporto == ""){
+    var trattamentoFineRapportoSP = document.getElementById('trattamentoFineRapportoSP').value
+    if(trattamentoFineRapportoSP == ""){
         var totaleTrattamentoFineRapporto = 0 
     }
     else{
-        var totaleTrattamentoFineRapporto = (parseFloat(trattamentoFineRapporto)).toFixed(2)
+        var totaleTrattamentoFineRapporto = (parseFloat(trattamentoFineRapportoSP)).toFixed(2)
     }
 
     // D) Debiti

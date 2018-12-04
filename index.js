@@ -148,7 +148,7 @@ ipc.on('salva', function (ev, data) {
     var totaleFondiRischiOneri = document.getElementById('totaleFondiRischiOneri').value
 
     // C. Trattamento fine rapporto
-    var trattamentoFineRapporto = document.getElementById('trattamentoFineRapporto').value
+    var trattamentoFineRapportoSP = document.getElementById('trattamentoFineRapportoSP').value
 
     // D. Debiti
     var obbligazioniEntro12Mesi = document.getElementById('obbligazioniEntro12Mesi').value
@@ -188,6 +188,104 @@ ipc.on('salva', function (ev, data) {
 
     // TOTALE PASSIVO
     var totalePassivo = document.getElementById('totalePassivo').value
+
+    /* CONTO ECONOMICO */
+    // A) Valore della produzione
+    var ricaviVendite = document.getElementById('ricaviVendite').value
+    var variazioniRimanenze = document.getElementById('variazioniRimanenze').value
+    var variazioniRimanenzeProdottiInCorso = document.getElementById('variazioniRimanenzeProdottiInCorso').value
+    var incrementiImmobilizzazioniLavoriInterni = document.getElementById('incrementiImmobilizzazioniLavoriInterni').value
+    var altriRicaviProventi = document.getElementById('altriRicaviProventi').value
+    var totaleValoreProduzione = document.getElementById('totaleValoreProduzione').value
+
+    // B) Costi della produzione
+    var materiePrimeCE = document.getElementById('materiePrimeCE').value
+    var servizi = document.getElementById('servizi').value
+    var godimentoBeniTerzi = document.getElementById('godimentoBeniTerzi').value
+    var salariStipendi = document.getElementById('salariStipendi').value
+    var oneriSociali = document.getElementById('oneriSociali').value
+    var trattamentoFineRapportoCE = document.getElementById('trattamentoFineRapportoCE').value
+    var trattamentoQuiescenzaSimili = document.getElementById('trattamentoQuiescenzaSimili').value
+    var altriCosti = document.getElementById('altriCosti').value
+    var ammortamentoImmobilizzazioniImmateriali = document.getElementById('ammortamentoImmobilizzazioniImmateriali').value
+    var ammortamentoImmobilizzazioniMateriali = document.getElementById('ammortamentoImmobilizzazioniMateriali').value
+    var altreSvalutazioniImmobilizzazioni = document.getElementById('altreSvalutazioniImmobilizzazioni').value
+    var svalutazioniCreditiCompresiAttivoCircolante = document.getElementById('svalutazioniCreditiCompresiAttivoCircolante').value
+    var variazioneRimanenzeMateriePrime = document.getElementById('variazioneRimanenzeMateriePrime').value
+    var accantonamentiPerRischi = document.getElementById('accantonamentiPerRischi').value
+    var altriAccantonamenti = document.getElementById('altriAccantonamenti').value
+    var oneriDiversiGestione = document.getElementById('oneriDiversiGestione').value
+    var totaleCostiProduzione = document.getElementById('totaleCostiProduzione').value
+
+    // Differenza tra Valore e Costi della produzione
+    var differenzaValoreCostiProduzione = document.getElementById('differenzaValoreCostiProduzione').value
+
+    // C) Proventi e oneri finanziari
+    var proventiDaControllate = document.getElementById('proventiDaControllate').value
+    var proventiDaCollegate = document.getElementById('proventiDaCollegate').value
+    var proventiCreditiIscrittiImmobilizzazioniControllate = document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value
+    var proventiCreditiIscrittiImmobilizzazioniCollegate = document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value
+    var proventiCreditiIscrittiImmobilizzazioniControllanti = document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value
+    var proventiTitoliIscrittiImmobilizzazioni = document.getElementById('proventiTitoliIscrittiImmobilizzazioni').value
+    var proventiTitoliIscrittiAttivoCircolante = document.getElementById('proventiTitoliIscrittiAttivoCircolante').value
+    var proventiDiversiDaiPrecedentiControllate = document.getElementById('proventiDiversiDaiPrecedentiControllate').value
+    var proventiDiversiDaiPrecedentiCollegate = document.getElementById('proventiDiversiDaiPrecedentiCollegate').value
+    var proventiDiversiDaiPrecedentiControllanti = document.getElementById('proventiDiversiDaiPrecedentiControllanti').value
+    var interessiAltriOneriFinanziariDaControllate = document.getElementById('interessiAltriOneriFinanziariDaControllate').value
+    var interessiAltriOneriFinanziariDaCollegate = document.getElementById('interessiAltriOneriFinanziariDaCollegate').value
+    var interessiAltriOneriFinanziariDaControllanti = document.getElementById('interessiAltriOneriFinanziariDaControllanti').value
+    var totaleProventiOneriFinanziari = document.getElementById('totaleProventiOneriFinanziari').value
+
+    // D) Rettifiche di valore di attività finanziarie
+    var rivalutazioniPartecipazioni = document.getElementById('rivalutazioniPartecipazioni').value
+    var rivalutazioniImmobilizzazioniFinanziarie = document.getElementById('rivalutazioniImmobilizzazioniFinanziarie').value
+    var rivalutazioniTitoliIscrittiAttivoCircolante = document.getElementById('rivalutazioniTitoliIscrittiAttivoCircolante').value
+    var rivalutazioniStrumentiFinanziariDerivati = document.getElementById('rivalutazioniStrumentiFinanziariDerivati').value
+    var svalutazioniPartecipazioni = document.getElementById('svalutazioniPartecipazioni').value
+    var svalutazioniImmobilizzazioniFinanziarie = document.getElementById('svalutazioniImmobilizzazioniFinanziarie').value
+    var svalutazioniTitoliIscrittiAttivoCircolante = document.getElementById('svalutazioniTitoliIscrittiAttivoCircolante').value
+    var svalutazioniStrumentiFinanziariDerivati = document.getElementById('svalutazioniStrumentiFinanziariDerivati').value
+    var totaleRettifiche = document.getElementById('totaleRettifiche').value
+    /*
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    */
 
     //creo array per json
     let contenuto = [{
@@ -329,7 +427,7 @@ ipc.on('salva', function (ev, data) {
         "totaleFondiRischiOneri": totaleFondiRischiOneri,
 
         // C. Trattamento fine rapporto
-        "trattamentoFineRapporto": trattamentoFineRapporto,
+        "trattamentoFineRapportoSP": trattamentoFineRapportoSP,
 
         // D. Debiti
         "obbligazioniEntro12Mesi": obbligazioniEntro12Mesi,
@@ -369,6 +467,64 @@ ipc.on('salva', function (ev, data) {
 
         // TOTALE PASSIVO
         "totalePassivo": totalePassivo,
+
+        /* CONTO ECONOMICO */
+        // A) Valore della produzione
+        "ricaviVendite": ricaviVendite,
+        "variazioniRimanenze": variazioniRimanenze,
+        "variazioniRimanenzeProdottiInCorso": variazioniRimanenzeProdottiInCorso,
+        "incrementiImmobilizzazioniLavoriInterni": incrementiImmobilizzazioniLavoriInterni,
+        "altriRicaviProventi": altriRicaviProventi,
+        "totaleValoreProduzione": totaleValoreProduzione,
+
+        // B) Costi della produzione
+        "materiePrimeCE": materiePrimeCE,
+        "servizi": servizi,
+        "godimentoBeniTerzi": godimentoBeniTerzi,
+        "salariStipendi": salariStipendi,
+        "oneriSociali": oneriSociali,
+        "trattamentoFineRapportoCE": trattamentoFineRapportoCE,
+        "trattamentoQuiescenzaSimili": trattamentoQuiescenzaSimili,
+        "altriCosti": altriCosti,
+        "totaleCostiProduzione": totaleCostiProduzione,
+        "ammortamentoImmobilizzazioniImmateriali": ammortamentoImmobilizzazioniImmateriali,
+        "ammortamentoImmobilizzazioniMateriali": ammortamentoImmobilizzazioniMateriali,
+        "altreSvalutazioniImmobilizzazioni": altreSvalutazioniImmobilizzazioni,
+        "svalutazioniCreditiCompresiAttivoCircolante": svalutazioniCreditiCompresiAttivoCircolante,
+        "variazioneRimanenzeMateriePrime": variazioneRimanenzeMateriePrime,
+        "accantonamentiPerRischi": accantonamentiPerRischi,
+        "altriAccantonamenti": altriAccantonamenti,
+        "oneriDiversiGestione": oneriDiversiGestione,
+
+        // Differenza tra Valore e Costi della produzione
+        "differenzaValoreCostiProduzione": differenzaValoreCostiProduzione,
+
+        // C) Proventi e oneri finanziari
+        "proventiDaControllate": proventiDaControllate,
+        "proventiDaCollegate": proventiDaCollegate,
+        "proventiCreditiIscrittiImmobilizzazioniControllate": proventiCreditiIscrittiImmobilizzazioniControllate,
+        "proventiCreditiIscrittiImmobilizzazioniCollegate": proventiCreditiIscrittiImmobilizzazioniCollegate,
+        "proventiCreditiIscrittiImmobilizzazioniControllanti": proventiCreditiIscrittiImmobilizzazioniControllanti,
+        "proventiTitoliIscrittiImmobilizzazioni": proventiTitoliIscrittiImmobilizzazioni,
+        "proventiTitoliIscrittiAttivoCircolante": proventiTitoliIscrittiAttivoCircolante,
+        "proventiDiversiDaiPrecedentiControllate": proventiDiversiDaiPrecedentiControllate,
+        "proventiDiversiDaiPrecedentiCollegate": proventiDiversiDaiPrecedentiCollegate,
+        "proventiDiversiDaiPrecedentiControllanti": proventiDiversiDaiPrecedentiControllanti,
+        "interessiAltriOneriFinanziariDaControllate": interessiAltriOneriFinanziariDaControllate,
+        "interessiAltriOneriFinanziariDaCollegate": interessiAltriOneriFinanziariDaCollegate,
+        "interessiAltriOneriFinanziariDaControllanti": interessiAltriOneriFinanziariDaControllanti,
+        "totaleProventiOneriFinanziari": totaleProventiOneriFinanziari,
+
+        // D) Rettifiche di valore di attività finanziarie
+        "rivalutazioniPartecipazioni" : rivalutazioniPartecipazioni,
+        "rivalutazioniImmobilizzazioniFinanziarie" : rivalutazioniImmobilizzazioniFinanziarie,
+        "rivalutazioniTitoliIscrittiAttivoCircolante" : rivalutazioniTitoliIscrittiAttivoCircolante,
+        "rivalutazioniStrumentiFinanziariDerivati" : rivalutazioniStrumentiFinanziariDerivati,
+        "svalutazioniPartecipazioni" : svalutazioniPartecipazioni,
+        "svalutazioniImmobilizzazioniFinanziarie" : svalutazioniImmobilizzazioniFinanziarie,
+        "svalutazioniTitoliIscrittiAttivoCircolante" : svalutazioniTitoliIscrittiAttivoCircolante,
+        "svalutazioniStrumentiFinanziariDerivati" : svalutazioniStrumentiFinanziariDerivati,
+        "totaleRettifiche" : totaleRettifiche
     }]
 
     var json = JSON.stringify(contenuto);
@@ -550,7 +706,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('totaleFondiRischiOneri').value = testo[0].totaleFondiRischiOneri
 
                 // C. Trattamento fine rapporto
-                document.getElementById('trattamentoFineRapporto').value = testo[0].trattamentoFineRapporto
+                document.getElementById('trattamentoFineRapportoSP').value = testo[0].trattamentoFineRapportoSP
 
                 // D. Debiti
                 document.getElementById('obbligazioniEntro12Mesi').value = testo[0].obbligazioniEntro12Mesi
@@ -590,6 +746,64 @@ ipc.on('apri', function (ev, data) {
 
                 // TOTALE PASSIVO
                 document.getElementById('totalePassivo').value = testo[0].totalePassivo
+
+                /* CONTO ECONOMICO */
+                // A) Valore della produzione
+                document.getElementById('ricaviVendite').value = testo[0].ricaviVendite
+                document.getElementById('variazioniRimanenze').value = testo[0].variazioniRimanenze
+                document.getElementById('variazioniRimanenzeProdottiInCorso').value = testo[0].variazioniRimanenzeProdottiInCorso
+                document.getElementById('incrementiImmobilizzazioniLavoriInterni').value = testo[0].incrementiImmobilizzazioniLavoriInterni
+                document.getElementById('altriRicaviProventi').value = testo[0].altriRicaviProventi
+                document.getElementById('totaleValoreProduzione').value = testo[0].totaleValoreProduzione
+
+                // B) Costi della produzione
+                document.getElementById('materiePrimeCE').value = testo[0].materiePrimeCE
+                document.getElementById('servizi').value = testo[0].servizi
+                document.getElementById('godimentoBeniTerzi').value = testo[0].godimentoBeniTerzi
+                document.getElementById('salariStipendi').value = testo[0].salariStipendi
+                document.getElementById('oneriSociali').value = testo[0].oneriSociali
+                document.getElementById('trattamentoFineRapportoCE').value = testo[0].trattamentoFineRapportoCE
+                document.getElementById('trattamentoQuiescenzaSimili').value = testo[0].trattamentoQuiescenzaSimili
+                document.getElementById('altriCosti').value = testo[0].altriCosti
+                document.getElementById('ammortamentoImmobilizzazioniImmateriali').value = testo[0].ammortamentoImmobilizzazioniImmateriali
+                document.getElementById('ammortamentoImmobilizzazioniMateriali').value = testo[0].ammortamentoImmobilizzazioniMateriali
+                document.getElementById('altreSvalutazioniImmobilizzazioni').value = testo[0].altreSvalutazioniImmobilizzazioni
+                document.getElementById('svalutazioniCreditiCompresiAttivoCircolante').value = testo[0].svalutazioniCreditiCompresiAttivoCircolante
+                document.getElementById('variazioneRimanenzeMateriePrime').value = testo[0].variazioneRimanenzeMateriePrime
+                document.getElementById('accantonamentiPerRischi').value = testo[0].accantonamentiPerRischi
+                document.getElementById('altriAccantonamenti').value = testo[0].altriAccantonamenti
+                document.getElementById('oneriDiversiGestione').value = testo[0].oneriDiversiGestione
+                document.getElementById('totaleCostiProduzione').value = testo[0].totaleCostiProduzione
+
+                // Differenza tra Valore e Costi della produzione
+                document.getElementById('differenzaValoreCostiProduzione').value = testo[0].differenzaValoreCostiProduzione
+
+                // C) Proventi e oneri finanziari
+                document.getElementById('proventiDaControllate').value = testo[0].proventiDaControllate
+                document.getElementById('proventiDaCollegate').value = testo[0].proventiDaCollegate
+                document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value = testo[0].proventiCreditiIscrittiImmobilizzazioniControllate
+                document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value = testo[0].proventiCreditiIscrittiImmobilizzazioniCollegate
+                document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value = testo[0].proventiCreditiIscrittiImmobilizzazioniControllanti
+                document.getElementById('proventiTitoliIscrittiImmobilizzazioni').value = testo[0].proventiTitoliIscrittiImmobilizzazioni
+                document.getElementById('proventiTitoliIscrittiAttivoCircolante').value = testo[0].proventiTitoliIscrittiAttivoCircolante
+                document.getElementById('proventiDiversiDaiPrecedentiControllate').value = testo[0].proventiDiversiDaiPrecedentiControllate
+                document.getElementById('proventiDiversiDaiPrecedentiCollegate').value = testo[0].proventiDiversiDaiPrecedentiCollegate
+                document.getElementById('proventiDiversiDaiPrecedentiControllanti').value = testo[0].proventiDiversiDaiPrecedentiControllanti
+                document.getElementById('interessiAltriOneriFinanziariDaControllate').value = testo[0].interessiAltriOneriFinanziariDaControllate
+                document.getElementById('interessiAltriOneriFinanziariDaCollegate').value = testo[0].interessiAltriOneriFinanziariDaCollegate
+                document.getElementById('interessiAltriOneriFinanziariDaControllanti').value = testo[0].interessiAltriOneriFinanziariDaControllanti
+                document.getElementById('totaleProventiOneriFinanziari').value = testo[0].totaleProventiOneriFinanziari
+
+                // D) Rettifiche di valore di attività finanziarie
+                document.getElementById('rivalutazioniPartecipazioni').value = testo[0].rivalutazioniPartecipazioni
+                document.getElementById('rivalutazioniImmobilizzazioniFinanziarie').value = testo[0].rivalutazioniImmobilizzazioniFinanziarie
+                document.getElementById('rivalutazioniTitoliIscrittiAttivoCircolante').value = testo[0].rivalutazioniTitoliIscrittiAttivoCircolante
+                document.getElementById('rivalutazioniStrumentiFinanziariDerivati').value = testo[0].rivalutazioniStrumentiFinanziariDerivati
+                document.getElementById('svalutazioniPartecipazioni').value = testo[0].svalutazioniPartecipazioni
+                document.getElementById('svalutazioniImmobilizzazioniFinanziarie').value = testo[0].svalutazioniImmobilizzazioniFinanziarie
+                document.getElementById('svalutazioniTitoliIscrittiAttivoCircolante').value = testo[0].svalutazioniTitoliIscrittiAttivoCircolante
+                document.getElementById('svalutazioniStrumentiFinanziariDerivati').value = testo[0].svalutazioniStrumentiFinanziariDerivati
+                document.getElementById('totaleRettifiche').value = testo[0].totaleRettifiche
 
                 console.log("file aperto")
             })
