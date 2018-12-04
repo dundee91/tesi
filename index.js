@@ -44,9 +44,10 @@ ipc.on('salva', function (ev, data) {
     let fidiEdUtilizzi = document.getElementById('fidiEdUtilizzi').value
     let conclusioni = document.getElementById('conclusioni').value
 
-    //Stato Patrimoniale
+    /* STATO PATRIMONIALE ATTIVO */
     // A. Crediti verso soci
     var creditiVersoSoci = document.getElementById('creditiVersoSoci').value
+
     // B. Immobilizzazioni
     // I. Immateriali
     var costiImpiantoAmpliamento = document.getElementById('costiImpiantoAmpliamento').value
@@ -81,6 +82,7 @@ ipc.on('salva', function (ev, data) {
     var azioniProprie = document.getElementById('azioniProprie').value
     var totaleImmobilizzazioniFinanziarie = document.getElementById('totaleImmobilizzazioniFinanziarie').value
     var totaleImmobilizzazioni = document.getElementById('totaleImmobilizzazioni').value
+
     // C. Attivo Circolante
     // I. Rimanenze
     var materiePrime = document.getElementById('materiePrime').value
@@ -115,13 +117,64 @@ ipc.on('salva', function (ev, data) {
     var danaroValoriCassa = document.getElementById('danaroValoriCassa').value
     var totaleDisponibilitaLiquide = document.getElementById('totaleDisponibilitaLiquide').value
     var totaleAttivoCircolante = document.getElementById('totaleAttivoCircolante').value
+
     // D) Ratei e Risconti
-    var rateiRisconti = document.getElementById('rateiRisconti').value
+    var rateiRiscontiAttivo = document.getElementById('rateiRiscontiAttivo').value
     var disaggioPrestiti = document.getElementById('disaggioPrestiti').value
     var totaleRateiRiscontiAttivi = document.getElementById('totaleRateiRiscontiAttivi').value
+
     // TOTALE ATTIVO
     var totaleAttivo = document.getElementById('totaleAttivo').value
+
+    /* STATO PATRIMONIALE PASSIVO */
+    // A. Patrimonio Netto
+    var capitale = document.getElementById('capitale').value
+    var riservaSovrapprezzoAzioni = document.getElementById('riservaSovrapprezzoAzioni').value
+    var riserveRivalutazione = document.getElementById('riserveRivalutazione').value
+    var riservaLegale = document.getElementById('riservaLegale').value
+    var riserveStatutarie = document.getElementById('riserveStatutarie').value
+    var altreRiserve = document.getElementById('altreRiserve').value
+    var riservaOperazioniCopertura = document.getElementById('riservaOperazioniCopertura').value
+    var utilePortatoNuovo = document.getElementById('utilePortatoNuovo').value
+    var utileEsercizio = document.getElementById('utileEsercizio').value
+    var riservaNegativaAzioniProprie = document.getElementById('riservaNegativaAzioniProprie').value
+    var totalePatrimonioNetto = document.getElementById('totalePatrimonioNetto').value
+
+    // B. Fondi per rischi e oneri
+    var trattamentoQuiescenzaObblighiSimili = document.getElementById('trattamentoQuiescenzaObblighiSimili').value
+    var imposteAncheDifferite = document.getElementById('imposteAncheDifferite').value
+    var strumentiFinanziariDerivatiPassivi = document.getElementById('strumentiFinanziariDerivatiPassivi').value
+    var altriFondi = document.getElementById('altriFondi').value
+    var totaleFondiRischiOneri = document.getElementById('totaleFondiRischiOneri').value
+
+    // C. Trattamento fine rapporto
+    var trattamentoFineRapporto = document.getElementById('trattamentoFineRapporto').value
+
+    // D. Debiti
+
+    // E. ratei e risconti
+    var rateiRiscontiPassivo = document.getElementById('rateiRiscontiPassivo').value
+    var aggioPrestiti = document.getElementById('aggioPrestiti').value
+    var totaleRateiRiscontiPassivi = document.getElementById('totaleRateiRiscontiPassivi').value
+
+    // TOTALE PASSIVO
+    var totalePassivo = document.getElementById('totalePassivo').value
+
+
+
     /*
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
+    var  = document.getElementById('').value
     var  = document.getElementById('').value
     var  = document.getElementById('').value
     var  = document.getElementById('').value
@@ -182,7 +235,7 @@ ipc.on('salva', function (ev, data) {
         "fidiEdUtilizzi": fidiEdUtilizzi,
         "conclusioni": conclusioni,
 
-        // STATO PATRIMONIALE
+        /* STATO PATRIMONIALE ATTIVO */
         // A. Crediti verso soci
         "creditiVersoSoci": creditiVersoSoci,
         // B. Immobilizzazioni
@@ -255,11 +308,45 @@ ipc.on('salva', function (ev, data) {
         "totaleDisponibilitaLiquide": totaleDisponibilitaLiquide,
         "totaleAttivoCircolante": totaleAttivoCircolante,
         // D) Ratei e Risconti
-        "rateiRisconti" : rateiRisconti,
+        "rateiRiscontiAttivo": rateiRiscontiAttivo,
         "disaggioPrestiti": disaggioPrestiti,
-        "totaleRateiRiscontiAttivi" : totaleRateiRiscontiAttivi,
+        "totaleRateiRiscontiAttivi": totaleRateiRiscontiAttivi,
         // TOTALE ATTIVO
-        "totaleAttivo": totaleAttivo
+        "totaleAttivo": totaleAttivo,
+
+        /* STATO PATRIMONIALE PASSIVO */
+        // A. Patrimonio Netto
+        "capitale": capitale,
+        "riservaSovrapprezzoAzioni": riservaSovrapprezzoAzioni,
+        "riserveRivalutazione": riserveRivalutazione,
+        "riservaLegale": riservaLegale,
+        "riserveStatutarie": riserveStatutarie,
+        "altreRiserve": altreRiserve,
+        "riservaOperazioniCopertura": riservaOperazioniCopertura,
+        "utilePortatoNuovo": utilePortatoNuovo,
+        "utileEsercizio": utileEsercizio,
+        "riservaNegativaAzioniProprie": riservaNegativaAzioniProprie,
+        "totalePatrimonioNetto": totalePatrimonioNetto,
+
+        // B. Fondi per rischi e oneri
+        "trattamentoQuiescenzaObblighiSimili": trattamentoQuiescenzaObblighiSimili,
+        "imposteAncheDifferite": imposteAncheDifferite,
+        "strumentiFinanziariDerivatiPassivi": strumentiFinanziariDerivatiPassivi,
+        "altriFondi": altriFondi,
+        "totaleFondiRischiOneri": totaleFondiRischiOneri,
+
+        // C. Trattamento fine rapporto
+        "trattamentoFineRapporto": trattamentoFineRapporto,
+
+        // D. Debiti
+
+        // E. ratei e risconti
+        "rateiRiscontiPassivo": rateiRiscontiPassivo,
+        "aggioPrestiti": aggioPrestiti,
+        "totaleRateiRiscontiPassivi": totaleRateiRiscontiPassivi,
+
+        // TOTALE PASSIVO
+        "totalePassivo": totalePassivo,
     }]
 
     var json = JSON.stringify(contenuto);
@@ -413,7 +500,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('totaleDisponibilitaLiquide').value = testo[0].totaleDisponibilitaLiquide
                 document.getElementById('totaleAttivoCircolante').value = testo[0].totaleAttivoCircolante
                 // D) Ratei e Risconti
-                document.getElementById('rateiRisconti').value = testo[0].rateiRisconti
+                document.getElementById('rateiRiscontiAttivo').value = testo[0].rateiRiscontiAttivo
                 document.getElementById('disaggioPrestiti').value = testo[0].disaggioPrestiti
                 document.getElementById('totaleRateiRiscontiAttivi').value = testo[0].totaleRateiRiscontiAttivi
                 // TOTALE ATTIVO

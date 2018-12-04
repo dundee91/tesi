@@ -660,13 +660,13 @@
       <!-- Ratei e Risconti -->
       <div class="form-group">
         <label class="etichetta">Ratei e Risconti</label>
-        <input id="rateiRisconti" type="number" name="rateiRisconti" class="form-control" oninput="validate(this); somme()">
+        <input id="rateiRiscontiAttivo" type="number" name="rateiRiscontiAttivo" class="form-control" oninput="validate(this); somme()">
       </div>
 
       <!-- Disaggio su prestiti -->
       <div class="form-group">
         <label class="etichetta">Disaggio su prestiti</label>
-        <input id="disaggioPrestiti" type="number" name="rateiRisconti" class="form-control" oninput="validate(this); somme()">
+        <input id="disaggioPrestiti" type="number" name="rateiRiscontiAttivo" class="form-control" oninput="validate(this); somme()">
       </div>
 
       <!-- Totale ratei e risconti attivi -->
@@ -679,6 +679,140 @@
       <div class="form-group">
         <h4 class="etichetta"> TOTALE ATTIVO </h4>
         <input id="totaleAttivo" class="form-control totale" readonly>
+      </div>
+      
+      <h3>Stato Patrimoniale Passivo</h3>
+      <h4>A) Patrimonio Netto</h4>
+      
+      <!-- I. Capitale -->
+      <div class="form-group">
+        <label class="etichetta"> I. Capitale</label>
+        <input id="capitale" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- II. riserva da sovrapprezzo delle azioni-->
+      <div class="form-group">
+        <label class="etichetta"> II. riserva da sovrapprezzo delle azioni</label>
+        <input id="riservaSovrapprezzoAzioni" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- III. Riserve di rivalutazione -->
+      <div class="form-group">
+        <label class="etichetta"> III. Riserve di rivalutazione</label>
+        <input id="riserveRivalutazione" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- IV. Riserva legale -->
+      <div class="form-group">
+        <label class="etichetta"> IV. Riserva legale</label>
+        <input id="riservaLegale" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- V. Riserve statutarie -->
+      <div class="form-group">
+        <label class="etichetta"> V. Riserve statutarie</label>
+        <input id="riserveStatutarie" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+      
+      <!-- VI. Altre riserve, distintamente indicate -->
+      <div class="form-group">
+        <label class="etichetta"> VI. Altre riserve, distintamente indicate</label>
+        <input id="altreRiserve" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+      
+      <!-- VII. Riserva per operazioni di copertura dei flussi finanziari attesi -->
+      <div class="form-group">
+        <label class="etichetta"> VII. Riserva per operazioni di copertura dei flussi finanziari attesi</label>
+        <input id="riservaOperazioniCopertura" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- VIII. Utile (perdita) portato a nuovo -->
+      <div class="form-group">
+        <label class="etichetta"> VIII. Utile (perdita) portato a nuovo</label>
+        <input id="utilePortatoNuovo" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- IX. Utile (perdita) dell'esercizio -->
+      <div class="form-group">
+        <label class="etichetta"> IX. Utile (perdita) dell'esercizio</label>
+        <input id="utileEsercizio" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+      
+      <!-- X. Riserva negativa per azioni proprie in portafoglio -->
+      <div class="form-group">
+        <label class="etichetta"> X. Riserva negativa per azioni proprie in portafoglio</label>
+        <input id="riservaNegativaAzioniProprie" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- Totale patrimonio netto -->
+      <div class="form-group">
+        <h5 class="etichetta">Totale patrimonio netto</h5>
+        <input id="totalePatrimonioNetto"class="form-control totale" readonly>
+      </div>
+
+      <h4>B) Fondi per rischi e oneri</h4>
+      
+      <!-- 1) per trattamento di quiescenza e obblighi simili -->
+      <div class="form-group">
+        <label class="etichetta"> 1) per trattamento di quiescenza e obblighi simili</label>
+        <input id="trattamentoQuiescenzaObblighiSimili" type="number" name="fondiRischiOneri" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- 2) per imposte, anche differite -->
+      <div class="form-group">
+        <label class="etichetta"> 2) per imposte, anche differite</label>
+        <input id="imposteAncheDifferite" type="number" name="fondiRischiOneri" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- 3) strumenti finanziari derivati passivi -->
+      <div class="form-group">
+        <label class="etichetta"> 3) strumenti finanziari derivati passivi</label>
+        <input id="strumentiFinanziariDerivatiPassivi" type="number" name="fondiRischiOneri" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- 4) altri fondi -->
+      <div class="form-group">
+        <label class="etichetta"> 4) altri fondi</label>
+        <input id="altriFondi" type="number" name="fondiRischiOneri" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- Totale fondi per rischi e oneri -->
+      <div class="form-group">
+        <h5 class="etichetta">Totale fondi per rischi e oneri</h5>
+        <input id="totaleFondiRischiOneri"class="form-control totale" readonly>
+      </div>
+
+      <!-- C) Trattamento Fine Rapporto -->
+      <div class="form-group">
+        <h4 class="etichetta"> C) Trattamento Fine Rapporto</h4>
+        <input id="trattamentoFineRapporto" type="number" name="trattamentoFineRapporto" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      
+      <h4>E) Ratei e Risconti</h4>
+
+      <!-- Ratei e Risconti -->
+      <div class="form-group">
+        <label class="etichetta">Ratei e Risconti</label>
+        <input id="rateiRiscontiPassivo" type="number" name="rateiRiscontiPassivo" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- Disaggio su prestiti -->
+      <div class="form-group">
+        <label class="etichetta">Aggio su prestiti</label>
+        <input id="aggioPrestiti" type="number" name="rateiRiscontiPassivo" class="form-control" oninput="validate(this); somme()">
+      </div>
+
+      <!-- Totale ratei e risconti passivi -->
+      <div class="form-group">
+        <h5 class="etichetta">Totale ratei e risconti passivi</h5>
+        <input id="totaleRateiRiscontiPassivi"class="form-control totale" readonly>
+      </div>
+
+      <!-- TOTALE PASSIVO -->
+      <div class="form-group">
+        <h4 class="etichetta"> TOTALE PASSIVO </h4>
+        <input id="totalePassivo" class="form-control totale" readonly>
       </div>
 
     </div>
