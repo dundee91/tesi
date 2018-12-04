@@ -121,43 +121,6 @@
           <div><label class="etichetta">Note</label></div>
           <div class="text-input"><textarea id="note" type="text" class="form-control text-area"></textarea></div>
         </div>
-
-        <!-- MD5 row 
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="hash-heading">Descrizione</h3>
-                  <pre id="md5-output" class="hash-output"> </pre>
-                </div>
-              </div>
-              -->
-
-        <!-- SHA-1 row
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="hash-heading">SHA-1</h3>
-                  <pre id="sha1-output" class="hash-output"> </pre>
-                </div>
-              </div>
-              -->
-
-        <!-- SHA-256 row 
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="hash-heading">SHA-256</h3>
-                  <pre id="sha256-output" class="hash-output"> </pre>
-                </div>
-              </div>
-              -->
-
-        <!-- SHA-512 row 
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <h3 class="hash-heading">SHA-512</h3>
-                  <pre id="sha512-output" class="hash-output"> </pre>
-                </div>
-              </div>
-              -->
-
       </form>
     </div>
   </div>
@@ -693,18 +656,30 @@
       </div>
       
       <h4>D) Ratei e Risconti</h4>
+
+      <!-- Ratei e Risconti -->
+      <div class="form-group">
+        <label class="etichetta">Ratei e Risconti</label>
+        <input id="rateiRisconti" type="number" name="rateiRisconti" class="form-control" oninput="validate(this); somme()">
+      </div>
+
       <!-- Disaggio su prestiti -->
       <div class="form-group">
         <label class="etichetta">Disaggio su prestiti</label>
         <input id="disaggioPrestiti" type="number" name="rateiRisconti" class="form-control" oninput="validate(this); somme()">
       </div>
 
-      <!-- TOTALE ATTIVO -->
+      <!-- Totale ratei e risconti attivi -->
       <div class="form-group">
-        <h4 class="etichetta"> TOTALE ATTIVO </h5>
-        <input id="totaleAttivo" class="form-control totale" readonly>
+        <h5 class="etichetta">Totale ratei e risconti attivi</h5>
+        <input id="totaleRateiRiscontiAttivi"class="form-control totale" readonly>
       </div>
 
+      <!-- TOTALE ATTIVO -->
+      <div class="form-group">
+        <h4 class="etichetta"> TOTALE ATTIVO </h4>
+        <input id="totaleAttivo" class="form-control totale" readonly>
+      </div>
 
     </div>
   </div>

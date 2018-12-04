@@ -39,17 +39,11 @@ function somme() {
     document.getElementById('totaleAttivoCircolante').value = totaleAttivoCircolante.toFixed(2)
 
     // D) Ratei e Risconti
-
-    var rateiRisconti = document.getElementById('disaggioPrestiti').value
-    if(rateiRisconti == ""){
-        var totaleRateiRisconti = 0
-    }
-    else{
-        var totaleRateiRisconti = (parseFloat(rateiRisconti)).toFixed(2)
-    }
+    sommaRateiRisconti()
+    var totaleRateiRiscontiAttivi = document.getElementById('totaleRateiRiscontiAttivi').value
 
     // TOTALE ATTIVO
-    totaleAttivo = parseFloat(totaleCreditiVersoSoci) + parseFloat(totaleImmobilizzazioni) + parseFloat(totaleAttivoCircolante) + parseFloat(totaleRateiRisconti)
+    totaleAttivo = parseFloat(totaleCreditiVersoSoci) + parseFloat(totaleImmobilizzazioni) + parseFloat(totaleAttivoCircolante) + parseFloat(totaleRateiRiscontiAttivi)
     document.getElementById('totaleAttivo').value = totaleAttivo.toFixed(2)
 }
 
@@ -121,4 +115,14 @@ function sommaDisponibilitaLiquide() {
             tot += parseFloat(arr[i].value);
     }
     document.getElementById('totaleDisponibilitaLiquide').value = tot.toFixed(2);
+}
+
+function sommaRateiRisconti() {
+    var arr = document.getElementsByName('rateiRisconti');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (parseFloat(arr[i].value))
+            tot += parseFloat(arr[i].value);
+    }
+    document.getElementById('totaleRateiRiscontiAttivi').value = tot.toFixed(2);
 }

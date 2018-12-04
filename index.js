@@ -69,14 +69,14 @@ ipc.on('salva', function (ev, data) {
     var impreseCollegate = document.getElementById('impreseCollegate').value
     var impreseControllanti = document.getElementById('impreseControllanti').value
     var altreImprese = document.getElementById('altreImprese').value
-    var creditiImpreseControllateEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value
-    var creditiImpreseControllateOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value
-    var creditiImpreseCollegateEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value
-    var creditiImpreseCollegateOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value
-    var creditiImpreseControllantiEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value
-    var creditiImpreseControllantiOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value
-    var creditiAltreImpreseEntro12Mesi = document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value
-    var creditiAltreImpreseOltre12Mesi = document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value
+    var creditiImmobilizzazioniImpreseControllateEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value
+    var creditiImmobilizzazioniImpreseControllateOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value
+    var creditiImmobilizzazioniImpreseCollegateEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value
+    var creditiImmobilizzazioniImpreseCollegateOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value
+    var creditiImmobilizzazioniImpreseControllantiEntro12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value
+    var creditiImmobilizzazioniImpreseControllantiOltre12Mesi = document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value
+    var creditiImmobilizzazioniAltreImpreseEntro12Mesi = document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value
+    var creditiImmobilizzazioniAltreImpreseOltre12Mesi = document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value
     var altriTitoliImmobilizzazioni = document.getElementById('altriTitoliImmobilizzazioni').value
     var azioniProprie = document.getElementById('azioniProprie').value
     var totaleImmobilizzazioniFinanziarie = document.getElementById('totaleImmobilizzazioniFinanziarie').value
@@ -116,12 +116,12 @@ ipc.on('salva', function (ev, data) {
     var totaleDisponibilitaLiquide = document.getElementById('totaleDisponibilitaLiquide').value
     var totaleAttivoCircolante = document.getElementById('totaleAttivoCircolante').value
     // D) Ratei e Risconti
+    var rateiRisconti = document.getElementById('rateiRisconti').value
     var disaggioPrestiti = document.getElementById('disaggioPrestiti').value
+    var totaleRateiRiscontiAttivi = document.getElementById('totaleRateiRiscontiAttivi').value
     // TOTALE ATTIVO
     var totaleAttivo = document.getElementById('totaleAttivo').value
     /*
-    var  = document.getElementById('').value
-    var  = document.getElementById('').value
     var  = document.getElementById('').value
     var  = document.getElementById('').value
     var  = document.getElementById('').value
@@ -255,9 +255,11 @@ ipc.on('salva', function (ev, data) {
         "totaleDisponibilitaLiquide": totaleDisponibilitaLiquide,
         "totaleAttivoCircolante": totaleAttivoCircolante,
         // D) Ratei e Risconti
+        "rateiRisconti" : rateiRisconti,
         "disaggioPrestiti": disaggioPrestiti,
+        "totaleRateiRiscontiAttivi" : totaleRateiRiscontiAttivi,
         // TOTALE ATTIVO
-        "totaleAttivo": totaleAttivo,
+        "totaleAttivo": totaleAttivo
     }]
 
     var json = JSON.stringify(contenuto);
@@ -411,7 +413,9 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('totaleDisponibilitaLiquide').value = testo[0].totaleDisponibilitaLiquide
                 document.getElementById('totaleAttivoCircolante').value = testo[0].totaleAttivoCircolante
                 // D) Ratei e Risconti
+                document.getElementById('rateiRisconti').value = testo[0].rateiRisconti
                 document.getElementById('disaggioPrestiti').value = testo[0].disaggioPrestiti
+                document.getElementById('totaleRateiRiscontiAttivi').value = testo[0].totaleRateiRiscontiAttivi
                 // TOTALE ATTIVO
                 document.getElementById('totaleAttivo').value = testo[0].totaleAttivo
 
