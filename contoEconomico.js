@@ -5,7 +5,6 @@ var validate = function (e) {
 }
 
 function sommeCE() {
-
     // A) Valore della produzione
     sommaValoreProduzione()
     var totaleValoreProduzione = document.getElementById('totaleValoreProduzione').value
@@ -16,7 +15,7 @@ function sommeCE() {
 
     // Differenza tra Valore e Costi di Produzione
     var differenzaValoreCostiProduzione = parseFloat(totaleValoreProduzione) - parseFloat(totaleCostiProduzione)
-    document.getElementById('differenzaValoreCostiProduzione').value = differenzaValoreCostiProduzione.toFixed(2)
+    document.getElementById('differenzaValoreCostiProduzione').value = differenzaValoreCostiProduzione.toFixed(2).replace(".",",").concat(" €")
 
     // C) Proventi e oneri finanziari
     sommaProventiOneriFinanziari()
@@ -33,7 +32,7 @@ function sommeCE() {
     // Risultato prima delle imposte
     var risultatoPrimaDelleImposte = parseFloat(totaleValoreProduzione) - parseFloat(totaleCostiProduzione) + 
     parseFloat(totaleProventiOneriFinanziari) + parseFloat(totaleRettifiche) + parseFloat(totalePartiteStraordinarie)
-    document.getElementById('risultatoPrimaImposte').value = risultatoPrimaDelleImposte.toFixed(2)
+    document.getElementById('risultatoPrimaImposte').value = risultatoPrimaDelleImposte.toFixed(2).replace(".",",").concat(" €")
 
     // Imposte
     var imposteRedditoEsercizio = document.getElementById('imposteRedditoEsercizio').value
@@ -41,13 +40,12 @@ function sommeCE() {
         var totaleImposteRedditoEsercizio = 0 
     }
     else{
-        var totaleImposteRedditoEsercizio = (parseFloat(imposteRedditoEsercizio)).toFixed(2)
+        var totaleImposteRedditoEsercizio = (parseFloat(imposteRedditoEsercizio)).toFixed(2).replace(".",",").concat(" €")
     }
 
     // Utile (perdite) dell'esercizio
     var utilePerditeEsercizio = parseFloat(risultatoPrimaDelleImposte) - parseFloat(totaleImposteRedditoEsercizio)
-    document.getElementById('utilePerditeEsercizio').value = utilePerditeEsercizio.toFixed(2)
-
+    document.getElementById('utilePerditeEsercizio').value = utilePerditeEsercizio.toFixed(2).replace(".",",").concat(" €")
 }
 
 function sommaValoreProduzione() {
@@ -57,7 +55,7 @@ function sommaValoreProduzione() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleValoreProduzione').value = tot.toFixed(2);
+    document.getElementById('totaleValoreProduzione').value = tot.toFixed(2).replace(".",",").concat(" €")
 }
 
 function sommaCostiProduzione() {
@@ -67,7 +65,7 @@ function sommaCostiProduzione() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleCostiProduzione').value = tot.toFixed(2);
+    document.getElementById('totaleCostiProduzione').value = tot.toFixed(2).replace(".",",").concat(" €")
 }
 
 function sommaProventiOneriFinanziari() {
@@ -86,7 +84,7 @@ function sommaProventiOneriFinanziari() {
     }
 
     var totale = parseFloat(tot) - parseFloat(totMeno)
-    document.getElementById('totaleProventiOneriFinanziari').value = totale.toFixed(2);
+    document.getElementById('totaleProventiOneriFinanziari').value = totale.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaRettifiche() {
@@ -105,7 +103,7 @@ function sommaRettifiche() {
     }
 
     var tot = parseFloat(totRiv) - parseFloat(totSva)
-    document.getElementById('totaleRettifiche').value = tot.toFixed(2);
+    document.getElementById('totaleRettifiche').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaProventiOneriStraordinari() {
@@ -122,6 +120,11 @@ function sommaProventiOneriStraordinari() {
         totOneri += parseFloat(arrOneri[i].value);
     }
     var tot = parseFloat(totProventi) - parseFloat(totOneri)
-    document.getElementById('totalePartiteStraordinarie').value = tot.toFixed(2);
+    document.getElementById('totalePartiteStraordinarie').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
-
+/*
+function euro(e){
+    var t = e.value
+    e.value = t.toString().concat(" €")
+}
+*/

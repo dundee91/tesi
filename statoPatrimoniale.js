@@ -1,3 +1,4 @@
+
 var validate = function (e) {
     var t = e.value;
     e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
@@ -23,7 +24,7 @@ function sommeSP() {
     var totaleImmobilizzazioniMateriali = document.getElementById('totaleImmobilizzazioniMateriali').value
     var totaleImmobilizzazioniFinanziarie = document.getElementById('totaleImmobilizzazioniFinanziarie').value
     var totaleImmobilizzazioni = parseFloat(totaleImmobilizzazioniImmateriali) + parseFloat(totaleImmobilizzazioniMateriali) + parseFloat(totaleImmobilizzazioniFinanziarie)
-    document.getElementById('totaleImmobilizzazioni').value = totaleImmobilizzazioni.toFixed(2)
+    document.getElementById('totaleImmobilizzazioni').value = totaleImmobilizzazioni.toFixed(2).replace(".",",").concat(" €")
 
     // C) Attivo Circolante
     sommaRimanenze()
@@ -35,7 +36,7 @@ function sommeSP() {
     var totaleAttivitaFinanziarie = document.getElementById('totaleAttivitaFinanziarie').value
     var totaleDisponibilitaLiquide = document.getElementById('totaleDisponibilitaLiquide').value
     var totaleAttivoCircolante = parseFloat(totaleRimanenze) + parseFloat(totaleCrediti) + parseFloat(totaleAttivitaFinanziarie) + parseFloat(totaleDisponibilitaLiquide)
-    document.getElementById('totaleAttivoCircolante').value = totaleAttivoCircolante.toFixed(2)
+    document.getElementById('totaleAttivoCircolante').value = totaleAttivoCircolante.toFixed(2).replace(".",",").concat(" €")
 
     // D) Ratei e Risconti
     sommaRateiRiscontiAttivi()
@@ -43,7 +44,7 @@ function sommeSP() {
 
     // TOTALE ATTIVO
     totaleAttivo = parseFloat(totaleCreditiVersoSoci) + parseFloat(totaleImmobilizzazioni) + parseFloat(totaleAttivoCircolante) + parseFloat(totaleRateiRiscontiAttivi)
-    document.getElementById('totaleAttivo').value = totaleAttivo.toFixed(2)
+    document.getElementById('totaleAttivo').value = totaleAttivo.toFixed(2).replace(".",",").concat(" €")
 
     /* PASSIVO */
 
@@ -76,7 +77,7 @@ function sommeSP() {
     totalePassivo = parseFloat(totalePatrimonioNetto) + parseFloat(totaleFondiRischiOneri) + 
     parseFloat(totaleTrattamentoFineRapporto) + parseFloat(totaleDebiti) + parseFloat(totaleRateiRiscontiAttivi)
     
-    document.getElementById('totalePassivo').value = totalePassivo.toFixed(2)
+    document.getElementById('totalePassivo').value = totalePassivo.toFixed(2).replace(".",",").concat(" €")
 }
 
 function sommaImmobilizzazioniImmateriali() {
@@ -86,7 +87,7 @@ function sommaImmobilizzazioniImmateriali() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleImmobilizzazioniImmateriali').value = tot.toFixed(2);
+    document.getElementById('totaleImmobilizzazioniImmateriali').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaImmobilizzazioniMateriali() {
@@ -96,7 +97,7 @@ function sommaImmobilizzazioniMateriali() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleImmobilizzazioniMateriali').value = tot.toFixed(2);
+    document.getElementById('totaleImmobilizzazioniMateriali').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaImmobilizzazioniFinanziarie() {
@@ -106,7 +107,7 @@ function sommaImmobilizzazioniFinanziarie() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleImmobilizzazioniFinanziarie').value = tot.toFixed(2);
+    document.getElementById('totaleImmobilizzazioniFinanziarie').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaRimanenze() {
@@ -116,7 +117,7 @@ function sommaRimanenze() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleRimanenze').value = tot.toFixed(2);
+    document.getElementById('totaleRimanenze').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaCrediti() {
@@ -126,7 +127,7 @@ function sommaCrediti() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleCrediti').value = tot.toFixed(2);
+    document.getElementById('totaleCrediti').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaAttivitaFinanziarie() {
@@ -136,7 +137,7 @@ function sommaAttivitaFinanziarie() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleAttivitaFinanziarie').value = tot.toFixed(2);
+    document.getElementById('totaleAttivitaFinanziarie').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaDisponibilitaLiquide() {
@@ -146,7 +147,7 @@ function sommaDisponibilitaLiquide() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleDisponibilitaLiquide').value = tot.toFixed(2);
+    document.getElementById('totaleDisponibilitaLiquide').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaRateiRiscontiAttivi() {
@@ -156,7 +157,7 @@ function sommaRateiRiscontiAttivi() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleRateiRiscontiAttivi').value = tot.toFixed(2);
+    document.getElementById('totaleRateiRiscontiAttivi').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaPatrimonioNetto() {
@@ -166,7 +167,7 @@ function sommaPatrimonioNetto() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totalePatrimonioNetto').value = tot.toFixed(2);
+    document.getElementById('totalePatrimonioNetto').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaFondiRischiOneri() {
@@ -176,7 +177,7 @@ function sommaFondiRischiOneri() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleFondiRischiOneri').value = tot.toFixed(2);
+    document.getElementById('totaleFondiRischiOneri').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaRateiRiscontiPassivi() {
@@ -186,7 +187,7 @@ function sommaRateiRiscontiPassivi() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleRateiRiscontiPassivi').value = tot.toFixed(2);
+    document.getElementById('totaleRateiRiscontiPassivi').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
 
 function sommaDebiti() {
@@ -196,5 +197,5 @@ function sommaDebiti() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleDebiti').value = tot.toFixed(2);
+    document.getElementById('totaleDebiti').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
