@@ -4,7 +4,7 @@ var validate = function (e) {
     e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
 }
 
-function somme() {
+function sommeCE() {
 
     // A) Valore della produzione
     sommaValoreProduzione()

@@ -239,7 +239,7 @@
       <!-- Crediti verso soci (parte richiamata)-->
       <div class="form-group">
         <label class="etichetta">Crediti verso soci (parte richiamata)</label>
-        <input id="creditiVersoSoci" type="number" name="creditiVersoSoci" class="form-control" oninput="validate(this); somme()">
+        <input id="creditiVersoSoci" type="number" name="creditiVersoSoci" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h4>B) Immobilizzazioni</h4>
@@ -249,44 +249,44 @@
       <div class="form-group">
         <label class="etichetta">1) Costi di impianto e ampliamento</label>
         <input id="costiImpiantoAmpliamento" type="number" name="immobilizzazioniImmateriali" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Costi di ricerca e sviluppo-->
       <div class="form-group">
         <label class="etichetta"> 2) Costi di ricerca e sviluppo</label>
-        <input id="costiRicercaSviluppo" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="costiRicercaSviluppo" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Diritti di brevetto -->
       <div class="form-group">
         <label class="etichetta"> 3) Diritti di brevetto</label>
-        <input id="dirittiBrevetto" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="dirittiBrevetto" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Concessioni, licenze e marchi -->
       <div class="form-group">
         <label class="etichetta"> 4) Concessioni, licenze e marchi</label>
         <input id="concessioniLicenzeMarchi" type="number" name="immobilizzazioniImmateriali" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Avviamento -->
       <div class="form-group">
         <label class="etichetta"> 5) Avviamento</label>
-        <input id="avviamento" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="avviamento" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Immobilizzazioni in corso -->
       <div class="form-group">
         <label class="etichetta"> 6) Immobilizzazioni in corso</label>
-        <input id="immobilizzazioniCorso" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="immobilizzazioniCorso" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Altro -->
       <div class="form-group">
         <label class="etichetta"> 7) Altro</label>
-        <input id="immobilizzazioniAltro" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="immobilizzazioniAltro" type="number" name="immobilizzazioniImmateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale Immobilizzazioni Immateriali -->
@@ -300,31 +300,31 @@
       <!-- Terreni e fabbricati -->
       <div class="form-group">
         <label class="etichetta"> 1) Terreni e fabbricati</label>
-        <input id="terreniFabbricati" type="number" name="immobilizzazioniMateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="terreniFabbricati" type="number" name="immobilizzazioniMateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Impianti e macchinario-->
       <div class="form-group">
         <label class="etichetta"> 2) Impianti e macchinario</label>
-        <input id="impiantiMacchinario" type="number" name="immobilizzazioniMateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="impiantiMacchinario" type="number" name="immobilizzazioniMateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
       <!-- Attrezzature industriali -->
       <div class="form-group">
         <label class="etichetta"> 3) Attrezzature industriali</label>
-        <input id="attrezzatureIndustriali" type="number" name="immobilizzazioniMateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="attrezzatureIndustriali" type="number" name="immobilizzazioniMateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Altri beni -->
       <div class="form-group">
         <label class="etichetta"> 4) Altri beni</label>
-        <input id="altriBeni" type="number" name="immobilizzazioniMateriali" class="form-control" oninput="validate(this); somme()">
+        <input id="altriBeni" type="number" name="immobilizzazioniMateriali" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Immobilizzazioni in corso e acconti -->
       <div class="form-group">
         <label class="etichetta"> 5) Immobilizzazioni in corso e acconti</label>
         <input id="immobilizzazioniCorsoAcconti" type="number" name="immobilizzazioniMateriali" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale Immobilizzazioni Materiali -->
@@ -340,25 +340,25 @@
       <!-- Imprese controllate -->
       <div class="form-group">
         <label class="etichetta"> a) Imprese controllate</label>
-        <input id="impreseControllate" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); somme()">
+        <input id="impreseControllate" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Imprese collegate -->
       <div class="form-group">
         <label class="etichetta"> b) Imprese collegate</label>
-        <input id="impreseCollegate" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); somme()">
+        <input id="impreseCollegate" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Imprese controllanti -->
       <div class="form-group">
         <label class="etichetta"> c) Imprese controllanti</label>
-        <input id="impreseControllanti" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); somme()">
+        <input id="impreseControllanti" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Altre imprese -->
       <div class="form-group">
         <label class="etichetta"> d) Altre imprese</label>
-        <input id="altreImprese" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); somme()">
+        <input id="altreImprese" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 2) Crediti</h6>
@@ -369,14 +369,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiImmobilizzazioniImpreseControllateEntro12Mesi" type="number" name="immobilizzazioniFinanziarie"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiImmobilizzazioniImpreseControllateOltre12Mesi" type="number" name="immobilizzazioniFinanziarie"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h7> b) verso imprese collegate</h7>
@@ -385,14 +385,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiImmobilizzazioniImpreseCollegateEntro12Mesi" type="number" name="immobilizzazioniFinanziarie"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiImmobilizzazioniImpreseCollegateOltre12Mesi" type="number" name="immobilizzazioniFinanziarie"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h7> c) verso imprese controllanti</h7>
@@ -401,14 +401,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiImmobilizzazioniImpreseControllantiEntro12Mesi" type="number" name="immobilizzazioniFinanziarie"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiImmobilizzazioniImpreseControllantiOltre12Mesi" type="number" name="immobilizzazioniFinanziarie"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h7> d) verso altre imprese</h7>
@@ -417,27 +417,27 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiImmobilizzazioniAltreImpreseEntro12Mesi" type="number" name="immobilizzazioniFinanziarie"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiImmobilizzazioniAltreImpreseOltre12Mesi" type="number" name="immobilizzazioniFinanziarie"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Altri titoli -->
       <div class="form-group">
         <label class="etichetta"> 3) Altri titoli</label>
         <input id="altriTitoliImmobilizzazioni" type="number" name="immobilizzazioniFinanziarie" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Azioni proprie -->
       <div class="form-group">
         <label class="etichetta"> 4) Azioni proprie</label>
-        <input id="azioniProprie" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); somme()">
+        <input id="azioniProprie" type="number" name="immobilizzazioniFinanziarie" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale Immobilizzazioni Finanziarie -->
@@ -458,31 +458,31 @@
       <!-- Materie prime, sussidiarie e di consumo -->
       <div class="form-group">
         <label class="etichetta">1) Materie prime, sussidiarie e di consumo</label>
-        <input id="materiePrime" type="number" name="rimanenze" class="form-control" oninput="validate(this); somme()">
+        <input id="materiePrime" type="number" name="rimanenze" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Prodotti in corso di lavorazione e semilavorati -->
       <div class="form-group">
         <label class="etichetta"> 2) Prodotti in corso di lavorazione e semilavorati</label>
-        <input id="prodottiCorsoLavorazione" type="number" name="rimanenze" class="form-control" oninput="validate(this); somme()">
+        <input id="prodottiCorsoLavorazione" type="number" name="rimanenze" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Lavori in corso su ordinazione -->
       <div class="form-group">
         <label class="etichetta"> 3) Lavori in corso su ordinazione</label>
-        <input id="lavoriCorsoOrdinazione" type="number" name="rimanenze" class="form-control" oninput="validate(this); somme()">
+        <input id="lavoriCorsoOrdinazione" type="number" name="rimanenze" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Prodotti finiti e merci -->
       <div class="form-group">
         <label class="etichetta"> 4) Prodotti finiti e merci</label>
-        <input id="prodottiFinitiMerci" type="number" name="rimanenze" class="form-control" oninput="validate(this); somme()">
+        <input id="prodottiFinitiMerci" type="number" name="rimanenze" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Acconti -->
       <div class="form-group">
         <label class="etichetta"> 5) Acconti</label>
-        <input id="acconti" type="number" name="rimanenze" class="form-control" oninput="validate(this); somme()">
+        <input id="acconti" type="number" name="rimanenze" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale Rimanenze -->
@@ -499,14 +499,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiAttivoCircolanteClientiEntro12Mesi" type="number" name="creditiAttivoCircolante" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiAttivoCircolanteClientiOltre12Mesi" type="number" name="creditiAttivoCircolante" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <h7> b) verso imprese controllate</h7>
@@ -515,14 +515,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiAttivoCircolanteImpreseControllateEntro12Mesi" type="number" name="creditiAttivoCircolante"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiAttivoCircolanteImpreseControllateOltre12Mesi" type="number" name="creditiAttivoCircolante"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h7> b) verso imprese collegate</h7>
@@ -531,14 +531,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiAttivoCircolanteImpreseCollegateEntro12Mesi" type="number" name="creditiAttivoCircolante"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiAttivoCircolanteImpreseCollegateOltre12Mesi" type="number" name="creditiAttivoCircolante"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h7> c) verso imprese controllanti</h7>
@@ -547,14 +547,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiAttivoCircolanteImpreseControllantiEntro12Mesi" type="number" name="creditiAttivoCircolante"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiAttivoCircolanteImpreseControllantiOltre12Mesi" type="number" name="creditiAttivoCircolante"
-          class="form-control" oninput="validate(this); somme()">
+          class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h7> d) verso altre imprese</h7>
@@ -563,14 +563,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="creditiAttivoCircolanteAltreImpreseEntro12Mesi" type="number" name="creditiAttivoCircolante" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="creditiAttivoCircolanteAltreImpreseOltre12Mesi" type="number" name="creditiAttivoCircolante" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale Crediti -->
@@ -585,40 +585,40 @@
       <div class="form-group">
         <label class="etichetta">1) Partecipazioni in imprese controllate</label>
         <input id="partecipazioniImpreseControllate" type="number" name="attivitaFinanziarie" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Partecipazioni in imprese collegate -->
       <div class="form-group">
         <label class="etichetta"> 2) Partecipazioni in imprese collegate</label>
         <input id="partecipazioniImpreseCollegate" type="number" name="attivitaFinanziarie" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Partecipazioni in imprese controllanti -->
       <div class="form-group">
         <label class="etichetta"> 3) Partecipazioni in imprese controllanti</label>
         <input id="partecipazioniImpreseControllanti" type="number" name="attivitaFinanziarie" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Altre partecipazioni -->
       <div class="form-group">
         <label class="etichetta"> 4) Altre partecipazioni </label>
-        <input id="altrePartecipazioni" type="number" name="attivitaFinanziarie" class="form-control" oninput="validate(this); somme()">
+        <input id="altrePartecipazioni" type="number" name="attivitaFinanziarie" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Strumenti finanziari derivati attivi -->
       <div class="form-group">
         <label class="etichetta"> 5) Strumenti finanziari derivati attivi</label>
         <input id="strumentiFinanziariDerivatiAttivi" type="number" name="attivitaFinanziarie" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Altri titoli -->
       <div class="form-group">
         <label class="etichetta"> 5) Altri titoli</label>
-        <input id="altriTitoliAttivoCircolante" type="number" name="attivitaFinanziarie" class="form-control" oninput="validate(this); somme()">
+        <input id="altriTitoliAttivoCircolante" type="number" name="attivitaFinanziarie" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale Attività Finanziarie -->
@@ -632,19 +632,19 @@
       <!-- Depositi bancari e postali -->
       <div class="form-group">
         <label class="etichetta">1) Depositi bancari e postali</label>
-        <input id="depositiBancariPostali" type="number" name="disponibilitaLiquide" class="form-control" oninput="validate(this); somme()">
+        <input id="depositiBancariPostali" type="number" name="disponibilitaLiquide" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Assegni -->
       <div class="form-group">
         <label class="etichetta"> 2) Assegni</label>
-        <input id="assegni" type="number" name="disponibilitaLiquide" class="form-control" oninput="validate(this); somme()">
+        <input id="assegni" type="number" name="disponibilitaLiquide" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Danaro e valori in cassa -->
       <div class="form-group">
         <label class="etichetta"> 3) Danaro e valori in cassa</label>
-        <input id="danaroValoriCassa" type="number" name="disponibilitaLiquide" class="form-control" oninput="validate(this); somme()">
+        <input id="danaroValoriCassa" type="number" name="disponibilitaLiquide" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale disponibilità liquide -->
@@ -664,13 +664,13 @@
       <!-- Ratei e Risconti -->
       <div class="form-group">
         <label class="etichetta">Ratei e Risconti</label>
-        <input id="rateiRiscontiAttivo" type="number" name="rateiRiscontiAttivo" class="form-control" oninput="validate(this); somme()">
+        <input id="rateiRiscontiAttivo" type="number" name="rateiRiscontiAttivo" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Disaggio su prestiti -->
       <div class="form-group">
         <label class="etichetta">Disaggio su prestiti</label>
-        <input id="disaggioPrestiti" type="number" name="rateiRiscontiAttivo" class="form-control" oninput="validate(this); somme()">
+        <input id="disaggioPrestiti" type="number" name="rateiRiscontiAttivo" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale ratei e risconti attivi -->
@@ -691,61 +691,61 @@
       <!-- I. Capitale -->
       <div class="form-group">
         <label class="etichetta"> I. Capitale</label>
-        <input id="capitale" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="capitale" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- II. riserva da sovrapprezzo delle azioni-->
       <div class="form-group">
         <label class="etichetta"> II. riserva da sovrapprezzo delle azioni</label>
-        <input id="riservaSovrapprezzoAzioni" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="riservaSovrapprezzoAzioni" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- III. Riserve di rivalutazione -->
       <div class="form-group">
         <label class="etichetta"> III. Riserve di rivalutazione</label>
-        <input id="riserveRivalutazione" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="riserveRivalutazione" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- IV. Riserva legale -->
       <div class="form-group">
         <label class="etichetta"> IV. Riserva legale</label>
-        <input id="riservaLegale" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="riservaLegale" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- V. Riserve statutarie -->
       <div class="form-group">
         <label class="etichetta"> V. Riserve statutarie</label>
-        <input id="riserveStatutarie" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="riserveStatutarie" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- VI. Altre riserve, distintamente indicate -->
       <div class="form-group">
         <label class="etichetta"> VI. Altre riserve, distintamente indicate</label>
-        <input id="altreRiserve" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="altreRiserve" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- VII. Riserva per operazioni di copertura dei flussi finanziari attesi -->
       <div class="form-group">
         <label class="etichetta"> VII. Riserva per operazioni di copertura dei flussi finanziari attesi</label>
-        <input id="riservaOperazioniCopertura" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="riservaOperazioniCopertura" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- VIII. Utile (perdita) portato a nuovo -->
       <div class="form-group">
         <label class="etichetta"> VIII. Utile (perdita) portato a nuovo</label>
-        <input id="utilePortatoNuovo" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="utilePortatoNuovo" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- IX. Utile (perdita) dell'esercizio -->
       <div class="form-group">
         <label class="etichetta"> IX. Utile (perdita) dell'esercizio</label>
-        <input id="utileEsercizio" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="utileEsercizio" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- X. Riserva negativa per azioni proprie in portafoglio -->
       <div class="form-group">
         <label class="etichetta"> X. Riserva negativa per azioni proprie in portafoglio</label>
-        <input id="riservaNegativaAzioniProprie" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); somme()">
+        <input id="riservaNegativaAzioniProprie" type="number" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale patrimonio netto -->
@@ -760,26 +760,26 @@
       <div class="form-group">
         <label class="etichetta"> 1) per trattamento di quiescenza e obblighi simili</label>
         <input id="trattamentoQuiescenzaObblighiSimili" type="number" name="fondiRischiOneri" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- 2) per imposte, anche differite -->
       <div class="form-group">
         <label class="etichetta"> 2) per imposte, anche differite</label>
-        <input id="imposteAncheDifferite" type="number" name="fondiRischiOneri" class="form-control" oninput="validate(this); somme()">
+        <input id="imposteAncheDifferite" type="number" name="fondiRischiOneri" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- 3) strumenti finanziari derivati passivi -->
       <div class="form-group">
         <label class="etichetta"> 3) strumenti finanziari derivati passivi</label>
         <input id="strumentiFinanziariDerivatiPassivi" type="number" name="fondiRischiOneri" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- 4) altri fondi -->
       <div class="form-group">
         <label class="etichetta"> 4) altri fondi</label>
-        <input id="altriFondi" type="number" name="fondiRischiOneri" class="form-control" oninput="validate(this); somme()">
+        <input id="altriFondi" type="number" name="fondiRischiOneri" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale fondi per rischi e oneri -->
@@ -792,7 +792,7 @@
       <div class="form-group">
         <h4 class="etichetta"> C) Trattamento Fine Rapporto</h4>
         <input id="trattamentoFineRapportoSP" type="number" name="trattamentoFineRapportoSP" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <h4> D) Debiti</h4>
@@ -802,13 +802,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="obbligazioniEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="obbligazioniEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="obbligazioniOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="obbligazioniOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 2) Obbligazioni convertibili</h6>
@@ -816,13 +816,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="obbligazioniConvertibiliEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="obbligazioniConvertibiliEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="obbligazioniConvertibiliOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="obbligazioniConvertibiliOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 3) Debiti verso soci per finanziamenti</h6>
@@ -830,13 +830,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiVersoSociFinanziamentiEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoSociFinanziamentiEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiVersoSociFinanziamentiOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoSociFinanziamentiOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 4) Debiti verso banche</h6>
@@ -844,13 +844,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiVersoBancheEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoBancheEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiVersoBancheOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoBancheOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 5) Debiti verso altri finanziatori</h6>
@@ -858,13 +858,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiVersoAltriFinanziatoriEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoAltriFinanziatoriEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiVersoAltriFinanziatoriOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoAltriFinanziatoriOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 6) Acconti</h6>
@@ -872,13 +872,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="accontiEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="accontiEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="accontiOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="accontiOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 7) Debiti verso fornitori</h6>
@@ -886,13 +886,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiVersoFornitoriEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoFornitoriEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiVersoFornitoriOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoFornitoriOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 8) Debiti rappresentati da titoli di credito</h6>
@@ -901,14 +901,14 @@
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
         <input id="debitiRappresentatiTitoliCreditoEntro12Mesi" type="number" name="debiti" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
         <input id="debitiRappresentatiTitoliCreditooltre12Mesi" type="number" name="debiti" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 9) Debiti verso imprese controllate</h6>
@@ -916,13 +916,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiVersoImpreseControllateEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoImpreseControllateEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiVersoImpreseControllateOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoImpreseControllateOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 10) Debiti verso imprese collegate</h6>
@@ -930,13 +930,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiVersoImpreseCollegateEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoImpreseCollegateEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiVersoImpreseCollegateOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoImpreseCollegateOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 11) Debiti verso controllanti </h6>
@@ -944,13 +944,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiVersoControllantiEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoControllantiEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiVersoControllantiOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoControllantiOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 12) Debiti tributari </h6>
@@ -958,13 +958,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiTributariEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiTributariEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiTributariOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiTributariOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 13) Debiti verso istituti di previdenza e di sicurezza sociale </h6>
@@ -972,13 +972,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="debitiVersoIstituiPrevidenzaEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoIstituiPrevidenzaEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiVersoIstituiPrevidenzaOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="debitiVersoIstituiPrevidenzaOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <h6> 14) Altri debiti </h6>
@@ -986,13 +986,13 @@
       <!-- entro 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> entro 12 mesi</label>
-        <input id="altriDebitiEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="altriDebitiEntro12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="altriDebitiOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); somme()">
+        <input id="altriDebitiOltre12Mesi" type="number" name="debiti" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale debiti -->
@@ -1006,13 +1006,13 @@
       <!-- Ratei e Risconti -->
       <div class="form-group">
         <label class="etichetta">Ratei e Risconti</label>
-        <input id="rateiRiscontiPassivo" type="number" name="rateiRiscontiPassivo" class="form-control" oninput="validate(this); somme()">
+        <input id="rateiRiscontiPassivo" type="number" name="rateiRiscontiPassivo" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Disaggio su prestiti -->
       <div class="form-group">
         <label class="etichetta">Aggio su prestiti</label>
-        <input id="aggioPrestiti" type="number" name="rateiRiscontiPassivo" class="form-control" oninput="validate(this); somme()">
+        <input id="aggioPrestiti" type="number" name="rateiRiscontiPassivo" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale ratei e risconti passivi -->
@@ -1039,33 +1039,33 @@
       <!-- 1) Ricavi da vendite -->
       <div class="form-group">
         <label class="etichetta">1) Ricavi da vendite</label>
-        <input id="ricaviVendite" type="number" name="valoreProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="ricaviVendite" type="number" name="valoreProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 2) Variazioni delle rimanenze -->
       <div class="form-group">
         <label class="etichetta">2) Variazioni delle rimanenze</label>
-        <input id="variazioniRimanenze" type="number" name="valoreProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="variazioniRimanenze" type="number" name="valoreProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 3) Variazioni delle rimanenze di prodotti in corso -->
       <div class="form-group">
         <label class="etichetta">3) Variazioni delle rimanenze di prodotti in corso</label>
         <input id="variazioniRimanenzeProdottiInCorso" type="number" name="valoreProduzione" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 4) Incrementi di immobilizzazioni per lavori interni-->
       <div class="form-group">
         <label class="etichetta">4) Incrementi di immobilizzazioni per lavori interni</label>
         <input id="incrementiImmobilizzazioniLavoriInterni" type="number" name="valoreProduzione" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 5) Altri ricavi e proventi -->
       <div class="form-group">
         <label class="etichetta">5) Altri ricavi e proventi</label>
-        <input id="altriRicaviProventi" type="number" name="valoreProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="altriRicaviProventi" type="number" name="valoreProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- Totale Valore Produzione -->
@@ -1079,19 +1079,19 @@
       <!-- 6) Materie prime -->
       <div class="form-group">
         <label class="etichetta">6) Materie prime</label>
-        <input id="materiePrimeCE" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="materiePrimeCE" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 7) Servizi -->
       <div class="form-group">
         <label class="etichetta">7) Servizi</label>
-        <input id="servizi" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="servizi" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 8) Godimento di beni di terzi -->
       <div class="form-group">
         <label class="etichetta">8) Godimento di beni di terzi</label>
-        <input id="godimentoBeniTerzi" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="godimentoBeniTerzi" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <h5>9) Personale</h5>
@@ -1099,31 +1099,31 @@
       <!-- a) Salari e stipendi -->
       <div class="form-group">
         <label class="etichetta">a) Salari e stipendi</label>
-        <input id="salariStipendi" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="salariStipendi" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- b) Oneri sociali -->
       <div class="form-group">
         <label class="etichetta">b) Oneri sociali</label>
-        <input id="oneriSociali" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="oneriSociali" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- c) Trattamento di fine rapporto -->
       <div class="form-group">
         <label class="etichetta">c) Trattamento di fine rapporto</label>
-        <input id="trattamentoFineRapportoCE" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="trattamentoFineRapportoCE" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- d) Trattamento di quiescenza e simili -->
       <div class="form-group">
         <label class="etichetta">d) Trattamento di quiescenza e simili</label>
-        <input id="trattamentoQuiescenzaSimili" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="trattamentoQuiescenzaSimili" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- e) Altri costi -->
       <div class="form-group">
         <label class="etichetta">e) Altri costi</label>
-        <input id="altriCosti" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="altriCosti" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <h5>10) Ammortamenti e Svalutazioni</h5>
@@ -1132,20 +1132,20 @@
       <div class="form-group">
         <label class="etichetta">a) Ammortamento delle immobilizzazioni immateriali</label>
         <input id="ammortamentoImmobilizzazioniImmateriali" type="number" name="costiProduzione" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeCE()">
       </div>
 
       <!-- b) Ammortamento delle immobilizzazioni materiali -->
       <div class="form-group">
         <label class="etichetta">b) Ammortamento delle immobilizzazioni materiali</label>
         <input id="ammortamentoImmobilizzazioniMateriali" type="number" name="costiProduzione" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeCE()">
       </div>
 
       <!-- c) Altre svalutazioni delle immobilizzazioni -->
       <div class="form-group">
         <label class="etichetta">c) Altre svalutazioni delle immobilizzazioni</label>
-        <input id="altreSvalutazioniImmobilizzazioni" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="altreSvalutazioniImmobilizzazioni" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- d) Svalutazioni dei crediti compresi nell'attivo circolante e delle disponibilità liquide -->
@@ -1153,31 +1153,31 @@
         <label class="etichetta">d) Svalutazioni dei crediti compresi nell'attivo circolante e delle disponibilità
           liquide</label>
         <input id="svalutazioniCreditiCompresiAttivoCircolante" type="number" name="costiProduzione" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 11) Variazione delle rimanenze di materie prime -->
       <div class="form-group">
         <label class="etichetta">11) Variazione delle rimanenze di materie prime</label>
-        <input id="variazioneRimanenzeMateriePrime" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="variazioneRimanenzeMateriePrime" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 12) Accantonamenti per rischi -->
       <div class="form-group">
         <label class="etichetta">12) Accantonamenti per rischi</label>
-        <input id="accantonamentiPerRischi" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="accantonamentiPerRischi" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 13) Altri accantonamenti -->
       <div class="form-group">
         <label class="etichetta">13) Altri accantonamenti</label>
-        <input id="altriAccantonamenti" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="altriAccantonamenti" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 14) Oneri diversi di gestione -->
       <div class="form-group">
         <label class="etichetta">14) Oneri diversi di gestione</label>
-        <input id="oneriDiversiGestione" type="number" name="costiProduzione" class="form-control" oninput="validate(this); somme()">
+        <input id="oneriDiversiGestione" type="number" name="costiProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- Totale Costi Produzione -->
@@ -1200,14 +1200,14 @@
       <div class="form-group">
         <label class="etichetta">da controllate</label>
         <input id="proventiDaControllate" type="number" name="proventiOneriFinanziari" class="form-control"
-          oninput="validate(this); somme()">
+          oninput="validate(this); sommeCE()">
       </div>
 
       <!-- da collegate -->
       <div class="form-group">
           <label class="etichetta">da collegate</label>
           <input id="proventiDaCollegate" type="number" name="proventiOneriFinanziari" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
         
       <h5>16) Altri proventi finanziari</h5>
@@ -1218,35 +1218,35 @@
       <div class="form-group">
           <label class="etichetta">da controllate</label>
           <input id="proventiCreditiIscrittiImmobilizzazioniControllate" type="number" name="proventiOneriFinanziari" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
 
         <!-- da collegate -->
         <div class="form-group">
             <label class="etichetta">da collegate</label>
             <input id="proventiCreditiIscrittiImmobilizzazioniCollegate" type="number" name="proventiOneriFinanziari" class="form-control"
-              oninput="validate(this); somme()">
+              oninput="validate(this); sommeCE()">
           </div>
           
       <!-- da controllate -->
       <div class="form-group">
           <label class="etichetta">da controllanti</label>
           <input id="proventiCreditiIscrittiImmobilizzazioniControllanti" type="number" name="proventiOneriFinanziari" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
 
         <!-- b) da titoli iscritti nelle immobilizzazioni che non costituiscono partecipazioni -->
         <div class="form-group">
             <label class="etichetta">b) da titoli iscritti nelle immobilizzazioni che non costituiscono partecipazioni</label>
             <input id="proventiTitoliIscrittiImmobilizzazioni" type="number" name="proventiOneriFinanziari" class="form-control"
-              oninput="validate(this); somme()">
+              oninput="validate(this); sommeCE()">
           </div>
 
       <!-- c) da titoli iscritti nell'attivo circolante che non costituiscono partecipazioni -->
       <div class="form-group">
           <label class="etichetta">c) da titoli iscritti nell'attivo circolante che non costituiscono partecipazioni</label>
           <input id="proventiTitoliIscrittiAttivoCircolante" type="number" name="proventiOneriFinanziari" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
         
       <h6>d) proventi diversi dai precedenti</h6>
@@ -1255,21 +1255,21 @@
       <div class="form-group">
           <label class="etichetta">da controllate</label>
           <input id="proventiDiversiDaiPrecedentiControllate" type="number" name="proventiOneriFinanziari" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
 
         <!-- da collegate -->
         <div class="form-group">
             <label class="etichetta">da collegate</label>
             <input id="proventiDiversiDaiPrecedentiCollegate" type="number" name="proventiOneriFinanziari" class="form-control"
-              oninput="validate(this); somme()">
+              oninput="validate(this); sommeCE()">
           </div>
 
       <!-- da controllanti -->
       <div class="form-group">
           <label class="etichetta">da controllanti</label>
           <input id="proventiDiversiDaiPrecedentiControllanti" type="number" name="proventiOneriFinanziari" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
 
         <h5>17) Interessi e altri oneri finanziari</h5>
@@ -1278,21 +1278,21 @@
       <div class="form-group">
           <label class="etichetta">da controllate</label>
           <input id="interessiAltriOneriFinanziariDaControllate" type="number" name="proventiOneriFinanziariMeno" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
 
         <!-- da collegate -->
         <div class="form-group">
             <label class="etichetta">da collegate</label>
             <input id="interessiAltriOneriFinanziariDaCollegate" type="number" name="proventiOneriFinanziariMeno" class="form-control"
-              oninput="validate(this); somme()">
+              oninput="validate(this); sommeCE()">
           </div>
           
       <!-- da controllate -->
       <div class="form-group">
           <label class="etichetta">da controllanti</label>
           <input id="interessiAltriOneriFinanziariDaControllanti" type="number" name="proventiOneriFinanziariMeno" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
   
         <!-- Totale Proventi e Oneri Finanziari -->
@@ -1309,28 +1309,28 @@
       <div class="form-group">
           <label class="etichetta">a) di partecipazioni</label>
           <input id="rivalutazioniPartecipazioni" type="number" name="rettificheRivalutazioni" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
 
         <!-- b) di immobilizzazioni finanziarie che non costituiscono partecipazioni -->
         <div class="form-group">
             <label class="etichetta">b) di immobilizzazioni finanziarie che non costituiscono partecipazioni</label>
             <input id="rivalutazioniImmobilizzazioniFinanziarie" type="number" name="rettificheRivalutazioni" class="form-control"
-              oninput="validate(this); somme()">
+              oninput="validate(this); sommeCE()">
           </div>
           
       <!-- c) di titoli iscritti nell'attivo circolante che non costituiscono partecipazioni -->
       <div class="form-group">
           <label class="etichetta">c) di titoli iscritti nell'attivo circolante che non costituiscono partecipazioni</label>
           <input id="rivalutazioniTitoliIscrittiAttivoCircolante" type="number" name="rettificheRivalutazioni" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
         
       <!-- d) di strumenti finanziari derivati -->
       <div class="form-group">
           <label class="etichetta">d) di strumenti finanziari derivati</label>
           <input id="rivalutazioniStrumentiFinanziariDerivati" type="number" name="rettificheRivalutazioni" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
         
       <h5>19) Svalutazioni</h5>
@@ -1339,28 +1339,28 @@
       <div class="form-group">
           <label class="etichetta">a) di partecipazioni</label>
           <input id="svalutazioniPartecipazioni" type="number" name="rettificheSvalutazioni" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
 
         <!-- b) di immobilizzazioni finanziarie che non costituiscono partecipazioni -->
         <div class="form-group">
             <label class="etichetta">b) di immobilizzazioni finanziarie che non costituiscono partecipazioni</label>
             <input id="svalutazioniImmobilizzazioniFinanziarie" type="number" name="rettificheSvalutazioni" class="form-control"
-              oninput="validate(this); somme()">
+              oninput="validate(this); sommeCE()">
           </div>
           
       <!-- c) di titoli iscritti nell'attivo circolante che non costituiscono partecipazioni -->
       <div class="form-group">
           <label class="etichetta">c) di titoli iscritti nell'attivo circolante che non costituiscono partecipazioni</label>
           <input id="svalutazioniTitoliIscrittiAttivoCircolante" type="number" name="rettificheSvalutazioni" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
         
       <!-- d) di strumenti finanziari derivati -->
       <div class="form-group">
           <label class="etichetta">d) di strumenti finanziari derivati</label>
           <input id="svalutazioniStrumentiFinanziariDerivati" type="number" name="rettificheSvalutazioni" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
   
         <!-- Totale delle Rettifiche -->
@@ -1374,34 +1374,34 @@
       <!-- 20) Proventi Straordinari -->
       <div class="form-group">
           <label class="etichetta">20) Proventi Straordinari</label>
-          <input id="proventiStraordinari" type="number" name="proventiStraordinari" class="form-control" oninput="validate(this); somme()">
+          <input id="proventiStraordinari" type="number" name="proventiStraordinari" class="form-control" oninput="validate(this); sommeCE()">
         </div>
   
       <!-- Plusvalenze da alienazioni -->
       <div class="form-group">
           <label class="etichetta">Plusvalenze da alienazioni</label>
           <input id="plusvalenzeAlienazioni" type="number" name="proventiStraordinari" class="form-control"
-            oninput="validate(this); somme()">
+            oninput="validate(this); sommeCE()">
         </div>
   
         <!-- 21) Oneri Straordinari -->
         <div class="form-group">
             <label class="etichetta">21) Oneri Straordinari</label>
-            <input id="oneriStraordinari" type="number" name="oneriStraordinari" class="form-control" oninput="validate(this); somme()">
+            <input id="oneriStraordinari" type="number" name="oneriStraordinari" class="form-control" oninput="validate(this); sommeCE()">
           </div>
     
         <!-- Minusvalenze da alienazioni -->
         <div class="form-group">
             <label class="etichetta">Minusvalenze da alienazioni</label>
             <input id="minusvalenzeAlienazioni" type="number" name="oneriStraordinari" class="form-control"
-              oninput="validate(this); somme()">
+              oninput="validate(this); sommeCE()">
           </div>
 
         <!-- Imposte relative ad esercizi precedenti -->
         <div class="form-group">
             <label class="etichetta">Imposte relative ad esercizi precedenti</label>
             <input id="imposteRelativeEserciziPrecedenti" type="number" name="oneriStraordinari" class="form-control"
-              oninput="validate(this); somme()">
+              oninput="validate(this); sommeCE()">
           </div>
   
           <!-- Totale Partite Straordinarie -->
@@ -1419,7 +1419,7 @@
         <!-- 22) Imposte sul reddito dell'esercizio, correnti, differite e anticipate -->
         <div class="form-group">
           <label class="etichetta">22) Imposte sul reddito dell'esercizio, correnti, differite e anticipate</label>
-          <input id="imposteRedditoEsercizio" type="number" name="imposteRedditoEsercizio" class="form-control" oninput="validate(this); somme()">
+          <input id="imposteRedditoEsercizio" type="number" name="imposteRedditoEsercizio" class="form-control" oninput="validate(this); sommeCE()">
         </div>
           
           <!-- 23) Utile (perdite) dell'esercizio -->
