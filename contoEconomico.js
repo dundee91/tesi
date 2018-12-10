@@ -122,9 +122,15 @@ function sommaProventiOneriStraordinari() {
     var tot = parseFloat(totProventi) - parseFloat(totOneri)
     document.getElementById('totalePartiteStraordinarie').value = tot.toFixed(2).replace(".",",").concat(" €");
 }
-/*
-function euro(e){
-    var t = e.value
-    e.value = t.toString().concat(" €")
+
+const formatter = new Intl.NumberFormat('de-DE', {
+    style:'currency', currency:'EUR'
+})
+
+function prova(e){
+console.log("e :" + e.value)
+console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(e.value));
+// expected output: "123.456,79 €"
+var t = e.value
+e.value = formatter.format(t)
 }
-*/

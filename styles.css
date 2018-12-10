@@ -6,20 +6,23 @@
 	overflow: scroll;
 }
 
-.hash-output {
-  font-size: 16px;
-  letter-spacing: 2px;
-  white-space: pre-wrap;
-}
-
 .form-group input{
 	width: 300px;
 }
+
+.form-group .text-area{
+	resize: none;
+	width: 40%;
+  }
 
 h5{
 	font-weight: bold;
 	color: brown;
 	font-style: italic
+}
+
+.form-group textarea{
+width: 300px;
 }
 
 .etichetta {
@@ -30,12 +33,13 @@ h5{
 .form-group .totale{
 	background-color: rgb(204, 255, 51)
 }
+
 .etichetta, .form-group input
 {
 	float: none;
 	display: inline-block;
 	vertical-align: middle;
-}    
+}   
 
 .bodyForm{
   margin: 25px;
@@ -45,11 +49,7 @@ h3{
   color: red
 }
 
-.text-area{
-  resize: none;
-  width: 40%;
-}
-
+/*TAB*/
 /* Stile della tab */
 .tab {
 	overflow: hidden;

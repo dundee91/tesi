@@ -90,6 +90,7 @@ app.on('ready', () => {
         { role: 'togglefullscreen', label: 'Modalità schermo intero' }
       ]
     },
+    /*
     {
       label: 'Strumenti',
       submenu: [
@@ -100,6 +101,7 @@ app.on('ready', () => {
         { label: 'Rimuovi ultimo anno (forecast)' },
       ]
     },
+    */
     {
       label: 'Opzioni',
       submenu: [

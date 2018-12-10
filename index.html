@@ -36,12 +36,8 @@
       <form>
         <!-- Ragione Sociale -->
         <div class="form-group">
-          <div>
-            <label class="etichetta">Ragione Sociale</label>
-          </div>
-          <div class="text-input">
-            <input id="ragioneSociale" type="text" class="form-control text-input" placeholder="Nome azienda">
-          </div>
+          <div><label class="etichetta">Ragione Sociale</label></div>
+          <div class="text-input"><input id="ragioneSociale" type="text" class="form-control text-input"></div>
         </div>
         <!-- Partita IVA -->
         <div class="form-group">
@@ -119,7 +115,7 @@
         <!-- Note -->
         <div class="form-group">
           <div><label class="etichetta">Note</label></div>
-          <div class="text-input"><textarea id="note" type="text" class="form-control text-area"></textarea></div>
+          <textarea id="note" type="text" class="form-control" style="resize:none"></textarea>
         </div>
       </form>
     </div>
@@ -1049,8 +1045,7 @@
       <!-- 3) Variazioni delle rimanenze di prodotti in corso -->
       <div class="form-group">
         <label class="etichetta">3) Variazioni delle rimanenze di prodotti in corso</label>
-        <input id="variazioniRimanenzeProdottiInCorso" type="number" name="valoreProduzione" class="form-control"
-          oninput="validate(this); sommeCE()">
+        <input id="variazioniRimanenzeProdottiInCorso" type="number" name="valoreProduzione" class="form-control" oninput="validate(this); sommeCE()">
       </div>
 
       <!-- 4) Incrementi di immobilizzazioni per lavori interni-->
