@@ -55,6 +55,9 @@ h3{
 	overflow: hidden;
 	border: 1px solid white;
 	background-color: white;
+	position: fixed;
+	top: 0; 
+	width: 100%;
 }
 
 /* Stile dei bottoni delle tab*/
