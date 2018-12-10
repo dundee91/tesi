@@ -53,7 +53,7 @@ h3{
 /* Stile della tab */
 .tab {
 	overflow: hidden;
-	border: 1px solid white;
+	border: 3px solid white;
 	background-color:rgb(65, 11, 11);
 	position: fixed;
 	top: 0; 
@@ -63,6 +63,7 @@ h3{
 
 /* Stile dei bottoni delle tab*/
 .tab button {
+	border: 3px solid white;
 	background-color:rgb(65, 11, 11);
 	float: left;
 	border: none;
