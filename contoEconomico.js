@@ -15,7 +15,7 @@ function sommeCE() {
 
     // Differenza tra Valore e Costi di Produzione
     var differenzaValoreCostiProduzione = parseFloat(totaleValoreProduzione) - parseFloat(totaleCostiProduzione)
-    document.getElementById('differenzaValoreCostiProduzione').value = differenzaValoreCostiProduzione.toFixed(2).replace(".",",").concat(" €")
+    document.getElementById('differenzaValoreCostiProduzione').value = differenzaValoreCostiProduzione.toFixed(2)
 
     // C) Proventi e oneri finanziari
     sommaProventiOneriFinanziari()
@@ -32,7 +32,7 @@ function sommeCE() {
     // Risultato prima delle imposte
     var risultatoPrimaDelleImposte = parseFloat(totaleValoreProduzione) - parseFloat(totaleCostiProduzione) + 
     parseFloat(totaleProventiOneriFinanziari) + parseFloat(totaleRettifiche) + parseFloat(totalePartiteStraordinarie)
-    document.getElementById('risultatoPrimaImposte').value = risultatoPrimaDelleImposte.toFixed(2).replace(".",",").concat(" €")
+    document.getElementById('risultatoPrimaImposte').value = risultatoPrimaDelleImposte.toFixed(2)
 
     // Imposte
     var imposteRedditoEsercizio = document.getElementById('imposteRedditoEsercizio').value
@@ -40,12 +40,12 @@ function sommeCE() {
         var totaleImposteRedditoEsercizio = 0 
     }
     else{
-        var totaleImposteRedditoEsercizio = (parseFloat(imposteRedditoEsercizio)).toFixed(2).replace(".",",").concat(" €")
+        var totaleImposteRedditoEsercizio = (parseFloat(imposteRedditoEsercizio)).toFixed(2)
     }
 
     // Utile (perdite) dell'esercizio
     var utilePerditeEsercizio = parseFloat(risultatoPrimaDelleImposte) - parseFloat(totaleImposteRedditoEsercizio)
-    document.getElementById('utilePerditeEsercizio').value = utilePerditeEsercizio.toFixed(2).replace(".",",").concat(" €")
+    document.getElementById('utilePerditeEsercizio').value = utilePerditeEsercizio.toFixed(2)
 }
 
 function sommaValoreProduzione() {
@@ -55,7 +55,7 @@ function sommaValoreProduzione() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleValoreProduzione').value = tot.toFixed(2).replace(".",",").concat(" €")
+    document.getElementById('totaleValoreProduzione').value = tot.toFixed(2)
 }
 
 function sommaCostiProduzione() {
@@ -65,7 +65,7 @@ function sommaCostiProduzione() {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('totaleCostiProduzione').value = tot.toFixed(2).replace(".",",").concat(" €")
+    document.getElementById('totaleCostiProduzione').value = tot.toFixed(2)
 }
 
 function sommaProventiOneriFinanziari() {
@@ -84,7 +84,7 @@ function sommaProventiOneriFinanziari() {
     }
 
     var totale = parseFloat(tot) - parseFloat(totMeno)
-    document.getElementById('totaleProventiOneriFinanziari').value = totale.toFixed(2).replace(".",",").concat(" €");
+    document.getElementById('totaleProventiOneriFinanziari').value = totale.toFixed(2);
 }
 
 function sommaRettifiche() {
@@ -103,7 +103,7 @@ function sommaRettifiche() {
     }
 
     var tot = parseFloat(totRiv) - parseFloat(totSva)
-    document.getElementById('totaleRettifiche').value = tot.toFixed(2).replace(".",",").concat(" €");
+    document.getElementById('totaleRettifiche').value = tot.toFixed(2);
 }
 
 function sommaProventiOneriStraordinari() {
@@ -120,7 +120,7 @@ function sommaProventiOneriStraordinari() {
         totOneri += parseFloat(arrOneri[i].value);
     }
     var tot = parseFloat(totProventi) - parseFloat(totOneri)
-    document.getElementById('totalePartiteStraordinarie').value = tot.toFixed(2).replace(".",",").concat(" €");
+    document.getElementById('totalePartiteStraordinarie').value = tot.toFixed(2);
 }
 
 const formatter = new Intl.NumberFormat('de-DE', {
