@@ -262,6 +262,56 @@ ipc.on('salva', function (ev, data) {
     // Utile (perdite) dell'esercizio
     var utilePerditeEsercizio = document.getElementById('utilePerditeEsercizio').value
 
+    /* RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO */
+    var SPimmobilizzazioniImmateriali = document.getElementById('SPimmobilizzazioniImmateriali').value
+    var SPimmobilizzazioniMateriali = document.getElementById('SPimmobilizzazioniMateriali').value
+    var SPimmobilizzazioniFinanziarie = document.getElementById('SPimmobilizzazioniFinanziarie').value
+    var SPtotaleImmobilizzazioniNette = document.getElementById('SPtotaleImmobilizzazioniNette').value
+    var SPmagazzino = document.getElementById('SPmagazzino').value
+    var SPcreditiCommerciali = document.getElementById('SPcreditiCommerciali').value
+    var SPaltriCrediti = document.getElementById('SPaltriCrediti').value
+    var SPliquidita = document.getElementById('SPliquidita').value
+    var SPtotaleAttivoCircolante = document.getElementById('SPtotaleAttivoCircolante').value
+    var SPtotaleAttivo = document.getElementById('SPtotaleAttivo').value
+    var SPcapitaleSociale = document.getElementById('SPcapitaleSociale').value
+    var SPriserve = document.getElementById('SPriserve').value
+    var SPredditoNetto = document.getElementById('SPredditoNetto').value
+    var SPtotalePatrimonioNetto = document.getElementById('SPtotalePatrimonioNetto').value
+    var SPdebitiFinanziariMlTermine = document.getElementById('SPdebitiFinanziariMlTermine').value
+    var SPaltriDebiti = document.getElementById('SPaltriDebiti').value
+    var SPfondoTFR = document.getElementById('SPfondoTFR').value
+    var SPaltriFondi = document.getElementById('SPaltriFondi').value
+    var SPtotalePassivoMlTermine = document.getElementById('SPtotalePassivoMlTermine').value
+    var SPdebitiFinanziariBreveTermine = document.getElementById('SPdebitiFinanziariBreveTermine').value
+    var SPdebitiCommercialiFornitori = document.getElementById('SPdebitiCommercialiFornitori').value
+    var SPaltriDebitiNonFinanziari = document.getElementById('SPaltriDebitiNonFinanziari').value
+    var SPrateiRiscontiPassivi = document.getElementById('SPrateiRiscontiPassivi').value
+    var SPtotalePassivoBreveTermine = document.getElementById('SPtotalePassivoBreveTermine').value
+    var SPtotalePassivoPatrimonioNetto = document.getElementById('SPtotalePassivoPatrimonioNetto').value
+    var SPeventualeSquadraturaAttivoPass = document.getElementById('SPeventualeSquadraturaAttivoPass').value
+
+    /* RICLASSIFICAZIONE CONTO ECONOMICO VALORE AGGIUNTO */
+    var CEricaviVendite = document.getElementById('CEricaviVendite').value
+    var CEproduzioneInterna = document.getElementById('CEproduzioneInterna').value
+    var CEtotaleValoreProduzione = document.getElementById('CEtotaleValoreProduzione').value
+    var CEconsumoMateriePrime = document.getElementById('CEconsumoMateriePrime').value
+    var CEcostiServizi = document.getElementById('CEcostiServizi').value
+    var CEtotaleConsumiEsterni = document.getElementById('CEtotaleConsumiEsterni').value
+    var CEvaloreAggiunto = document.getElementById('CEvaloreAggiunto').value
+    var CEcostiPersonale = document.getElementById('CEcostiPersonale').value
+    var CEtotaleMargineOperativoLordo = document.getElementById('CEtotaleMargineOperativoLordo').value
+    var CEammortamenti = document.getElementById('CEammortamenti').value
+    var CEcanoniLeasing = document.getElementById('CEcanoniLeasing').value
+    var CEaccantonamentiSvalutazioni = document.getElementById('CEaccantonamentiSvalutazioni').value
+    var CEtotaleAmmortamentiSvalutazioni = document.getElementById('CEtotaleAmmortamentiSvalutazioni').value
+    var CEaltriProventiOperativiFinanziari = document.getElementById('CEaltriProventiOperativiFinanziari').value
+    var CEtotaleRisultatoOperativo = document.getElementById('CEtotaleRisultatoOperativo').value
+    var CEoneriFinanziari = document.getElementById('CEoneriFinanziari').value
+    var CEtotaleRisultatoLordo = document.getElementById('CEtotaleRisultatoLordo').value
+    var CErisultatoAreaStraordinaria = document.getElementById('CErisultatoAreaStraordinaria').value
+    var CEtotaleRisultatoAnteImposte = document.getElementById('CEtotaleRisultatoAnteImposte').value
+    var CEimposteReddito = document.getElementById('CEimposteReddito').value
+    var CEtotaleRisultatoNetto = document.getElementById('CEtotaleRisultatoNetto').value
     /*
     var  = document.getElementById('').value
     var  = document.getElementById('').value
@@ -270,259 +320,317 @@ ipc.on('salva', function (ev, data) {
     */
 
     //creo array per json
-    let contenuto = [{
-        // Anagrafica Aziendale
-        "ragioneSociale": ragioneSociale,
-        "partitaIVA": partitaIVA,
-        "settoreProduzione": settoreProduzione,
-        "contrattoCollettivo": contrattoCollettivo,
-        "numeroDipendenti": numeroDipendenti,
-        "indirizzo": indirizzo,
-        "comune": comune,
-        "provincia": provincia,
-        "cap": cap,
-        "referente": referente,
-        "telefono": telefono,
-        "fax": fax,
-        "email": email,
-        "sitoWeb": sitoWeb,
-        "note": note,
-        // Analisi Quantitativa
-        "storiaAzienda": storiaAzienda,
-        "titolari": titolari,
-        "descrizioneAttuale": descrizioneAttuale,
-        "prodotto": prodotto,
-        "mercatoProdotto": mercatoProdotto,
-        "politicheProduzione": politicheProduzione,
-        "politicheDistribuzione": politicheDistribuzione,
-        "principaliFornitori": principaliFornitori,
-        "principaliClienti": principaliClienti,
-        "rapportiContrattuali": rapportiContrattuali,
-        "internazionalizzazione": internazionalizzazione,
-        "personale": personale,
-        "strutturaInvestimenti": strutturaInvestimenti,
-        "marchiBrevetti": marchiBrevetti,
-        "tipologiaRischi": tipologiaRischi,
-        "informazioniUtili": informazioniUtili,
-        "finalitaRichiesta": finalitaRichiesta,
-        "fidiEdUtilizzi": fidiEdUtilizzi,
-        "conclusioni": conclusioni,
-
+    let contenuto = [
+        /* ANAGRAFICA AZIENDALE */
+        {
+            "ragioneSociale": ragioneSociale,
+            "partitaIVA": partitaIVA,
+            "settoreProduzione": settoreProduzione,
+            "contrattoCollettivo": contrattoCollettivo,
+            "numeroDipendenti": numeroDipendenti,
+            "indirizzo": indirizzo,
+            "comune": comune,
+            "provincia": provincia,
+            "cap": cap,
+            "referente": referente,
+            "telefono": telefono,
+            "fax": fax,
+            "email": email,
+            "sitoWeb": sitoWeb,
+            "note": note
+        },
+        /* ANALISI QUANTITATIVA */
+        {
+            "storiaAzienda": storiaAzienda,
+            "titolari": titolari,
+            "descrizioneAttuale": descrizioneAttuale,
+            "prodotto": prodotto,
+            "mercatoProdotto": mercatoProdotto,
+            "politicheProduzione": politicheProduzione,
+            "politicheDistribuzione": politicheDistribuzione,
+            "principaliFornitori": principaliFornitori,
+            "principaliClienti": principaliClienti,
+            "rapportiContrattuali": rapportiContrattuali,
+            "internazionalizzazione": internazionalizzazione,
+            "personale": personale,
+            "strutturaInvestimenti": strutturaInvestimenti,
+            "marchiBrevetti": marchiBrevetti,
+            "tipologiaRischi": tipologiaRischi,
+            "informazioniUtili": informazioniUtili,
+            "finalitaRichiesta": finalitaRichiesta,
+            "fidiEdUtilizzi": fidiEdUtilizzi,
+            "conclusioni": conclusioni
+        },
         /* STATO PATRIMONIALE ATTIVO */
-        // A. Crediti verso soci
-        "creditiVersoSoci": creditiVersoSoci,
-        // B. Immobilizzazioni
-        // I. Immateriali
-        "costiImpiantoAmpliamento": costiImpiantoAmpliamento,
-        "costiRicercaSviluppo": costiRicercaSviluppo,
-        "dirittiBrevetto": dirittiBrevetto,
-        "concessioniLicenzeMarchi": concessioniLicenzeMarchi,
-        "avviamento": avviamento,
-        "immobilizzazioniCorso": immobilizzazioniCorso,
-        "immobilizzazioniAltro": immobilizzazioniAltro,
-        "totaleImmobilizzazioniImmateriali": totaleImmobilizzazioniImmateriali,
-        // II. Materiali
-        "terreniFabbricati": terreniFabbricati,
-        "impiantiMacchinario": impiantiMacchinario,
-        "attrezzatureIndustriali": attrezzatureIndustriali,
-        "altriBeni": altriBeni,
-        "immobilizzazioniCorsoAcconti": immobilizzazioniCorsoAcconti,
-        "totaleImmobilizzazioniMateriali": totaleImmobilizzazioniMateriali,
-        // III. Finanziarie
-        "impreseControllate": impreseControllate,
-        "impreseCollegate": impreseCollegate,
-        "impreseControllanti": impreseControllanti,
-        "altreImprese": altreImprese,
-        "creditiImmobilizzazioniImpreseControllateEntro12Mesi": creditiImmobilizzazioniImpreseControllateEntro12Mesi,
-        "creditiImmobilizzazioniImpreseControllateOltre12Mesi": creditiImmobilizzazioniImpreseControllateOltre12Mesi,
-        "creditiImmobilizzazioniImpreseCollegateEntro12Mesi": creditiImmobilizzazioniImpreseCollegateEntro12Mesi,
-        "creditiImmobilizzazioniImpreseCollegateOltre12Mesi": creditiImmobilizzazioniImpreseCollegateOltre12Mesi,
-        "creditiImmobilizzazioniImpreseControllantiEntro12Mesi": creditiImmobilizzazioniImpreseControllantiEntro12Mesi,
-        "creditiImmobilizzazioniImpreseControllantiOltre12Mesi": creditiImmobilizzazioniImpreseControllantiOltre12Mesi,
-        "creditiImmobilizzazioniAltreImpreseEntro12Mesi": creditiImmobilizzazioniAltreImpreseEntro12Mesi,
-        "creditiImmobilizzazioniAltreImpreseOltre12Mesi": creditiImmobilizzazioniAltreImpreseOltre12Mesi,
-        "altriTitoliImmobilizzazioni": altriTitoliImmobilizzazioni,
-        "azioniProprie": azioniProprie,
-        "totaleImmobilizzazioniFinanziarie": totaleImmobilizzazioniFinanziarie,
-        // Totale Immobilizzazioni
-        "totaleImmobilizzazioni": totaleImmobilizzazioni,
-        // C. Attivo Circolante
-        // I. Rimanenze
-        "materiePrime": materiePrime,
-        "prodottiCorsoLavorazione": prodottiCorsoLavorazione,
-        "lavoriCorsoOrdinazione": lavoriCorsoOrdinazione,
-        "prodottiFinitiMerci": prodottiFinitiMerci,
-        "acconti": acconti,
-        "totaleRimanenze": totaleRimanenze,
-        // II. Crediti
-        "creditiAttivoCircolanteClientiEntro12Mesi": creditiAttivoCircolanteClientiEntro12Mesi,
-        "creditiAttivoCircolanteClientiOltre12Mesi": creditiAttivoCircolanteClientiOltre12Mesi,
-        "creditiAttivoCircolanteImpreseControllateEntro12Mesi": creditiAttivoCircolanteImpreseControllateEntro12Mesi,
-        "creditiAttivoCircolanteImpreseControllateOltre12Mesi": creditiAttivoCircolanteImpreseControllateOltre12Mesi,
-        "creditiAttivoCircolanteImpreseCollegateEntro12Mesi": creditiAttivoCircolanteImpreseCollegateEntro12Mesi,
-        "creditiAttivoCircolanteImpreseCollegateOltre12Mesi": creditiAttivoCircolanteImpreseCollegateOltre12Mesi,
-        "creditiAttivoCircolanteImpreseControllantiEntro12Mesi": creditiAttivoCircolanteImpreseControllantiEntro12Mesi,
-        "creditiAttivoCircolanteImpreseControllantiOltre12Mesi": creditiAttivoCircolanteImpreseControllantiOltre12Mesi,
-        "creditiAttivoCircolanteAltreImpreseEntro12Mesi": creditiAttivoCircolanteAltreImpreseEntro12Mesi,
-        "creditiAttivoCircolanteAltreImpreseOltre12Mesi": creditiAttivoCircolanteAltreImpreseOltre12Mesi,
-        "totaleCrediti": totaleCrediti,
-        // III. Attività finanziarie che non costituiscono immobilizzazioni
-        "partecipazioniImpreseControllate": partecipazioniImpreseControllate,
-        "partecipazioniImpreseCollegate": partecipazioniImpreseCollegate,
-        "partecipazioniImpreseControllanti": partecipazioniImpreseControllanti,
-        "altrePartecipazioni": altrePartecipazioni,
-        "strumentiFinanziariDerivatiAttivi": strumentiFinanziariDerivatiAttivi,
-        "altriTitoliAttivoCircolante": altriTitoliAttivoCircolante,
-        "totaleAttivitaFinanziarie": totaleAttivitaFinanziarie,
-        // IV. Disponibilità liquide
-        "depositiBancariPostali": depositiBancariPostali,
-        "assegni": assegni,
-        "danaroValoriCassa": danaroValoriCassa,
-        "totaleDisponibilitaLiquide": totaleDisponibilitaLiquide,
-        "totaleAttivoCircolante": totaleAttivoCircolante,
-        // D) Ratei e Risconti
-        "rateiRiscontiAttivo": rateiRiscontiAttivo,
-        "disaggioPrestiti": disaggioPrestiti,
-        "totaleRateiRiscontiAttivi": totaleRateiRiscontiAttivi,
-        // TOTALE ATTIVO
-        "totaleAttivo": totaleAttivo,
+        {
+            // A. Crediti verso soci
+            "creditiVersoSoci": creditiVersoSoci,
+            // B. Immobilizzazioni
+            // I. Immateriali
+            "costiImpiantoAmpliamento": costiImpiantoAmpliamento,
+            "costiRicercaSviluppo": costiRicercaSviluppo,
+            "dirittiBrevetto": dirittiBrevetto,
+            "concessioniLicenzeMarchi": concessioniLicenzeMarchi,
+            "avviamento": avviamento,
+            "immobilizzazioniCorso": immobilizzazioniCorso,
+            "immobilizzazioniAltro": immobilizzazioniAltro,
+            "totaleImmobilizzazioniImmateriali": totaleImmobilizzazioniImmateriali,
+            // II. Materiali
+            "terreniFabbricati": terreniFabbricati,
+            "impiantiMacchinario": impiantiMacchinario,
+            "attrezzatureIndustriali": attrezzatureIndustriali,
+            "altriBeni": altriBeni,
+            "immobilizzazioniCorsoAcconti": immobilizzazioniCorsoAcconti,
+            "totaleImmobilizzazioniMateriali": totaleImmobilizzazioniMateriali,
+            // III. Finanziarie
+            "impreseControllate": impreseControllate,
+            "impreseCollegate": impreseCollegate,
+            "impreseControllanti": impreseControllanti,
+            "altreImprese": altreImprese,
+            "creditiImmobilizzazioniImpreseControllateEntro12Mesi": creditiImmobilizzazioniImpreseControllateEntro12Mesi,
+            "creditiImmobilizzazioniImpreseControllateOltre12Mesi": creditiImmobilizzazioniImpreseControllateOltre12Mesi,
+            "creditiImmobilizzazioniImpreseCollegateEntro12Mesi": creditiImmobilizzazioniImpreseCollegateEntro12Mesi,
+            "creditiImmobilizzazioniImpreseCollegateOltre12Mesi": creditiImmobilizzazioniImpreseCollegateOltre12Mesi,
+            "creditiImmobilizzazioniImpreseControllantiEntro12Mesi": creditiImmobilizzazioniImpreseControllantiEntro12Mesi,
+            "creditiImmobilizzazioniImpreseControllantiOltre12Mesi": creditiImmobilizzazioniImpreseControllantiOltre12Mesi,
+            "creditiImmobilizzazioniAltreImpreseEntro12Mesi": creditiImmobilizzazioniAltreImpreseEntro12Mesi,
+            "creditiImmobilizzazioniAltreImpreseOltre12Mesi": creditiImmobilizzazioniAltreImpreseOltre12Mesi,
+            "altriTitoliImmobilizzazioni": altriTitoliImmobilizzazioni,
+            "azioniProprie": azioniProprie,
+            "totaleImmobilizzazioniFinanziarie": totaleImmobilizzazioniFinanziarie,
+            // Totale Immobilizzazioni
+            "totaleImmobilizzazioni": totaleImmobilizzazioni,
+            // C. Attivo Circolante
+            // I. Rimanenze
+            "materiePrime": materiePrime,
+            "prodottiCorsoLavorazione": prodottiCorsoLavorazione,
+            "lavoriCorsoOrdinazione": lavoriCorsoOrdinazione,
+            "prodottiFinitiMerci": prodottiFinitiMerci,
+            "acconti": acconti,
+            "totaleRimanenze": totaleRimanenze,
+            // II. Crediti
+            "creditiAttivoCircolanteClientiEntro12Mesi": creditiAttivoCircolanteClientiEntro12Mesi,
+            "creditiAttivoCircolanteClientiOltre12Mesi": creditiAttivoCircolanteClientiOltre12Mesi,
+            "creditiAttivoCircolanteImpreseControllateEntro12Mesi": creditiAttivoCircolanteImpreseControllateEntro12Mesi,
+            "creditiAttivoCircolanteImpreseControllateOltre12Mesi": creditiAttivoCircolanteImpreseControllateOltre12Mesi,
+            "creditiAttivoCircolanteImpreseCollegateEntro12Mesi": creditiAttivoCircolanteImpreseCollegateEntro12Mesi,
+            "creditiAttivoCircolanteImpreseCollegateOltre12Mesi": creditiAttivoCircolanteImpreseCollegateOltre12Mesi,
+            "creditiAttivoCircolanteImpreseControllantiEntro12Mesi": creditiAttivoCircolanteImpreseControllantiEntro12Mesi,
+            "creditiAttivoCircolanteImpreseControllantiOltre12Mesi": creditiAttivoCircolanteImpreseControllantiOltre12Mesi,
+            "creditiAttivoCircolanteAltreImpreseEntro12Mesi": creditiAttivoCircolanteAltreImpreseEntro12Mesi,
+            "creditiAttivoCircolanteAltreImpreseOltre12Mesi": creditiAttivoCircolanteAltreImpreseOltre12Mesi,
+            "totaleCrediti": totaleCrediti,
+            // III. Attività finanziarie che non costituiscono immobilizzazioni
+            "partecipazioniImpreseControllate": partecipazioniImpreseControllate,
+            "partecipazioniImpreseCollegate": partecipazioniImpreseCollegate,
+            "partecipazioniImpreseControllanti": partecipazioniImpreseControllanti,
+            "altrePartecipazioni": altrePartecipazioni,
+            "strumentiFinanziariDerivatiAttivi": strumentiFinanziariDerivatiAttivi,
+            "altriTitoliAttivoCircolante": altriTitoliAttivoCircolante,
+            "totaleAttivitaFinanziarie": totaleAttivitaFinanziarie,
+            // IV. Disponibilità liquide
+            "depositiBancariPostali": depositiBancariPostali,
+            "assegni": assegni,
+            "danaroValoriCassa": danaroValoriCassa,
+            "totaleDisponibilitaLiquide": totaleDisponibilitaLiquide,
+            "totaleAttivoCircolante": totaleAttivoCircolante,
+            // D) Ratei e Risconti
+            "rateiRiscontiAttivo": rateiRiscontiAttivo,
+            "disaggioPrestiti": disaggioPrestiti,
+            "totaleRateiRiscontiAttivi": totaleRateiRiscontiAttivi,
+            // TOTALE ATTIVO
+            "totaleAttivo": totaleAttivo,
 
-        /* STATO PATRIMONIALE PASSIVO */
-        // A. Patrimonio Netto
-        "capitale": capitale,
-        "riservaSovrapprezzoAzioni": riservaSovrapprezzoAzioni,
-        "riserveRivalutazione": riserveRivalutazione,
-        "riservaLegale": riservaLegale,
-        "riserveStatutarie": riserveStatutarie,
-        "altreRiserve": altreRiserve,
-        "riservaOperazioniCopertura": riservaOperazioniCopertura,
-        "utilePortatoNuovo": utilePortatoNuovo,
-        "utileEsercizio": utileEsercizio,
-        "riservaNegativaAzioniProprie": riservaNegativaAzioniProprie,
-        "totalePatrimonioNetto": totalePatrimonioNetto,
+            /* STATO PATRIMONIALE PASSIVO */
+            // A. Patrimonio Netto
+            "capitale": capitale,
+            "riservaSovrapprezzoAzioni": riservaSovrapprezzoAzioni,
+            "riserveRivalutazione": riserveRivalutazione,
+            "riservaLegale": riservaLegale,
+            "riserveStatutarie": riserveStatutarie,
+            "altreRiserve": altreRiserve,
+            "riservaOperazioniCopertura": riservaOperazioniCopertura,
+            "utilePortatoNuovo": utilePortatoNuovo,
+            "utileEsercizio": utileEsercizio,
+            "riservaNegativaAzioniProprie": riservaNegativaAzioniProprie,
+            "totalePatrimonioNetto": totalePatrimonioNetto,
 
-        // B. Fondi per rischi e oneri
-        "trattamentoQuiescenzaObblighiSimili": trattamentoQuiescenzaObblighiSimili,
-        "imposteAncheDifferite": imposteAncheDifferite,
-        "strumentiFinanziariDerivatiPassivi": strumentiFinanziariDerivatiPassivi,
-        "altriFondi": altriFondi,
-        "totaleFondiRischiOneri": totaleFondiRischiOneri,
+            // B. Fondi per rischi e oneri
+            "trattamentoQuiescenzaObblighiSimili": trattamentoQuiescenzaObblighiSimili,
+            "imposteAncheDifferite": imposteAncheDifferite,
+            "strumentiFinanziariDerivatiPassivi": strumentiFinanziariDerivatiPassivi,
+            "altriFondi": altriFondi,
+            "totaleFondiRischiOneri": totaleFondiRischiOneri,
 
-        // C. Trattamento fine rapporto
-        "trattamentoFineRapportoSP": trattamentoFineRapportoSP,
+            // C. Trattamento fine rapporto
+            "trattamentoFineRapportoSP": trattamentoFineRapportoSP,
 
-        // D. Debiti
-        "obbligazioniEntro12Mesi": obbligazioniEntro12Mesi,
-        "obbligazioniOltre12Mesi": obbligazioniOltre12Mesi,
-        "obbligazioniConvertibiliEntro12Mesi": obbligazioniConvertibiliEntro12Mesi,
-        "obbligazioniConvertibiliOltre12Mesi": obbligazioniConvertibiliOltre12Mesi,
-        "debitiVersoSociFinanziamentiEntro12Mesi": debitiVersoSociFinanziamentiEntro12Mesi,
-        "debitiVersoSociFinanziamentiOltre12Mesi": debitiVersoSociFinanziamentiOltre12Mesi,
-        "debitiVersoBancheEntro12Mesi": debitiVersoBancheEntro12Mesi,
-        "debitiVersoBancheOltre12Mesi": debitiVersoBancheOltre12Mesi,
-        "debitiVersoAltriFinanziatoriEntro12Mesi": debitiVersoAltriFinanziatoriEntro12Mesi,
-        "debitiVersoAltriFinanziatoriOltre12Mesi": debitiVersoAltriFinanziatoriOltre12Mesi,
-        "accontiEntro12Mesi": accontiEntro12Mesi,
-        "accontiOltre12Mesi": accontiOltre12Mesi,
-        "debitiVersoFornitoriEntro12Mesi": debitiVersoFornitoriEntro12Mesi,
-        "debitiVersoFornitoriOltre12Mesi": debitiVersoFornitoriOltre12Mesi,
-        "debitiRappresentatiTitoliCreditoEntro12Mesi": debitiRappresentatiTitoliCreditoEntro12Mesi,
-        "debitiRappresentatiTitoliCreditooltre12Mesi": debitiRappresentatiTitoliCreditooltre12Mesi,
-        "debitiVersoImpreseControllateEntro12Mesi": debitiVersoImpreseControllateEntro12Mesi,
-        "debitiVersoImpreseControllateOltre12Mesi": debitiVersoImpreseControllateOltre12Mesi,
-        "debitiVersoImpreseCollegateEntro12Mesi": debitiVersoImpreseCollegateEntro12Mesi,
-        "debitiVersoImpreseCollegateOltre12Mesi": debitiVersoImpreseCollegateOltre12Mesi,
-        "debitiVersoControllantiEntro12Mesi": debitiVersoControllantiEntro12Mesi,
-        "debitiVersoControllantiOltre12Mesi": debitiVersoControllantiOltre12Mesi,
-        "debitiTributariEntro12Mesi": debitiTributariEntro12Mesi,
-        "debitiTributariOltre12Mesi": debitiTributariOltre12Mesi,
-        "debitiVersoIstituiPrevidenzaEntro12Mesi": debitiVersoIstituiPrevidenzaEntro12Mesi,
-        "debitiVersoIstituiPrevidenzaOltre12Mesi": debitiVersoIstituiPrevidenzaOltre12Mesi,
-        "altriDebitiEntro12Mesi": altriDebitiEntro12Mesi,
-        "altriDebitiOltre12Mesi": altriDebitiOltre12Mesi,
-        "totaleDebiti": totaleDebiti,
+            // D. Debiti
+            "obbligazioniEntro12Mesi": obbligazioniEntro12Mesi,
+            "obbligazioniOltre12Mesi": obbligazioniOltre12Mesi,
+            "obbligazioniConvertibiliEntro12Mesi": obbligazioniConvertibiliEntro12Mesi,
+            "obbligazioniConvertibiliOltre12Mesi": obbligazioniConvertibiliOltre12Mesi,
+            "debitiVersoSociFinanziamentiEntro12Mesi": debitiVersoSociFinanziamentiEntro12Mesi,
+            "debitiVersoSociFinanziamentiOltre12Mesi": debitiVersoSociFinanziamentiOltre12Mesi,
+            "debitiVersoBancheEntro12Mesi": debitiVersoBancheEntro12Mesi,
+            "debitiVersoBancheOltre12Mesi": debitiVersoBancheOltre12Mesi,
+            "debitiVersoAltriFinanziatoriEntro12Mesi": debitiVersoAltriFinanziatoriEntro12Mesi,
+            "debitiVersoAltriFinanziatoriOltre12Mesi": debitiVersoAltriFinanziatoriOltre12Mesi,
+            "accontiEntro12Mesi": accontiEntro12Mesi,
+            "accontiOltre12Mesi": accontiOltre12Mesi,
+            "debitiVersoFornitoriEntro12Mesi": debitiVersoFornitoriEntro12Mesi,
+            "debitiVersoFornitoriOltre12Mesi": debitiVersoFornitoriOltre12Mesi,
+            "debitiRappresentatiTitoliCreditoEntro12Mesi": debitiRappresentatiTitoliCreditoEntro12Mesi,
+            "debitiRappresentatiTitoliCreditooltre12Mesi": debitiRappresentatiTitoliCreditooltre12Mesi,
+            "debitiVersoImpreseControllateEntro12Mesi": debitiVersoImpreseControllateEntro12Mesi,
+            "debitiVersoImpreseControllateOltre12Mesi": debitiVersoImpreseControllateOltre12Mesi,
+            "debitiVersoImpreseCollegateEntro12Mesi": debitiVersoImpreseCollegateEntro12Mesi,
+            "debitiVersoImpreseCollegateOltre12Mesi": debitiVersoImpreseCollegateOltre12Mesi,
+            "debitiVersoControllantiEntro12Mesi": debitiVersoControllantiEntro12Mesi,
+            "debitiVersoControllantiOltre12Mesi": debitiVersoControllantiOltre12Mesi,
+            "debitiTributariEntro12Mesi": debitiTributariEntro12Mesi,
+            "debitiTributariOltre12Mesi": debitiTributariOltre12Mesi,
+            "debitiVersoIstituiPrevidenzaEntro12Mesi": debitiVersoIstituiPrevidenzaEntro12Mesi,
+            "debitiVersoIstituiPrevidenzaOltre12Mesi": debitiVersoIstituiPrevidenzaOltre12Mesi,
+            "altriDebitiEntro12Mesi": altriDebitiEntro12Mesi,
+            "altriDebitiOltre12Mesi": altriDebitiOltre12Mesi,
+            "totaleDebiti": totaleDebiti,
 
-        // E. ratei e risconti
-        "rateiRiscontiPassivo": rateiRiscontiPassivo,
-        "aggioPrestiti": aggioPrestiti,
-        "totaleRateiRiscontiPassivi": totaleRateiRiscontiPassivi,
+            // E. ratei e risconti
+            "rateiRiscontiPassivo": rateiRiscontiPassivo,
+            "aggioPrestiti": aggioPrestiti,
+            "totaleRateiRiscontiPassivi": totaleRateiRiscontiPassivi,
 
-        // TOTALE PASSIVO
-        "totalePassivo": totalePassivo,
-
+            // TOTALE PASSIVO
+            "totalePassivo": totalePassivo
+        },
         /* CONTO ECONOMICO */
-        // A) Valore della produzione
-        "ricaviVendite": ricaviVendite,
-        "variazioniRimanenze": variazioniRimanenze,
-        "variazioniRimanenzeProdottiInCorso": variazioniRimanenzeProdottiInCorso,
-        "incrementiImmobilizzazioniLavoriInterni": incrementiImmobilizzazioniLavoriInterni,
-        "altriRicaviProventi": altriRicaviProventi,
-        "totaleValoreProduzione": totaleValoreProduzione,
+        {
+            // A) Valore della produzione
+            "ricaviVendite": ricaviVendite,
+            "variazioniRimanenze": variazioniRimanenze,
+            "variazioniRimanenzeProdottiInCorso": variazioniRimanenzeProdottiInCorso,
+            "incrementiImmobilizzazioniLavoriInterni": incrementiImmobilizzazioniLavoriInterni,
+            "altriRicaviProventi": altriRicaviProventi,
+            "totaleValoreProduzione": totaleValoreProduzione,
 
-        // B) Costi della produzione
-        "materiePrimeCE": materiePrimeCE,
-        "servizi": servizi,
-        "godimentoBeniTerzi": godimentoBeniTerzi,
-        "salariStipendi": salariStipendi,
-        "oneriSociali": oneriSociali,
-        "trattamentoFineRapportoCE": trattamentoFineRapportoCE,
-        "trattamentoQuiescenzaSimili": trattamentoQuiescenzaSimili,
-        "altriCosti": altriCosti,
-        "totaleCostiProduzione": totaleCostiProduzione,
-        "ammortamentoImmobilizzazioniImmateriali": ammortamentoImmobilizzazioniImmateriali,
-        "ammortamentoImmobilizzazioniMateriali": ammortamentoImmobilizzazioniMateriali,
-        "altreSvalutazioniImmobilizzazioni": altreSvalutazioniImmobilizzazioni,
-        "svalutazioniCreditiCompresiAttivoCircolante": svalutazioniCreditiCompresiAttivoCircolante,
-        "variazioneRimanenzeMateriePrime": variazioneRimanenzeMateriePrime,
-        "accantonamentiPerRischi": accantonamentiPerRischi,
-        "altriAccantonamenti": altriAccantonamenti,
-        "oneriDiversiGestione": oneriDiversiGestione,
+            // B) Costi della produzione
+            "materiePrimeCE": materiePrimeCE,
+            "servizi": servizi,
+            "godimentoBeniTerzi": godimentoBeniTerzi,
+            "salariStipendi": salariStipendi,
+            "oneriSociali": oneriSociali,
+            "trattamentoFineRapportoCE": trattamentoFineRapportoCE,
+            "trattamentoQuiescenzaSimili": trattamentoQuiescenzaSimili,
+            "altriCosti": altriCosti,
+            "totaleCostiProduzione": totaleCostiProduzione,
+            "ammortamentoImmobilizzazioniImmateriali": ammortamentoImmobilizzazioniImmateriali,
+            "ammortamentoImmobilizzazioniMateriali": ammortamentoImmobilizzazioniMateriali,
+            "altreSvalutazioniImmobilizzazioni": altreSvalutazioniImmobilizzazioni,
+            "svalutazioniCreditiCompresiAttivoCircolante": svalutazioniCreditiCompresiAttivoCircolante,
+            "variazioneRimanenzeMateriePrime": variazioneRimanenzeMateriePrime,
+            "accantonamentiPerRischi": accantonamentiPerRischi,
+            "altriAccantonamenti": altriAccantonamenti,
+            "oneriDiversiGestione": oneriDiversiGestione,
 
-        // Differenza tra Valore e Costi della produzione
-        "differenzaValoreCostiProduzione": differenzaValoreCostiProduzione,
+            // Differenza tra Valore e Costi della produzione
+            "differenzaValoreCostiProduzione": differenzaValoreCostiProduzione,
 
-        // C) Proventi e oneri finanziari
-        "proventiDaControllate": proventiDaControllate,
-        "proventiDaCollegate": proventiDaCollegate,
-        "proventiCreditiIscrittiImmobilizzazioniControllate": proventiCreditiIscrittiImmobilizzazioniControllate,
-        "proventiCreditiIscrittiImmobilizzazioniCollegate": proventiCreditiIscrittiImmobilizzazioniCollegate,
-        "proventiCreditiIscrittiImmobilizzazioniControllanti": proventiCreditiIscrittiImmobilizzazioniControllanti,
-        "proventiTitoliIscrittiImmobilizzazioni": proventiTitoliIscrittiImmobilizzazioni,
-        "proventiTitoliIscrittiAttivoCircolante": proventiTitoliIscrittiAttivoCircolante,
-        "proventiDiversiDaiPrecedentiControllate": proventiDiversiDaiPrecedentiControllate,
-        "proventiDiversiDaiPrecedentiCollegate": proventiDiversiDaiPrecedentiCollegate,
-        "proventiDiversiDaiPrecedentiControllanti": proventiDiversiDaiPrecedentiControllanti,
-        "interessiAltriOneriFinanziariDaControllate": interessiAltriOneriFinanziariDaControllate,
-        "interessiAltriOneriFinanziariDaCollegate": interessiAltriOneriFinanziariDaCollegate,
-        "interessiAltriOneriFinanziariDaControllanti": interessiAltriOneriFinanziariDaControllanti,
-        "totaleProventiOneriFinanziari": totaleProventiOneriFinanziari,
+            // C) Proventi e oneri finanziari
+            "proventiDaControllate": proventiDaControllate,
+            "proventiDaCollegate": proventiDaCollegate,
+            "proventiCreditiIscrittiImmobilizzazioniControllate": proventiCreditiIscrittiImmobilizzazioniControllate,
+            "proventiCreditiIscrittiImmobilizzazioniCollegate": proventiCreditiIscrittiImmobilizzazioniCollegate,
+            "proventiCreditiIscrittiImmobilizzazioniControllanti": proventiCreditiIscrittiImmobilizzazioniControllanti,
+            "proventiTitoliIscrittiImmobilizzazioni": proventiTitoliIscrittiImmobilizzazioni,
+            "proventiTitoliIscrittiAttivoCircolante": proventiTitoliIscrittiAttivoCircolante,
+            "proventiDiversiDaiPrecedentiControllate": proventiDiversiDaiPrecedentiControllate,
+            "proventiDiversiDaiPrecedentiCollegate": proventiDiversiDaiPrecedentiCollegate,
+            "proventiDiversiDaiPrecedentiControllanti": proventiDiversiDaiPrecedentiControllanti,
+            "interessiAltriOneriFinanziariDaControllate": interessiAltriOneriFinanziariDaControllate,
+            "interessiAltriOneriFinanziariDaCollegate": interessiAltriOneriFinanziariDaCollegate,
+            "interessiAltriOneriFinanziariDaControllanti": interessiAltriOneriFinanziariDaControllanti,
+            "totaleProventiOneriFinanziari": totaleProventiOneriFinanziari,
 
-        // D) Rettifiche di valore di attività finanziarie
-        "rivalutazioniPartecipazioni" : rivalutazioniPartecipazioni,
-        "rivalutazioniImmobilizzazioniFinanziarie" : rivalutazioniImmobilizzazioniFinanziarie,
-        "rivalutazioniTitoliIscrittiAttivoCircolante" : rivalutazioniTitoliIscrittiAttivoCircolante,
-        "rivalutazioniStrumentiFinanziariDerivati" : rivalutazioniStrumentiFinanziariDerivati,
-        "svalutazioniPartecipazioni" : svalutazioniPartecipazioni,
-        "svalutazioniImmobilizzazioniFinanziarie" : svalutazioniImmobilizzazioniFinanziarie,
-        "svalutazioniTitoliIscrittiAttivoCircolante" : svalutazioniTitoliIscrittiAttivoCircolante,
-        "svalutazioniStrumentiFinanziariDerivati" : svalutazioniStrumentiFinanziariDerivati,
-        "totaleRettifiche" : totaleRettifiche,
+            // D) Rettifiche di valore di attività finanziarie
+            "rivalutazioniPartecipazioni": rivalutazioniPartecipazioni,
+            "rivalutazioniImmobilizzazioniFinanziarie": rivalutazioniImmobilizzazioniFinanziarie,
+            "rivalutazioniTitoliIscrittiAttivoCircolante": rivalutazioniTitoliIscrittiAttivoCircolante,
+            "rivalutazioniStrumentiFinanziariDerivati": rivalutazioniStrumentiFinanziariDerivati,
+            "svalutazioniPartecipazioni": svalutazioniPartecipazioni,
+            "svalutazioniImmobilizzazioniFinanziarie": svalutazioniImmobilizzazioniFinanziarie,
+            "svalutazioniTitoliIscrittiAttivoCircolante": svalutazioniTitoliIscrittiAttivoCircolante,
+            "svalutazioniStrumentiFinanziariDerivati": svalutazioniStrumentiFinanziariDerivati,
+            "totaleRettifiche": totaleRettifiche,
 
-        // E) Proventi e oneri straordinari
-        "proventiStraordinari" : proventiStraordinari,
-        "plusvalenzeAlienazioni" : plusvalenzeAlienazioni,
-        "oneriStraordinari" : oneriStraordinari,
-        "minusvalenzeAlienazioni" : minusvalenzeAlienazioni,
-        "imposteRelativeEserciziPrecedenti" : imposteRelativeEserciziPrecedenti,
-        "totalePartiteStraordinarie" : totalePartiteStraordinarie,
+            // E) Proventi e oneri straordinari
+            "proventiStraordinari": proventiStraordinari,
+            "plusvalenzeAlienazioni": plusvalenzeAlienazioni,
+            "oneriStraordinari": oneriStraordinari,
+            "minusvalenzeAlienazioni": minusvalenzeAlienazioni,
+            "imposteRelativeEserciziPrecedenti": imposteRelativeEserciziPrecedenti,
+            "totalePartiteStraordinarie": totalePartiteStraordinarie,
 
-        // Risultato prima delle imposte
-        "risultatoPrimaImposte" : risultatoPrimaImposte,
-        // Imposte
-        'imposteRedditoEsercizio' : imposteRedditoEsercizio,
-        // Utile (perdite) dell'esercizio
-        'utilePerditeEsercizio' : utilePerditeEsercizio
-    }]
+            // Risultato prima delle imposte
+            "risultatoPrimaImposte": risultatoPrimaImposte,
+            // Imposte
+            'imposteRedditoEsercizio': imposteRedditoEsercizio,
+            // Utile (perdite) dell'esercizio
+            'utilePerditeEsercizio': utilePerditeEsercizio
+        },
+        /* RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO */
+        {
+            'SPimmobilizzazioniImmateriali': SPimmobilizzazioniImmateriali,
+            'SPimmobilizzazioniMateriali': SPimmobilizzazioniMateriali,
+            'SPimmobilizzazioniFinanziarie': SPimmobilizzazioniFinanziarie,
+            'SPtotaleImmobilizzazioniNette': SPtotaleImmobilizzazioniNette,
+            'SPmagazzino': SPmagazzino,
+            'SPcreditiCommerciali': SPcreditiCommerciali,
+            'SPaltriCrediti': SPaltriCrediti,
+            'SPliquidita': SPliquidita,
+            'SPtotaleAttivoCircolante': SPtotaleAttivoCircolante,
+            'SPtotaleAttivo': SPtotaleAttivo,
+            'SPcapitaleSociale': SPcapitaleSociale,
+            'SPriserve': SPriserve,
+            'SPredditoNetto': SPredditoNetto,
+            'SPtotalePatrimonioNetto': SPtotalePatrimonioNetto,
+            'SPdebitiFinanziariMlTermine': SPdebitiFinanziariMlTermine,
+            'SPaltriDebiti': SPaltriDebiti,
+            'SPfondoTFR': SPfondoTFR,
+            'SPaltriFondi': SPaltriFondi,
+            'SPtotalePassivoMlTermine': SPtotalePassivoMlTermine,
+            'SPdebitiFinanziariBreveTermine': SPdebitiFinanziariBreveTermine,
+            'SPdebitiCommercialiFornitori': SPdebitiCommercialiFornitori,
+            'SPaltriDebitiNonFinanziari': SPaltriDebitiNonFinanziari,
+            'SPrateiRiscontiPassivi': SPrateiRiscontiPassivi,
+            'SPtotalePassivoBreveTermine': SPtotalePassivoBreveTermine,
+            'SPtotalePassivoPatrimonioNetto': SPtotalePassivoPatrimonioNetto,
+            'SPeventualeSquadraturaAttivoPass': SPeventualeSquadraturaAttivoPass
+        },
+        /* RICLASSIFICAZIONE CONTO ECONOMICO VALORE AGGIUNTO */
+        {
+            "CEricaviVendite": CEricaviVendite,
+            "CEproduzioneInterna": CEproduzioneInterna,
+            "CEtotaleValoreProduzione": CEtotaleValoreProduzione,
+            "CEconsumoMateriePrime": CEconsumoMateriePrime,
+            "CEcostiServizi": CEcostiServizi,
+            "CEtotaleConsumiEsterni": CEtotaleConsumiEsterni,
+            "CEvaloreAggiunto": CEvaloreAggiunto,
+            "CEcostiPersonale": CEcostiPersonale,
+            "CEtotaleMargineOperativoLordo": CEtotaleMargineOperativoLordo,
+            "CEammortamenti": CEammortamenti,
+            "CEcanoniLeasing": CEcanoniLeasing,
+            "CEaccantonamentiSvalutazioni": CEaccantonamentiSvalutazioni,
+            "CEtotaleAmmortamentiSvalutazioni": CEtotaleAmmortamentiSvalutazioni,
+            "CEaltriProventiOperativiFinanziari": CEaltriProventiOperativiFinanziari,
+            "CEtotaleRisultatoOperativo": CEtotaleRisultatoOperativo,
+            "CEoneriFinanziari": CEoneriFinanziari,
+            "CEtotaleRisultatoLordo": CEtotaleRisultatoLordo,
+            "CErisultatoAreaStraordinaria": CErisultatoAreaStraordinaria,
+            "CEtotaleRisultatoAnteImposte": CEtotaleRisultatoAnteImposte,
+            "CEimposteReddito": CEimposteReddito,
+            "CEtotaleRisultatoNetto": CEtotaleRisultatoNetto
+        }]
 
     var json = JSON.stringify(contenuto);
 
@@ -583,239 +691,290 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('note').value = testo[0].note
 
                 // Analisi Quantitativa
-                document.getElementById('storiaAzienda').value = testo[0].storiaAzienda
-                document.getElementById('titolari').value = testo[0].titolari
-                document.getElementById('descrizioneAttuale').value = testo[0].descrizioneAttuale
-                document.getElementById('prodotto').value = testo[0].prodotto
-                document.getElementById('mercatoProdotto').value = testo[0].mercatoProdotto
-                document.getElementById('politicheProduzione').value = testo[0].politicheProduzione
-                document.getElementById('politicheDistribuzione').value = testo[0].politicheDistribuzione
-                document.getElementById('principaliFornitori').value = testo[0].principaliFornitori
-                document.getElementById('principaliClienti').value = testo[0].principaliClienti
-                document.getElementById('rapportiContrattuali').value = testo[0].rapportiContrattuali
-                document.getElementById('internazionalizzazione').value = testo[0].internazionalizzazione
-                document.getElementById('personale').value = testo[0].personale
-                document.getElementById('strutturaInvestimenti').value = testo[0].strutturaInvestimenti
-                document.getElementById('marchiBrevetti').value = testo[0].marchiBrevetti
-                document.getElementById('tipologiaRischi').value = testo[0].tipologiaRischi
-                document.getElementById('informazioniUtili').value = testo[0].informazioniUtili
-                document.getElementById('finalitaRichiesta').value = testo[0].finalitaRichiesta
-                document.getElementById('fidiEdUtilizzi').value = testo[0].fidiEdUtilizzi
-                document.getElementById('conclusioni').value = testo[0].conclusioni
+                document.getElementById('storiaAzienda').value = testo[1].storiaAzienda
+                document.getElementById('titolari').value = testo[1].titolari
+                document.getElementById('descrizioneAttuale').value = testo[1].descrizioneAttuale
+                document.getElementById('prodotto').value = testo[1].prodotto
+                document.getElementById('mercatoProdotto').value = testo[1].mercatoProdotto
+                document.getElementById('politicheProduzione').value = testo[1].politicheProduzione
+                document.getElementById('politicheDistribuzione').value = testo[1].politicheDistribuzione
+                document.getElementById('principaliFornitori').value = testo[1].principaliFornitori
+                document.getElementById('principaliClienti').value = testo[1].principaliClienti
+                document.getElementById('rapportiContrattuali').value = testo[1].rapportiContrattuali
+                document.getElementById('internazionalizzazione').value = testo[1].internazionalizzazione
+                document.getElementById('personale').value = testo[1].personale
+                document.getElementById('strutturaInvestimenti').value = testo[1].strutturaInvestimenti
+                document.getElementById('marchiBrevetti').value = testo[1].marchiBrevetti
+                document.getElementById('tipologiaRischi').value = testo[1].tipologiaRischi
+                document.getElementById('informazioniUtili').value = testo[1].informazioniUtili
+                document.getElementById('finalitaRichiesta').value = testo[1].finalitaRichiesta
+                document.getElementById('fidiEdUtilizzi').value = testo[1].fidiEdUtilizzi
+                document.getElementById('conclusioni').value = testo[1].conclusioni
 
                 /* STATO PATRIMONIALE ATTIVO */
                 // A. Crediti verso soci
-                document.getElementById('creditiVersoSoci').value = testo[0].creditiVersoSoci
+                document.getElementById('creditiVersoSoci').value = testo[2].creditiVersoSoci
                 // B. Immobilizzazioni
                 // I. Immateriali
-                document.getElementById('costiImpiantoAmpliamento').value = testo[0].costiImpiantoAmpliamento
-                document.getElementById('costiRicercaSviluppo').value = testo[0].costiRicercaSviluppo
-                document.getElementById('dirittiBrevetto').value = testo[0].dirittiBrevetto
-                document.getElementById('concessioniLicenzeMarchi').value = testo[0].concessioniLicenzeMarchi
-                document.getElementById('avviamento').value = testo[0].avviamento
-                document.getElementById('immobilizzazioniCorso').value = testo[0].immobilizzazioniCorso
-                document.getElementById('immobilizzazioniAltro').value = testo[0].immobilizzazioniAltro
-                document.getElementById('totaleImmobilizzazioniImmateriali').value = testo[0].totaleImmobilizzazioniImmateriali
+                document.getElementById('costiImpiantoAmpliamento').value = testo[2].costiImpiantoAmpliamento
+                document.getElementById('costiRicercaSviluppo').value = testo[2].costiRicercaSviluppo
+                document.getElementById('dirittiBrevetto').value = testo[2].dirittiBrevetto
+                document.getElementById('concessioniLicenzeMarchi').value = testo[2].concessioniLicenzeMarchi
+                document.getElementById('avviamento').value = testo[2].avviamento
+                document.getElementById('immobilizzazioniCorso').value = testo[2].immobilizzazioniCorso
+                document.getElementById('immobilizzazioniAltro').value = testo[2].immobilizzazioniAltro
+                document.getElementById('totaleImmobilizzazioniImmateriali').value = testo[2].totaleImmobilizzazioniImmateriali
                 // II. Materiali
-                document.getElementById('terreniFabbricati').value = testo[0].terreniFabbricati
-                document.getElementById('impiantiMacchinario').value = testo[0].impiantiMacchinario
-                document.getElementById('attrezzatureIndustriali').value = testo[0].attrezzatureIndustriali
-                document.getElementById('altriBeni').value = testo[0].altriBeni
-                document.getElementById('immobilizzazioniCorsoAcconti').value = testo[0].immobilizzazioniCorsoAcconti
-                document.getElementById('totaleImmobilizzazioniMateriali').value = testo[0].totaleImmobilizzazioniMateriali
+                document.getElementById('terreniFabbricati').value = testo[2].terreniFabbricati
+                document.getElementById('impiantiMacchinario').value = testo[2].impiantiMacchinario
+                document.getElementById('attrezzatureIndustriali').value = testo[2].attrezzatureIndustriali
+                document.getElementById('altriBeni').value = testo[2].altriBeni
+                document.getElementById('immobilizzazioniCorsoAcconti').value = testo[2].immobilizzazioniCorsoAcconti
+                document.getElementById('totaleImmobilizzazioniMateriali').value = testo[2].totaleImmobilizzazioniMateriali
                 // III. Finanziarie
-                document.getElementById('impreseControllate').value = testo[0].impreseControllate
-                document.getElementById('impreseCollegate').value = testo[0].impreseCollegate
-                document.getElementById('impreseControllanti').value = testo[0].impreseControllanti
-                document.getElementById('altreImprese').value = testo[0].altreImprese
-                document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value = testo[0].creditiImmobilizzazioniImpreseControllateEntro12Mesi
-                document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value = testo[0].creditiImmobilizzazioniImpreseControllateOltre12Mesi
-                document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value = testo[0].creditiImmobilizzazioniImpreseCollegateEntro12Mesi
-                document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value = testo[0].creditiImmobilizzazioniImpreseCollegateOltre12Mesi
-                document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value = testo[0].creditiImmobilizzazioniImpreseControllantiEntro12Mesi
-                document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value = testo[0].creditiImmobilizzazioniImpreseControllantiOltre12Mesi
-                document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value = testo[0].creditiImmobilizzazioniAltreImpreseEntro12Mesi
-                document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value = testo[0].creditiImmobilizzazioniAltreImpreseOltre12Mesi
-                document.getElementById('altriTitoliImmobilizzazioni').value = testo[0].altriTitoliImmobilizzazioni
-                document.getElementById('azioniProprie').value = testo[0].azioniProprie
-                document.getElementById('totaleImmobilizzazioniFinanziarie').value = testo[0].totaleImmobilizzazioniFinanziarie
-                document.getElementById('totaleImmobilizzazioni').value = testo[0].totaleImmobilizzazioni
+                document.getElementById('impreseControllate').value = testo[2].impreseControllate
+                document.getElementById('impreseCollegate').value = testo[2].impreseCollegate
+                document.getElementById('impreseControllanti').value = testo[2].impreseControllanti
+                document.getElementById('altreImprese').value = testo[2].altreImprese
+                document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value = testo[2].creditiImmobilizzazioniImpreseControllateEntro12Mesi
+                document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value = testo[2].creditiImmobilizzazioniImpreseControllateOltre12Mesi
+                document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value = testo[2].creditiImmobilizzazioniImpreseCollegateEntro12Mesi
+                document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value = testo[2].creditiImmobilizzazioniImpreseCollegateOltre12Mesi
+                document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value = testo[2].creditiImmobilizzazioniImpreseControllantiEntro12Mesi
+                document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value = testo[2].creditiImmobilizzazioniImpreseControllantiOltre12Mesi
+                document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value = testo[2].creditiImmobilizzazioniAltreImpreseEntro12Mesi
+                document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value = testo[2].creditiImmobilizzazioniAltreImpreseOltre12Mesi
+                document.getElementById('altriTitoliImmobilizzazioni').value = testo[2].altriTitoliImmobilizzazioni
+                document.getElementById('azioniProprie').value = testo[2].azioniProprie
+                document.getElementById('totaleImmobilizzazioniFinanziarie').value = testo[2].totaleImmobilizzazioniFinanziarie
+                document.getElementById('totaleImmobilizzazioni').value = testo[2].totaleImmobilizzazioni
                 // C. Attivo Circolante
                 // I. Rimanenze
-                document.getElementById('materiePrime').value = testo[0].materiePrime
-                document.getElementById('prodottiCorsoLavorazione').value = testo[0].prodottiCorsoLavorazione
-                document.getElementById('lavoriCorsoOrdinazione').value = testo[0].lavoriCorsoOrdinazione
-                document.getElementById('prodottiFinitiMerci').value = testo[0].prodottiFinitiMerci
-                document.getElementById('acconti').value = testo[0].acconti
-                document.getElementById('totaleRimanenze').value = testo[0].totaleRimanenze
+                document.getElementById('materiePrime').value = testo[2].materiePrime
+                document.getElementById('prodottiCorsoLavorazione').value = testo[2].prodottiCorsoLavorazione
+                document.getElementById('lavoriCorsoOrdinazione').value = testo[2].lavoriCorsoOrdinazione
+                document.getElementById('prodottiFinitiMerci').value = testo[2].prodottiFinitiMerci
+                document.getElementById('acconti').value = testo[2].acconti
+                document.getElementById('totaleRimanenze').value = testo[2].totaleRimanenze
                 // II. Crediti
-                document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value = testo[0].creditiAttivoCircolanteClientiEntro12Mesi
-                document.getElementById('creditiAttivoCircolanteClientiOltre12Mesi').value = testo[0].creditiAttivoCircolanteClientiOltre12Mesi
-                document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value = testo[0].creditiAttivoCircolanteImpreseControllateEntro12Mesi
-                document.getElementById('creditiAttivoCircolanteImpreseControllateOltre12Mesi').value = testo[0].creditiAttivoCircolanteImpreseControllateOltre12Mesi
-                document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value = testo[0].creditiAttivoCircolanteImpreseCollegateEntro12Mesi
-                document.getElementById('creditiAttivoCircolanteImpreseCollegateOltre12Mesi').value = testo[0].creditiAttivoCircolanteImpreseCollegateOltre12Mesi
-                document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value = testo[0].creditiAttivoCircolanteImpreseControllantiEntro12Mesi
-                document.getElementById('creditiAttivoCircolanteImpreseControllantiOltre12Mesi').value = testo[0].creditiAttivoCircolanteImpreseControllantiOltre12Mesi
-                document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value = testo[0].creditiAttivoCircolanteAltreImpreseEntro12Mesi
-                document.getElementById('creditiAttivoCircolanteAltreImpreseOltre12Mesi').value = testo[0].creditiAttivoCircolanteAltreImpreseOltre12Mesi
-                document.getElementById('totaleCrediti').value = testo[0].totaleCrediti
+                document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value = testo[2].creditiAttivoCircolanteClientiEntro12Mesi
+                document.getElementById('creditiAttivoCircolanteClientiOltre12Mesi').value = testo[2].creditiAttivoCircolanteClientiOltre12Mesi
+                document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value = testo[2].creditiAttivoCircolanteImpreseControllateEntro12Mesi
+                document.getElementById('creditiAttivoCircolanteImpreseControllateOltre12Mesi').value = testo[2].creditiAttivoCircolanteImpreseControllateOltre12Mesi
+                document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value = testo[2].creditiAttivoCircolanteImpreseCollegateEntro12Mesi
+                document.getElementById('creditiAttivoCircolanteImpreseCollegateOltre12Mesi').value = testo[2].creditiAttivoCircolanteImpreseCollegateOltre12Mesi
+                document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value = testo[2].creditiAttivoCircolanteImpreseControllantiEntro12Mesi
+                document.getElementById('creditiAttivoCircolanteImpreseControllantiOltre12Mesi').value = testo[2].creditiAttivoCircolanteImpreseControllantiOltre12Mesi
+                document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value = testo[2].creditiAttivoCircolanteAltreImpreseEntro12Mesi
+                document.getElementById('creditiAttivoCircolanteAltreImpreseOltre12Mesi').value = testo[2].creditiAttivoCircolanteAltreImpreseOltre12Mesi
+                document.getElementById('totaleCrediti').value = testo[2].totaleCrediti
                 // III. Attività finanziarie che non costituiscono immobilizzazioni
-                document.getElementById('partecipazioniImpreseControllate').value = testo[0].partecipazioniImpreseControllate
-                document.getElementById('partecipazioniImpreseCollegate').value = testo[0].partecipazioniImpreseCollegate
-                document.getElementById('partecipazioniImpreseControllanti').value = testo[0].partecipazioniImpreseControllanti
-                document.getElementById('altrePartecipazioni').value = testo[0].altrePartecipazioni
-                document.getElementById('strumentiFinanziariDerivatiAttivi').value = testo[0].strumentiFinanziariDerivatiAttivi
-                document.getElementById('altriTitoliAttivoCircolante').value = testo[0].altriTitoliAttivoCircolante
-                document.getElementById('totaleAttivitaFinanziarie').value = testo[0].totaleAttivitaFinanziarie
+                document.getElementById('partecipazioniImpreseControllate').value = testo[2].partecipazioniImpreseControllate
+                document.getElementById('partecipazioniImpreseCollegate').value = testo[2].partecipazioniImpreseCollegate
+                document.getElementById('partecipazioniImpreseControllanti').value = testo[2].partecipazioniImpreseControllanti
+                document.getElementById('altrePartecipazioni').value = testo[2].altrePartecipazioni
+                document.getElementById('strumentiFinanziariDerivatiAttivi').value = testo[2].strumentiFinanziariDerivatiAttivi
+                document.getElementById('altriTitoliAttivoCircolante').value = testo[2].altriTitoliAttivoCircolante
+                document.getElementById('totaleAttivitaFinanziarie').value = testo[2].totaleAttivitaFinanziarie
                 // IV. Disponibilità liquide
-                document.getElementById('depositiBancariPostali').value = testo[0].depositiBancariPostali
-                document.getElementById('assegni').value = testo[0].assegni
-                document.getElementById('danaroValoriCassa').value = testo[0].danaroValoriCassa
-                document.getElementById('totaleDisponibilitaLiquide').value = testo[0].totaleDisponibilitaLiquide
-                document.getElementById('totaleAttivoCircolante').value = testo[0].totaleAttivoCircolante
+                document.getElementById('depositiBancariPostali').value = testo[2].depositiBancariPostali
+                document.getElementById('assegni').value = testo[2].assegni
+                document.getElementById('danaroValoriCassa').value = testo[2].danaroValoriCassa
+                document.getElementById('totaleDisponibilitaLiquide').value = testo[2].totaleDisponibilitaLiquide
+                document.getElementById('totaleAttivoCircolante').value = testo[2].totaleAttivoCircolante
                 // D) Ratei e Risconti
-                document.getElementById('rateiRiscontiAttivo').value = testo[0].rateiRiscontiAttivo
-                document.getElementById('disaggioPrestiti').value = testo[0].disaggioPrestiti
-                document.getElementById('totaleRateiRiscontiAttivi').value = testo[0].totaleRateiRiscontiAttivi
+                document.getElementById('rateiRiscontiAttivo').value = testo[2].rateiRiscontiAttivo
+                document.getElementById('disaggioPrestiti').value = testo[2].disaggioPrestiti
+                document.getElementById('totaleRateiRiscontiAttivi').value = testo[2].totaleRateiRiscontiAttivi
                 // TOTALE ATTIVO
-                document.getElementById('totaleAttivo').value = testo[0].totaleAttivo
+                document.getElementById('totaleAttivo').value = testo[2].totaleAttivo
 
                 /* STATO PATRIMONIALE PASSIVO */
                 // A. Patrimonio Netto
-                document.getElementById('capitale').value = testo[0].capitale
-                document.getElementById('riservaSovrapprezzoAzioni').value = testo[0].riservaSovrapprezzoAzioni
-                document.getElementById('riserveRivalutazione').value = testo[0].riserveRivalutazione
-                document.getElementById('riservaLegale').value = testo[0].riservaLegale
-                document.getElementById('riserveStatutarie').value = testo[0].riserveStatutarie
-                document.getElementById('altreRiserve').value = testo[0].altreRiserve
-                document.getElementById('riservaOperazioniCopertura').value = testo[0].riservaOperazioniCopertura
-                document.getElementById('utilePortatoNuovo').value = testo[0].utilePortatoNuovo
-                document.getElementById('utileEsercizio').value = testo[0].utileEsercizio
-                document.getElementById('riservaNegativaAzioniProprie').value = testo[0].riservaNegativaAzioniProprie
-                document.getElementById('totalePatrimonioNetto').value = testo[0].totalePatrimonioNetto
+                document.getElementById('capitale').value = testo[2].capitale
+                document.getElementById('riservaSovrapprezzoAzioni').value = testo[2].riservaSovrapprezzoAzioni
+                document.getElementById('riserveRivalutazione').value = testo[2].riserveRivalutazione
+                document.getElementById('riservaLegale').value = testo[2].riservaLegale
+                document.getElementById('riserveStatutarie').value = testo[2].riserveStatutarie
+                document.getElementById('altreRiserve').value = testo[2].altreRiserve
+                document.getElementById('riservaOperazioniCopertura').value = testo[2].riservaOperazioniCopertura
+                document.getElementById('utilePortatoNuovo').value = testo[2].utilePortatoNuovo
+                document.getElementById('utileEsercizio').value = testo[2].utileEsercizio
+                document.getElementById('riservaNegativaAzioniProprie').value = testo[2].riservaNegativaAzioniProprie
+                document.getElementById('totalePatrimonioNetto').value = testo[2].totalePatrimonioNetto
 
                 // B. Fondi per rischi e oneri
-                document.getElementById('trattamentoQuiescenzaObblighiSimili').value = testo[0].trattamentoQuiescenzaObblighiSimili
-                document.getElementById('imposteAncheDifferite').value = testo[0].imposteAncheDifferite
-                document.getElementById('strumentiFinanziariDerivatiPassivi').value = testo[0].strumentiFinanziariDerivatiPassivi
-                document.getElementById('altriFondi').value = testo[0].altriFondi
-                document.getElementById('totaleFondiRischiOneri').value = testo[0].totaleFondiRischiOneri
+                document.getElementById('trattamentoQuiescenzaObblighiSimili').value = testo[2].trattamentoQuiescenzaObblighiSimili
+                document.getElementById('imposteAncheDifferite').value = testo[2].imposteAncheDifferite
+                document.getElementById('strumentiFinanziariDerivatiPassivi').value = testo[2].strumentiFinanziariDerivatiPassivi
+                document.getElementById('altriFondi').value = testo[2].altriFondi
+                document.getElementById('totaleFondiRischiOneri').value = testo[2].totaleFondiRischiOneri
 
                 // C. Trattamento fine rapporto
-                document.getElementById('trattamentoFineRapportoSP').value = testo[0].trattamentoFineRapportoSP
+                document.getElementById('trattamentoFineRapportoSP').value = testo[2].trattamentoFineRapportoSP
 
                 // D. Debiti
-                document.getElementById('obbligazioniEntro12Mesi').value = testo[0].obbligazioniEntro12Mesi
-                document.getElementById('obbligazioniOltre12Mesi').value = testo[0].obbligazioniOltre12Mesi
-                document.getElementById('obbligazioniConvertibiliEntro12Mesi').value = testo[0].obbligazioniConvertibiliEntro12Mesi
-                document.getElementById('obbligazioniConvertibiliOltre12Mesi').value = testo[0].obbligazioniConvertibiliOltre12Mesi
-                document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value = testo[0].debitiVersoSociFinanziamentiEntro12Mesi
-                document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value = testo[0].debitiVersoSociFinanziamentiOltre12Mesi
-                document.getElementById('debitiVersoBancheEntro12Mesi').value = testo[0].debitiVersoBancheEntro12Mesi
-                document.getElementById('debitiVersoBancheOltre12Mesi').value = testo[0].debitiVersoBancheOltre12Mesi
-                document.getElementById('debitiVersoAltriFinanziatoriEntro12Mesi').value = testo[0].debitiVersoAltriFinanziatoriEntro12Mesi
-                document.getElementById('debitiVersoAltriFinanziatoriOltre12Mesi').value = testo[0].debitiVersoAltriFinanziatoriOltre12Mesi
-                document.getElementById('accontiEntro12Mesi').value = testo[0].accontiEntro12Mesi
-                document.getElementById('accontiOltre12Mesi').value = testo[0].accontiOltre12Mesi
-                document.getElementById('debitiVersoFornitoriEntro12Mesi').value = testo[0].debitiVersoFornitoriEntro12Mesi
-                document.getElementById('debitiVersoFornitoriOltre12Mesi').value = testo[0].debitiVersoFornitoriOltre12Mesi
-                document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value = testo[0].debitiRappresentatiTitoliCreditoEntro12Mesi
-                document.getElementById('debitiRappresentatiTitoliCreditooltre12Mesi').value = testo[0].debitiRappresentatiTitoliCreditooltre12Mesi
-                document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value = testo[0].debitiVersoImpreseControllateEntro12Mesi
-                document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value = testo[0].debitiVersoImpreseControllateOltre12Mesi
-                document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value = testo[0].debitiVersoImpreseCollegateEntro12Mesi
-                document.getElementById('debitiVersoImpreseCollegateOltre12Mesi').value = testo[0].debitiVersoImpreseCollegateOltre12Mesi
-                document.getElementById('debitiVersoControllantiEntro12Mesi').value = testo[0].debitiVersoControllantiEntro12Mesi
-                document.getElementById('debitiVersoControllantiOltre12Mesi').value = testo[0].debitiVersoControllantiOltre12Mesi
-                document.getElementById('debitiTributariEntro12Mesi').value = testo[0].debitiTributariEntro12Mesi
-                document.getElementById('debitiTributariOltre12Mesi').value = testo[0].debitiTributariOltre12Mesi
-                document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value = testo[0].debitiVersoIstituiPrevidenzaEntro12Mesi
-                document.getElementById('debitiVersoIstituiPrevidenzaOltre12Mesi').value = testo[0].debitiVersoIstituiPrevidenzaOltre12Mesi
-                document.getElementById('altriDebitiEntro12Mesi').value = testo[0].altriDebitiEntro12Mesi
-                document.getElementById('altriDebitiOltre12Mesi').value = testo[0].altriDebitiOltre12Mesi
-                document.getElementById('totaleDebiti').value = testo[0].totaleDebiti
+                document.getElementById('obbligazioniEntro12Mesi').value = testo[2].obbligazioniEntro12Mesi
+                document.getElementById('obbligazioniOltre12Mesi').value = testo[2].obbligazioniOltre12Mesi
+                document.getElementById('obbligazioniConvertibiliEntro12Mesi').value = testo[2].obbligazioniConvertibiliEntro12Mesi
+                document.getElementById('obbligazioniConvertibiliOltre12Mesi').value = testo[2].obbligazioniConvertibiliOltre12Mesi
+                document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value = testo[2].debitiVersoSociFinanziamentiEntro12Mesi
+                document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value = testo[2].debitiVersoSociFinanziamentiOltre12Mesi
+                document.getElementById('debitiVersoBancheEntro12Mesi').value = testo[2].debitiVersoBancheEntro12Mesi
+                document.getElementById('debitiVersoBancheOltre12Mesi').value = testo[2].debitiVersoBancheOltre12Mesi
+                document.getElementById('debitiVersoAltriFinanziatoriEntro12Mesi').value = testo[2].debitiVersoAltriFinanziatoriEntro12Mesi
+                document.getElementById('debitiVersoAltriFinanziatoriOltre12Mesi').value = testo[2].debitiVersoAltriFinanziatoriOltre12Mesi
+                document.getElementById('accontiEntro12Mesi').value = testo[2].accontiEntro12Mesi
+                document.getElementById('accontiOltre12Mesi').value = testo[2].accontiOltre12Mesi
+                document.getElementById('debitiVersoFornitoriEntro12Mesi').value = testo[2].debitiVersoFornitoriEntro12Mesi
+                document.getElementById('debitiVersoFornitoriOltre12Mesi').value = testo[2].debitiVersoFornitoriOltre12Mesi
+                document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value = testo[2].debitiRappresentatiTitoliCreditoEntro12Mesi
+                document.getElementById('debitiRappresentatiTitoliCreditooltre12Mesi').value = testo[2].debitiRappresentatiTitoliCreditooltre12Mesi
+                document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value = testo[2].debitiVersoImpreseControllateEntro12Mesi
+                document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value = testo[2].debitiVersoImpreseControllateOltre12Mesi
+                document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value = testo[2].debitiVersoImpreseCollegateEntro12Mesi
+                document.getElementById('debitiVersoImpreseCollegateOltre12Mesi').value = testo[2].debitiVersoImpreseCollegateOltre12Mesi
+                document.getElementById('debitiVersoControllantiEntro12Mesi').value = testo[2].debitiVersoControllantiEntro12Mesi
+                document.getElementById('debitiVersoControllantiOltre12Mesi').value = testo[2].debitiVersoControllantiOltre12Mesi
+                document.getElementById('debitiTributariEntro12Mesi').value = testo[2].debitiTributariEntro12Mesi
+                document.getElementById('debitiTributariOltre12Mesi').value = testo[2].debitiTributariOltre12Mesi
+                document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value = testo[2].debitiVersoIstituiPrevidenzaEntro12Mesi
+                document.getElementById('debitiVersoIstituiPrevidenzaOltre12Mesi').value = testo[2].debitiVersoIstituiPrevidenzaOltre12Mesi
+                document.getElementById('altriDebitiEntro12Mesi').value = testo[2].altriDebitiEntro12Mesi
+                document.getElementById('altriDebitiOltre12Mesi').value = testo[2].altriDebitiOltre12Mesi
+                document.getElementById('totaleDebiti').value = testo[2].totaleDebiti
 
                 // E. ratei e risconti
-                document.getElementById('rateiRiscontiPassivo').value = testo[0].rateiRiscontiPassivo
-                document.getElementById('aggioPrestiti').value = testo[0].aggioPrestiti
-                document.getElementById('totaleRateiRiscontiPassivi').value = testo[0].totaleRateiRiscontiPassivi
+                document.getElementById('rateiRiscontiPassivo').value = testo[2].rateiRiscontiPassivo
+                document.getElementById('aggioPrestiti').value = testo[2].aggioPrestiti
+                document.getElementById('totaleRateiRiscontiPassivi').value = testo[2].totaleRateiRiscontiPassivi
 
                 // TOTALE PASSIVO
-                document.getElementById('totalePassivo').value = testo[0].totalePassivo
+                document.getElementById('totalePassivo').value = testo[2].totalePassivo
 
                 /* CONTO ECONOMICO */
                 // A) Valore della produzione
-                document.getElementById('ricaviVendite').value = testo[0].ricaviVendite
-                document.getElementById('variazioniRimanenze').value = testo[0].variazioniRimanenze
-                document.getElementById('variazioniRimanenzeProdottiInCorso').value = testo[0].variazioniRimanenzeProdottiInCorso
-                document.getElementById('incrementiImmobilizzazioniLavoriInterni').value = testo[0].incrementiImmobilizzazioniLavoriInterni
-                document.getElementById('altriRicaviProventi').value = testo[0].altriRicaviProventi
-                document.getElementById('totaleValoreProduzione').value = testo[0].totaleValoreProduzione
+                document.getElementById('ricaviVendite').value = testo[3].ricaviVendite
+                document.getElementById('variazioniRimanenze').value = testo[3].variazioniRimanenze
+                document.getElementById('variazioniRimanenzeProdottiInCorso').value = testo[3].variazioniRimanenzeProdottiInCorso
+                document.getElementById('incrementiImmobilizzazioniLavoriInterni').value = testo[3].incrementiImmobilizzazioniLavoriInterni
+                document.getElementById('altriRicaviProventi').value = testo[3].altriRicaviProventi
+                document.getElementById('totaleValoreProduzione').value = testo[3].totaleValoreProduzione
 
                 // B) Costi della produzione
-                document.getElementById('materiePrimeCE').value = testo[0].materiePrimeCE
-                document.getElementById('servizi').value = testo[0].servizi
-                document.getElementById('godimentoBeniTerzi').value = testo[0].godimentoBeniTerzi
-                document.getElementById('salariStipendi').value = testo[0].salariStipendi
-                document.getElementById('oneriSociali').value = testo[0].oneriSociali
-                document.getElementById('trattamentoFineRapportoCE').value = testo[0].trattamentoFineRapportoCE
-                document.getElementById('trattamentoQuiescenzaSimili').value = testo[0].trattamentoQuiescenzaSimili
-                document.getElementById('altriCosti').value = testo[0].altriCosti
-                document.getElementById('ammortamentoImmobilizzazioniImmateriali').value = testo[0].ammortamentoImmobilizzazioniImmateriali
-                document.getElementById('ammortamentoImmobilizzazioniMateriali').value = testo[0].ammortamentoImmobilizzazioniMateriali
-                document.getElementById('altreSvalutazioniImmobilizzazioni').value = testo[0].altreSvalutazioniImmobilizzazioni
-                document.getElementById('svalutazioniCreditiCompresiAttivoCircolante').value = testo[0].svalutazioniCreditiCompresiAttivoCircolante
-                document.getElementById('variazioneRimanenzeMateriePrime').value = testo[0].variazioneRimanenzeMateriePrime
-                document.getElementById('accantonamentiPerRischi').value = testo[0].accantonamentiPerRischi
-                document.getElementById('altriAccantonamenti').value = testo[0].altriAccantonamenti
-                document.getElementById('oneriDiversiGestione').value = testo[0].oneriDiversiGestione
-                document.getElementById('totaleCostiProduzione').value = testo[0].totaleCostiProduzione
+                document.getElementById('materiePrimeCE').value = testo[3].materiePrimeCE
+                document.getElementById('servizi').value = testo[3].servizi
+                document.getElementById('godimentoBeniTerzi').value = testo[3].godimentoBeniTerzi
+                document.getElementById('salariStipendi').value = testo[3].salariStipendi
+                document.getElementById('oneriSociali').value = testo[3].oneriSociali
+                document.getElementById('trattamentoFineRapportoCE').value = testo[3].trattamentoFineRapportoCE
+                document.getElementById('trattamentoQuiescenzaSimili').value = testo[3].trattamentoQuiescenzaSimili
+                document.getElementById('altriCosti').value = testo[3].altriCosti
+                document.getElementById('ammortamentoImmobilizzazioniImmateriali').value = testo[3].ammortamentoImmobilizzazioniImmateriali
+                document.getElementById('ammortamentoImmobilizzazioniMateriali').value = testo[3].ammortamentoImmobilizzazioniMateriali
+                document.getElementById('altreSvalutazioniImmobilizzazioni').value = testo[3].altreSvalutazioniImmobilizzazioni
+                document.getElementById('svalutazioniCreditiCompresiAttivoCircolante').value = testo[3].svalutazioniCreditiCompresiAttivoCircolante
+                document.getElementById('variazioneRimanenzeMateriePrime').value = testo[3].variazioneRimanenzeMateriePrime
+                document.getElementById('accantonamentiPerRischi').value = testo[3].accantonamentiPerRischi
+                document.getElementById('altriAccantonamenti').value = testo[3].altriAccantonamenti
+                document.getElementById('oneriDiversiGestione').value = testo[3].oneriDiversiGestione
+                document.getElementById('totaleCostiProduzione').value = testo[3].totaleCostiProduzione
 
                 // Differenza tra Valore e Costi della produzione
-                document.getElementById('differenzaValoreCostiProduzione').value = testo[0].differenzaValoreCostiProduzione
+                document.getElementById('differenzaValoreCostiProduzione').value = testo[3].differenzaValoreCostiProduzione
 
                 // C) Proventi e oneri finanziari
-                document.getElementById('proventiDaControllate').value = testo[0].proventiDaControllate
-                document.getElementById('proventiDaCollegate').value = testo[0].proventiDaCollegate
-                document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value = testo[0].proventiCreditiIscrittiImmobilizzazioniControllate
-                document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value = testo[0].proventiCreditiIscrittiImmobilizzazioniCollegate
-                document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value = testo[0].proventiCreditiIscrittiImmobilizzazioniControllanti
-                document.getElementById('proventiTitoliIscrittiImmobilizzazioni').value = testo[0].proventiTitoliIscrittiImmobilizzazioni
-                document.getElementById('proventiTitoliIscrittiAttivoCircolante').value = testo[0].proventiTitoliIscrittiAttivoCircolante
-                document.getElementById('proventiDiversiDaiPrecedentiControllate').value = testo[0].proventiDiversiDaiPrecedentiControllate
-                document.getElementById('proventiDiversiDaiPrecedentiCollegate').value = testo[0].proventiDiversiDaiPrecedentiCollegate
-                document.getElementById('proventiDiversiDaiPrecedentiControllanti').value = testo[0].proventiDiversiDaiPrecedentiControllanti
-                document.getElementById('interessiAltriOneriFinanziariDaControllate').value = testo[0].interessiAltriOneriFinanziariDaControllate
-                document.getElementById('interessiAltriOneriFinanziariDaCollegate').value = testo[0].interessiAltriOneriFinanziariDaCollegate
-                document.getElementById('interessiAltriOneriFinanziariDaControllanti').value = testo[0].interessiAltriOneriFinanziariDaControllanti
-                document.getElementById('totaleProventiOneriFinanziari').value = testo[0].totaleProventiOneriFinanziari
+                document.getElementById('proventiDaControllate').value = testo[3].proventiDaControllate
+                document.getElementById('proventiDaCollegate').value = testo[3].proventiDaCollegate
+                document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value = testo[3].proventiCreditiIscrittiImmobilizzazioniControllate
+                document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value = testo[3].proventiCreditiIscrittiImmobilizzazioniCollegate
+                document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value = testo[3].proventiCreditiIscrittiImmobilizzazioniControllanti
+                document.getElementById('proventiTitoliIscrittiImmobilizzazioni').value = testo[3].proventiTitoliIscrittiImmobilizzazioni
+                document.getElementById('proventiTitoliIscrittiAttivoCircolante').value = testo[3].proventiTitoliIscrittiAttivoCircolante
+                document.getElementById('proventiDiversiDaiPrecedentiControllate').value = testo[3].proventiDiversiDaiPrecedentiControllate
+                document.getElementById('proventiDiversiDaiPrecedentiCollegate').value = testo[3].proventiDiversiDaiPrecedentiCollegate
+                document.getElementById('proventiDiversiDaiPrecedentiControllanti').value = testo[3].proventiDiversiDaiPrecedentiControllanti
+                document.getElementById('interessiAltriOneriFinanziariDaControllate').value = testo[3].interessiAltriOneriFinanziariDaControllate
+                document.getElementById('interessiAltriOneriFinanziariDaCollegate').value = testo[3].interessiAltriOneriFinanziariDaCollegate
+                document.getElementById('interessiAltriOneriFinanziariDaControllanti').value = testo[3].interessiAltriOneriFinanziariDaControllanti
+                document.getElementById('totaleProventiOneriFinanziari').value = testo[3].totaleProventiOneriFinanziari
 
                 // D) Rettifiche di valore di attività finanziarie
-                document.getElementById('rivalutazioniPartecipazioni').value = testo[0].rivalutazioniPartecipazioni
-                document.getElementById('rivalutazioniImmobilizzazioniFinanziarie').value = testo[0].rivalutazioniImmobilizzazioniFinanziarie
-                document.getElementById('rivalutazioniTitoliIscrittiAttivoCircolante').value = testo[0].rivalutazioniTitoliIscrittiAttivoCircolante
-                document.getElementById('rivalutazioniStrumentiFinanziariDerivati').value = testo[0].rivalutazioniStrumentiFinanziariDerivati
-                document.getElementById('svalutazioniPartecipazioni').value = testo[0].svalutazioniPartecipazioni
-                document.getElementById('svalutazioniImmobilizzazioniFinanziarie').value = testo[0].svalutazioniImmobilizzazioniFinanziarie
-                document.getElementById('svalutazioniTitoliIscrittiAttivoCircolante').value = testo[0].svalutazioniTitoliIscrittiAttivoCircolante
-                document.getElementById('svalutazioniStrumentiFinanziariDerivati').value = testo[0].svalutazioniStrumentiFinanziariDerivati
-                document.getElementById('totaleRettifiche').value = testo[0].totaleRettifiche
+                document.getElementById('rivalutazioniPartecipazioni').value = testo[3].rivalutazioniPartecipazioni
+                document.getElementById('rivalutazioniImmobilizzazioniFinanziarie').value = testo[3].rivalutazioniImmobilizzazioniFinanziarie
+                document.getElementById('rivalutazioniTitoliIscrittiAttivoCircolante').value = testo[3].rivalutazioniTitoliIscrittiAttivoCircolante
+                document.getElementById('rivalutazioniStrumentiFinanziariDerivati').value = testo[3].rivalutazioniStrumentiFinanziariDerivati
+                document.getElementById('svalutazioniPartecipazioni').value = testo[3].svalutazioniPartecipazioni
+                document.getElementById('svalutazioniImmobilizzazioniFinanziarie').value = testo[3].svalutazioniImmobilizzazioniFinanziarie
+                document.getElementById('svalutazioniTitoliIscrittiAttivoCircolante').value = testo[3].svalutazioniTitoliIscrittiAttivoCircolante
+                document.getElementById('svalutazioniStrumentiFinanziariDerivati').value = testo[3].svalutazioniStrumentiFinanziariDerivati
+                document.getElementById('totaleRettifiche').value = testo[3].totaleRettifiche
 
                 // E) Proventi e oneri straordinari
-                document.getElementById('proventiStraordinari').value = testo[0].proventiStraordinari
-                document.getElementById('plusvalenzeAlienazioni').value = testo[0].plusvalenzeAlienazioni
-                document.getElementById('oneriStraordinari').value = testo[0].oneriStraordinari
-                document.getElementById('minusvalenzeAlienazioni').value = testo[0].minusvalenzeAlienazioni
-                document.getElementById('imposteRelativeEserciziPrecedenti').value = testo[0].imposteRelativeEserciziPrecedenti
-                document.getElementById('totalePartiteStraordinarie').value = testo[0].totalePartiteStraordinarie
+                document.getElementById('proventiStraordinari').value = testo[3].proventiStraordinari
+                document.getElementById('plusvalenzeAlienazioni').value = testo[3].plusvalenzeAlienazioni
+                document.getElementById('oneriStraordinari').value = testo[3].oneriStraordinari
+                document.getElementById('minusvalenzeAlienazioni').value = testo[3].minusvalenzeAlienazioni
+                document.getElementById('imposteRelativeEserciziPrecedenti').value = testo[3].imposteRelativeEserciziPrecedenti
+                document.getElementById('totalePartiteStraordinarie').value = testo[3].totalePartiteStraordinarie
 
                 // Risultato prima delle Imposte
-                document.getElementById('risultatoPrimaImposte').value = testo[0].risultatoPrimaImposte
+                document.getElementById('risultatoPrimaImposte').value = testo[3].risultatoPrimaImposte
                 // Imposte
-                document.getElementById('imposteRedditoEsercizio').value = testo[0].imposteRedditoEsercizio
+                document.getElementById('imposteRedditoEsercizio').value = testo[3].imposteRedditoEsercizio
                 // Utile (perdite) dell'esercizio
-                document.getElementById('utilePerditeEsercizio').value = testo[0].utilePerditeEsercizio
+                document.getElementById('utilePerditeEsercizio').value = testo[3].utilePerditeEsercizio
+
+                // RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO
+                document.getElementById('SPimmobilizzazioniImmateriali').value = testo[4].SPimmobilizzazioniImmateriali
+                document.getElementById('SPimmobilizzazioniMateriali').value = testo[4].SPimmobilizzazioniMateriali
+                document.getElementById('SPimmobilizzazioniFinanziarie').value = testo[4].SPimmobilizzazioniFinanziarie
+                document.getElementById('SPtotaleImmobilizzazioniNette').value = testo[4].SPtotaleImmobilizzazioniNette
+                document.getElementById('SPmagazzino').value = testo[4].SPmagazzino
+                document.getElementById('SPcreditiCommerciali').value = testo[4].SPcreditiCommerciali
+                document.getElementById('SPaltriCrediti').value = testo[4].SPaltriCrediti
+                document.getElementById('SPliquidita').value = testo[4].SPliquidita
+                document.getElementById('SPtotaleAttivoCircolante').value = testo[4].SPtotaleAttivoCircolante
+                document.getElementById('SPtotaleAttivo').value = testo[4].SPtotaleAttivo
+                document.getElementById('SPcapitaleSociale').value = testo[4].SPcapitaleSociale
+                document.getElementById('SPriserve').value = testo[4].SPriserve
+                document.getElementById('SPredditoNetto').value = testo[4].SPredditoNetto
+                document.getElementById('SPtotalePatrimonioNetto').value = testo[4].SPtotalePatrimonioNetto
+                document.getElementById('SPdebitiFinanziariMlTermine').value = testo[4].SPdebitiFinanziariMlTermine
+                document.getElementById('SPaltriDebiti').value = testo[4].SPaltriDebiti
+                document.getElementById('SPfondoTFR').value = testo[4].SPfondoTFR
+                document.getElementById('SPaltriFondi').value = testo[4].SPaltriFondi
+                document.getElementById('SPtotalePassivoMlTermine').value = testo[4].SPtotalePassivoMlTermine
+                document.getElementById('SPdebitiFinanziariBreveTermine').value = testo[4].SPdebitiFinanziariBreveTermine
+                document.getElementById('SPdebitiCommercialiFornitori').value = testo[4].SPdebitiCommercialiFornitori
+                document.getElementById('SPaltriDebitiNonFinanziari').value = testo[4].SPaltriDebitiNonFinanziari
+                document.getElementById('SPrateiRiscontiPassivi').value = testo[4].SPrateiRiscontiPassivi
+                document.getElementById('SPtotalePassivoBreveTermine').value = testo[4].SPtotalePassivoBreveTermine
+                document.getElementById('SPtotalePassivoPatrimonioNetto').value = testo[4].SPtotalePassivoPatrimonioNetto
+                document.getElementById('SPeventualeSquadraturaAttivoPass').value = testo[4].SPeventualeSquadraturaAttivoPass
+
+                /* RICLASSIFICAZIONE CONTO ECONOMICO VALORE AGGIUNTO */
+                document.getElementById('CEricaviVendite').value = testo[5].CEricaviVendite
+                document.getElementById('CEproduzioneInterna').value = testo[5].CEproduzioneInterna
+                document.getElementById('CEtotaleValoreProduzione').value = testo[5].CEtotaleValoreProduzione
+                document.getElementById('CEconsumoMateriePrime').value = testo[5].CEconsumoMateriePrime
+                document.getElementById('CEcostiServizi').value = testo[5].CEcostiServizi
+                document.getElementById('CEtotaleConsumiEsterni').value = testo[5].CEtotaleConsumiEsterni
+                document.getElementById('CEvaloreAggiunto').value = testo[5].CEvaloreAggiunto
+                document.getElementById('CEcostiPersonale').value = testo[5].CEcostiPersonale
+                document.getElementById('CEtotaleMargineOperativoLordo').value = testo[5].CEtotaleMargineOperativoLordo
+                document.getElementById('CEammortamenti').value = testo[5].CEammortamenti
+                document.getElementById('CEcanoniLeasing').value = testo[5].CEcanoniLeasing
+                document.getElementById('CEaccantonamentiSvalutazioni').value = testo[5].CEaccantonamentiSvalutazioni
+                document.getElementById('CEtotaleAmmortamentiSvalutazioni').value = testo[5].CEtotaleAmmortamentiSvalutazioni
+                document.getElementById('CEaltriProventiOperativiFinanziari').value = testo[5].CEaltriProventiOperativiFinanziari
+                document.getElementById('CEtotaleRisultatoOperativo').value = testo[5].CEtotaleRisultatoOperativo
+                document.getElementById('CEoneriFinanziari').value = testo[5].CEoneriFinanziari
+                document.getElementById('CEtotaleRisultatoLordo').value = testo[5].CEtotaleRisultatoLordo
+                document.getElementById('CErisultatoAreaStraordinaria').value = testo[5].CErisultatoAreaStraordinaria
+                document.getElementById('CEtotaleRisultatoAnteImposte').value = testo[5].CEtotaleRisultatoAnteImposte
+                document.getElementById('CEimposteReddito').value = testo[5].CEimposteReddito
+                document.getElementById('CEtotaleRisultatoNetto').value = testo[5].CEtotaleRisultatoNetto
 
                 console.log("file aperto")
             })

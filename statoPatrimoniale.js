@@ -49,8 +49,10 @@ function sommeSP() {
     /* PASSIVO */
 
     // A) Patrimonio netto
+    console.log("provo ad entrare nella funzione")
     sommaPatrimonioNetto()
     var totalePatrimonioNetto = document.getElementById('totalePatrimonioNetto').value
+    console.log("totale patrimonio netto " + document.getElementById('totalePatrimonioNetto').value)
 
     // B) Fondi per rischi e oneri
     sommaFondiRischiOneri()
@@ -161,12 +163,16 @@ function sommaRateiRiscontiAttivi() {
 }
 
 function sommaPatrimonioNetto() {
+    console.log("interno funzione 1")
     var arr = document.getElementsByName('patrimonioNetto');
     var tot = 0;
+    console.log("interno funzione 2")
     for (var i = 0; i < arr.length; i++) {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
+    console.log("tot : " + tot)
+    console.log("tot fixed : " + tot.toFixed(2))
     document.getElementById('totalePatrimonioNetto').value = tot.toFixed(2);
 }
 

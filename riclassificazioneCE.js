@@ -6,7 +6,7 @@ var validate = function (e) {
 
 function sommeRiclassificazioneCE() {
     // VALORE DELLA PRODUZIONE
-    sommaValoreProduzione()
+    sommaValoreProduzioneCE()
     var totaleValoreProduzione = document.getElementById('CEtotaleValoreProduzione').value
 
     // Consumi esterni
@@ -87,7 +87,7 @@ function sommeRiclassificazioneCE() {
     document.getElementById('CEtotaleRisultatoNetto').value = risultatoNetto.toFixed(2)
 }
 
-function sommaValoreProduzione() {
+function sommaValoreProduzioneCE() {
     var arr = document.getElementsByName('CEvaloreProduzione');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {

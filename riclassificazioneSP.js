@@ -18,7 +18,7 @@ function sommeRiclassificazioneSP() {
     document.getElementById('SPtotaleAttivo').value = totaleAttivo.toFixed(2)
     
     // F) PATRIMONIO NETTO
-    sommaPatrimonioNetto()
+    sommaPatrimonioNettoSP()
     var totalePatrimonioNetto = document.getElementById('SPtotalePatrimonioNetto').value
 
     // E) PASSIVO A M/L TERMINE
@@ -58,7 +58,7 @@ function sommaAttivoCircolante() {
     document.getElementById('SPtotaleAttivoCircolante').value = tot.toFixed(2)
 }
 
-function sommaPatrimonioNetto() {
+function sommaPatrimonioNettoSP() {
     var arr = document.getElementsByName('SPpatrimonioNetto');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
