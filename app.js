@@ -40,10 +40,15 @@ app.on('ready', () => {
   // Creo la finestra iniziale
   window = new BrowserWindow({
     // Imposto la larghezza iniziale a 800px
-    width: 800,
+    //width: 800,
     // Imposto l'altezza iniziale a 1000px
-    height: 1000,
+    //height: 1000,
     // Imposto il colore di sfondo
+        height: 715,
+        width: 1200,
+        minWidth: 600,
+        minHeight: 200,
+        center: true,
     backgroundColor: "#D6D8DC",
     // non mostra la finestra fino a che non è pronta
     show: false

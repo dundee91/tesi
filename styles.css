@@ -53,24 +53,25 @@ h3{
 /* Stile della tab */
 .tab {
 	overflow: hidden;
-	border: 3px solid white;
-	background-color:rgb(65, 11, 11);
+	background-color:white;
 	position: fixed;
 	top: 0; 
 	width: 100%;
-	color: white
+	color: rgb(65, 11, 11);
 }
 
 /* Stile dei bottoni delle tab*/
 .tab button {
+	color: rgb(65, 11, 11);
 	border: 3px solid white;
-	background-color:rgb(65, 11, 11);
+	background-color:rgb(217, 217, 217);
 	float: left;
-	border: none;
+	border: 3px solid rgb(65, 11, 11);
 	cursor: grab;
 	padding: 7px 8px;
 	transition: 1s;
 	font-family: 'Segoe UI';
+	margin-right: 1px;
 }
 
 /* Cambia colore del bottone quando ci si passa sopra con il cursore */
@@ -81,8 +82,8 @@ h3{
 
 /* Stile del bottone della tab attiva */
 .tab button.active {
-	background-color:white;
-	color:rgb(65, 11, 11);
+	background-color:rgb(65, 11, 11);;
+	color:rgb(217, 217, 217);
 }
 
 /* Style the tab content */
