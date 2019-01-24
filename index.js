@@ -270,6 +270,7 @@ ipc.on('salva', function (ev, data) {
     var SPmagazzino = document.getElementById('SPmagazzino').value
     var SPcreditiCommerciali = document.getElementById('SPcreditiCommerciali').value
     var SPaltriCrediti = document.getElementById('SPaltriCrediti').value
+    var SPrateiRiscontiAttivi = document.getElementById('SPrateiRiscontiAttivi').value
     var SPliquidita = document.getElementById('SPliquidita').value
     var SPtotaleAttivoCircolante = document.getElementById('SPtotaleAttivoCircolante').value
     var SPtotaleAttivo = document.getElementById('SPtotaleAttivo').value
@@ -587,6 +588,7 @@ ipc.on('salva', function (ev, data) {
             'SPmagazzino': SPmagazzino,
             'SPcreditiCommerciali': SPcreditiCommerciali,
             'SPaltriCrediti': SPaltriCrediti,
+            'SPrateiRiscontiAttivi': SPrateiRiscontiAttivi,
             'SPliquidita': SPliquidita,
             'SPtotaleAttivoCircolante': SPtotaleAttivoCircolante,
             'SPtotaleAttivo': SPtotaleAttivo,
@@ -926,6 +928,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('utilePerditeEsercizio').value = testo[3].utilePerditeEsercizio
 
                 // RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO
+                //document.getElementById('SPimmobilizzazioniImmateriali').value = testo[4].totaleImmobilizzazioniImmateriali
                 document.getElementById('SPimmobilizzazioniImmateriali').value = testo[4].SPimmobilizzazioniImmateriali
                 document.getElementById('SPimmobilizzazioniMateriali').value = testo[4].SPimmobilizzazioniMateriali
                 document.getElementById('SPimmobilizzazioniFinanziarie').value = testo[4].SPimmobilizzazioniFinanziarie
@@ -933,6 +936,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('SPmagazzino').value = testo[4].SPmagazzino
                 document.getElementById('SPcreditiCommerciali').value = testo[4].SPcreditiCommerciali
                 document.getElementById('SPaltriCrediti').value = testo[4].SPaltriCrediti
+                document.getElementById('SPrateiRiscontiAttivi').value = testo[4].SPrateiRiscontiAttivi
                 document.getElementById('SPliquidita').value = testo[4].SPliquidita
                 document.getElementById('SPtotaleAttivoCircolante').value = testo[4].SPtotaleAttivoCircolante
                 document.getElementById('SPtotaleAttivo').value = testo[4].SPtotaleAttivo

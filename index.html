@@ -1481,21 +1481,21 @@
       <div class="form-group">
         <label class="etichetta">Immobilizzazioni immateriali</label>
         <input id="SPimmobilizzazioniImmateriali" type="number" step="0.01" name="SPimmobilizzazioniNette" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+        readonly>
       </div>
 
       <!-- Immobilizzazioni materiali -->
       <div class="form-group">
         <label class="etichetta">Immobilizzazioni materiali</label>
         <input id="SPimmobilizzazioniMateriali" type="number" step="0.01" name="SPimmobilizzazioniNette" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+        readonly>
       </div>
 
       <!-- Immobilizzazioni finanziarie -->
       <div class="form-group">
         <label class="etichetta">Immobilizzazioni finanziarie</label>
         <input id="SPimmobilizzazioniFinanziarie" type="number" step="0.01" name="SPimmobilizzazioniNette" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+        readonly>
       </div>
 
       <!-- (A) TOTALE IMMOBILIZZAZIONI NETTE-->
@@ -1507,26 +1507,32 @@
       <!-- Magazzino -->
       <div class="form-group">
         <label class="etichetta">Magazzino</label>
-        <input id="SPmagazzino" type="number" step="0.01" name="SPattivoCircolante" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPmagazzino" type="number" step="0.01" name="SPattivoCircolante" class="form-control" readonly>
       </div>
 
       <!-- Crediti commerciali -->
       <div class="form-group">
         <label class="etichetta">Crediti commerciali</label>
         <input id="SPcreditiCommerciali" type="number" step="0.01" name="SPattivoCircolante" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+        readonly>
       </div>
 
       <!-- Altri crediti -->
       <div class="form-group">
         <label class="etichetta">Altri crediti</label>
-        <input id="SPaltriCrediti" type="number" step="0.01" name="SPattivoCircolante" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPaltriCrediti" type="number" step="0.01" name="SPattivoCircolante" class="form-control" readonly>
+      </div>
+
+      <!-- Ratei e risconti attivi -->
+      <div class="form-group">
+        <label class="etichetta">Ratei e risconti attivi</label>
+        <input id="SPrateiRiscontiAttivi" type="number" step="0.01" name="SPattivoCircolante" class="form-control" readonly>
       </div>
 
       <!-- Liquidità -->
       <div class="form-group">
         <label class="etichetta">Liquidità</label>
-        <input id="SPliquidita" type="number" step="0.01" name="SPattivoCircolante" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPliquidita" type="number" step="0.01" name="SPattivoCircolante" class="form-control" readonly>
       </div>
 
       <!-- (B) TOTALE ATTIVO CIRCOLANTE-->
@@ -1544,19 +1550,19 @@
       <!-- Capitale sociale -->
       <div class="form-group">
         <label class="etichetta">Capitale sociale</label>
-        <input id="SPcapitaleSociale" type="number" step="0.01" name="SPpatrimonioNetto" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPcapitaleSociale" type="number" step="0.01" name="SPpatrimonioNetto" class="form-control" oninput="validate(this)">
       </div>
 
       <!-- Riserve -->
       <div class="form-group">
         <label class="etichetta">Riserve</label>
-        <input id="SPriserve" type="number" step="0.01" name="SPpatrimonioNetto" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPriserve" type="number" step="0.01" name="SPpatrimonioNetto" class="form-control" oninput="validate(this)">
       </div>
 
       <!-- Reddito netto -->
       <div class="form-group">
         <label class="etichetta">Reddito netto</label>
-        <input id="SPredditoNetto" type="number" step="0.01" name="SPpatrimonioNetto" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPredditoNetto" type="number" step="0.01" name="SPpatrimonioNetto" class="form-control" oninput="validate(this)">
       </div>
 
       <!-- (F) PATRIMONIO NETTO-->
@@ -1569,25 +1575,25 @@
       <div class="form-group">
         <label class="etichetta">Debiti finanziari a medio - lungo termine</label>
         <input id="SPdebitiFinanziariMlTermine" type="number" step="0.01" name="SPpassivoMLTermine" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+          oninput="validate(this)">
       </div>
 
       <!-- Altri debiti a medio - lungo termine -->
       <div class="form-group">
         <label class="etichetta">Altri debiti a medio - lungo termine</label>
-        <input id="SPaltriDebiti" type="number" step="0.01" name="SPpassivoMLTermine" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPaltriDebiti" type="number" step="0.01" name="SPpassivoMLTermine" class="form-control" oninput="validate(this)">
       </div>
 
       <!-- Fondo TFR -->
       <div class="form-group">
         <label class="etichetta">Fondo TFR</label>
-        <input id="SPfondoTFR" type="number" step="0.01" name="SPpassivoMLTermine" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPfondoTFR" type="number" step="0.01" name="SPpassivoMLTermine" class="form-control" oninput="validate(this)">
       </div>
 
       <!-- Altri fondi -->
       <div class="form-group">
         <label class="etichetta">Altri fondi</label>
-        <input id="SPaltriFondi" type="number" step="0.01" name="SPpassivoMLTermine" class="form-control" oninput="validate(this); sommeRiclassificazioneSP()">
+        <input id="SPaltriFondi" type="number" step="0.01" name="SPpassivoMLTermine" class="form-control" oninput="validate(this)">
       </div>
 
       <!-- (E) PASSIVO A M/L TERMINE-->
@@ -1600,28 +1606,28 @@
       <div class="form-group">
         <label class="etichetta">Debiti finanziari a breve termine</label>
         <input id="SPdebitiFinanziariBreveTermine" type="number" step="0.01" name="SPpassivoBreveTermine" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+          oninput="validate(this)">
       </div>
 
       <!-- Debiti commerciali verso fornitori -->
       <div class="form-group">
         <label class="etichetta">Debiti commerciali verso fornitori</label>
         <input id="SPdebitiCommercialiFornitori" type="number" step="0.01" name="SPpassivoBreveTermine" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+          oninput="validate(this)">
       </div>
 
       <!-- Altri debiti non finanziari -->
       <div class="form-group">
         <label class="etichetta">Altri debiti non finanziari</label>
         <input id="SPaltriDebitiNonFinanziari" type="number" step="0.01" name="SPpassivoBreveTermine" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+          oninput="validate(this)">
       </div>
 
       <!-- Ratei e risconti passivi -->
       <div class="form-group">
         <label class="etichetta">Ratei e risconti passivi</label>
         <input id="SPrateiRiscontiPassivi" type="number" step="0.01" name="SPpassivoBreveTermine" class="form-control"
-          oninput="validate(this); sommeRiclassificazioneSP()">
+          oninput="validate(this)">
       </div>
 
       <!-- (D) PASSIVO A BREVE TERMINE-->

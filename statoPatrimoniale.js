@@ -5,6 +5,7 @@ var validate = function (e) {
 }
 
 function sommeSP() {
+
     /* ATTIVO */
 
     // A) Crediti verso soci
@@ -25,6 +26,11 @@ function sommeSP() {
     var totaleImmobilizzazioniFinanziarie = document.getElementById('totaleImmobilizzazioniFinanziarie').value
     var totaleImmobilizzazioni = parseFloat(totaleImmobilizzazioniImmateriali) + parseFloat(totaleImmobilizzazioniMateriali) + parseFloat(totaleImmobilizzazioniFinanziarie)
     document.getElementById('totaleImmobilizzazioni').value = totaleImmobilizzazioni.toFixed(2)
+    // per riclassificazione
+    document.getElementById('SPimmobilizzazioniImmateriali').value = parseFloat(totaleImmobilizzazioniImmateriali)
+    document.getElementById('SPimmobilizzazioniMateriali').value = parseFloat(totaleImmobilizzazioniMateriali)
+    document.getElementById('SPimmobilizzazioniFinanziarie').value = parseFloat(totaleImmobilizzazioniFinanziarie)
+    document.getElementById('SPtotaleImmobilizzazioniNette').value = totaleImmobilizzazioni.toFixed(2)
 
     // C) Attivo Circolante
     sommaRimanenze()
@@ -37,6 +43,9 @@ function sommeSP() {
     var totaleDisponibilitaLiquide = document.getElementById('totaleDisponibilitaLiquide').value
     var totaleAttivoCircolante = parseFloat(totaleRimanenze) + parseFloat(totaleCrediti) + parseFloat(totaleAttivitaFinanziarie) + parseFloat(totaleDisponibilitaLiquide)
     document.getElementById('totaleAttivoCircolante').value = totaleAttivoCircolante.toFixed(2)
+    // per riclassificazione
+    document.getElementById('SPmagazzino').value = parseFloat(totaleRimanenze)
+
 
     // D) Ratei e Risconti
     sommaRateiRiscontiAttivi()
@@ -49,10 +58,8 @@ function sommeSP() {
     /* PASSIVO */
 
     // A) Patrimonio netto
-    console.log("provo ad entrare nella funzione")
     sommaPatrimonioNetto()
     var totalePatrimonioNetto = document.getElementById('totalePatrimonioNetto').value
-    console.log("totale patrimonio netto " + document.getElementById('totalePatrimonioNetto').value)
 
     // B) Fondi per rischi e oneri
     sommaFondiRischiOneri()
@@ -80,6 +87,9 @@ function sommeSP() {
     parseFloat(totaleTrattamentoFineRapporto) + parseFloat(totaleDebiti) + parseFloat(totaleRateiRiscontiAttivi)
     
     document.getElementById('totalePassivo').value = totalePassivo.toFixed(2)
+    
+    // richiamo funzioni per riclassificazione
+    sommeRiclassificazioneSP()
 }
 
 function sommaImmobilizzazioniImmateriali() {
@@ -163,16 +173,12 @@ function sommaRateiRiscontiAttivi() {
 }
 
 function sommaPatrimonioNetto() {
-    console.log("interno funzione 1")
     var arr = document.getElementsByName('patrimonioNetto');
     var tot = 0;
-    console.log("interno funzione 2")
     for (var i = 0; i < arr.length; i++) {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    console.log("tot : " + tot)
-    console.log("tot fixed : " + tot.toFixed(2))
     document.getElementById('totalePatrimonioNetto').value = tot.toFixed(2);
 }
 
@@ -204,4 +210,104 @@ function sommaDebiti() {
             tot += parseFloat(arr[i].value);
     }
     document.getElementById('totaleDebiti').value = tot.toFixed(2);
+}
+
+
+// FUNZIONI RICLASSIFICAZIONE
+
+function sommeRiclassificazioneSP() {
+    // A) TOTALE IMMOBILIZZAZIONI NETTE
+    sommaImmobilizzazioniNette()
+    var totaleImmobilizzazioniNette = document.getElementById('SPtotaleImmobilizzazioniNette').value
+
+    // B) TOTALE ATTIVO CIRCOLANTE
+    
+    // crediti commerciali
+    if(document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi'.value) != null &&
+    document.getElementById('accontiEntro12Mesi').value != null){
+        document.getElementById('SPcreditiCommerciali').value = 
+        parsefloat(document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi'.value)) - 
+        parseFloat(document.getElementById('accontiEntro12Mesi').value)
+    }
+    // ratei e risconti attivi
+    console.log(document.getElementById('rateiRiscontiAttivo'.value))
+    document.getElementById('SPrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo'.value)
+
+
+    sommaAttivoCircolante()
+    var totaleAttivoCircolante = document.getElementById('SPtotaleAttivoCircolante').value
+
+    //  C) TOTALE ATTIVO (A+B)
+    var totaleAttivo = parseFloat(totaleImmobilizzazioniNette) + parseFloat(totaleAttivoCircolante)
+    document.getElementById('SPtotaleAttivo').value = totaleAttivo.toFixed(2)
+    
+    // F) PATRIMONIO NETTO
+    sommaPatrimonioNettoSP()
+    var totalePatrimonioNetto = document.getElementById('SPtotalePatrimonioNetto').value
+
+    // E) PASSIVO A M/L TERMINE
+    sommaPassivoMlTermine()
+    var totalePassivoMlTermine = document.getElementById('SPtotalePassivoMlTermine').value
+
+    // D) PASSIVO A BREVE TERMINE
+    sommaPassivoBreveTermine()
+    var totalePassivoBreveTermine = document.getElementById('SPtotalePassivoBreveTermine').value
+    
+    // (G) TOTALE PASSIVO E PATRIMONIO NETTO (D+E+F)
+    var totalePassivoPatrimonioNetto = parseFloat(totalePatrimonioNetto) + parseFloat(totalePassivoMlTermine) + parseFloat(totalePassivoBreveTermine)
+    document.getElementById('SPtotalePassivoPatrimonioNetto').value = totalePassivoPatrimonioNetto.toFixed(2)
+
+    // EVENTUALE SQUADRATURA ATTIVO/PASS
+    var eventualeSquadraturaAttivoPass = parseFloat(totaleAttivo) - parseFloat(totalePassivoPatrimonioNetto)
+    document.getElementById('SPeventualeSquadraturaAttivoPass').value = eventualeSquadraturaAttivoPass.toFixed(2)
+}
+
+function sommaImmobilizzazioniNette() {
+    var arr = document.getElementsByName('SPimmobilizzazioniNette');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (parseFloat(arr[i].value))
+            tot += parseFloat(arr[i].value);
+    }
+    document.getElementById('SPtotaleImmobilizzazioniNette').value = tot.toFixed(2)
+}
+
+function sommaAttivoCircolante() {
+    var arr = document.getElementsByName('SPattivoCircolante');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (parseFloat(arr[i].value))
+            tot += parseFloat(arr[i].value);
+    }
+    document.getElementById('SPtotaleAttivoCircolante').value = tot.toFixed(2)
+}
+
+function sommaPatrimonioNettoSP() {
+    var arr = document.getElementsByName('SPpatrimonioNetto');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (parseFloat(arr[i].value))
+            tot += parseFloat(arr[i].value);
+    }
+    document.getElementById('SPtotalePatrimonioNetto').value = tot.toFixed(2)
+}
+
+function sommaPassivoMlTermine() {
+    var arr = document.getElementsByName('SPpassivoMLTermine');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (parseFloat(arr[i].value))
+            tot += parseFloat(arr[i].value);
+    }
+    document.getElementById('SPtotalePassivoMlTermine').value = tot.toFixed(2)
+}
+
+function sommaPassivoBreveTermine() {
+    var arr = document.getElementsByName('SPpassivoBreveTermine');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (parseFloat(arr[i].value))
+            tot += parseFloat(arr[i].value);
+    }
+    document.getElementById('SPtotalePassivoBreveTermine').value = tot.toFixed(2)
 }
