@@ -85,7 +85,7 @@ app.on('ready', () => {
     {
       label: 'Visualizza',
       submenu: [
-        { role: 'reload', label: 'Ricarica' },
+        { role: 'reload', label: 'Pulisci' },
         { role: 'toggledevtools', label: 'Ispeziona' },
         { type: 'separator' },
         { role: 'resetzoom', label: 'Ripristina zoom' },

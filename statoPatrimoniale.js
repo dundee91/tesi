@@ -223,7 +223,6 @@ function sommeRiclassificazioneSP() {
     // B) TOTALE ATTIVO CIRCOLANTE
     
     // crediti commerciali
-
     if((document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value) != null &&
     (document.getElementById('accontiEntro12Mesi').value) != null){
         document.getElementById('SPcreditiCommerciali').value = 
@@ -233,8 +232,22 @@ function sommeRiclassificazioneSP() {
     else{
         document.getElementById('SPcreditiCommerciali').value = 0
     }
+    // altri crediti
+    document.getElementById('SPaltriCrediti').value = 
+    parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value) +
+    parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value)
     // ratei e risconti attivi
     document.getElementById('SPrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo').value
+    // liquidit
+
 
 
     sommaAttivoCircolante()

@@ -26,9 +26,10 @@ ipc.on('salva', function (ev, data) {
     // Analisi Quantitativa
     let storiaAzienda = document.getElementById('storiaAzienda').value
     let titolari = document.getElementById('titolari').value
+    let organoControllo = document.getElementById('organoControllo').value
     let descrizioneAttuale = document.getElementById('descrizioneAttuale').value
-    let prodotto = document.getElementById('prodotto').value
-    let mercatoProdotto = document.getElementById('mercatoProdotto').value
+    let prodottiCommercializzati = document.getElementById('prodottiCommercializzati').value
+    let mercatoRiferimento = document.getElementById('mercatoRiferimento').value
     let politicheProduzione = document.getElementById('politicheProduzione').value
     let politicheDistribuzione = document.getElementById('politicheDistribuzione').value
     let principaliFornitori = document.getElementById('principaliFornitori').value
@@ -348,9 +349,10 @@ ipc.on('salva', function (ev, data) {
         {
             "storiaAzienda": storiaAzienda,
             "titolari": titolari,
+            "organoControllo" : organoControllo,
             "descrizioneAttuale": descrizioneAttuale,
-            "prodotto": prodotto,
-            "mercatoProdotto": mercatoProdotto,
+            "prodottiCommercializzati": prodottiCommercializzati,
+            "mercatoRiferimento": mercatoRiferimento,
             "politicheProduzione": politicheProduzione,
             "politicheDistribuzione": politicheDistribuzione,
             "principaliFornitori": principaliFornitori,
@@ -703,9 +705,10 @@ ipc.on('apri', function (ev, data) {
                 // Analisi Quantitativa
                 document.getElementById('storiaAzienda').value = testo[1].storiaAzienda
                 document.getElementById('titolari').value = testo[1].titolari
+                document.getElementById('organoControllo').value = testo[1].organoControllo
                 document.getElementById('descrizioneAttuale').value = testo[1].descrizioneAttuale
-                document.getElementById('prodotto').value = testo[1].prodotto
-                document.getElementById('mercatoProdotto').value = testo[1].mercatoProdotto
+                document.getElementById('prodottiCommercializzati').value = testo[1].prodottiCommercializzati
+                document.getElementById('mercatoRiferimento').value = testo[1].mercatoRiferimento
                 document.getElementById('politicheProduzione').value = testo[1].politicheProduzione
                 document.getElementById('politicheDistribuzione').value = testo[1].politicheDistribuzione
                 document.getElementById('principaliFornitori').value = testo[1].principaliFornitori
