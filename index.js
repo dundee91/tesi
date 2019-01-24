@@ -100,6 +100,10 @@ ipc.on('salva', function (ev, data) {
     var creditiAttivoCircolanteImpreseCollegateOltre12Mesi = document.getElementById('creditiAttivoCircolanteImpreseCollegateOltre12Mesi').value
     var creditiAttivoCircolanteImpreseControllantiEntro12Mesi = document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value
     var creditiAttivoCircolanteImpreseControllantiOltre12Mesi = document.getElementById('creditiAttivoCircolanteImpreseControllantiOltre12Mesi').value
+    var creditiAttivoCircolanteCreditiTributariEntro12Mesi = document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value
+    var creditiAttivoCircolanteCreditiTributariOltre12Mesi = document.getElementById('creditiAttivoCircolanteCreditiTributariOltre12Mesi').value
+    var creditiAttivoCircolanteImposteAnticipateEntro12Mesi = document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value
+    var creditiAttivoCircolanteImposteAnticipateOltre12Mesi = document.getElementById('creditiAttivoCircolanteImposteAnticipateOltre12Mesi').value
     var creditiAttivoCircolanteAltreImpreseEntro12Mesi = document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value
     var creditiAttivoCircolanteAltreImpreseOltre12Mesi = document.getElementById('creditiAttivoCircolanteAltreImpreseOltre12Mesi').value
     var totaleCrediti = document.getElementById('totaleCrediti').value
@@ -418,6 +422,10 @@ ipc.on('salva', function (ev, data) {
             "creditiAttivoCircolanteImpreseCollegateOltre12Mesi": creditiAttivoCircolanteImpreseCollegateOltre12Mesi,
             "creditiAttivoCircolanteImpreseControllantiEntro12Mesi": creditiAttivoCircolanteImpreseControllantiEntro12Mesi,
             "creditiAttivoCircolanteImpreseControllantiOltre12Mesi": creditiAttivoCircolanteImpreseControllantiOltre12Mesi,
+            "creditiAttivoCircolanteCreditiTributariEntro12Mesi": creditiAttivoCircolanteCreditiTributariEntro12Mesi,
+            "creditiAttivoCircolanteCreditiTributariOltre12Mesi": creditiAttivoCircolanteCreditiTributariOltre12Mesi,
+            "creditiAttivoCircolanteImposteAnticipateEntro12Mesi": creditiAttivoCircolanteImposteAnticipateEntro12Mesi,
+            "creditiAttivoCircolanteImposteAnticipateOltre12Mesi": creditiAttivoCircolanteImposteAnticipateOltre12Mesi,
             "creditiAttivoCircolanteAltreImpreseEntro12Mesi": creditiAttivoCircolanteAltreImpreseEntro12Mesi,
             "creditiAttivoCircolanteAltreImpreseOltre12Mesi": creditiAttivoCircolanteAltreImpreseOltre12Mesi,
             "totaleCrediti": totaleCrediti,
@@ -767,6 +775,10 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('creditiAttivoCircolanteImpreseCollegateOltre12Mesi').value = testo[2].creditiAttivoCircolanteImpreseCollegateOltre12Mesi
                 document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value = testo[2].creditiAttivoCircolanteImpreseControllantiEntro12Mesi
                 document.getElementById('creditiAttivoCircolanteImpreseControllantiOltre12Mesi').value = testo[2].creditiAttivoCircolanteImpreseControllantiOltre12Mesi
+                document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value = testo[2].creditiAttivoCircolanteCreditiTributariEntro12Mesi
+                document.getElementById('creditiAttivoCircolanteCreditiTributariOltre12Mesi').value = testo[2].creditiAttivoCircolanteCreditiTributariOltre12Mesi
+                document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value = testo[2].creditiAttivoCircolanteImposteAnticipateEntro12Mesi
+                document.getElementById('creditiAttivoCircolanteImposteAnticipateOltre12Mesi').value = testo[2].creditiAttivoCircolanteImposteAnticipateOltre12Mesi
                 document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value = testo[2].creditiAttivoCircolanteAltreImpreseEntro12Mesi
                 document.getElementById('creditiAttivoCircolanteAltreImpreseOltre12Mesi').value = testo[2].creditiAttivoCircolanteAltreImpreseOltre12Mesi
                 document.getElementById('totaleCrediti').value = testo[2].totaleCrediti

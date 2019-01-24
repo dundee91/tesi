@@ -223,15 +223,18 @@ function sommeRiclassificazioneSP() {
     // B) TOTALE ATTIVO CIRCOLANTE
     
     // crediti commerciali
-    if(document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi'.value) != null &&
-    document.getElementById('accontiEntro12Mesi').value != null){
+
+    if((document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value) != null &&
+    (document.getElementById('accontiEntro12Mesi').value) != null){
         document.getElementById('SPcreditiCommerciali').value = 
-        parsefloat(document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi'.value)) - 
+        parseFloat(document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value) - 
         parseFloat(document.getElementById('accontiEntro12Mesi').value)
     }
+    else{
+        document.getElementById('SPcreditiCommerciali').value = 0
+    }
     // ratei e risconti attivi
-    console.log(document.getElementById('rateiRiscontiAttivo'.value))
-    document.getElementById('SPrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo'.value)
+    document.getElementById('SPrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo').value
 
 
     sommaAttivoCircolante()
