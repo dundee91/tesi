@@ -233,21 +233,47 @@ function sommeRiclassificazioneSP() {
         document.getElementById('SPcreditiCommerciali').value = 0
     }
     // altri crediti
-    document.getElementById('SPaltriCrediti').value = 
-    parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value) +
-    parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value)
+    try{
+        console.log("try")
+        document.getElementById('SPaltriCrediti').value = 
+        parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value) +
+        parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value)
+    }
+    catch(error){
+        console.log("catch1")
+        document.getElementById('SPaltriCrediti').value = 0
+        console.log("catch2")
+        console.log(document.getElementById('SPaltriCrediti').value)
+    }
     // ratei e risconti attivi
     document.getElementById('SPrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo').value
-    // liquidit
-
+    // liquidità
+    try{
+        console.log("try")
+        document.getElementById('SPliquidita').value = 
+        parseFloat(document.getElementById('partecipazioniImpreseControllate').value) +
+        parseFloat(document.getElementById('partecipazioniImpreseCollegate').value) +
+        parseFloat(document.getElementById('partecipazioniImpreseControllanti').value) +
+        parseFloat(document.getElementById('altrePartecipazioni').value) +
+        parseFloat(document.getElementById('altriTitoliAttivoCircolante').value) +
+        parseFloat(document.getElementById('depositiBancariPostali').value) +
+        parseFloat(document.getElementById('assegni').value) +
+        parseFloat(document.getElementById('danaroValoriCassa').value)
+    }
+    catch(error){
+        console.log("catch1")
+        document.getElementById('SPliquidita').value = 0
+        console.log("catch2")
+        console.log(document.getElementById('SPliquidita').value)
+    }
 
 
     sommaAttivoCircolante()
