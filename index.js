@@ -80,7 +80,7 @@ ipc.on('salva', function (ev, data) {
     var creditiImmobilizzazioniAltreImpreseEntro12Mesi = document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value
     var creditiImmobilizzazioniAltreImpreseOltre12Mesi = document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value
     var altriTitoliImmobilizzazioni = document.getElementById('altriTitoliImmobilizzazioni').value
-    var azioniProprie = document.getElementById('azioniProprie').value
+    var azioniProprieImmobilizzazioniFinanziarie = document.getElementById('azioniProprieImmobilizzazioniFinanziarie').value
     var totaleImmobilizzazioniFinanziarie = document.getElementById('totaleImmobilizzazioniFinanziarie').value
     var totaleImmobilizzazioni = document.getElementById('totaleImmobilizzazioni').value
 
@@ -113,7 +113,7 @@ ipc.on('salva', function (ev, data) {
     var partecipazioniImpreseCollegate = document.getElementById('partecipazioniImpreseCollegate').value
     var partecipazioniImpreseControllanti = document.getElementById('partecipazioniImpreseControllanti').value
     var altrePartecipazioni = document.getElementById('altrePartecipazioni').value
-    var strumentiFinanziariDerivatiAttivi = document.getElementById('strumentiFinanziariDerivatiAttivi').value
+    var azioniProprieAttivitaFinanziarie = document.getElementById('azioniProprieAttivitaFinanziarie').value
     var altriTitoliAttivoCircolante = document.getElementById('altriTitoliAttivoCircolante').value
     var totaleAttivitaFinanziarie = document.getElementById('totaleAttivitaFinanziarie').value
     // IV. Disponibilità liquide
@@ -139,16 +139,14 @@ ipc.on('salva', function (ev, data) {
     var riservaLegale = document.getElementById('riservaLegale').value
     var riserveStatutarie = document.getElementById('riserveStatutarie').value
     var altreRiserve = document.getElementById('altreRiserve').value
-    var riservaOperazioniCopertura = document.getElementById('riservaOperazioniCopertura').value
     var utilePortatoNuovo = document.getElementById('utilePortatoNuovo').value
     var utileEsercizio = document.getElementById('utileEsercizio').value
-    var riservaNegativaAzioniProprie = document.getElementById('riservaNegativaAzioniProprie').value
+    var riservaAzioniProprie = document.getElementById('riservaAzioniProprie').value
     var totalePatrimonioNetto = document.getElementById('totalePatrimonioNetto').value
 
     // B. Fondi per rischi e oneri
     var trattamentoQuiescenzaObblighiSimili = document.getElementById('trattamentoQuiescenzaObblighiSimili').value
     var imposteAncheDifferite = document.getElementById('imposteAncheDifferite').value
-    var strumentiFinanziariDerivatiPassivi = document.getElementById('strumentiFinanziariDerivatiPassivi').value
     var altriFondi = document.getElementById('altriFondi').value
     var totaleFondiRischiOneri = document.getElementById('totaleFondiRischiOneri').value
 
@@ -171,7 +169,7 @@ ipc.on('salva', function (ev, data) {
     var debitiVersoFornitoriEntro12Mesi = document.getElementById('debitiVersoFornitoriEntro12Mesi').value
     var debitiVersoFornitoriOltre12Mesi = document.getElementById('debitiVersoFornitoriOltre12Mesi').value
     var debitiRappresentatiTitoliCreditoEntro12Mesi = document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value
-    var debitiRappresentatiTitoliCreditooltre12Mesi = document.getElementById('debitiRappresentatiTitoliCreditooltre12Mesi').value
+    var debitiRappresentatiTitoliCreditoOltre12Mesi = document.getElementById('debitiRappresentatiTitoliCreditoOltre12Mesi').value
     var debitiVersoImpreseControllateEntro12Mesi = document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value
     var debitiVersoImpreseControllateOltre12Mesi = document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value
     var debitiVersoImpreseCollegateEntro12Mesi = document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value
@@ -403,7 +401,7 @@ ipc.on('salva', function (ev, data) {
             "creditiImmobilizzazioniAltreImpreseEntro12Mesi": creditiImmobilizzazioniAltreImpreseEntro12Mesi,
             "creditiImmobilizzazioniAltreImpreseOltre12Mesi": creditiImmobilizzazioniAltreImpreseOltre12Mesi,
             "altriTitoliImmobilizzazioni": altriTitoliImmobilizzazioni,
-            "azioniProprie": azioniProprie,
+            "azioniProprieImmobilizzazioniFinanziarie": azioniProprieImmobilizzazioniFinanziarie,
             "totaleImmobilizzazioniFinanziarie": totaleImmobilizzazioniFinanziarie,
             // Totale Immobilizzazioni
             "totaleImmobilizzazioni": totaleImmobilizzazioni,
@@ -436,7 +434,7 @@ ipc.on('salva', function (ev, data) {
             "partecipazioniImpreseCollegate": partecipazioniImpreseCollegate,
             "partecipazioniImpreseControllanti": partecipazioniImpreseControllanti,
             "altrePartecipazioni": altrePartecipazioni,
-            "strumentiFinanziariDerivatiAttivi": strumentiFinanziariDerivatiAttivi,
+            "azioniProprieAttivitaFinanziarie": azioniProprieAttivitaFinanziarie,
             "altriTitoliAttivoCircolante": altriTitoliAttivoCircolante,
             "totaleAttivitaFinanziarie": totaleAttivitaFinanziarie,
             // IV. Disponibilità liquide
@@ -460,16 +458,14 @@ ipc.on('salva', function (ev, data) {
             "riservaLegale": riservaLegale,
             "riserveStatutarie": riserveStatutarie,
             "altreRiserve": altreRiserve,
-            "riservaOperazioniCopertura": riservaOperazioniCopertura,
             "utilePortatoNuovo": utilePortatoNuovo,
             "utileEsercizio": utileEsercizio,
-            "riservaNegativaAzioniProprie": riservaNegativaAzioniProprie,
+            "riservaAzioniProprie": riservaAzioniProprie,
             "totalePatrimonioNetto": totalePatrimonioNetto,
 
             // B. Fondi per rischi e oneri
             "trattamentoQuiescenzaObblighiSimili": trattamentoQuiescenzaObblighiSimili,
             "imposteAncheDifferite": imposteAncheDifferite,
-            "strumentiFinanziariDerivatiPassivi": strumentiFinanziariDerivatiPassivi,
             "altriFondi": altriFondi,
             "totaleFondiRischiOneri": totaleFondiRischiOneri,
 
@@ -492,7 +488,7 @@ ipc.on('salva', function (ev, data) {
             "debitiVersoFornitoriEntro12Mesi": debitiVersoFornitoriEntro12Mesi,
             "debitiVersoFornitoriOltre12Mesi": debitiVersoFornitoriOltre12Mesi,
             "debitiRappresentatiTitoliCreditoEntro12Mesi": debitiRappresentatiTitoliCreditoEntro12Mesi,
-            "debitiRappresentatiTitoliCreditooltre12Mesi": debitiRappresentatiTitoliCreditooltre12Mesi,
+            "debitiRappresentatiTitoliCreditoOltre12Mesi": debitiRappresentatiTitoliCreditoOltre12Mesi,
             "debitiVersoImpreseControllateEntro12Mesi": debitiVersoImpreseControllateEntro12Mesi,
             "debitiVersoImpreseControllateOltre12Mesi": debitiVersoImpreseControllateOltre12Mesi,
             "debitiVersoImpreseCollegateEntro12Mesi": debitiVersoImpreseCollegateEntro12Mesi,
@@ -758,7 +754,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value = testo[2].creditiImmobilizzazioniAltreImpreseEntro12Mesi
                 document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value = testo[2].creditiImmobilizzazioniAltreImpreseOltre12Mesi
                 document.getElementById('altriTitoliImmobilizzazioni').value = testo[2].altriTitoliImmobilizzazioni
-                document.getElementById('azioniProprie').value = testo[2].azioniProprie
+                document.getElementById('azioniProprieImmobilizzazioniFinanziarie').value = testo[2].azioniProprieImmobilizzazioniFinanziarie
                 document.getElementById('totaleImmobilizzazioniFinanziarie').value = testo[2].totaleImmobilizzazioniFinanziarie
                 document.getElementById('totaleImmobilizzazioni').value = testo[2].totaleImmobilizzazioni
                 // C. Attivo Circolante
@@ -790,7 +786,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('partecipazioniImpreseCollegate').value = testo[2].partecipazioniImpreseCollegate
                 document.getElementById('partecipazioniImpreseControllanti').value = testo[2].partecipazioniImpreseControllanti
                 document.getElementById('altrePartecipazioni').value = testo[2].altrePartecipazioni
-                document.getElementById('strumentiFinanziariDerivatiAttivi').value = testo[2].strumentiFinanziariDerivatiAttivi
+                document.getElementById('azioniProprieAttivitaFinanziarie').value = testo[2].azioniProprieAttivitaFinanziarie
                 document.getElementById('altriTitoliAttivoCircolante').value = testo[2].altriTitoliAttivoCircolante
                 document.getElementById('totaleAttivitaFinanziarie').value = testo[2].totaleAttivitaFinanziarie
                 // IV. Disponibilità liquide
@@ -814,16 +810,14 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('riservaLegale').value = testo[2].riservaLegale
                 document.getElementById('riserveStatutarie').value = testo[2].riserveStatutarie
                 document.getElementById('altreRiserve').value = testo[2].altreRiserve
-                document.getElementById('riservaOperazioniCopertura').value = testo[2].riservaOperazioniCopertura
                 document.getElementById('utilePortatoNuovo').value = testo[2].utilePortatoNuovo
                 document.getElementById('utileEsercizio').value = testo[2].utileEsercizio
-                document.getElementById('riservaNegativaAzioniProprie').value = testo[2].riservaNegativaAzioniProprie
+                document.getElementById('riservaAzioniProprie').value = testo[2].riservaAzioniProprie
                 document.getElementById('totalePatrimonioNetto').value = testo[2].totalePatrimonioNetto
 
                 // B. Fondi per rischi e oneri
                 document.getElementById('trattamentoQuiescenzaObblighiSimili').value = testo[2].trattamentoQuiescenzaObblighiSimili
                 document.getElementById('imposteAncheDifferite').value = testo[2].imposteAncheDifferite
-                document.getElementById('strumentiFinanziariDerivatiPassivi').value = testo[2].strumentiFinanziariDerivatiPassivi
                 document.getElementById('altriFondi').value = testo[2].altriFondi
                 document.getElementById('totaleFondiRischiOneri').value = testo[2].totaleFondiRischiOneri
 
@@ -846,7 +840,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('debitiVersoFornitoriEntro12Mesi').value = testo[2].debitiVersoFornitoriEntro12Mesi
                 document.getElementById('debitiVersoFornitoriOltre12Mesi').value = testo[2].debitiVersoFornitoriOltre12Mesi
                 document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value = testo[2].debitiRappresentatiTitoliCreditoEntro12Mesi
-                document.getElementById('debitiRappresentatiTitoliCreditooltre12Mesi').value = testo[2].debitiRappresentatiTitoliCreditooltre12Mesi
+                document.getElementById('debitiRappresentatiTitoliCreditoOltre12Mesi').value = testo[2].debitiRappresentatiTitoliCreditoOltre12Mesi
                 document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value = testo[2].debitiVersoImpreseControllateEntro12Mesi
                 document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value = testo[2].debitiVersoImpreseControllateOltre12Mesi
                 document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value = testo[2].debitiVersoImpreseCollegateEntro12Mesi

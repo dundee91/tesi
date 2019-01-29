@@ -241,9 +241,9 @@
     <div class="bodyForm">
       <h3>Stato Patrimoniale Attivo</h3>
       <h4>A) Crediti verso soci</h4>
-      <!-- Crediti verso soci (parte richiamata)-->
+      <!-- Crediti verso soci per versamenti ancora dovuti-->
       <div class="form-group">
-        <label class="etichetta">Crediti verso soci (parte richiamata)</label>
+        <label class="etichetta">Crediti verso soci per versamenti ancora dovuti</label>
         <input id="creditiVersoSoci" type="number" step="0.01" name="creditiVersoSoci" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
@@ -451,10 +451,10 @@
           oninput="validate(this); sommeSP()">
       </div>
 
-      <!-- Azioni proprie -->
+      <!-- Azioni proprie, con indicazione del valore nominale complessivo -->
       <div class="form-group">
-        <label class="etichetta"> 4) Azioni proprie</label>
-        <input id="azioniProprie" type="number" step="0.01" name="immobilizzazioniFinanziarie" class="form-control"
+        <label class="etichetta"> 4) Azioni proprie, con indicazione del valore nominale complessivo</label>
+        <input id="azioniProprieImmobilizzazioniFinanziarie" type="number" step="0.01" name="immobilizzazioniFinanziarie" class="form-control"
           oninput="validate(this); sommeSP()">
       </div>
 
@@ -659,16 +659,16 @@
           oninput="validate(this); sommeSP()">
       </div>
 
-      <!-- Strumenti finanziari derivati attivi -->
+      <!-- Azioni proprie, con indicazione del valore nominale complessivo -->
       <div class="form-group">
-        <label class="etichetta"> 5) Strumenti finanziari derivati attivi</label>
-        <input id="strumentiFinanziariDerivatiAttivi" type="number" step="0.01" name="attivitaFinanziarie" class="form-control"
+        <label class="etichetta"> 5) Azioni proprie, con indicazione del valore nominale complessivo</label>
+        <input id="azioniProprieAttivitaFinanziarie" type="number" step="0.01" name="attivitaFinanziarie" class="form-control"
           oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Altri titoli -->
       <div class="form-group">
-        <label class="etichetta"> 5) Altri titoli</label>
+        <label class="etichetta"> 6) Altri titoli</label>
         <input id="altriTitoliAttivoCircolante" type="number" step="0.01" name="attivitaFinanziarie" class="form-control"
           oninput="validate(this); sommeSP()">
       </div>
@@ -768,23 +768,23 @@
         <input id="riservaLegale" type="number" step="0.01" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
-      <!-- V. Riserve statutarie -->
+      <!-- V. Riserva per azioni proprie in portafoglio -->
       <div class="form-group">
-        <label class="etichetta"> V. Riserve statutarie</label>
+        <label class="etichetta"> V. Riserva per azioni proprie in portafoglio</label>
+        <input id="riservaAzioniProprie" type="number" step="0.01" name="patrimonioNetto" class="form-control"
+          oninput="validate(this); sommeSP()">
+      </div>
+
+      <!-- VI. Riserve statutarie -->
+      <div class="form-group">
+        <label class="etichetta"> VI. Riserve statutarie</label>
         <input id="riserveStatutarie" type="number" step="0.01" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
-      <!-- VI. Altre riserve, distintamente indicate -->
+      <!-- VII. Altre riserve -->
       <div class="form-group">
-        <label class="etichetta"> VI. Altre riserve, distintamente indicate</label>
+        <label class="etichetta"> VII. Altre riserve</label>
         <input id="altreRiserve" type="number" step="0.01" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
-      </div>
-
-      <!-- VII. Riserva per operazioni di copertura dei flussi finanziari attesi -->
-      <div class="form-group">
-        <label class="etichetta"> VII. Riserva per operazioni di copertura dei flussi finanziari attesi</label>
-        <input id="riservaOperazioniCopertura" type="number" step="0.01" name="patrimonioNetto" class="form-control"
-          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- VIII. Utile (perdita) portato a nuovo -->
@@ -797,13 +797,6 @@
       <div class="form-group">
         <label class="etichetta"> IX. Utile (perdita) dell'esercizio</label>
         <input id="utileEsercizio" type="number" step="0.01" name="patrimonioNetto" class="form-control" oninput="validate(this); sommeSP()">
-      </div>
-
-      <!-- X. Riserva negativa per azioni proprie in portafoglio -->
-      <div class="form-group">
-        <label class="etichetta"> X. Riserva negativa per azioni proprie in portafoglio</label>
-        <input id="riservaNegativaAzioniProprie" type="number" step="0.01" name="patrimonioNetto" class="form-control"
-          oninput="validate(this); sommeSP()">
       </div>
 
       <!-- Totale patrimonio netto -->
@@ -828,16 +821,9 @@
           oninput="validate(this); sommeSP()">
       </div>
 
-      <!-- 3) strumenti finanziari derivati passivi -->
+      <!-- 3) altri fondi -->
       <div class="form-group">
-        <label class="etichetta"> 3) strumenti finanziari derivati passivi</label>
-        <input id="strumentiFinanziariDerivatiPassivi" type="number" step="0.01" name="fondiRischiOneri" class="form-control"
-          oninput="validate(this); sommeSP()">
-      </div>
-
-      <!-- 4) altri fondi -->
-      <div class="form-group">
-        <label class="etichetta"> 4) altri fondi</label>
+        <label class="etichetta"> 3) altri fondi</label>
         <input id="altriFondi" type="number" step="0.01" name="fondiRischiOneri" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
@@ -974,7 +960,7 @@
       <!-- oltre 12 mesi -->
       <div class="form-group">
         <label class="etichetta"> oltre 12 mesi</label>
-        <input id="debitiRappresentatiTitoliCreditooltre12Mesi" type="number" step="0.01" name="debiti" class="form-control"
+        <input id="debitiRappresentatiTitoliCreditoOltre12Mesi" type="number" step="0.01" name="debiti" class="form-control"
           oninput="validate(this); sommeSP()">
       </div>
 
@@ -1085,9 +1071,9 @@
           oninput="validate(this); sommeSP()">
       </div>
 
-      <!-- Disaggio su prestiti -->
+      <!-- di cui aggio su prestiti -->
       <div class="form-group">
-        <label class="etichetta">Aggio su prestiti</label>
+        <label class="etichetta">di cui aggio su prestiti</label>
         <input id="aggioPrestiti" type="number" step="0.01" name="rateiRiscontiPassivo" class="form-control" oninput="validate(this); sommeSP()">
       </div>
 
