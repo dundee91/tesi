@@ -196,7 +196,7 @@ ipc.on('salva', function (ev, data) {
     // A) Valore della produzione
     var ricaviVendite = document.getElementById('ricaviVendite').value
     var variazioniRimanenze = document.getElementById('variazioniRimanenze').value
-    var variazioniRimanenzeProdottiInCorso = document.getElementById('variazioniRimanenzeProdottiInCorso').value
+    var variazioniLavoriInCorso = document.getElementById('variazioniLavoriInCorso').value
     var incrementiImmobilizzazioniLavoriInterni = document.getElementById('incrementiImmobilizzazioniLavoriInterni').value
     var altriRicaviProventi = document.getElementById('altriRicaviProventi').value
     var totaleValoreProduzione = document.getElementById('totaleValoreProduzione').value
@@ -205,6 +205,7 @@ ipc.on('salva', function (ev, data) {
     var materiePrimeCE = document.getElementById('materiePrimeCE').value
     var servizi = document.getElementById('servizi').value
     var godimentoBeniTerzi = document.getElementById('godimentoBeniTerzi').value
+    var diCuiCanoniLeasing = document.getElementById('diCuiCanoniLeasing').value
     var salariStipendi = document.getElementById('salariStipendi').value
     var oneriSociali = document.getElementById('oneriSociali').value
     var trattamentoFineRapportoCE = document.getElementById('trattamentoFineRapportoCE').value
@@ -226,6 +227,7 @@ ipc.on('salva', function (ev, data) {
     // C) Proventi e oneri finanziari
     var proventiDaControllate = document.getElementById('proventiDaControllate').value
     var proventiDaCollegate = document.getElementById('proventiDaCollegate').value
+    var proventiDaControllanti = document.getElementById('proventiDaControllanti').value
     var proventiCreditiIscrittiImmobilizzazioniControllate = document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value
     var proventiCreditiIscrittiImmobilizzazioniCollegate = document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value
     var proventiCreditiIscrittiImmobilizzazioniControllanti = document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value
@@ -237,6 +239,7 @@ ipc.on('salva', function (ev, data) {
     var interessiAltriOneriFinanziariDaControllate = document.getElementById('interessiAltriOneriFinanziariDaControllate').value
     var interessiAltriOneriFinanziariDaCollegate = document.getElementById('interessiAltriOneriFinanziariDaCollegate').value
     var interessiAltriOneriFinanziariDaControllanti = document.getElementById('interessiAltriOneriFinanziariDaControllanti').value
+    var utiliPerditesuCambi = document.getElementById('utiliPerditesuCambi').value
     var totaleProventiOneriFinanziari = document.getElementById('totaleProventiOneriFinanziari').value
 
     // D) Rettifiche di valore di attività finanziarie
@@ -253,9 +256,10 @@ ipc.on('salva', function (ev, data) {
     // E) Proventi e oneri straordinari
     var proventiStraordinari = document.getElementById('proventiStraordinari').value
     var plusvalenzeAlienazioni = document.getElementById('plusvalenzeAlienazioni').value
+    var altriProventi = document.getElementById('altriProventi').value
     var oneriStraordinari = document.getElementById('oneriStraordinari').value
     var minusvalenzeAlienazioni = document.getElementById('minusvalenzeAlienazioni').value
-    var imposteRelativeEserciziPrecedenti = document.getElementById('imposteRelativeEserciziPrecedenti').value
+    var altriOneri = document.getElementById('altriOneri').value
     var totalePartiteStraordinarie = document.getElementById('totalePartiteStraordinarie').value
 
     // Risultato prima delle imposte
@@ -300,6 +304,7 @@ ipc.on('salva', function (ev, data) {
     var CEtotaleValoreProduzione = document.getElementById('CEtotaleValoreProduzione').value
     var CEconsumoMateriePrime = document.getElementById('CEconsumoMateriePrime').value
     var CEcostiServizi = document.getElementById('CEcostiServizi').value
+    var CEaltriCostiOperativiEsterni = document.getElementById('CEaltriCostiOperativiEsterni').value
     var CEtotaleConsumiEsterni = document.getElementById('CEtotaleConsumiEsterni').value
     var CEvaloreAggiunto = document.getElementById('CEvaloreAggiunto').value
     var CEcostiPersonale = document.getElementById('CEcostiPersonale').value
@@ -308,10 +313,14 @@ ipc.on('salva', function (ev, data) {
     var CEcanoniLeasing = document.getElementById('CEcanoniLeasing').value
     var CEaccantonamentiSvalutazioni = document.getElementById('CEaccantonamentiSvalutazioni').value
     var CEtotaleAmmortamentiSvalutazioni = document.getElementById('CEtotaleAmmortamentiSvalutazioni').value
-    var CEaltriProventiOperativiFinanziari = document.getElementById('CEaltriProventiOperativiFinanziari').value
+    var CEaltriProventiOperativi = document.getElementById('CEaltriProventiOperativi').value
+    var CEproventiFinanziari = document.getElementById('CEproventiFinanziari').value
+    var CEsaldoGestioneMobiliare = document.getElementById('CEsaldoGestioneMobiliare').value
     var CEtotaleRisultatoOperativo = document.getElementById('CEtotaleRisultatoOperativo').value
     var CEoneriFinanziari = document.getElementById('CEoneriFinanziari').value
     var CEtotaleRisultatoLordo = document.getElementById('CEtotaleRisultatoLordo').value
+    var CEproventiStraordinari = document.getElementById('CEproventiStraordinari').value
+    var CEoneriStraordinari = document.getElementById('CEoneriStraordinari').value
     var CErisultatoAreaStraordinaria = document.getElementById('CErisultatoAreaStraordinaria').value
     var CEtotaleRisultatoAnteImposte = document.getElementById('CEtotaleRisultatoAnteImposte').value
     var CEimposteReddito = document.getElementById('CEimposteReddito').value
@@ -516,7 +525,7 @@ ipc.on('salva', function (ev, data) {
             // A) Valore della produzione
             "ricaviVendite": ricaviVendite,
             "variazioniRimanenze": variazioniRimanenze,
-            "variazioniRimanenzeProdottiInCorso": variazioniRimanenzeProdottiInCorso,
+            "variazioniLavoriInCorso": variazioniLavoriInCorso,
             "incrementiImmobilizzazioniLavoriInterni": incrementiImmobilizzazioniLavoriInterni,
             "altriRicaviProventi": altriRicaviProventi,
             "totaleValoreProduzione": totaleValoreProduzione,
@@ -525,6 +534,7 @@ ipc.on('salva', function (ev, data) {
             "materiePrimeCE": materiePrimeCE,
             "servizi": servizi,
             "godimentoBeniTerzi": godimentoBeniTerzi,
+            "diCuiCanoniLeasing" : diCuiCanoniLeasing,
             "salariStipendi": salariStipendi,
             "oneriSociali": oneriSociali,
             "trattamentoFineRapportoCE": trattamentoFineRapportoCE,
@@ -546,6 +556,7 @@ ipc.on('salva', function (ev, data) {
             // C) Proventi e oneri finanziari
             "proventiDaControllate": proventiDaControllate,
             "proventiDaCollegate": proventiDaCollegate,
+            "proventiDaControllanti" : proventiDaControllanti,
             "proventiCreditiIscrittiImmobilizzazioniControllate": proventiCreditiIscrittiImmobilizzazioniControllate,
             "proventiCreditiIscrittiImmobilizzazioniCollegate": proventiCreditiIscrittiImmobilizzazioniCollegate,
             "proventiCreditiIscrittiImmobilizzazioniControllanti": proventiCreditiIscrittiImmobilizzazioniControllanti,
@@ -557,6 +568,7 @@ ipc.on('salva', function (ev, data) {
             "interessiAltriOneriFinanziariDaControllate": interessiAltriOneriFinanziariDaControllate,
             "interessiAltriOneriFinanziariDaCollegate": interessiAltriOneriFinanziariDaCollegate,
             "interessiAltriOneriFinanziariDaControllanti": interessiAltriOneriFinanziariDaControllanti,
+            "utiliPerditesuCambi" : utiliPerditesuCambi,
             "totaleProventiOneriFinanziari": totaleProventiOneriFinanziari,
 
             // D) Rettifiche di valore di attività finanziarie
@@ -573,9 +585,10 @@ ipc.on('salva', function (ev, data) {
             // E) Proventi e oneri straordinari
             "proventiStraordinari": proventiStraordinari,
             "plusvalenzeAlienazioni": plusvalenzeAlienazioni,
+            "altriProventi" : altriProventi,
             "oneriStraordinari": oneriStraordinari,
             "minusvalenzeAlienazioni": minusvalenzeAlienazioni,
-            "imposteRelativeEserciziPrecedenti": imposteRelativeEserciziPrecedenti,
+            "altriOneri": altriOneri,
             "totalePartiteStraordinarie": totalePartiteStraordinarie,
 
             // Risultato prima delle imposte
@@ -622,6 +635,7 @@ ipc.on('salva', function (ev, data) {
             "CEtotaleValoreProduzione": CEtotaleValoreProduzione,
             "CEconsumoMateriePrime": CEconsumoMateriePrime,
             "CEcostiServizi": CEcostiServizi,
+            "CEaltriCostiOperativiEsterni" : CEaltriCostiOperativiEsterni,
             "CEtotaleConsumiEsterni": CEtotaleConsumiEsterni,
             "CEvaloreAggiunto": CEvaloreAggiunto,
             "CEcostiPersonale": CEcostiPersonale,
@@ -630,10 +644,14 @@ ipc.on('salva', function (ev, data) {
             "CEcanoniLeasing": CEcanoniLeasing,
             "CEaccantonamentiSvalutazioni": CEaccantonamentiSvalutazioni,
             "CEtotaleAmmortamentiSvalutazioni": CEtotaleAmmortamentiSvalutazioni,
-            "CEaltriProventiOperativiFinanziari": CEaltriProventiOperativiFinanziari,
+            "CEaltriProventiOperativi": CEaltriProventiOperativi,
+            "CEproventiFinanziari" : CEproventiFinanziari,
+            "CEsaldoGestioneMobiliare" : CEsaldoGestioneMobiliare,
             "CEtotaleRisultatoOperativo": CEtotaleRisultatoOperativo,
             "CEoneriFinanziari": CEoneriFinanziari,
             "CEtotaleRisultatoLordo": CEtotaleRisultatoLordo,
+            "CEproventiStraordinari" : CEproventiStraordinari,
+            "CEoneriStraordinari" : CEoneriStraordinari,
             "CErisultatoAreaStraordinaria": CErisultatoAreaStraordinaria,
             "CEtotaleRisultatoAnteImposte": CEtotaleRisultatoAnteImposte,
             "CEimposteReddito": CEimposteReddito,
@@ -867,7 +885,7 @@ ipc.on('apri', function (ev, data) {
                 // A) Valore della produzione
                 document.getElementById('ricaviVendite').value = testo[3].ricaviVendite
                 document.getElementById('variazioniRimanenze').value = testo[3].variazioniRimanenze
-                document.getElementById('variazioniRimanenzeProdottiInCorso').value = testo[3].variazioniRimanenzeProdottiInCorso
+                document.getElementById('variazioniLavoriInCorso').value = testo[3].variazioniLavoriInCorso
                 document.getElementById('incrementiImmobilizzazioniLavoriInterni').value = testo[3].incrementiImmobilizzazioniLavoriInterni
                 document.getElementById('altriRicaviProventi').value = testo[3].altriRicaviProventi
                 document.getElementById('totaleValoreProduzione').value = testo[3].totaleValoreProduzione
@@ -876,6 +894,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('materiePrimeCE').value = testo[3].materiePrimeCE
                 document.getElementById('servizi').value = testo[3].servizi
                 document.getElementById('godimentoBeniTerzi').value = testo[3].godimentoBeniTerzi
+                document.getElementById('diCuiCanoniLeasing').value = testo[3].diCuiCanoniLeasing
                 document.getElementById('salariStipendi').value = testo[3].salariStipendi
                 document.getElementById('oneriSociali').value = testo[3].oneriSociali
                 document.getElementById('trattamentoFineRapportoCE').value = testo[3].trattamentoFineRapportoCE
@@ -895,8 +914,9 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('differenzaValoreCostiProduzione').value = testo[3].differenzaValoreCostiProduzione
 
                 // C) Proventi e oneri finanziari
-                document.getElementById('proventiDaControllate').value = testo[3].proventiDaControllate
+                document.getElementById('proventiDaControllate').value = testo[3].proventiDaControllate                
                 document.getElementById('proventiDaCollegate').value = testo[3].proventiDaCollegate
+                document.getElementById('proventiDaControllanti').value = testo[3].proventiDaControllanti
                 document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value = testo[3].proventiCreditiIscrittiImmobilizzazioniControllate
                 document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value = testo[3].proventiCreditiIscrittiImmobilizzazioniCollegate
                 document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value = testo[3].proventiCreditiIscrittiImmobilizzazioniControllanti
@@ -908,8 +928,9 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('interessiAltriOneriFinanziariDaControllate').value = testo[3].interessiAltriOneriFinanziariDaControllate
                 document.getElementById('interessiAltriOneriFinanziariDaCollegate').value = testo[3].interessiAltriOneriFinanziariDaCollegate
                 document.getElementById('interessiAltriOneriFinanziariDaControllanti').value = testo[3].interessiAltriOneriFinanziariDaControllanti
+                document.getElementById('utiliPerditesuCambi').value = testo[3].utiliPerditesuCambi
                 document.getElementById('totaleProventiOneriFinanziari').value = testo[3].totaleProventiOneriFinanziari
-
+                
                 // D) Rettifiche di valore di attività finanziarie
                 document.getElementById('rivalutazioniPartecipazioni').value = testo[3].rivalutazioniPartecipazioni
                 document.getElementById('rivalutazioniImmobilizzazioniFinanziarie').value = testo[3].rivalutazioniImmobilizzazioniFinanziarie
@@ -924,9 +945,10 @@ ipc.on('apri', function (ev, data) {
                 // E) Proventi e oneri straordinari
                 document.getElementById('proventiStraordinari').value = testo[3].proventiStraordinari
                 document.getElementById('plusvalenzeAlienazioni').value = testo[3].plusvalenzeAlienazioni
+                document.getElementById('altriProventi').value = testo[3].altriProventi
                 document.getElementById('oneriStraordinari').value = testo[3].oneriStraordinari
                 document.getElementById('minusvalenzeAlienazioni').value = testo[3].minusvalenzeAlienazioni
-                document.getElementById('imposteRelativeEserciziPrecedenti').value = testo[3].imposteRelativeEserciziPrecedenti
+                document.getElementById('altriOneri').value = testo[3].altriOneri
                 document.getElementById('totalePartiteStraordinarie').value = testo[3].totalePartiteStraordinarie
 
                 // Risultato prima delle Imposte
@@ -972,6 +994,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('CEtotaleValoreProduzione').value = testo[5].CEtotaleValoreProduzione
                 document.getElementById('CEconsumoMateriePrime').value = testo[5].CEconsumoMateriePrime
                 document.getElementById('CEcostiServizi').value = testo[5].CEcostiServizi
+                document.getElementById('CEaltriCostiOperativiEsterni').value = testo[5].CEaltriCostiOperativiEsterni
                 document.getElementById('CEtotaleConsumiEsterni').value = testo[5].CEtotaleConsumiEsterni
                 document.getElementById('CEvaloreAggiunto').value = testo[5].CEvaloreAggiunto
                 document.getElementById('CEcostiPersonale').value = testo[5].CEcostiPersonale
@@ -980,10 +1003,14 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('CEcanoniLeasing').value = testo[5].CEcanoniLeasing
                 document.getElementById('CEaccantonamentiSvalutazioni').value = testo[5].CEaccantonamentiSvalutazioni
                 document.getElementById('CEtotaleAmmortamentiSvalutazioni').value = testo[5].CEtotaleAmmortamentiSvalutazioni
-                document.getElementById('CEaltriProventiOperativiFinanziari').value = testo[5].CEaltriProventiOperativiFinanziari
+                document.getElementById('CEaltriProventiOperativi').value = testo[5].CEaltriProventiOperativi
+                document.getElementById('CEproventiFinanziari').value = testo[5].CEproventiFinanziari
+                document.getElementById('CEsaldoGestioneMobiliare').value = testo[5].CEsaldoGestioneMobiliare
                 document.getElementById('CEtotaleRisultatoOperativo').value = testo[5].CEtotaleRisultatoOperativo
                 document.getElementById('CEoneriFinanziari').value = testo[5].CEoneriFinanziari
                 document.getElementById('CEtotaleRisultatoLordo').value = testo[5].CEtotaleRisultatoLordo
+                document.getElementById('CEproventiStraordinari').value = testo[5].CEproventiStraordinari
+                document.getElementById('CEoneriStraordinari').value = testo[5].CEoneriStraordinari
                 document.getElementById('CErisultatoAreaStraordinaria').value = testo[5].CErisultatoAreaStraordinaria
                 document.getElementById('CEtotaleRisultatoAnteImposte').value = testo[5].CEtotaleRisultatoAnteImposte
                 document.getElementById('CEimposteReddito').value = testo[5].CEimposteReddito

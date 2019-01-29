@@ -46,6 +46,9 @@ function sommeCE() {
     // Utile (perdite) dell'esercizio
     var utilePerditeEsercizio = parseFloat(risultatoPrimaDelleImposte) - parseFloat(totaleImposteRedditoEsercizio)
     document.getElementById('utilePerditeEsercizio').value = utilePerditeEsercizio.toFixed(2)
+
+    // richiamo funzioni per Riclassificazione
+    sommeRiclassificazioneCE()
 }
 
 function sommaValoreProduzione() {
@@ -88,14 +91,14 @@ function sommaProventiOneriFinanziari() {
 }
 
 function sommaRettifiche() {
-    var arrRiv = document.getElementsByName('rettificheRivalutazioni');
+    var arrRiv = document.getElementsByName('CErettificheRivalutazioni');
     var totRiv = 0;
     for (var i = 0; i < arrRiv.length; i++) {
         if (parseFloat(arrRiv[i].value))
         totRiv += parseFloat(arrRiv[i].value);
     }
 
-    var arrSva = document.getElementsByName('rettificheSvalutazioni');
+    var arrSva = document.getElementsByName('CErettificheSvalutazioni');
     var totSva = 0;
     for (var i = 0; i < arrSva.length; i++) {
         if (parseFloat(arrSva[i].value))
@@ -113,12 +116,16 @@ function sommaProventiOneriStraordinari() {
         if (parseFloat(arrProventi[i].value))
         totProventi += parseFloat(arrProventi[i].value);
     }
+    document.getElementById('proventiStraordinari').value = totProventi.toFixed(2);
+
     var arrOneri = document.getElementsByName('oneriStraordinari');
     var totOneri = 0;
     for (var i = 0; i < arrOneri.length; i++) {
         if (parseFloat(arrOneri[i].value))
         totOneri += parseFloat(arrOneri[i].value);
     }
+    document.getElementById('oneriStraordinari').value = totOneri.toFixed(2);
+
     var tot = parseFloat(totProventi) - parseFloat(totOneri)
     document.getElementById('totalePartiteStraordinarie').value = tot.toFixed(2);
 }
