@@ -3,6 +3,8 @@ const path = require('path')
 const app = require('electron').remote
 const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
+const webContents = require('electron')
+
 
 // salvataggio progetto
 ipc.on('salva', function (ev, data) {
@@ -1020,4 +1022,25 @@ ipc.on('apri', function (ev, data) {
             })
         }
     })
+})
+
+
+ipc.on('stampa', function (ev){
+
+    console.log("stampa?")
+    const pdfPath = path.join(__dirname,'print.pdf');
+
+    webContents.printToPDF({}, function(error, data){
+        if(error){
+            return console.log(error.message)
+        }
+        fs.writeFile(pdfPath, data, function(err){
+            if(err){
+                return console.log(err.message)
+            }
+
+            Electron.shell.openExternal('file://' + pdfPath);
+        })
+    })
+    
 })

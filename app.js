@@ -3,10 +3,12 @@ const path = require('path')
 const url = require('url')
 const electron = require('electron')
 const fs = require('fs')
+const os = require('os')
 const MenuItem = electron.MenuItem
 const Tray = electron.Tray
 const iconPath = path.join(__dirname, 'logo1.png')
 const dialog = app.dialog
+const ipc = electron.ipcMain
 
 let tray = null
 let window = null
@@ -36,19 +38,15 @@ app.on('ready', () => {
   const iconMenu = Menu.buildFromTemplate(menuIcona)
   tray.setContextMenu(iconMenu)
   tray.setToolTip('Riclassificazione Aziende')
-  
+
   // Creo la finestra iniziale
   window = new BrowserWindow({
-    // Imposto la larghezza iniziale a 800px
-    //width: 800,
-    // Imposto l'altezza iniziale a 1000px
-    //height: 1000,
+    height: 715,
+    width: 1200,
+    minWidth: 600,
+    minHeight: 200,
+    center: true,
     // Imposto il colore di sfondo
-        height: 715,
-        width: 1200,
-        minWidth: 600,
-        minHeight: 200,
-        center: true,
     backgroundColor: "#D6D8DC",
     // non mostra la finestra fino a che non è pronta
     show: false
@@ -62,7 +60,7 @@ app.on('ready', () => {
         {
           label: 'Apri progetto',
           //passo alla classe index.js dove c'è la funzione di apertura
-          click: function (menuItem, currentWindow){
+          click: function (menuItem, currentWindow) {
             currentWindow.webContents.send('apri')
           }
         },
@@ -70,8 +68,16 @@ app.on('ready', () => {
         {
           label: 'Salva con nome',
           //passo alla classe index.js dove c'è la funzione di salvataggio
-          click: function (menuItem, currentWindow){
+          click: function (menuItem, currentWindow) {
             currentWindow.webContents.send('salva')
+          }
+        },
+        { type: "separator" },
+        {
+          label: 'Stampa PDF',
+          //passo alla classe index.js dove c'è la funzione di stampa pdf
+          click: function (menuItem, currentWindow) {
+            currentWindow.webContents.send('stampa')
           }
         },
         { type: "separator" },
@@ -180,16 +186,17 @@ app.on('ready', () => {
     window.show()
   })
 
-  window.on('close', function(e){
+  window.on('close', function (e) {
     var choice = require('electron').dialog.showMessageBox(this,
-        {
-          type: 'question',
-          buttons: ['Yes', 'No'],
-          title: 'Conferma',
-          message: 'Sei sicuro di voler uscire?'
-       });
-       if(choice == 1){
-         e.preventDefault();
-       }
-    })
+      {
+        type: 'question',
+        buttons: ['Yes', 'No'],
+        title: 'Conferma',
+        message: 'Sei sicuro di voler uscire?'
+      });
+    if (choice == 1) {
+      e.preventDefault();
+    }
+  })
+
 })
