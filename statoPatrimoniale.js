@@ -26,9 +26,11 @@ function sommeSP() {
     var totaleImmobilizzazioniFinanziarie = document.getElementById('totaleImmobilizzazioniFinanziarie').value
     var totaleImmobilizzazioni = parseFloat(totaleImmobilizzazioniImmateriali) + parseFloat(totaleImmobilizzazioniMateriali) + parseFloat(totaleImmobilizzazioniFinanziarie)
     document.getElementById('totaleImmobilizzazioni').value = totaleImmobilizzazioni.toFixed(2)
-    // per riclassificazione
-    document.getElementById('SPimmobilizzazioniImmateriali').value = parseFloat(totaleImmobilizzazioniImmateriali)
-    document.getElementById('SPimmobilizzazioniMateriali').value = parseFloat(totaleImmobilizzazioniMateriali)
+    // per riclassificazione finanziario e funzionale
+    document.getElementById('SPFimmobilizzazioniImmateriali').value = parseFloat(totaleImmobilizzazioniImmateriali)
+    document.getElementById('SPFimmobilizzazioniMateriali').value = parseFloat(totaleImmobilizzazioniMateriali)
+    document.getElementById('SPFUimmobilizzazioniImmateriali').value = parseFloat(totaleImmobilizzazioniImmateriali)
+    document.getElementById('SPFUimmobilizzazioniMateriali').value = parseFloat(totaleImmobilizzazioniMateriali)
 
     // C) Attivo Circolante
     sommaRimanenze()
@@ -41,8 +43,9 @@ function sommeSP() {
     var totaleDisponibilitaLiquide = document.getElementById('totaleDisponibilitaLiquide').value
     var totaleAttivoCircolante = parseFloat(totaleRimanenze) + parseFloat(totaleCrediti) + parseFloat(totaleAttivitaFinanziarie) + parseFloat(totaleDisponibilitaLiquide)
     document.getElementById('totaleAttivoCircolante').value = totaleAttivoCircolante.toFixed(2)
-    // per riclassificazione
-    document.getElementById('SPmagazzino').value = parseFloat(totaleRimanenze)
+    // per riclassificazione finanziario e funzionale
+    document.getElementById('SPFmagazzino').value = parseFloat(totaleRimanenze)
+    document.getElementById('SPFUmagazzino').value = parseFloat(totaleRimanenze)
 
 
     // D) Ratei e Risconti
@@ -87,7 +90,7 @@ function sommeSP() {
     document.getElementById('totalePassivo').value = totalePassivo.toFixed(2)
     
     // richiamo funzioni per riclassificazione
-    sommeRiclassificazioneSP()
+    sommeRiclassificazioneSPF()
 }
 
 function sommaImmobilizzazioniImmateriali() {

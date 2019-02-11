@@ -10,6 +10,20 @@
 	width: 300px;
 }
 
+.dropdownRiclassificazioneSP{
+	width: 300px;
+	float: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.dropdownRiclassificazioneSP tipologiaSP{
+	width: 300px;
+	float: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
 .form-group .text-area{
 	resize: none;
 	width: 40%;

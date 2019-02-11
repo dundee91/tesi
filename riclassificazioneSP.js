@@ -1,12 +1,12 @@
 
 // FUNZIONI RICLASSIFICAZIONE
 
-function sommeRiclassificazioneSP() {
+function sommeRiclassificazioneSPF() {
     // A) TOTALE IMMOBILIZZAZIONI NETTE
 
     // Immobilizzazioni finanziarie e crediti infragruppo a m/l termine
     try{
-        document.getElementById('SPimmobilizzazioniFinanziarie').value = 
+        document.getElementById('SPFimmobilizzazioniFinanziarie').value = 
         parseFloat(document.getElementById('impreseControllate').value) +
         parseFloat(document.getElementById('impreseCollegate').value) +
         parseFloat(document.getElementById('impreseControllanti').value) +
@@ -26,28 +26,28 @@ function sommeRiclassificazioneSP() {
         parseFloat(document.getElementById('accontiOltre12Mesi').value)
     }
     catch(error){
-        document.getElementById('SPimmobilizzazioniFinanziarie').value = 0
+        document.getElementById('SPFimmobilizzazioniFinanziarie').value = 0
     }
 
     sommaImmobilizzazioniNette()
-    var totaleImmobilizzazioniNette = document.getElementById('SPtotaleImmobilizzazioniNette').value
+    var totaleImmobilizzazioniNette = document.getElementById('SPFtotaleImmobilizzazioniNette').value
 
     // B) TOTALE ATTIVO CIRCOLANTE
     
     // crediti commerciali
     if((document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value) != null &&
     (document.getElementById('accontiEntro12Mesi').value) != null){
-        document.getElementById('SPcreditiCommerciali').value = 
+        document.getElementById('SPFcreditiCommerciali').value = 
         parseFloat(document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value) - 
         parseFloat(document.getElementById('accontiEntro12Mesi').value)
     }
     else{
-        document.getElementById('SPcreditiCommerciali').value = 0
+        document.getElementById('SPFcreditiCommerciali').value = 0
     }
     // altri crediti
     try{
         console.log("try")
-        document.getElementById('SPaltriCrediti').value = 
+        document.getElementById('SPFaltriCrediti').value = 
         parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value) +
         parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value) +
         parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value) +
@@ -61,15 +61,15 @@ function sommeRiclassificazioneSP() {
     }
     catch(error){
         console.log("catch1")
-        document.getElementById('SPaltriCrediti').value = 0
+        document.getElementById('SPFaltriCrediti').value = 0
         console.log("catch2")
-        console.log(document.getElementById('SPaltriCrediti').value)
+        console.log(document.getElementById('SPFaltriCrediti').value)
     }
     // ratei e risconti attivi
-    document.getElementById('SPrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo').value
+    document.getElementById('SPFrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo').value
     // liquidità
     try{
-        document.getElementById('SPliquidita').value = 
+        document.getElementById('SPFliquidita').value = 
         parseFloat(document.getElementById('partecipazioniImpreseControllate').value) +
         parseFloat(document.getElementById('partecipazioniImpreseCollegate').value) +
         parseFloat(document.getElementById('partecipazioniImpreseControllanti').value) +
@@ -80,34 +80,34 @@ function sommeRiclassificazioneSP() {
         parseFloat(document.getElementById('danaroValoriCassa').value)
     }
     catch(error){
-        document.getElementById('SPliquidita').value = 0
-        console.log(document.getElementById('SPliquidita').value)
+        document.getElementById('SPFliquidita').value = 0
+        console.log(document.getElementById('SPFliquidita').value)
     }
 
 
     sommaAttivoCircolante()
-    var totaleAttivoCircolante = document.getElementById('SPtotaleAttivoCircolante').value
+    var totaleAttivoCircolante = document.getElementById('SPFtotaleAttivoCircolante').value
 
     //  C) TOTALE ATTIVO (A+B)
     var totaleAttivo = parseFloat(totaleImmobilizzazioniNette) + parseFloat(totaleAttivoCircolante)
-    document.getElementById('SPtotaleAttivo').value = totaleAttivo.toFixed(2)
+    document.getElementById('SPFtotaleAttivo').value = totaleAttivo.toFixed(2)
     
     // F) PATRIMONIO NETTO
     
     // capitale sociale
     try{
-        document.getElementById('SPcapitaleSociale').value = 
+        document.getElementById('SPFcapitaleSociale').value = 
         parseFloat(document.getElementById('creditiVersoSoci').value) -
         parseFloat(document.getElementById('azioniProprieImmobilizzazioniFinanziarie').value) -
         parseFloat(document.getElementById('azioniProprieAttivitaFinanziarie').value) +
         parseFloat(document.getElementById('capitale').value)
     }
     catch(error){
-        document.getElementById('SPcapitaleSociale').value = 0
+        document.getElementById('SPFcapitaleSociale').value = 0
     }
     // riserve
     try{
-        document.getElementById('SPriserve').value = 
+        document.getElementById('SPFriserve').value = 
         parseFloat(document.getElementById('riservaSovrapprezzoAzioni').value) +
         parseFloat(document.getElementById('riserveRivalutazione').value) +
         parseFloat(document.getElementById('riservaLegale').value) +
@@ -117,20 +117,20 @@ function sommeRiclassificazioneSP() {
         parseFloat(document.getElementById('utilePortatoNuovo').value)
     }
     catch(error){
-        document.getElementById('SPriserve').value = 0
+        document.getElementById('SPFriserve').value = 0
     }
     // reddito netto
-    document.getElementById('SPredditoNetto').value = document.getElementById('utileEsercizio').value
+    document.getElementById('SPFredditoNetto').value = document.getElementById('utileEsercizio').value
 
-    sommaPatrimonioNettoSP()
-    var totalePatrimonioNetto = document.getElementById('SPtotalePatrimonioNetto').value
+    sommaPatrimonioNettoSPF()
+    var totalePatrimonioNetto = document.getElementById('SPFtotalePatrimonioNetto').value
 
 
     // E) PASSIVO A M/L TERMINE
     
     // Debiti finanziari a medio - lungo termine
     try{
-        document.getElementById('SPdebitiFinanziariMlTermine').value = 
+        document.getElementById('SPFdebitiFinanziariMlTermine').value = 
         parseFloat(document.getElementById('obbligazioniOltre12Mesi').value) +
         parseFloat(document.getElementById('obbligazioniConvertibiliOltre12Mesi').value) +
         parseFloat(document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value) +
@@ -141,11 +141,11 @@ function sommeRiclassificazioneSP() {
         parseFloat(document.getElementById('debitiVersoControllantiOltre12Mesi').value)
     }
     catch(error){
-        document.getElementById('SPdebitiFinanziariMlTermine').value = 0
+        document.getElementById('SPFdebitiFinanziariMlTermine').value = 0
     }
     // Altri debiti a medio - lungo termine
     try{
-        document.getElementById('SPaltriDebiti').value = 
+        document.getElementById('SPFaltriDebiti').value = 
         parseFloat(document.getElementById('debitiVersoFornitoriOltre12Mesi').value) +
         parseFloat(document.getElementById('debitiRappresentatiTitoliCreditoOltre12Mesi').value) +
         parseFloat(document.getElementById('debitiTributariOltre12Mesi').value) +
@@ -153,28 +153,28 @@ function sommeRiclassificazioneSP() {
         parseFloat(document.getElementById('altriDebitiOltre12Mesi').value)
     }
     catch(error){
-        document.getElementById('SPaltriDebiti').value = 0
+        document.getElementById('SPFaltriDebiti').value = 0
     }
     // fondo tfr
-    document.getElementById('SPfondoTFR').value = document.getElementById('trattamentoFineRapportoSP').value
+    document.getElementById('SPFfondoTFR').value = document.getElementById('trattamentoFineRapportoSP').value
     // Altri fondi
     try{
-        document.getElementById('SPaltriFondi').value = 
+        document.getElementById('SPFaltriFondi').value = 
         parseFloat(document.getElementById('trattamentoQuiescenzaObblighiSimili').value) +
         parseFloat(document.getElementById('imposteAncheDifferite').value) +
         parseFloat(document.getElementById('altriFondi').value)
     }
     catch(error){
-        document.getElementById('SPaltriFondi').value = 0
+        document.getElementById('SPFaltriFondi').value = 0
     }
     sommaPassivoMlTermine()
-    var totalePassivoMlTermine = document.getElementById('SPtotalePassivoMlTermine').value
+    var totalePassivoMlTermine = document.getElementById('SPFtotalePassivoMlTermine').value
 
     // D) PASSIVO A BREVE TERMINE
     
     // Debiti finanziari a breve termine
     try{
-        document.getElementById('SPdebitiFinanziariBreveTermine').value = 
+        document.getElementById('SPFdebitiFinanziariBreveTermine').value = 
         parseFloat(document.getElementById('obbligazioniEntro12Mesi').value) +
         parseFloat(document.getElementById('obbligazioniConvertibiliEntro12Mesi').value) +
         parseFloat(document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value) +
@@ -185,89 +185,89 @@ function sommeRiclassificazioneSP() {
         parseFloat(document.getElementById('debitiVersoControllantiEntro12Mesi').value)
     }
     catch(error){
-        document.getElementById('SPdebitiFinanziariBreveTermine').value = 0
+        document.getElementById('SPFdebitiFinanziariBreveTermine').value = 0
     }
     // Debiti commerciali verso fornitori
     try{
-        document.getElementById('SPdebitiCommercialiFornitori').value = 
+        document.getElementById('SPFdebitiCommercialiFornitori').value = 
         parseFloat(document.getElementById('debitiVersoFornitoriEntro12Mesi').value) +
         parseFloat(document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value)
     }
     catch(error){
-        document.getElementById('SPdebitiCommercialiFornitori').value = 0
+        document.getElementById('SPFdebitiCommercialiFornitori').value = 0
     }
     // Altri debiti non finanziari
     try{
-        document.getElementById('SPaltriDebitiNonFinanziari').value = 
+        document.getElementById('SPFaltriDebitiNonFinanziari').value = 
         parseFloat(document.getElementById('debitiTributariEntro12Mesi').value) +
         parseFloat(document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value) +
         parseFloat(document.getElementById('altriDebitiEntro12Mesi').value)
     }
     catch(error){
-        document.getElementById('SPaltriDebitiNonFinanziari').value = 0
+        document.getElementById('SPFaltriDebitiNonFinanziari').value = 0
     }
     // Ratei e risconti passivi
-    document.getElementById('SPrateiRiscontiPassivi').value = document.getElementById('rateiRiscontiPassivo').value
+    document.getElementById('SPFrateiRiscontiPassivi').value = document.getElementById('rateiRiscontiPassivo').value
 
 
     sommaPassivoBreveTermine()
-    var totalePassivoBreveTermine = document.getElementById('SPtotalePassivoBreveTermine').value
+    var totalePassivoBreveTermine = document.getElementById('SPFtotalePassivoBreveTermine').value
     
     // (G) TOTALE PASSIVO E PATRIMONIO NETTO (D+E+F)
     var totalePassivoPatrimonioNetto = parseFloat(totalePatrimonioNetto) + parseFloat(totalePassivoMlTermine) + parseFloat(totalePassivoBreveTermine)
-    document.getElementById('SPtotalePassivoPatrimonioNetto').value = totalePassivoPatrimonioNetto.toFixed(2)
+    document.getElementById('SPFtotalePassivoPatrimonioNetto').value = totalePassivoPatrimonioNetto.toFixed(2)
 
     // EVENTUALE SQUADRATURA ATTIVO/PASS
     var eventualeSquadraturaAttivoPass = parseFloat(totaleAttivo) - parseFloat(totalePassivoPatrimonioNetto)
-    document.getElementById('SPeventualeSquadraturaAttivoPass').value = eventualeSquadraturaAttivoPass.toFixed(2)
+    document.getElementById('SPFeventualeSquadraturaAttivoPass').value = eventualeSquadraturaAttivoPass.toFixed(2)
 }
 
 function sommaImmobilizzazioniNette() {
-    var arr = document.getElementsByName('SPimmobilizzazioniNette');
+    var arr = document.getElementsByName('SPFimmobilizzazioniNette');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('SPtotaleImmobilizzazioniNette').value = tot.toFixed(2)
+    document.getElementById('SPFtotaleImmobilizzazioniNette').value = tot.toFixed(2)
 }
 
 function sommaAttivoCircolante() {
-    var arr = document.getElementsByName('SPattivoCircolante');
+    var arr = document.getElementsByName('SPFattivoCircolante');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('SPtotaleAttivoCircolante').value = tot.toFixed(2)
+    document.getElementById('SPFtotaleAttivoCircolante').value = tot.toFixed(2)
 }
 
-function sommaPatrimonioNettoSP() {
-    var arr = document.getElementsByName('SPpatrimonioNetto');
+function sommaPatrimonioNettoSPF() {
+    var arr = document.getElementsByName('SPFpatrimonioNetto');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('SPtotalePatrimonioNetto').value = tot.toFixed(2)
+    document.getElementById('SPFtotalePatrimonioNetto').value = tot.toFixed(2)
 }
 
 function sommaPassivoMlTermine() {
-    var arr = document.getElementsByName('SPpassivoMLTermine');
+    var arr = document.getElementsByName('SPFpassivoMLTermine');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('SPtotalePassivoMlTermine').value = tot.toFixed(2)
+    document.getElementById('SPFtotalePassivoMlTermine').value = tot.toFixed(2)
 }
 
 function sommaPassivoBreveTermine() {
-    var arr = document.getElementsByName('SPpassivoBreveTermine');
+    var arr = document.getElementsByName('SPFpassivoBreveTermine');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
         if (parseFloat(arr[i].value))
             tot += parseFloat(arr[i].value);
     }
-    document.getElementById('SPtotalePassivoBreveTermine').value = tot.toFixed(2)
+    document.getElementById('SPFtotalePassivoBreveTermine').value = tot.toFixed(2)
 }
