@@ -222,6 +222,11 @@ function sommeRiclassificazioneSPF() {
     document.getElementById('SPFeventualeSquadraturaAttivoPass').value = eventualeSquadraturaAttivoPass.toFixed(2)
 }
 
+function sommeRiclassificazioneSPFU() {
+    
+        
+}
+
 function sommaImmobilizzazioniNette() {
     var arr = document.getElementsByName('SPFimmobilizzazioniNette');
     var tot = 0;

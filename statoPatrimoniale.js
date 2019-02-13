@@ -91,6 +91,7 @@ function sommeSP() {
     
     // richiamo funzioni per riclassificazione
     sommeRiclassificazioneSPF()
+    sommeRiclassificazioneSPFU()
 }
 
 function sommaImmobilizzazioniImmateriali() {

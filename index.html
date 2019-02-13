@@ -1730,28 +1730,79 @@
         <!-- Debiti finanziari a breve termine -->
         <div class="form-group">
           <label class="etichetta">Debiti finanziari a breve termine</label>
-          <input id="SPFUdebitiFinanziariBreveTermine" type="number" step="0.01"
-            name="SPFUPosizioneFinanziariaBreveTermine" class="form-control" readonly>
+          <input id="SPFUdebitiFinanziariBreveTermine" type="number" step="0.01" name="SPFUPosizioneFinanziariaBreveTermine" class="form-control" readonly>
         </div>
 
         <!-- Disponibilità liquide -->
         <div class="form-group">
           <label class="etichetta">Disponibilità liquide</label>
-          <input id="SPFUdisponibilitaLiquide" type="number" step="0.01" name="SPFUPosizioneFinanziariaBreveTermine"
-            class="form-control" readonly>
+          <input id="SPFUdisponibilitaLiquide" type="number" step="0.01" name="SPFUPosizioneFinanziariaBreveTermine" class="form-control" readonly>
         </div>
 
         <!-- Crediti finanziari a breve termine -->
         <div class="form-group">
           <label class="etichetta">Crediti finanziari a breve termine</label>
-          <input id="SPFUcreditiFinanziariBreveTermine" type="number" step="0.01"
-            name="SPFUPosizioneFinanziariaBreveTermine" class="form-control" readonly>
+          <input id="SPFUcreditiFinanziariBreveTermine" type="number" step="0.01" name="SPFUPosizioneFinanziariaBreveTermine" class="form-control" readonly>
         </div>
 
         <!-- (G) POSIZIONE FINANZIARIA A BREVE TERMINE-->
         <div class="form-group">
           <h5 class="etichetta"> (G) POSIZIONE FINANZIARIA A BREVE TERMINE</h5>
-          <input id="SPtotalePosizioneFinanziariaBreveTermine" name="totale" class="form-control totale" readonly>
+          <input id="SPFUtotalePosizioneFinanziariaBreveTermine" name="totale" class="form-control totale" readonly>
+        </div>
+
+        <!-- Debiti finanziari a m/l termine -->
+        <div class="form-group">
+          <label class="etichetta">Debiti finanziari a m/l termine</label>
+          <input id="SPFUdebitiFinanziariMedioLungoTermine" type="number" step="0.01" name="SPFUPosizioneFinanziariaMedioLungoTermine" class="form-control" readonly>
+        </div>
+
+        <!-- Crediti finanziari a m/l termine -->
+        <div class="form-group">
+          <label class="etichetta">Crediti finanziari a m/l termine</label>
+          <input id="SPFUcreditiFinanziariMedioLungoTermine" type="number" step="0.01" name="SPFUPosizioneFinanziariaMedioLungoTermine" class="form-control" readonly>
+        </div>
+
+        <!-- (E) POSIZIONE FINANZIARIA A M/L TERMINE-->
+        <div class="form-group">
+          <h5 class="etichetta"> (E) POSIZIONE FINANZIARIA A M/L TERMINE</h5>
+          <input id="SPFUtotalePosizioneFinanziariaMedioLungoTermine" name="totale" class="form-control totale" readonly>
+        </div>
+
+        <!-- (F) TOTALE POSIZIONE FINANZIARIA-->
+        <div class="form-group">
+          <h5 class="etichetta"> (F) TOTALE POSIZIONE FINANZIARIA</h5>
+          <input id="SPFUtotalePosizioneFinanziaria" name="totale" class="form-control totale" readonly>
+        </div>
+
+        <!-- Capitale sociale e finanziamenti in conto capitale -->
+        <div class="form-group">
+          <label class="etichetta">Capitale sociale e finanziamenti in conto capitale</label>
+          <input id="SPFUcapitaleSocialeFinanziamentiContoCapitale" type="number" step="0.01" name="SPFUPatrimonioNetto" class="form-control" readonly>
+        </div>
+
+        <!-- Riserve -->
+        <div class="form-group">
+          <label class="etichetta">Riserve</label>
+          <input id="SPFUriserve" type="number" step="0.01" name="SPFUPatrimonioNetto" class="form-control" readonly>
+        </div>
+
+        <!-- Reddito netto -->
+        <div class="form-group">
+          <label class="etichetta">Reddito netto</label>
+          <input id="SPFUredditonetto" type="number" step="0.01" name="SPFUPatrimonioNetto" class="form-control" readonly>
+        </div>
+
+        <!-- (H) PATRIMONIO NETTO-->
+        <div class="form-group">
+          <h5 class="etichetta"> (H) PATRIMONIO NETTO</h5>
+          <input id="SPFUtotalePatrimonioNetto" name="totale" class="form-control totale" readonly>
+        </div>
+        
+        <!-- (I) TOTALE DEBITO FINANZIARIO E PATRIMONIO NETTO (F+H)-->
+        <div class="form-group">
+          <h5 class="etichetta"> (I) TOTALE DEBITO FINANZIARIO E PATRIMONIO NETTO (F+H)</h5>
+          <input id="SPFUtotaleDebitoFinanziarioPatrimonioNetto" name="totale" class="form-control totale" readonly>
         </div>
 
       </div>

@@ -271,6 +271,39 @@ ipc.on('salva', function (ev, data) {
     // Utile (perdite) dell'esercizio
     var utilePerditeEsercizio = document.getElementById('utilePerditeEsercizio').value
 
+    /* RICLASSIFICAZIONE STATO PATRIMONIALE FUNZIONALE (OPERATIVO) */
+    var SPFUimmobilizzazioniImmateriali = document.getElementById('SPFUimmobilizzazioniImmateriali').value
+    var SPFUimmobilizzazioniMateriali = document.getElementById('SPFUimmobilizzazioniMateriali').value
+    var SPFUimmobilizzazioniFinanziarieNette = document.getElementById('SPFUimmobilizzazioniFinanziarieNette').value
+    var SPFUtotaleImmobilizzazioniNette = document.getElementById('SPFUtotaleImmobilizzazioniNette').value
+    var SPFUmagazzino = document.getElementById('SPFUmagazzino').value
+    var SPFUcreditiCommerciali = document.getElementById('SPFUcreditiCommerciali').value
+    var SPFUaltriCrediti = document.getElementById('SPFUaltriCrediti').value
+    var SPFUrateiRiscontiAttivi = document.getElementById('SPFUrateiRiscontiAttivi').value
+    var SPFUtotaleAttivoCommerciale = document.getElementById('SPFUtotaleAttivoCommerciale').value
+    var SPFUdebitiVersoFornitori = document.getElementById('SPFUdebitiVersoFornitori').value
+    var SPFUaltriDebitiNonFinanziari = document.getElementById('SPFUaltriDebitiNonFinanziari').value
+    var SPFUrateiRiscontiPassivi = document.getElementById('SPFUrateiRiscontiPassivi').value
+    var SPFUtotalePassivoCommerciale = document.getElementById('SPFUtotalePassivoCommerciale').value
+    var SPFUcapitaleEsercizio = document.getElementById('SPFUcapitaleEsercizio').value
+    var SPFUfondiRischiOneri = document.getElementById('SPFUfondiRischiOneri').value
+    var SPFUfondoTfr = document.getElementById('SPFUfondoTfr').value
+    var SPFUtotaleFondiOperativi = document.getElementById('SPFUtotaleFondiOperativi').value
+    var SPFUcapitaleInvestitoNetto = document.getElementById('SPFUcapitaleInvestitoNetto').value
+    var SPFUdebitiFinanziariBreveTermine = document.getElementById('SPFUdebitiFinanziariBreveTermine').value
+    var SPFUdisponibilitaLiquide = document.getElementById('SPFUdisponibilitaLiquide').value
+    var SPFUcreditiFinanziariBreveTermine = document.getElementById('SPFUcreditiFinanziariBreveTermine').value
+    var SPFUtotalePosizioneFinanziariaBreveTermine = document.getElementById('SPFUtotalePosizioneFinanziariaBreveTermine').value
+    var SPFUdebitiFinanziariMedioLungoTermine = document.getElementById('SPFUdebitiFinanziariMedioLungoTermine').value
+    var SPFUcreditiFinanziariMedioLungoTermine = document.getElementById('SPFUcreditiFinanziariMedioLungoTermine').value
+    var SPFUtotalePosizioneFinanziariaMedioLungoTermine = document.getElementById('SPFUtotalePosizioneFinanziariaMedioLungoTermine').value
+    var SPFUtotalePosizioneFinanziaria = document.getElementById('SPFUtotalePosizioneFinanziaria').value
+    var SPFUcapitaleSocialeFinanziamentiContoCapitale = document.getElementById('SPFUcapitaleSocialeFinanziamentiContoCapitale').value
+    var SPFUriserve = document.getElementById('SPFUriserve').value
+    var SPFUredditonetto = document.getElementById('SPFUredditonetto').value
+    var SPFUtotalePatrimonioNetto = document.getElementById('SPFUtotalePatrimonioNetto').value
+    var SPFUtotaleDebitoFinanziarioPatrimonioNetto = document.getElementById('SPFUtotaleDebitoFinanziarioPatrimonioNetto').value
+
     /* RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO */
     var SPFimmobilizzazioniImmateriali = document.getElementById('SPFimmobilizzazioniImmateriali').value
     var SPFimmobilizzazioniMateriali = document.getElementById('SPFimmobilizzazioniMateriali').value
@@ -358,7 +391,7 @@ ipc.on('salva', function (ev, data) {
         {
             "storiaAzienda": storiaAzienda,
             "titolari": titolari,
-            "organoControllo" : organoControllo,
+            "organoControllo": organoControllo,
             "descrizioneAttuale": descrizioneAttuale,
             "prodottiCommercializzati": prodottiCommercializzati,
             "mercatoRiferimento": mercatoRiferimento,
@@ -536,7 +569,7 @@ ipc.on('salva', function (ev, data) {
             "materiePrimeCE": materiePrimeCE,
             "servizi": servizi,
             "godimentoBeniTerzi": godimentoBeniTerzi,
-            "diCuiCanoniLeasing" : diCuiCanoniLeasing,
+            "diCuiCanoniLeasing": diCuiCanoniLeasing,
             "salariStipendi": salariStipendi,
             "oneriSociali": oneriSociali,
             "trattamentoFineRapportoCE": trattamentoFineRapportoCE,
@@ -558,7 +591,7 @@ ipc.on('salva', function (ev, data) {
             // C) Proventi e oneri finanziari
             "proventiDaControllate": proventiDaControllate,
             "proventiDaCollegate": proventiDaCollegate,
-            "proventiDaControllanti" : proventiDaControllanti,
+            "proventiDaControllanti": proventiDaControllanti,
             "proventiCreditiIscrittiImmobilizzazioniControllate": proventiCreditiIscrittiImmobilizzazioniControllate,
             "proventiCreditiIscrittiImmobilizzazioniCollegate": proventiCreditiIscrittiImmobilizzazioniCollegate,
             "proventiCreditiIscrittiImmobilizzazioniControllanti": proventiCreditiIscrittiImmobilizzazioniControllanti,
@@ -570,7 +603,7 @@ ipc.on('salva', function (ev, data) {
             "interessiAltriOneriFinanziariDaControllate": interessiAltriOneriFinanziariDaControllate,
             "interessiAltriOneriFinanziariDaCollegate": interessiAltriOneriFinanziariDaCollegate,
             "interessiAltriOneriFinanziariDaControllanti": interessiAltriOneriFinanziariDaControllanti,
-            "utiliPerditesuCambi" : utiliPerditesuCambi,
+            "utiliPerditesuCambi": utiliPerditesuCambi,
             "totaleProventiOneriFinanziari": totaleProventiOneriFinanziari,
 
             // D) Rettifiche di valore di attività finanziarie
@@ -587,7 +620,7 @@ ipc.on('salva', function (ev, data) {
             // E) Proventi e oneri straordinari
             "proventiStraordinari": proventiStraordinari,
             "plusvalenzeAlienazioni": plusvalenzeAlienazioni,
-            "altriProventi" : altriProventi,
+            "altriProventi": altriProventi,
             "oneriStraordinari": oneriStraordinari,
             "minusvalenzeAlienazioni": minusvalenzeAlienazioni,
             "altriOneri": altriOneri,
@@ -600,35 +633,69 @@ ipc.on('salva', function (ev, data) {
             // Utile (perdite) dell'esercizio
             'utilePerditeEsercizio': utilePerditeEsercizio
         },
+        /* RICLASSIFICAZIONE STATO PATRIMONIALE FUNZIONALE (OPERATIVO) */
+        {
+            'SPFUimmobilizzazioniImmateriali': SPFUimmobilizzazioniImmateriali,
+            'SPFUimmobilizzazioniMateriali': SPFUimmobilizzazioniMateriali,
+            'SPFUimmobilizzazioniFinanziarieNette': SPFUimmobilizzazioniFinanziarieNette,
+            'SPFUtotaleImmobilizzazioniNette': SPFUtotaleImmobilizzazioniNette,
+            'SPFUmagazzino': SPFUmagazzino,
+            'SPFUcreditiCommerciali': SPFUcreditiCommerciali,
+            'SPFUaltriCrediti': SPFUaltriCrediti,
+            'SPFUrateiRiscontiAttivi': SPFUrateiRiscontiAttivi,
+            'SPFUtotaleAttivoCommerciale': SPFUtotaleAttivoCommerciale,
+            'SPFUdebitiVersoFornitori': SPFUdebitiVersoFornitori,
+            'SPFUaltriDebitiNonFinanziari': SPFUaltriDebitiNonFinanziari,
+            'SPFUrateiRiscontiPassivi': SPFUrateiRiscontiPassivi,
+            'SPFUtotalePassivoCommerciale': SPFUtotalePassivoCommerciale,
+            'SPFUcapitaleEsercizio': SPFUcapitaleEsercizio,
+            'SPFUfondiRischiOneri': SPFUfondiRischiOneri,
+            'SPFUfondoTfr': SPFUfondoTfr,
+            'SPFUtotaleFondiOperativi': SPFUtotaleFondiOperativi,
+            'SPFUcapitaleInvestitoNetto': SPFUcapitaleInvestitoNetto,
+            'SPFUdebitiFinanziariBreveTermine': SPFUdebitiFinanziariBreveTermine,
+            'SPFUdisponibilitaLiquide': SPFUdisponibilitaLiquide,
+            'SPFUcreditiFinanziariBreveTermine': SPFUcreditiFinanziariBreveTermine,
+            'SPFUtotalePosizioneFinanziariaBreveTermine': SPFUtotalePosizioneFinanziariaBreveTermine,
+            'SPFUdebitiFinanziariMedioLungoTermine' : SPFUdebitiFinanziariMedioLungoTermine,
+            'SPFUcreditiFinanziariMedioLungoTermine' : SPFUcreditiFinanziariMedioLungoTermine,
+            'SPFUtotalePosizioneFinanziariaMedioLungoTermine' : SPFUtotalePosizioneFinanziariaMedioLungoTermine,
+            'SPFUtotalePosizioneFinanziaria' : SPFUtotalePosizioneFinanziaria,
+            'SPFUcapitaleSocialeFinanziamentiContoCapitale' : SPFUcapitaleSocialeFinanziamentiContoCapitale,
+            'SPFUriserve' : SPFUriserve,
+            'SPFUredditonetto' : SPFUredditonetto,
+            'SPFUtotalePatrimonioNetto' : SPFUtotalePatrimonioNetto,
+            'SPFUtotaleDebitoFinanziarioPatrimonioNetto' : SPFUtotaleDebitoFinanziarioPatrimonioNetto
+        },
         /* RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO */
         {
-            'SPimmobilizzazioniImmateriali': SPimmobilizzazioniImmateriali,
-            'SPimmobilizzazioniMateriali': SPimmobilizzazioniMateriali,
-            'SPimmobilizzazioniFinanziarie': SPimmobilizzazioniFinanziarie,
-            'SPtotaleImmobilizzazioniNette': SPtotaleImmobilizzazioniNette,
-            'SPmagazzino': SPmagazzino,
-            'SPcreditiCommerciali': SPcreditiCommerciali,
-            'SPaltriCrediti': SPaltriCrediti,
-            'SPrateiRiscontiAttivi': SPrateiRiscontiAttivi,
-            'SPliquidita': SPliquidita,
-            'SPtotaleAttivoCircolante': SPtotaleAttivoCircolante,
-            'SPtotaleAttivo': SPtotaleAttivo,
-            'SPcapitaleSociale': SPcapitaleSociale,
-            'SPriserve': SPriserve,
-            'SPredditoNetto': SPredditoNetto,
-            'SPtotalePatrimonioNetto': SPtotalePatrimonioNetto,
-            'SPdebitiFinanziariMlTermine': SPdebitiFinanziariMlTermine,
-            'SPaltriDebiti': SPaltriDebiti,
-            'SPfondoTFR': SPfondoTFR,
-            'SPaltriFondi': SPaltriFondi,
-            'SPtotalePassivoMlTermine': SPtotalePassivoMlTermine,
-            'SPdebitiFinanziariBreveTermine': SPdebitiFinanziariBreveTermine,
-            'SPdebitiCommercialiFornitori': SPdebitiCommercialiFornitori,
-            'SPaltriDebitiNonFinanziari': SPaltriDebitiNonFinanziari,
-            'SPrateiRiscontiPassivi': SPrateiRiscontiPassivi,
-            'SPtotalePassivoBreveTermine': SPtotalePassivoBreveTermine,
-            'SPtotalePassivoPatrimonioNetto': SPtotalePassivoPatrimonioNetto,
-            'SPeventualeSquadraturaAttivoPass': SPeventualeSquadraturaAttivoPass
+            'SPFimmobilizzazioniImmateriali': SPFimmobilizzazioniImmateriali,
+            'SPFimmobilizzazioniMateriali': SPFimmobilizzazioniMateriali,
+            'SPFimmobilizzazioniFinanziarie': SPFimmobilizzazioniFinanziarie,
+            'SPFtotaleImmobilizzazioniNette': SPFtotaleImmobilizzazioniNette,
+            'SPFmagazzino': SPFmagazzino,
+            'SPFcreditiCommerciali': SPFcreditiCommerciali,
+            'SPFaltriCrediti': SPFaltriCrediti,
+            'SPFrateiRiscontiAttivi': SPFrateiRiscontiAttivi,
+            'SPFliquidita': SPFliquidita,
+            'SPFtotaleAttivoCircolante': SPFtotaleAttivoCircolante,
+            'SPFtotaleAttivo': SPFtotaleAttivo,
+            'SPFcapitaleSociale': SPFcapitaleSociale,
+            'SPFriserve': SPFriserve,
+            'SPFredditoNetto': SPFredditoNetto,
+            'SPFtotalePatrimonioNetto': SPFtotalePatrimonioNetto,
+            'SPFdebitiFinanziariMlTermine': SPFdebitiFinanziariMlTermine,
+            'SPFaltriDebiti': SPFaltriDebiti,
+            'SPFfondoTFR': SPFfondoTFR,
+            'SPFaltriFondi': SPFaltriFondi,
+            'SPFtotalePassivoMlTermine': SPFtotalePassivoMlTermine,
+            'SPFdebitiFinanziariBreveTermine': SPFdebitiFinanziariBreveTermine,
+            'SPFdebitiCommercialiFornitori': SPFdebitiCommercialiFornitori,
+            'SPFaltriDebitiNonFinanziari': SPFaltriDebitiNonFinanziari,
+            'SPFrateiRiscontiPassivi': SPFrateiRiscontiPassivi,
+            'SPFtotalePassivoBreveTermine': SPFtotalePassivoBreveTermine,
+            'SPFtotalePassivoPatrimonioNetto': SPFtotalePassivoPatrimonioNetto,
+            'SPFeventualeSquadraturaAttivoPass': SPFeventualeSquadraturaAttivoPass
         },
         /* RICLASSIFICAZIONE CONTO ECONOMICO VALORE AGGIUNTO */
         {
@@ -637,7 +704,7 @@ ipc.on('salva', function (ev, data) {
             "CEtotaleValoreProduzione": CEtotaleValoreProduzione,
             "CEconsumoMateriePrime": CEconsumoMateriePrime,
             "CEcostiServizi": CEcostiServizi,
-            "CEaltriCostiOperativiEsterni" : CEaltriCostiOperativiEsterni,
+            "CEaltriCostiOperativiEsterni": CEaltriCostiOperativiEsterni,
             "CEtotaleConsumiEsterni": CEtotaleConsumiEsterni,
             "CEvaloreAggiunto": CEvaloreAggiunto,
             "CEcostiPersonale": CEcostiPersonale,
@@ -647,13 +714,13 @@ ipc.on('salva', function (ev, data) {
             "CEaccantonamentiSvalutazioni": CEaccantonamentiSvalutazioni,
             "CEtotaleAmmortamentiSvalutazioni": CEtotaleAmmortamentiSvalutazioni,
             "CEaltriProventiOperativi": CEaltriProventiOperativi,
-            "CEproventiFinanziari" : CEproventiFinanziari,
-            "CEsaldoGestioneMobiliare" : CEsaldoGestioneMobiliare,
+            "CEproventiFinanziari": CEproventiFinanziari,
+            "CEsaldoGestioneMobiliare": CEsaldoGestioneMobiliare,
             "CEtotaleRisultatoOperativo": CEtotaleRisultatoOperativo,
             "CEoneriFinanziari": CEoneriFinanziari,
             "CEtotaleRisultatoLordo": CEtotaleRisultatoLordo,
-            "CEproventiStraordinari" : CEproventiStraordinari,
-            "CEoneriStraordinari" : CEoneriStraordinari,
+            "CEproventiStraordinari": CEproventiStraordinari,
+            "CEoneriStraordinari": CEoneriStraordinari,
             "CErisultatoAreaStraordinaria": CErisultatoAreaStraordinaria,
             "CEtotaleRisultatoAnteImposte": CEtotaleRisultatoAnteImposte,
             "CEimposteReddito": CEimposteReddito,
@@ -916,7 +983,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('differenzaValoreCostiProduzione').value = testo[3].differenzaValoreCostiProduzione
 
                 // C) Proventi e oneri finanziari
-                document.getElementById('proventiDaControllate').value = testo[3].proventiDaControllate                
+                document.getElementById('proventiDaControllate').value = testo[3].proventiDaControllate
                 document.getElementById('proventiDaCollegate').value = testo[3].proventiDaCollegate
                 document.getElementById('proventiDaControllanti').value = testo[3].proventiDaControllanti
                 document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value = testo[3].proventiCreditiIscrittiImmobilizzazioniControllate
@@ -932,7 +999,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('interessiAltriOneriFinanziariDaControllanti').value = testo[3].interessiAltriOneriFinanziariDaControllanti
                 document.getElementById('utiliPerditesuCambi').value = testo[3].utiliPerditesuCambi
                 document.getElementById('totaleProventiOneriFinanziari').value = testo[3].totaleProventiOneriFinanziari
-                
+
                 // D) Rettifiche di valore di attività finanziarie
                 document.getElementById('rivalutazioniPartecipazioni').value = testo[3].rivalutazioniPartecipazioni
                 document.getElementById('rivalutazioniImmobilizzazioniFinanziarie').value = testo[3].rivalutazioniImmobilizzazioniFinanziarie
@@ -960,62 +1027,96 @@ ipc.on('apri', function (ev, data) {
                 // Utile (perdite) dell'esercizio
                 document.getElementById('utilePerditeEsercizio').value = testo[3].utilePerditeEsercizio
 
+                // RICLASSIFICAZIONE STATO PATRIMONIALE FUNZIONALE (OPERATIVO)
+
+                document.getElementById('SPFUimmobilizzazioniImmateriali').value = testo[4].SPFUimmobilizzazioniImmateriali
+                document.getElementById('SPFUimmobilizzazioniMateriali').value = testo[4].SPFUimmobilizzazioniMateriali
+                document.getElementById('SPFUimmobilizzazioniFinanziarieNette').value = testo[4].SPFUimmobilizzazioniFinanziarieNette
+                document.getElementById('SPFUtotaleImmobilizzazioniNette').value = testo[4].SPFUtotaleImmobilizzazioniNette
+                document.getElementById('SPFUmagazzino').value = testo[4].SPFUmagazzino
+                document.getElementById('SPFUcreditiCommerciali').value = testo[4].SPFUcreditiCommerciali
+                document.getElementById('SPFUaltriCrediti').value = testo[4].SPFUaltriCrediti
+                document.getElementById('SPFUrateiRiscontiAttivi').value = testo[4].SPFUrateiRiscontiAttivi
+                document.getElementById('SPFUtotaleAttivoCommerciale').value = testo[4].SPFUtotaleAttivoCommerciale
+                document.getElementById('SPFUdebitiVersoFornitori').value = testo[4].SPFUdebitiVersoFornitori
+                document.getElementById('SPFUaltriDebitiNonFinanziari').value = testo[4].SPFUaltriDebitiNonFinanziari
+                document.getElementById('SPFUrateiRiscontiPassivi').value = testo[4].SPFUrateiRiscontiPassivi
+                document.getElementById('SPFUtotalePassivoCommerciale').value = testo[4].SPFUtotalePassivoCommerciale
+                document.getElementById('SPFUcapitaleEsercizio').value = testo[4].SPFUcapitaleEsercizio
+                document.getElementById('SPFUfondiRischiOneri').value = testo[4].SPFUfondiRischiOneri
+                document.getElementById('SPFUfondoTfr').value = testo[4].SPFUfondoTfr
+                document.getElementById('SPFUtotaleFondiOperativi').value = testo[4].SPFUtotaleFondiOperativi
+                document.getElementById('SPFUcapitaleInvestitoNetto').value = testo[4].SPFUcapitaleInvestitoNetto
+                document.getElementById('SPFUdebitiFinanziariBreveTermine').value = testo[4].SPFUdebitiFinanziariBreveTermine
+                document.getElementById('SPFUdisponibilitaLiquide').value = testo[4].SPFUdisponibilitaLiquide
+                document.getElementById('SPFUcreditiFinanziariBreveTermine').value = testo[4].SPFUcreditiFinanziariBreveTermine
+                document.getElementById('SPFUtotalePosizioneFinanziariaBreveTermine').value = testo[4].SPFUtotalePosizioneFinanziariaBreveTermine
+                document.getElementById('SPFUdebitiFinanziariMedioLungoTermine').value = testo[4].SPFUdebitiFinanziariMedioLungoTermine
+                document.getElementById('SPFUcreditiFinanziariMedioLungoTermine').value = testo[4].SPFUcreditiFinanziariMedioLungoTermine
+                document.getElementById('SPFUtotalePosizioneFinanziariaMedioLungoTermine').value = testo[4].SPFUtotalePosizioneFinanziariaMedioLungoTermine
+                document.getElementById('SPFUtotalePosizioneFinanziaria').value = testo[4].SPFUtotalePosizioneFinanziaria
+                document.getElementById('SPFUcapitaleSocialeFinanziamentiContoCapitale').value = testo[4].SPFUcapitaleSocialeFinanziamentiContoCapitale
+                document.getElementById('SPFUriserve').value = testo[4].SPFUriserve
+                document.getElementById('SPFUredditonetto').value = testo[4].SPFUredditonetto
+                document.getElementById('SPFUtotalePatrimonioNetto').value = testo[4].SPFUtotalePatrimonioNetto
+                document.getElementById('SPFUtotaleDebitoFinanziarioPatrimonioNetto').value = testo[4].SPFUtotaleDebitoFinanziarioPatrimonioNetto
+
                 // RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO
-                document.getElementById('SPFimmobilizzazioniImmateriali').value = testo[4].SPFimmobilizzazioniImmateriali
-                document.getElementById('SPFimmobilizzazioniMateriali').value = testo[4].SPFimmobilizzazioniMateriali
-                document.getElementById('SPFimmobilizzazioniFinanziarie').value = testo[4].SPFimmobilizzazioniFinanziarie
-                document.getElementById('SPFtotaleImmobilizzazioniNette').value = testo[4].SPFtotaleImmobilizzazioniNette
-                document.getElementById('SPFmagazzino').value = testo[4].SPFmagazzino
-                document.getElementById('SPFcreditiCommerciali').value = testo[4].SPFcreditiCommerciali
-                document.getElementById('SPFaltriCrediti').value = testo[4].SPFaltriCrediti
-                document.getElementById('SPFrateiRiscontiAttivi').value = testo[4].SPFrateiRiscontiAttivi
-                document.getElementById('SPFliquidita').value = testo[4].SPFliquidita
-                document.getElementById('SPFtotaleAttivoCircolante').value = testo[4].SPFtotaleAttivoCircolante
-                document.getElementById('SPFtotaleAttivo').value = testo[4].SPFtotaleAttivo
-                document.getElementById('SPFcapitaleSociale').value = testo[4].SPFcapitaleSociale
-                document.getElementById('SPFriserve').value = testo[4].SPFriserve
-                document.getElementById('SPFredditoNetto').value = testo[4].SPFredditoNetto
-                document.getElementById('SPFtotalePatrimonioNetto').value = testo[4].SPFtotalePatrimonioNetto
-                document.getElementById('SPFdebitiFinanziariMlTermine').value = testo[4].SPFdebitiFinanziariMlTermine
-                document.getElementById('SPFaltriDebiti').value = testo[4].SPFaltriDebiti
-                document.getElementById('SPFfondoTFR').value = testo[4].SPFfondoTFR
-                document.getElementById('SPFaltriFondi').value = testo[4].SPFaltriFondi
-                document.getElementById('SPFtotalePassivoMlTermine').value = testo[4].SPFtotalePassivoMlTermine
-                document.getElementById('SPFdebitiFinanziariBreveTermine').value = testo[4].SPFdebitiFinanziariBreveTermine
-                document.getElementById('SPFdebitiCommercialiFornitori').value = testo[4].SPFdebitiCommercialiFornitori
-                document.getElementById('SPFaltriDebitiNonFinanziari').value = testo[4].SPFaltriDebitiNonFinanziari
-                document.getElementById('SPFrateiRiscontiPassivi').value = testo[4].SPFrateiRiscontiPassivi
-                document.getElementById('SPFtotalePassivoBreveTermine').value = testo[4].SPFtotalePassivoBreveTermine
-                document.getElementById('SPFtotalePassivoPatrimonioNetto').value = testo[4].SPFtotalePassivoPatrimonioNetto
-                document.getElementById('SPFeventualeSquadraturaAttivoPass').value = testo[4].SPFeventualeSquadraturaAttivoPass
+                document.getElementById('SPFimmobilizzazioniImmateriali').value = testo[5].SPFimmobilizzazioniImmateriali
+                document.getElementById('SPFimmobilizzazioniMateriali').value = testo[5].SPFimmobilizzazioniMateriali
+                document.getElementById('SPFimmobilizzazioniFinanziarie').value = testo[5].SPFimmobilizzazioniFinanziarie
+                document.getElementById('SPFtotaleImmobilizzazioniNette').value = testo[5].SPFtotaleImmobilizzazioniNette
+                document.getElementById('SPFmagazzino').value = testo[5].SPFmagazzino
+                document.getElementById('SPFcreditiCommerciali').value = testo[5].SPFcreditiCommerciali
+                document.getElementById('SPFaltriCrediti').value = testo[5].SPFaltriCrediti
+                document.getElementById('SPFrateiRiscontiAttivi').value = testo[5].SPFrateiRiscontiAttivi
+                document.getElementById('SPFliquidita').value = testo[5].SPFliquidita
+                document.getElementById('SPFtotaleAttivoCircolante').value = testo[5].SPFtotaleAttivoCircolante
+                document.getElementById('SPFtotaleAttivo').value = testo[5].SPFtotaleAttivo
+                document.getElementById('SPFcapitaleSociale').value = testo[5].SPFcapitaleSociale
+                document.getElementById('SPFriserve').value = testo[5].SPFriserve
+                document.getElementById('SPFredditoNetto').value = testo[5].SPFredditoNetto
+                document.getElementById('SPFtotalePatrimonioNetto').value = testo[5].SPFtotalePatrimonioNetto
+                document.getElementById('SPFdebitiFinanziariMlTermine').value = testo[5].SPFdebitiFinanziariMlTermine
+                document.getElementById('SPFaltriDebiti').value = testo[5].SPFaltriDebiti
+                document.getElementById('SPFfondoTFR').value = testo[5].SPFfondoTFR
+                document.getElementById('SPFaltriFondi').value = testo[5].SPFaltriFondi
+                document.getElementById('SPFtotalePassivoMlTermine').value = testo[5].SPFtotalePassivoMlTermine
+                document.getElementById('SPFdebitiFinanziariBreveTermine').value = testo[5].SPFdebitiFinanziariBreveTermine
+                document.getElementById('SPFdebitiCommercialiFornitori').value = testo[5].SPFdebitiCommercialiFornitori
+                document.getElementById('SPFaltriDebitiNonFinanziari').value = testo[5].SPFaltriDebitiNonFinanziari
+                document.getElementById('SPFrateiRiscontiPassivi').value = testo[5].SPFrateiRiscontiPassivi
+                document.getElementById('SPFtotalePassivoBreveTermine').value = testo[5].SPFtotalePassivoBreveTermine
+                document.getElementById('SPFtotalePassivoPatrimonioNetto').value = testo[5].SPFtotalePassivoPatrimonioNetto
+                document.getElementById('SPFeventualeSquadraturaAttivoPass').value = testo[5].SPFeventualeSquadraturaAttivoPass
 
                 /* RICLASSIFICAZIONE CONTO ECONOMICO VALORE AGGIUNTO */
-                document.getElementById('CEricaviVendite').value = testo[5].CEricaviVendite
-                document.getElementById('CEproduzioneInterna').value = testo[5].CEproduzioneInterna
-                document.getElementById('CEtotaleValoreProduzione').value = testo[5].CEtotaleValoreProduzione
-                document.getElementById('CEconsumoMateriePrime').value = testo[5].CEconsumoMateriePrime
-                document.getElementById('CEcostiServizi').value = testo[5].CEcostiServizi
-                document.getElementById('CEaltriCostiOperativiEsterni').value = testo[5].CEaltriCostiOperativiEsterni
-                document.getElementById('CEtotaleConsumiEsterni').value = testo[5].CEtotaleConsumiEsterni
-                document.getElementById('CEvaloreAggiunto').value = testo[5].CEvaloreAggiunto
-                document.getElementById('CEcostiPersonale').value = testo[5].CEcostiPersonale
-                document.getElementById('CEtotaleMargineOperativoLordo').value = testo[5].CEtotaleMargineOperativoLordo
-                document.getElementById('CEammortamenti').value = testo[5].CEammortamenti
-                document.getElementById('CEcanoniLeasing').value = testo[5].CEcanoniLeasing
-                document.getElementById('CEaccantonamentiSvalutazioni').value = testo[5].CEaccantonamentiSvalutazioni
-                document.getElementById('CEtotaleAmmortamentiSvalutazioni').value = testo[5].CEtotaleAmmortamentiSvalutazioni
-                document.getElementById('CEaltriProventiOperativi').value = testo[5].CEaltriProventiOperativi
-                document.getElementById('CEproventiFinanziari').value = testo[5].CEproventiFinanziari
-                document.getElementById('CEsaldoGestioneMobiliare').value = testo[5].CEsaldoGestioneMobiliare
-                document.getElementById('CEtotaleRisultatoOperativo').value = testo[5].CEtotaleRisultatoOperativo
-                document.getElementById('CEoneriFinanziari').value = testo[5].CEoneriFinanziari
-                document.getElementById('CEtotaleRisultatoLordo').value = testo[5].CEtotaleRisultatoLordo
-                document.getElementById('CEproventiStraordinari').value = testo[5].CEproventiStraordinari
-                document.getElementById('CEoneriStraordinari').value = testo[5].CEoneriStraordinari
-                document.getElementById('CErisultatoAreaStraordinaria').value = testo[5].CErisultatoAreaStraordinaria
-                document.getElementById('CEtotaleRisultatoAnteImposte').value = testo[5].CEtotaleRisultatoAnteImposte
-                document.getElementById('CEimposteReddito').value = testo[5].CEimposteReddito
-                document.getElementById('CEtotaleRisultatoNetto').value = testo[5].CEtotaleRisultatoNetto
+                document.getElementById('CEricaviVendite').value = testo[6].CEricaviVendite
+                document.getElementById('CEproduzioneInterna').value = testo[6].CEproduzioneInterna
+                document.getElementById('CEtotaleValoreProduzione').value = testo[6].CEtotaleValoreProduzione
+                document.getElementById('CEconsumoMateriePrime').value = testo[6].CEconsumoMateriePrime
+                document.getElementById('CEcostiServizi').value = testo[6].CEcostiServizi
+                document.getElementById('CEaltriCostiOperativiEsterni').value = testo[6].CEaltriCostiOperativiEsterni
+                document.getElementById('CEtotaleConsumiEsterni').value = testo[6].CEtotaleConsumiEsterni
+                document.getElementById('CEvaloreAggiunto').value = testo[6].CEvaloreAggiunto
+                document.getElementById('CEcostiPersonale').value = testo[6].CEcostiPersonale
+                document.getElementById('CEtotaleMargineOperativoLordo').value = testo[6].CEtotaleMargineOperativoLordo
+                document.getElementById('CEammortamenti').value = testo[6].CEammortamenti
+                document.getElementById('CEcanoniLeasing').value = testo[6].CEcanoniLeasing
+                document.getElementById('CEaccantonamentiSvalutazioni').value = testo[6].CEaccantonamentiSvalutazioni
+                document.getElementById('CEtotaleAmmortamentiSvalutazioni').value = testo[6].CEtotaleAmmortamentiSvalutazioni
+                document.getElementById('CEaltriProventiOperativi').value = testo[6].CEaltriProventiOperativi
+                document.getElementById('CEproventiFinanziari').value = testo[6].CEproventiFinanziari
+                document.getElementById('CEsaldoGestioneMobiliare').value = testo[6].CEsaldoGestioneMobiliare
+                document.getElementById('CEtotaleRisultatoOperativo').value = testo[6].CEtotaleRisultatoOperativo
+                document.getElementById('CEoneriFinanziari').value = testo[6].CEoneriFinanziari
+                document.getElementById('CEtotaleRisultatoLordo').value = testo[6].CEtotaleRisultatoLordo
+                document.getElementById('CEproventiStraordinari').value = testo[6].CEproventiStraordinari
+                document.getElementById('CEoneriStraordinari').value = testo[6].CEoneriStraordinari
+                document.getElementById('CErisultatoAreaStraordinaria').value = testo[6].CErisultatoAreaStraordinaria
+                document.getElementById('CEtotaleRisultatoAnteImposte').value = testo[6].CEtotaleRisultatoAnteImposte
+                document.getElementById('CEimposteReddito').value = testo[6].CEimposteReddito
+                document.getElementById('CEtotaleRisultatoNetto').value = testo[6].CEtotaleRisultatoNetto
 
                 console.log("file aperto")
             })
@@ -1024,22 +1125,22 @@ ipc.on('apri', function (ev, data) {
 })
 
 
-ipc.on('stampa', function (ev){
+ipc.on('stampa', function (ev) {
 
     console.log("stampa?")
-    const pdfPath = path.join(__dirname,'print.pdf');
+    const pdfPath = path.join(__dirname, 'print.pdf');
 
-    webContents.printToPDF({}, function(error, data){
-        if(error){
+    webContents.printToPDF({}, function (error, data) {
+        if (error) {
             return console.log(error.message)
         }
-        fs.writeFile(pdfPath, data, function(err){
-            if(err){
+        fs.writeFile(pdfPath, data, function (err) {
+            if (err) {
                 return console.log(err.message)
             }
 
             Electron.shell.openExternal('file://' + pdfPath);
         })
     })
-    
+
 })
