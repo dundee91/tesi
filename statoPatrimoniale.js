@@ -29,8 +29,8 @@ function sommeSP() {
     // per riclassificazione finanziario e funzionale
     document.getElementById('SPFimmobilizzazioniImmateriali').value = parseFloat(totaleImmobilizzazioniImmateriali)
     document.getElementById('SPFimmobilizzazioniMateriali').value = parseFloat(totaleImmobilizzazioniMateriali)
-    document.getElementById('SPFUimmobilizzazioniImmateriali').value = parseFloat(totaleImmobilizzazioniImmateriali)
-    document.getElementById('SPFUimmobilizzazioniMateriali').value = parseFloat(totaleImmobilizzazioniMateriali)
+    document.getElementById('SPFOimmobilizzazioniImmateriali').value = parseFloat(totaleImmobilizzazioniImmateriali)
+    document.getElementById('SPFOimmobilizzazioniMateriali').value = parseFloat(totaleImmobilizzazioniMateriali)
 
     // C) Attivo Circolante
     sommaRimanenze()
@@ -45,7 +45,7 @@ function sommeSP() {
     document.getElementById('totaleAttivoCircolante').value = totaleAttivoCircolante.toFixed(2)
     // per riclassificazione finanziario e funzionale
     document.getElementById('SPFmagazzino').value = parseFloat(totaleRimanenze)
-    document.getElementById('SPFUmagazzino').value = parseFloat(totaleRimanenze)
+    document.getElementById('SPFOmagazzino').value = parseFloat(totaleRimanenze)
 
 
     // D) Ratei e Risconti
@@ -91,7 +91,7 @@ function sommeSP() {
     
     // richiamo funzioni per riclassificazione
     sommeRiclassificazioneSPF()
-    sommeRiclassificazioneSPFU()
+    sommeRiclassificazioneSPFO()
 }
 
 function sommaImmobilizzazioniImmateriali() {
