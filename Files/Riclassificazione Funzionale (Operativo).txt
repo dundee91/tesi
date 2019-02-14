@@ -1,0 +1,115 @@
+//IMMOBILIZZAZIONI FINANZIARIE NETTE
+
+-----Immobilizzazioni Finanziarie-----
+D42 - Partecipazioni in imprese controllate
+D43 - Partecipazioni in imprese collegate
+D44 - Partecipazioni in imprese controllanti
+D45 - Partecipazioni altre imprese
+D59 - 3) altri titoli
+D79 - II. Crediti verso clienti oltre 12 mesi
+D91 - crediti tributari oltre 12 mesi
+D94 - imposte anticipate oltre 12 mesi
+D97 - verso altri oltre 12 mesi
+-D175 - D)Debiti - acconti oltre 12 mesi
+
+-----Crediti v/clienti-----
+D78 - II.Crediti verso clienti entro 12 mesi
+-D174 - D) Debiti - acconti entro 12 mesi
+
+-----Altri crediti-----
+D90 - II.Crediti tributari entro 12 mesi
+D93 - imposte anticipate entro 12 mesi
+D96 - verso altri entro 12 mesi
+
+-----Debiti -----
+D177 - D) Debiti verso fornitori entro 12 mesi
+D180 - Debiti rappresentati da titolo di credito entro 12 mesi
+
+-----Altri debiti non finanziari-----
+D178 - Debiti verso fornitori oltre 12 mesi
+D181 - debiti rappresentati da titolo di credito oltre 12 mesi
+D192 - debiti tributari entro 12 mesi
+D193 - debiti tributari oltre 12 mesi
+D195 - debiti verso istituti previdenza entro 12 mesi
+D196 - debiti verso istituti previdenza oltre 12 mesi
+D198 - altri debiti entro 12 mesi
+D199 - altri debiti oltre 12 mesi
+
+-----Debiti finanziari a breve termine------
+D) Debiti
+D159 - Obbligazioni entro 12 mesi
+D162 - Obbligazioni convertibili entro 12 mesi
+D165 - Debiti verso soci per finanziamenti entro 12 mesi
+D168 - Debiti verso banche entro 12 mesi
+D171 - Debiti verso altri finanziatori entro 12 mesi
+D183 - Debiti verso imprese controllate entro 12 mesi
+D186 - Debiti verso imprese collegate entro 12 mesi
+D189 - Debiti verso controllanti entro 12 mesi
+
+-----Disponibilità liquide-----
+III. Attività finanziarie che non costituiscono immobilizzazioni
+D102 - Partecipazioni in imprese controllate
+D103 - Partecipazioni in imprese collegate
+D104 - Partecipazioni in imprese controllanti
+D105 - Altre partecipazioni
+D107 - Altri titoli
+D112 - Depositi bancari e postali
+D113 - Assegni
+D114 - Denaro e valori in cassa
+
+---Crediti finanziari a breve termine---
+Immobilizzazioni
+2) Crediti
+D48 - verso imprese controllate entro 12 mesi
+D51 - verso imprese collegate 12 mesi
+D54 - verso imprese controllanti entro 12 mesi
+D57 - verso altri entro 12 mesi
+Attivo Circolante
+II. Crediti
+D81 - verso imprese controllate entro 12 mesi
+D84 - verso imprese collegate 12 mesi
+D87 - verso imprese controllanti entro 12 mesi
+
+---Debiti finanziari a m/l termine---
+D) Debiti
+D160 - Obbligazioni oltre 12 mesi
+D163 - Obbligazioni convertibili oltre 12 mesi
+D166 - Debiti verso soci per finanziamenti oltre 12 mesi
+D169 - Debiti verso banche oltre 12 mesi
+D172 - Debiti verso altri finanziatori oltre 12 mesi
+D184 - Debiti verso imprese controllate oltre 12 mesi
+D187 - Debiti verso imprese collegate oltre 12 mesi
+D190 - Debiti verso imprese controllanti oltre 12 mesi
+
+---Crediti finanziari a m/l termine---
+III. finanziarie
+2) Crediti
+D49 - verso imprese controlalte oltre 12 mesi
+D52 - verso imprese collegate oltre 12 mesi
+D55 - verso controllanti oltre 12 mesi
+D58 - verso altri oltre 12 mesi
+II. Crediti
+D82 - verso imprese controllate oltre 12 mesi
+D85 - verso imprese collegate oltre 12 mesi
+D88 - verso controllanti oltre 12 mesi
+
+---Capitale sociale e finanziamenti in conto capitale---
+A) PATRIMONIO NETTO
+D133 - I. Capitale
+D5 - Crediti verso soci per versamenti ancora dovuti
+III. Finanziarie
+D60 - 4) azioni proprie, con indicazione del valore nominale complessivo
+III. Attività finanziarie che non costituiscono immobilizzazioni
+D106 - 5) azioni proprie, con indicazione del valore nominale complessivo
+
+---Riserve---
+D134 - II. Riserva da sovrapprezzo delle azioni
+D135 - III. Riserva di rivalutazione
+D136 - IV. Riserva legale
+D137 - V. Riserva per azioni proprie in portafoglio
+D138 - VI. Riserve statutarie
+D139 - VII. Altre riserve
+D140 - VIII. Utili (Perdite) portati a nuovo
+
+
+

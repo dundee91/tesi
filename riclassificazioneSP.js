@@ -60,10 +60,7 @@ function sommeRiclassificazioneSPF() {
         parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value)
     }
     catch(error){
-        console.log("catch1")
         document.getElementById('SPFaltriCrediti').value = 0
-        console.log("catch2")
-        console.log(document.getElementById('SPFaltriCrediti').value)
     }
     // ratei e risconti attivi
     document.getElementById('SPFrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo').value
@@ -482,9 +479,6 @@ function sommeRiclassificazioneSPFO() {
         document.getElementById('SPFOtotaleDebitoFinanziarioPatrimonioNetto').value = 0
     }
 }
-
-
-
 
 /* RICLASSIFICATO FINANZIARIO */
 
