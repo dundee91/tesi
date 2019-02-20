@@ -9,6 +9,7 @@ const Tray = electron.Tray
 const iconPath = path.join(__dirname, 'logo1.png')
 const dialog = app.dialog
 const ipc = electron.ipcMain
+const PDFWindow = require ('electron-pdf-window') 
 
 let tray = null
 let window = null
@@ -37,7 +38,7 @@ app.on('ready', () => {
   ]
   const iconMenu = Menu.buildFromTemplate(menuIcona)
   tray.setContextMenu(iconMenu)
-  tray.setToolTip('Riclassificazione Aziende')
+  tray.setToolTip('Analisi bilancio')
 
   // Creo la finestra iniziale
   window = new BrowserWindow({
@@ -76,8 +77,16 @@ app.on('ready', () => {
         {
           label: 'Stampa PDF',
           //passo alla classe index.js dove c'è la funzione di stampa pdf
-          click: function (menuItem, currentWindow) {
+          /*click: function (menuItem, currentWindow) {
             currentWindow.webContents.send('stampa')
+          }*/
+          click: function(){
+            win = new PDFWindow({
+              height: 800,
+              width: 600
+            })
+            PDFWindow.addSupport(win)
+            win.loadURL('index.html')
           }
         },
         { type: "separator" },
