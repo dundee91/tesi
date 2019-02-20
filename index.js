@@ -360,6 +360,25 @@ ipc.on('salva', function (ev, data) {
     var CEtotaleRisultatoAnteImposte = document.getElementById('CEtotaleRisultatoAnteImposte').value
     var CEimposteReddito = document.getElementById('CEimposteReddito').value
     var CEtotaleRisultatoNetto = document.getElementById('CEtotaleRisultatoNetto').value
+
+
+    /* FORECAST */
+    var FCricaviVendite = document.getElementById('FCricaviVendite').value
+    var FCconsumiMerci = document.getElementById('FCconsumiMerci').value
+    var FCincValProdConsumiMerci = document.getElementById('FCincValProdConsumiMerci').value
+    var FCacquistiServizi = document.getElementById('FCacquistiServizi').value
+    var FCincValProdAcquistiServizi = document.getElementById('FCincValProdAcquistiServizi').value
+    var FCcostoGodimentoBeniTerzi = document.getElementById('FCcostoGodimentoBeniTerzi').value
+    var FCdiCuiCanoniLeasing = document.getElementById('FCdiCuiCanoniLeasing').value
+    var FCcostiDelPersonale = document.getElementById('FCcostiDelPersonale').value
+    var FCincValProdCostiPersonale = document.getElementById('FCincValProdCostiPersonale').value
+    var FCaccantonamentoTFR = document.getElementById('FCaccantonamentoTFR').value
+    var FCincCostoPersonale = document.getElementById('FCincCostoPersonale').value
+    var FCutilizziFondoTFR = document.getElementById('FCutilizziFondoTFR').value
+    var FCaccantonamenti = document.getElementById('FCaccantonamenti').value
+    var FCutilizziAltriFondi = document.getElementById('FCutilizziAltriFondi').value
+
+
     /*
     var  = document.getElementById('').value
     var  = document.getElementById('').value
@@ -657,15 +676,15 @@ ipc.on('salva', function (ev, data) {
             'SPFOdisponibilitaLiquide': SPFOdisponibilitaLiquide,
             'SPFOcreditiFinanziariBreveTermine': SPFOcreditiFinanziariBreveTermine,
             'SPFOtotalePosizioneFinanziariaBreveTermine': SPFOtotalePosizioneFinanziariaBreveTermine,
-            'SPFOdebitiFinanziariMedioLungoTermine' : SPFOdebitiFinanziariMedioLungoTermine,
-            'SPFOcreditiFinanziariMedioLungoTermine' : SPFOcreditiFinanziariMedioLungoTermine,
-            'SPFOtotalePosizioneFinanziariaMedioLungoTermine' : SPFOtotalePosizioneFinanziariaMedioLungoTermine,
-            'SPFOtotalePosizioneFinanziaria' : SPFOtotalePosizioneFinanziaria,
-            'SPFOcapitaleSocialeFinanziamentiContoCapitale' : SPFOcapitaleSocialeFinanziamentiContoCapitale,
-            'SPFOriserve' : SPFOriserve,
-            'SPFOredditonetto' : SPFOredditonetto,
-            'SPFOtotalePatrimonioNetto' : SPFOtotalePatrimonioNetto,
-            'SPFOtotaleDebitoFinanziarioPatrimonioNetto' : SPFOtotaleDebitoFinanziarioPatrimonioNetto
+            'SPFOdebitiFinanziariMedioLungoTermine': SPFOdebitiFinanziariMedioLungoTermine,
+            'SPFOcreditiFinanziariMedioLungoTermine': SPFOcreditiFinanziariMedioLungoTermine,
+            'SPFOtotalePosizioneFinanziariaMedioLungoTermine': SPFOtotalePosizioneFinanziariaMedioLungoTermine,
+            'SPFOtotalePosizioneFinanziaria': SPFOtotalePosizioneFinanziaria,
+            'SPFOcapitaleSocialeFinanziamentiContoCapitale': SPFOcapitaleSocialeFinanziamentiContoCapitale,
+            'SPFOriserve': SPFOriserve,
+            'SPFOredditonetto': SPFOredditonetto,
+            'SPFOtotalePatrimonioNetto': SPFOtotalePatrimonioNetto,
+            'SPFOtotaleDebitoFinanziarioPatrimonioNetto': SPFOtotaleDebitoFinanziarioPatrimonioNetto
         },
         /* RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO */
         {
@@ -725,6 +744,23 @@ ipc.on('salva', function (ev, data) {
             "CEtotaleRisultatoAnteImposte": CEtotaleRisultatoAnteImposte,
             "CEimposteReddito": CEimposteReddito,
             "CEtotaleRisultatoNetto": CEtotaleRisultatoNetto
+        },
+        /* FORECAS */
+        {
+            "FCricaviVendite": FCricaviVendite,
+            "FCconsumiMerci": FCconsumiMerci,
+            "FCincValProdConsumiMerci": FCincValProdConsumiMerci,
+            "FCacquistiServizi": FCacquistiServizi,
+            "FCincValProdAcquistiServizi": FCincValProdAcquistiServizi,
+            "FCcostoGodimentoBeniTerzi": FCcostoGodimentoBeniTerzi,
+            "FCdiCuiCanoniLeasing": FCdiCuiCanoniLeasing,
+            "FCcostiDelPersonale": FCcostiDelPersonale,
+            "FCincValProdCostiPersonale": FCincValProdCostiPersonale,
+            "FCaccantonamentoTFR": FCaccantonamentoTFR,
+            "FCincCostoPersonale": FCincCostoPersonale,
+            "FCutilizziFondoTFR": FCutilizziFondoTFR,
+            "FCaccantonamenti": FCaccantonamenti,
+            "FCutilizziAltriFondi": FCutilizziAltriFondi
         }]
 
     var json = JSON.stringify(contenuto);
@@ -1117,6 +1153,22 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('CEtotaleRisultatoAnteImposte').value = testo[6].CEtotaleRisultatoAnteImposte
                 document.getElementById('CEimposteReddito').value = testo[6].CEimposteReddito
                 document.getElementById('CEtotaleRisultatoNetto').value = testo[6].CEtotaleRisultatoNetto
+
+                /* FORECAST */
+                document.getElementById('FCricaviVendite').value = testo[7].FCricaviVendite
+                document.getElementById('FCconsumiMerci').value = testo[7].FCconsumiMerci
+                document.getElementById('FCincValProdConsumiMerci').value = testo[7].FCincValProdConsumiMerci
+                document.getElementById('FCacquistiServizi').value = testo[7].FCacquistiServizi
+                document.getElementById('FCincValProdAcquistiServizi').value = testo[7].FCincValProdAcquistiServizi
+                document.getElementById('FCcostoGodimentoBeniTerzi').value = testo[7].FCcostoGodimentoBeniTerzi
+                document.getElementById('FCdiCuiCanoniLeasing').value = testo[7].FCdiCuiCanoniLeasing
+                document.getElementById('FCcostiDelPersonale').value = testo[7].FCcostiDelPersonale
+                document.getElementById('FCincValProdCostiPersonale').value = testo[7].FCincValProdCostiPersonale
+                document.getElementById('FCaccantonamentoTFR').value = testo[7].FCaccantonamentoTFR
+                document.getElementById('FCincCostoPersonale').value = testo[7].FCincCostoPersonale
+                document.getElementById('FCutilizziFondoTFR').value = testo[7].FCutilizziFondoTFR
+                document.getElementById('FCaccantonamenti').value = testo[7].FCaccantonamenti
+                document.getElementById('FCutilizziAltriFondi').value = testo[7].FCutilizziAltriFondi
 
                 console.log("file aperto")
             })

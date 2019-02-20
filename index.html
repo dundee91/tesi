@@ -26,11 +26,12 @@
     <button class="tablinks" onclick="apriTab(event, 'Analisi Qualitativa')">Analisi Qualitativa</button>
     <button class="tablinks" onclick="apriTab(event, 'Stato Patrimoniale')">Stato Patrimoniale</button>
     <button class="tablinks" onclick="apriTab(event, 'Conto Economico')">Conto Economico</button>
-    <button class="tablinks" onclick="apriTab(event, 'Riclassificazione Stato Patrimoniale')">Riclassificazione
-      Stato Patrimoniale</button>
+    <button class="tablinks" onclick="apriTab(event, 'Riclassificazione Stato Patrimoniale')">Riclassificazione Stato
+      Patrimoniale</button>
     <button class="tablinks"
-      onclick="apriTab(event, 'Riclassificazione Conto Economico al valore aggiunto')">Riclassificazione
-      Conto Economico al valore aggiunto</button>
+      onclick="apriTab(event, 'Riclassificazione Conto Economico al valore aggiunto')">Riclassificazione Conto Economico
+      al valore aggiunto</button>
+    <button class="tablinks" onclick="apriTab(event, 'Forecast')">Forecast</button>
   </div>
 
   <!-- Tab content -->
@@ -1645,8 +1646,8 @@
         <!-- Crediti verso clienti -->
         <div class="form-group">
           <label class="etichetta">Crediti verso clienti</label>
-          <input id="SPFOcreditiVersoClienti" type="number" step="0.01" name="SPFOattivoCommerciale" class="form-control"
-            readonly>
+          <input id="SPFOcreditiVersoClienti" type="number" step="0.01" name="SPFOattivoCommerciale"
+            class="form-control" readonly>
         </div>
 
         <!-- Altri crediti -->
@@ -1730,19 +1731,22 @@
         <!-- Debiti finanziari a breve termine -->
         <div class="form-group">
           <label class="etichetta">Debiti finanziari a breve termine</label>
-          <input id="SPFOdebitiFinanziariBreveTermine" type="number" step="0.01" name="SPFOPosizioneFinanziariaBreveTermine" class="form-control" readonly>
+          <input id="SPFOdebitiFinanziariBreveTermine" type="number" step="0.01"
+            name="SPFOPosizioneFinanziariaBreveTermine" class="form-control" readonly>
         </div>
 
         <!-- Disponibilità liquide -->
         <div class="form-group">
           <label class="etichetta">Disponibilità liquide</label>
-          <input id="SPFOdisponibilitaLiquide" type="number" step="0.01" name="SPFOPosizioneFinanziariaBreveTermine" class="form-control" readonly>
+          <input id="SPFOdisponibilitaLiquide" type="number" step="0.01" name="SPFOPosizioneFinanziariaBreveTermine"
+            class="form-control" readonly>
         </div>
 
         <!-- Crediti finanziari a breve termine -->
         <div class="form-group">
           <label class="etichetta">Crediti finanziari a breve termine</label>
-          <input id="SPFOcreditiFinanziariBreveTermine" type="number" step="0.01" name="SPFOPosizioneFinanziariaBreveTermine" class="form-control" readonly>
+          <input id="SPFOcreditiFinanziariBreveTermine" type="number" step="0.01"
+            name="SPFOPosizioneFinanziariaBreveTermine" class="form-control" readonly>
         </div>
 
         <!-- (G) POSIZIONE FINANZIARIA A BREVE TERMINE-->
@@ -1754,19 +1758,22 @@
         <!-- Debiti finanziari a m/l termine -->
         <div class="form-group">
           <label class="etichetta">Debiti finanziari a m/l termine</label>
-          <input id="SPFOdebitiFinanziariMedioLungoTermine" type="number" step="0.01" name="SPFOPosizioneFinanziariaMedioLungoTermine" class="form-control" readonly>
+          <input id="SPFOdebitiFinanziariMedioLungoTermine" type="number" step="0.01"
+            name="SPFOPosizioneFinanziariaMedioLungoTermine" class="form-control" readonly>
         </div>
 
         <!-- Crediti finanziari a m/l termine -->
         <div class="form-group">
           <label class="etichetta">Crediti finanziari a m/l termine</label>
-          <input id="SPFOcreditiFinanziariMedioLungoTermine" type="number" step="0.01" name="SPFOPosizioneFinanziariaMedioLungoTermine" class="form-control" readonly>
+          <input id="SPFOcreditiFinanziariMedioLungoTermine" type="number" step="0.01"
+            name="SPFOPosizioneFinanziariaMedioLungoTermine" class="form-control" readonly>
         </div>
 
         <!-- (E) POSIZIONE FINANZIARIA A M/L TERMINE-->
         <div class="form-group">
           <h5 class="etichetta"> (E) POSIZIONE FINANZIARIA A M/L TERMINE</h5>
-          <input id="SPFOtotalePosizioneFinanziariaMedioLungoTermine" name="totale" class="form-control totale" readonly>
+          <input id="SPFOtotalePosizioneFinanziariaMedioLungoTermine" name="totale" class="form-control totale"
+            readonly>
         </div>
 
         <!-- (F) TOTALE POSIZIONE FINANZIARIA-->
@@ -1778,7 +1785,8 @@
         <!-- Capitale sociale e finanziamenti in conto capitale -->
         <div class="form-group">
           <label class="etichetta">Capitale sociale e finanziamenti in conto capitale</label>
-          <input id="SPFOcapitaleSocialeFinanziamentiContoCapitale" type="number" step="0.01" name="SPFOPatrimonioNetto" class="form-control" readonly>
+          <input id="SPFOcapitaleSocialeFinanziamentiContoCapitale" type="number" step="0.01" name="SPFOPatrimonioNetto"
+            class="form-control" readonly>
         </div>
 
         <!-- Riserve -->
@@ -1790,7 +1798,8 @@
         <!-- Reddito netto -->
         <div class="form-group">
           <label class="etichetta">Reddito netto</label>
-          <input id="SPFOredditonetto" type="number" step="0.01" name="SPFOPatrimonioNetto" class="form-control" readonly>
+          <input id="SPFOredditonetto" type="number" step="0.01" name="SPFOPatrimonioNetto" class="form-control"
+            readonly>
         </div>
 
         <!-- (H) PATRIMONIO NETTO-->
@@ -1798,7 +1807,7 @@
           <h5 class="etichetta"> (H) PATRIMONIO NETTO</h5>
           <input id="SPFOtotalePatrimonioNetto" name="totale" class="form-control totale" readonly>
         </div>
-        
+
         <!-- (I) TOTALE DEBITO FINANZIARIO E PATRIMONIO NETTO (F+H)-->
         <div class="form-group">
           <h5 class="etichetta"> (I) TOTALE DEBITO FINANZIARIO E PATRIMONIO NETTO (F+H)</h5>
@@ -2161,6 +2170,102 @@
     </div>
   </div>
 
+  <div id="Forecast" class="tabcontent">
+    <div class="bodyForm">
+      <div class="Tab.1 - Ricavi e costi operativi">
+        <h3>Tab.1 - Ricavi e costi operativi</h3>
+
+        <!-- Ricavi vendite -->
+        <div class="form-group">
+          <label class="etichetta">Ricavi vendite</label>
+          <input id="FCricaviVendite" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+
+        <!-- Consumi di merci -->
+        <div class="form-group">
+          <label class="etichetta">Consumi di merci</label>
+          <input id="FCconsumiMerci" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+
+        <!-- Inc. % sul valore produzione -->
+        <div class="form-group">
+          <label class="etichetta">Inc. % sul valore produzione</label>
+          <input id="FCincValProdConsumiMerci" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+
+        <!-- Acquisti di servizi -->
+        <div class="form-group">
+          <label class="etichetta">Acquisti di servizi</label>
+          <input id="FCacquistiServizi" type="number" step="0.01" name="" class="form-control" oninput="forecast(); validate(this)">
+        </div>
+
+        <!-- Inc. % sul valore produzione -->
+        <div class="form-group">
+          <label class="etichetta">Inc. % sul valore produzione</label>
+          <input id="FCincValProdAcquistiServizi" type="number" step="0.01" name="" class="form-control"
+            oninput="forecast(); validate(this)">
+        </div>
+
+        <!-- Costo godimento beni di terzi -->
+        <div class="form-group">
+          <label class="etichetta">Costo godimento beni di terzi</label>
+          <input id="FCcostoGodimentoBeniTerzi" type="number" step="0.01" name="" class="form-control"
+            oninput="forecast(); validate(this)">
+        </div>
+
+        <!-- di cui canoni in leasing -->
+        <div class="form-group">
+          <label class="etichetta">di cui canoni in leasing</label>
+          <input id="FCdiCuiCanoniLeasing" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+
+        <!-- Costi del personale -->
+        <div class="form-group">
+          <label class="etichetta">Costi del personale</label>
+          <input id="FCcostiDelPersonale" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+
+        <!-- Inc. % sul valore produzione -->
+        <div class="form-group">
+          <label class="etichetta">Inc. % sul valore produzione</label>
+          <input id="FCincValProdCostiPersonale" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+
+        <!-- Accantonamento TFR -->
+        <div class="form-group">
+          <label class="etichetta">Accantonamento TFR</label>
+          <input id="FCaccantonamentoTFR" type="number" step="0.01" name="" class="form-control"
+            oninput="forecast(); validate(this)">
+        </div>
+
+        <!-- Inc. % su costo personale -->
+        <div class="form-group">
+          <label class="etichetta">Inc. % su costo personale</label>
+          <input id="FCincCostoPersonale" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+
+        <!-- utilizzi fondo TFR -->
+        <div class="form-group">
+          <label class="etichetta">utilizzi fondo TFR</label>
+          <input id="FCutilizziFondoTFR" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+
+        <!-- Accantonamenti -->
+        <div class="form-group">
+          <label class="etichetta">Accantonamenti</label>
+          <input id="FCaccantonamenti" type="number" step="0.01" name="" class="form-control" oninput="forecast(); validate(this)">
+        </div>
+
+        <!-- utilizzi altri fondi -->
+        <div class="form-group">
+          <label class="etichetta">utilizzi altri fondi</label>
+          <input id="FCutilizziAltriFondi" type="number" step="0.01" name="" class="form-control" readonly>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <script>
     require('./index.js')
   </script>
@@ -2195,6 +2300,7 @@
   <script src="riclassificazioneSP.js"></script>
   <script src="contoEconomico.js"></script>
   <script src="riclassificazioneCE.js"></script>
+  <script src="forecast.js"></script>
   <script>
     $(document).ready(function () {
 
