@@ -1129,29 +1129,38 @@ ipc.on('apri', function (ev, data) {
 ipc.on('stampa', function (ev) {
 
     console.log("stampa?")
-    /*
-    const pdfPath = path.join(__dirname, 'print.pdf');
-
-    webContents.printToPDF({}, function (error, data) {
-        if (error) {
-            return console.log(error.message)
-        }
-        fs.writeFile(pdfPath, data, function (err) {
-            if (err) {
-                return console.log(err.message)
-            }
-
-            Electron.shell.openExternal('file://' + pdfPath);
-        })
-    })
-    */
     var myDoc = new pdf;
-    myDoc.pipe(fs.createWriteStream('print.pdf'));
+
+    var oggi = new Date();
+    var anno = oggi.getFullYear()
+    var mese = oggi.getMonth() + 1
+    // faccio stampare uno zero davanti al valore del mese se mese precedente ad ottobre
+    var meseString = null
+    if (mese <10){
+        meseString = "0" + mese.toString()
+    }
+    else{
+        meseString = mese.toString()
+    }
+    var giorno = oggi.getDate()
+    var azienda = document.getElementById('ragioneSociale').value
     
+    // creo file con denominazione prestabilita "yyyymmdd - nomeAzienda.pdf"
+    myDoc.pipe(fs.createWriteStream(anno.toString() + meseString + giorno.toString() + ' - ' + azienda + '.pdf'));
+
+    myDoc.info.Title("Analisi di bilancio")
+    myDoc.info.Author("Danilo Paoletti")
+
+    // imposto font style del pdf
     myDoc.font('Times-Roman')
-    .fontSize(48)
-    .text('NodeJS PDF Document',100,100);
+        // imposto font size del pdf
+        .fontSize(48)
+        // imposto contenuto del pdf
+        .text('NodeJS PDF Document', 100, 100);
+
     myDoc.end();
 
+    window.alert("pdf Salvato!")
+    console.log("pdf salvato")
+
 })
-    
