@@ -16,6 +16,7 @@
     "electron-pdf-window": "^1.0.12",
     "electron-scroller": "^0.6.2",
     "electron-storage": "^1.0.7",
-    "electron-tabs": "^0.9.4"
+    "electron-tabs": "^0.9.4",
+    "pdfkit": "^0.9.0"
   }
 }

@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const pdf = require('pdfkit')
 const app = require('electron').remote
 const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
@@ -1128,6 +1129,7 @@ ipc.on('apri', function (ev, data) {
 ipc.on('stampa', function (ev) {
 
     console.log("stampa?")
+    /*
     const pdfPath = path.join(__dirname, 'print.pdf');
 
     webContents.printToPDF({}, function (error, data) {
@@ -1142,5 +1144,14 @@ ipc.on('stampa', function (ev) {
             Electron.shell.openExternal('file://' + pdfPath);
         })
     })
+    */
+    var myDoc = new pdf;
+    myDoc.pipe(fs.createWriteStream('print.pdf'));
+    
+    myDoc.font('Times-Roman')
+    .fontSize(48)
+    .text('NodeJS PDF Document',100,100);
+    myDoc.end();
 
 })
+    
