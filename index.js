@@ -1148,11 +1148,9 @@ ipc.on('stampa', function (ev) {
     // creo file con denominazione prestabilita "yyyymmdd - nomeAzienda.pdf"
     myDoc.pipe(fs.createWriteStream(anno.toString() + meseString + giorno.toString() + ' - ' + azienda + '.pdf'));
 
-    myDoc.info.Title("Analisi di bilancio")
-    myDoc.info.Author("Danilo Paoletti")
-
     // imposto font style del pdf
-    myDoc.font('Times-Roman')
+    myDoc
+    .font('Times-Roman')
         // imposto font size del pdf
         .fontSize(48)
         // imposto contenuto del pdf

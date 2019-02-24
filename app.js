@@ -9,7 +9,6 @@ const Tray = electron.Tray
 const iconPath = path.join(__dirname, 'logo1.png')
 const dialog = app.dialog
 const ipc = electron.ipcMain
-const PDFWindow = require ('electron-pdf-window') 
 
 let tray = null
 let window = null
