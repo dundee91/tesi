@@ -1,9 +1,8 @@
 const fs = require('fs')
-const path = require('path')
+const pdf = require('pdfkit')
 const app = require('electron').remote
 const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
-const webContents = require('electron')
 
 
 // salvataggio progetto
@@ -1180,19 +1179,39 @@ ipc.on('apri', function (ev, data) {
 ipc.on('stampa', function (ev) {
 
     console.log("stampa?")
-    const pdfPath = path.join(__dirname, 'print.pdf');
+    var myDoc = new pdf;
 
-    webContents.printToPDF({}, function (error, data) {
-        if (error) {
-            return console.log(error.message)
-        }
-        fs.writeFile(pdfPath, data, function (err) {
-            if (err) {
-                return console.log(err.message)
-            }
+    var oggi = new Date();
+    var anno = oggi.getFullYear()
+    var mese = oggi.getMonth() + 1
+    // faccio stampare uno zero davanti al valore del mese se mese precedente ad ottobre
+    var meseString = null
+    if (mese <10){
+        meseString = "0" + mese.toString()
+    }
+    else{
+        meseString = mese.toString()
+    }
+    var giorno = oggi.getDate()
+    var azienda = document.getElementById('ragioneSociale').value
+    
+    // creo file con denominazione prestabilita "yyyymmdd - nomeAzienda.pdf"
+    myDoc.pipe(fs.createWriteStream(anno.toString() + meseString + giorno.toString() + ' - ' + azienda + '.pdf'));
 
-            Electron.shell.openExternal('file://' + pdfPath);
-        })
-    })
+    // leggo contenuto del html
+    var html = fs.readFileSync('index.html', 'utf8')
+
+    // imposto font style del pdf
+    myDoc
+    .font('Times-Roman')
+        // imposto font size del pdf
+        .fontSize(18)
+        // imposto contenuto del pdf
+        .text(html, 100, 100);
+
+    myDoc.end();
+
+    window.alert("pdf Salvato!")
+    console.log("pdf salvato")
 
 })
