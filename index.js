@@ -1,10 +1,8 @@
 const fs = require('fs')
-const path = require('path')
 const pdf = require('pdfkit')
 const app = require('electron').remote
 const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
-const webContents = require('electron')
 
 
 // salvataggio progetto
@@ -1148,13 +1146,16 @@ ipc.on('stampa', function (ev) {
     // creo file con denominazione prestabilita "yyyymmdd - nomeAzienda.pdf"
     myDoc.pipe(fs.createWriteStream(anno.toString() + meseString + giorno.toString() + ' - ' + azienda + '.pdf'));
 
+    // leggo contenuto del html
+    var html = fs.readFileSync('index.html', 'utf8')
+
     // imposto font style del pdf
     myDoc
     .font('Times-Roman')
         // imposto font size del pdf
-        .fontSize(48)
+        .fontSize(18)
         // imposto contenuto del pdf
-        .text('NodeJS PDF Document', 100, 100);
+        .text(html, 100, 100);
 
     myDoc.end();
 
