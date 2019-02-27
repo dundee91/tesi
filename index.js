@@ -1175,4 +1175,38 @@ ipc.on('apri', function (ev, data) {
     })
 })
 
+ipc.on('stampa', function (ev) {
 
+    console.log("stampa?")
+    var myDoc = new pdf;
+
+    var oggi = new Date();
+    var anno = oggi.getFullYear()
+    var mese = oggi.getMonth() + 1
+    // faccio stampare uno zero davanti al valore del mese se mese precedente ad ottobre
+    var meseString = null
+    if (mese <10){
+        meseString = "0" + mese.toString()
+    }
+    else{
+        meseString = mese.toString()
+    }
+    var giorno = oggi.getDate()
+    var azienda = document.getElementById('ragioneSociale').value
+    
+    // creo file con denominazione prestabilita "yyyymmdd - nomeAzienda.pdf"
+    myDoc.pipe(fs.createWriteStream(anno.toString() + meseString + giorno.toString() + ' - ' + azienda + '.pdf'));
+
+    // imposto font style del pdf
+    myDoc.font('Times-Roman')
+        // imposto font size del pdf
+        .fontSize(48)
+        // imposto contenuto del pdf
+        .text('NodeJS PDF Document', 100, 100);
+
+    myDoc.end();
+
+    window.alert("pdf Salvato!")
+    console.log("pdf salvato")
+
+})
