@@ -16,7 +16,6 @@
     delete module.exports
   </script>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-  <script src="./window.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -28,9 +27,8 @@
     <button class="tablinks" onclick="apriTab(event, 'Conto Economico')">Conto Economico</button>
     <button class="tablinks" onclick="apriTab(event, 'Riclassificazione Stato Patrimoniale')">Riclassificazione Stato
       Patrimoniale</button>
-    <button class="tablinks"
-      onclick="apriTab(event, 'Riclassificazione Conto Economico al valore aggiunto')">Riclassificazione Conto Economico
-      al valore aggiunto</button>
+    <button class="tablinks" onclick="apriTab(event, 'Riclassificazione Conto Economico')">Riclassificazione Conto
+      Economico al valore aggiunto</button>
     <button class="tablinks" onclick="apriTab(event, 'Forecast')">Forecast</button>
   </div>
 
@@ -1593,15 +1591,16 @@
     <div class="bodyForm">
 
       <br>
-
-      <label class="etichetta">Seleziona tipologia Riclassificazione Stato Patrimoniale : </label>
-      <div class="dropdownRiclassificazioneSP">
-        <select name="tipologiaSP">
-          <option value="funzionale">Funzionale</option>
-          <option value="finanziario">Finanziario</option>
-          <option value="entrambe">Entrambe</option>
-        </select>
-      </div>
+<div class="form-group">
+  <label class="etichetta">Seleziona tipologia Riclassificazione Stato Patrimoniale : </label>
+  <div class="dropdownRiclassificazioneSP">
+    <select name="tipologiaSP" class="form-control">
+      <option value="funzionale">Funzionale</option>
+      <option value="finanziario">Finanziario</option>
+      <option value="entrambe">Entrambe</option>
+    </select>
+  </div>
+</div>
 
       <div class="grpRiclassificazioneSPFunzionale">
 
@@ -2002,7 +2001,7 @@
 
   </div>
 
-  <div id="Riclassificazione Conto Economico al valore aggiunto" class="tabcontent">
+  <div id="Riclassificazione Conto Economico" class="tabcontent">
     <div class="bodyForm">
 
       <!-- Ricavi delle vendite -->
