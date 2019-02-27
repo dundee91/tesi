@@ -80,14 +80,6 @@ app.on('ready', () => {
           click: function (menuItem, currentWindow) {
             currentWindow.webContents.send('stampa')
           }
-          /*click: function(){
-            win = new PDFWindow({
-              height: 800,
-              width: 600
-            })
-            PDFWindow.addSupport(win)
-            win.loadURL('index.html')
-          }*/
         },
         { type: "separator" },
         {
