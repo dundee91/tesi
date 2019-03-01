@@ -422,8 +422,6 @@ ipc.on('apri', function (ev, data) {
 })
 
 ipc.on('stampa', function (ev) {
-
-    console.log("stampa?")
     var doc = new pdf;
 
     var oggi = new Date();
@@ -440,17 +438,11 @@ ipc.on('stampa', function (ev) {
     var giorno = oggi.getDate()
     var azienda = document.getElementById('ragioneSociale').value
 
-    // leggo il json
-    let testo = JSON.parse(array())
-
     // creo file con denominazione prestabilita "yyyymmdd - nomeAzienda.pdf"
     doc.pipe(fs.createWriteStream(anno.toString() + meseString + giorno.toString() + ' - ' + azienda + '.pdf'));
-
-    // richiamo funzioni per pdf
-    tabellaPdf()
-
-    creazionePdf()
-
+    
+    creazionePdf(doc)
+    
     window.alert("pdf Salvato!")
     console.log("pdf salvato")
 
@@ -844,35 +836,36 @@ function array() {
     return json;
 }
 
-function tabellaPdf(){
-
-    function row(doc, heigth) {
-        doc.lineJoin('miter')
-          .rect(30, heigth, 500, 20)
-          .stroke()
-        return doc
-      }
-
-      function textInRowFirst(doc, text, heigth) {
-        doc.y = heigth;
-        doc.x = 30;
-        doc.fillColor('black')
-        doc.text(text, {
-          paragraphGap: 5,
-          indent: 5,
-          align: 'justify',
-          columns: 1,
-        });
-        return doc
-      }
+function row(doc, text , heigth) {
+    doc.lineJoin('miter')
+        .rect(30, heigth, 500, 20)
+        .stroke()
+    doc.text(text)
+    return doc
 }
 
-function creazionePdf() {
+function textInRowFirst(doc, text, heigth) {
+    doc.y = heigth;
+    doc.x = 30;
+    doc.fillColor('black')
+    doc.text(text, {
+        paragraphGap: 5,
+        indent: 5,
+        align: 'justify',
+        columns: 1,
+    });
+    return doc
+}
+
+function creazionePdf(doc) {
+console.log("creazione stampa")
+    // leggo il json
+    let testo = JSON.parse(array())
 
     // inserissco immagini
     doc.image('Logo.png', 50, 50, { scale: 0.75 })
     doc.image('unicam-scudo.png', 415, 50, { scale: 0.15 })
-        .moveDown(20);
+        .moveDown(15);
 
     /* INTESTAZIONI */
     // Professionista/Studio
@@ -884,7 +877,7 @@ function creazionePdf() {
 
     doc.text(testo[0].studio)
         .fontSize(18)
-        .moveDown(5);
+        .moveDown(6);
 
     // Azienda
     doc.text('Azienda:')
@@ -893,34 +886,80 @@ function creazionePdf() {
 
     doc.text(testo[0].ragioneSociale)
         .fontSize(18)
-        .moveDown(5);
+        .moveDown(6);
 
     // Piè di pagina
     doc.text('A cura della commissione interna ODCEC Ancona, rapporti con istituti di credito e Unicam')
         .fontSize(16)
 
-    /*
+doc.addPage();
+    // imposto tabella
     doc.lineCap('butt')
       .moveTo(270, 90)
       .lineTo(270, 230)
       .stroke()
     
-      row(doc, 90);
-    row(doc, 110);
-    row(doc, 130);
-    row(doc, 150);
-    row(doc, 170);
-    row(doc, 190);
-    row(doc, 210);
+      /* POPOLO TABELLA 
 
-    textInRowFirst(doc, 'Nombre o razón social', 100);
-    textInRowFirst(doc, 'RUT', 120);
-    textInRowFirst(doc, 'Dirección', 140);
-    textInRowFirst(doc, 'Comuna', 160);
-    textInRowFirst(doc, 'Ciudad', 180);
-    textInRowFirst(doc, 'Telefono', 200);
-    textInRowFirst(doc, 'e-mail', 220);
-    */
+      var posizioneDati = 90
+      var posizioneIntestazione = 100
+      var iterazioniPrimoFor = 1
+
+      for(var i in testo[0]){
+          console.log(i)
+          console.log(testo[0].i)
+          console.log("Iterazioni primo for " + iterazioniPrimoFor)
+          if(testo[0].i != undefined){
+              console.log("dentro if")
+              row(doc, testo[0].i, posizioneDati)
+              posizioneDati += posizioneDati + 20
+          }
+          iterazioniPrimoFor++;
+          i++;
+      }
+      
+      for(var i in testo[0]){
+        if(i != null){
+            textInRowFirst(doc, i, posizioneIntestazione)
+        }
+        posizioneIntestazione += posizioneIntestazione + 20
+        i++;
+    }
+      /* */
+    document.getElementById('professionistaStudio').value = testo[0].professionistaStudio
+    document.getElementById('ragioneSociale').value = testo[0].ragioneSociale
+    document.getElementById('partitaIVA').value = testo[0].partitaIVA
+    document.getElementById('settoreProduzione').value = testo[0].settoreProduzione
+    document.getElementById('contrattoCollettivo').value = testo[0].contrattoCollettivo
+    document.getElementById('numeroDipendenti').value = testo[0].numeroDipendenti
+    document.getElementById('indirizzo').value = testo[0].indirizzo
+    document.getElementById('comune').value = testo[0].comune
+    document.getElementById('provincia').value = testo[0].provincia
+    document.getElementById('cap').value = testo[0].cap
+    document.getElementById('referente').value = testo[0].referente
+    document.getElementById('telefono').value = testo[0].telefono
+    document.getElementById('fax').value = testo[0].fax
+    document.getElementById('email').value = testo[0].email
+    document.getElementById('sitoWeb').value = testo[0].sitoWeb
+    document.getElementById('note').value = testo[0].note
+
+    row(doc, testo[0].professionistaStudio, 90);
+    row(doc, testo[0].ragioneSociale, 110);
+    row(doc, testo[0].partitaIVA, 130);
+    row(doc, testo[0].settoreProduzione, 150);
+    row(doc, testo[0].contrattoCollettivo, 170);
+    row(doc, testo[0].numeroDipendenti, 190);
+    row(doc, testo[0].indirizzo, 210);
+
+    textInRowFirst(doc, 'professionistaStudio', 100);
+    textInRowFirst(doc, 'ragioneSociale', 120);
+    textInRowFirst(doc, 'partitaIVA', 140);
+    textInRowFirst(doc, 'settoreProduzione', 160);
+    textInRowFirst(doc, 'contrattoCollettivo', 180);
+    textInRowFirst(doc, 'numeroDipendenti', 200);
+    textInRowFirst(doc, 'indirizzo', 220);
+
+
     doc.end();
 
 }
