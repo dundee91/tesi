@@ -48,6 +48,7 @@ ipc.on('apri', function (ev, data) {
 
                 // Leggo tutti i dati del json
                 // Anagrafica Aziendale
+                document.getElementById('professionistaStudio').value = testo[0].professionistaStudio
                 document.getElementById('ragioneSociale').value = testo[0].ragioneSociale
                 document.getElementById('partitaIVA').value = testo[0].partitaIVA
                 document.getElementById('settoreProduzione').value = testo[0].settoreProduzione
@@ -423,7 +424,7 @@ ipc.on('apri', function (ev, data) {
 ipc.on('stampa', function (ev) {
 
     console.log("stampa?")
-    var myDoc = new pdf;
+    var doc = new pdf;
 
     var oggi = new Date();
     var anno = oggi.getFullYear()
@@ -439,21 +440,16 @@ ipc.on('stampa', function (ev) {
     var giorno = oggi.getDate()
     var azienda = document.getElementById('ragioneSociale').value
 
-    array()
-    
-    let testo = JSON.parse(data)
+    // leggo il json
+    let testo = JSON.parse(array())
 
     // creo file con denominazione prestabilita "yyyymmdd - nomeAzienda.pdf"
-    myDoc.pipe(fs.createWriteStream(anno.toString() + meseString + giorno.toString() + ' - ' + azienda + '.pdf'));
+    doc.pipe(fs.createWriteStream(anno.toString() + meseString + giorno.toString() + ' - ' + azienda + '.pdf'));
 
-    // imposto font style del pdf
-    myDoc.font('Times-Roman')
-        // imposto font size del pdf
-        .fontSize(48)
-        // imposto contenuto del pdf
-        .text('NodeJS PDF Document', 100, 100);
+    // richiamo funzioni per pdf
+    tabellaPdf()
 
-    myDoc.end();
+    creazionePdf()
 
     window.alert("pdf Salvato!")
     console.log("pdf salvato")
@@ -466,6 +462,7 @@ function array() {
     let contenuto = [
         /* ANAGRAFICA AZIENDALE */
         {
+            "professionistaStudio" : document.getElementById('professionistaStudio').value,
             "ragioneSociale" : document.getElementById('ragioneSociale').value,
             "partitaIVA" : document.getElementById('partitaIVA').value,
             "settoreProduzione" : document.getElementById('settoreProduzione').value,
@@ -845,4 +842,85 @@ function array() {
 
     var json = JSON.stringify(contenuto);
     return json;
+}
+
+function tabellaPdf(){
+
+    function row(doc, heigth) {
+        doc.lineJoin('miter')
+          .rect(30, heigth, 500, 20)
+          .stroke()
+        return doc
+      }
+
+      function textInRowFirst(doc, text, heigth) {
+        doc.y = heigth;
+        doc.x = 30;
+        doc.fillColor('black')
+        doc.text(text, {
+          paragraphGap: 5,
+          indent: 5,
+          align: 'justify',
+          columns: 1,
+        });
+        return doc
+      }
+}
+
+function creazionePdf() {
+
+    // inserissco immagini
+    doc.image('Logo.png', 50, 50, { scale: 0.75 })
+    doc.image('unicam-scudo.png', 415, 50, { scale: 0.15 })
+        .moveDown(20);
+
+    /* INTESTAZIONI */
+    // Professionista/Studio
+    doc.text('Professionista/Studio:')
+        .moveDown(1);
+    doc.text(testo[0].professionistaStudio)
+        .fontSize(18)
+        .moveDown(1);
+
+    doc.text(testo[0].studio)
+        .fontSize(18)
+        .moveDown(5);
+
+    // Azienda
+    doc.text('Azienda:')
+        .fontSize(18)
+        .moveDown(1);
+
+    doc.text(testo[0].ragioneSociale)
+        .fontSize(18)
+        .moveDown(5);
+
+    // Piè di pagina
+    doc.text('A cura della commissione interna ODCEC Ancona, rapporti con istituti di credito e Unicam')
+        .fontSize(16)
+
+    /*
+    doc.lineCap('butt')
+      .moveTo(270, 90)
+      .lineTo(270, 230)
+      .stroke()
+    
+      row(doc, 90);
+    row(doc, 110);
+    row(doc, 130);
+    row(doc, 150);
+    row(doc, 170);
+    row(doc, 190);
+    row(doc, 210);
+
+    textInRowFirst(doc, 'Nombre o razón social', 100);
+    textInRowFirst(doc, 'RUT', 120);
+    textInRowFirst(doc, 'Dirección', 140);
+    textInRowFirst(doc, 'Comuna', 160);
+    textInRowFirst(doc, 'Ciudad', 180);
+    textInRowFirst(doc, 'Telefono', 200);
+    textInRowFirst(doc, 'e-mail', 220);
+    */
+    doc.end();
+
 }
