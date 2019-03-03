@@ -875,10 +875,6 @@ console.log("creazione stampa")
         .fontSize(18)
         .moveDown(1);
 
-    doc.text(testo[0].studio)
-        .fontSize(18)
-        .moveDown(6);
-
     // Azienda
     doc.text('Azienda:')
         .fontSize(18)
@@ -899,7 +895,7 @@ doc.addPage();
       .lineTo(270, 230)
       .stroke()
     
-      /* POPOLO TABELLA 
+      /* POPOLO TABELLA       */
 
       var posizioneDati = 90
       var posizioneIntestazione = 100
@@ -912,8 +908,8 @@ doc.addPage();
           if(testo[0].i != undefined){
               console.log("dentro if")
               row(doc, testo[0].i, posizioneDati)
-              posizioneDati += posizioneDati + 20
           }
+          posizioneDati += posizioneDati + 20
           iterazioniPrimoFor++;
           i++;
       }
@@ -925,39 +921,7 @@ doc.addPage();
         posizioneIntestazione += posizioneIntestazione + 20
         i++;
     }
-      /* */
-    document.getElementById('professionistaStudio').value = testo[0].professionistaStudio
-    document.getElementById('ragioneSociale').value = testo[0].ragioneSociale
-    document.getElementById('partitaIVA').value = testo[0].partitaIVA
-    document.getElementById('settoreProduzione').value = testo[0].settoreProduzione
-    document.getElementById('contrattoCollettivo').value = testo[0].contrattoCollettivo
-    document.getElementById('numeroDipendenti').value = testo[0].numeroDipendenti
-    document.getElementById('indirizzo').value = testo[0].indirizzo
-    document.getElementById('comune').value = testo[0].comune
-    document.getElementById('provincia').value = testo[0].provincia
-    document.getElementById('cap').value = testo[0].cap
-    document.getElementById('referente').value = testo[0].referente
-    document.getElementById('telefono').value = testo[0].telefono
-    document.getElementById('fax').value = testo[0].fax
-    document.getElementById('email').value = testo[0].email
-    document.getElementById('sitoWeb').value = testo[0].sitoWeb
-    document.getElementById('note').value = testo[0].note
 
-    row(doc, testo[0].professionistaStudio, 90);
-    row(doc, testo[0].ragioneSociale, 110);
-    row(doc, testo[0].partitaIVA, 130);
-    row(doc, testo[0].settoreProduzione, 150);
-    row(doc, testo[0].contrattoCollettivo, 170);
-    row(doc, testo[0].numeroDipendenti, 190);
-    row(doc, testo[0].indirizzo, 210);
-
-    textInRowFirst(doc, 'professionistaStudio', 100);
-    textInRowFirst(doc, 'ragioneSociale', 120);
-    textInRowFirst(doc, 'partitaIVA', 140);
-    textInRowFirst(doc, 'settoreProduzione', 160);
-    textInRowFirst(doc, 'contrattoCollettivo', 180);
-    textInRowFirst(doc, 'numeroDipendenti', 200);
-    textInRowFirst(doc, 'indirizzo', 220);
 
 
     doc.end();
