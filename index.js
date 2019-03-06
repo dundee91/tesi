@@ -836,26 +836,6 @@ function array() {
     return json;
 }
 
-function row(doc, text , heigth) {
-    doc.lineJoin('miter')
-        .rect(30, heigth, 500, 20)
-        .stroke()
-    doc.text(text)
-    return doc
-}
-
-function textInRowFirst(doc, text, heigth) {
-    doc.y = heigth;
-    doc.x = 30;
-    doc.fillColor('black')
-    doc.text(text, {
-        paragraphGap: 5,
-        indent: 5,
-        align: 'justify',
-        columns: 1,
-    });
-    return doc
-}
 
 function creazionePdf(doc) {
 console.log("creazione stampa")
@@ -889,13 +869,33 @@ console.log("creazione stampa")
         .fontSize(16)
 
 doc.addPage();
-    // imposto tabella
-    doc.lineCap('butt')
-      .moveTo(270, 90)
-      .lineTo(270, 230)
-      .stroke()
-    
-      /* POPOLO TABELLA       */
+
+/*
+      doc.fillColor('red')
+      .fontSize(14)
+      .text('Ragione Sociale', 50, 60)      
+      
+      doc.fillColor('black')
+      .fontSize(12)
+      .text(testo[0].ragioneSociale, 200, 60)
+      doc.moveDown(1);
+*/
+      
+var posizioneDati = 90
+console.log(testo[0])
+console.log(testo[0].professionistaStudio)
+const professionista = testo[0];
+
+for(let prop in professionista){
+    if(professionista[prop] != undefined){
+        console.log(prop + ":" + professionista[prop])
+        doc.text(professionista[prop], 90)
+    }
+    posizioneDati += posizioneDati + 20;
+}
+
+
+      /* POPOLO TABELLA      
 
       var posizioneDati = 90
       var posizioneIntestazione = 100
@@ -921,7 +921,7 @@ doc.addPage();
         posizioneIntestazione += posizioneIntestazione + 20
         i++;
     }
-
+ */
 
 
     doc.end();
