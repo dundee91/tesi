@@ -9,6 +9,7 @@ const Tray = electron.Tray
 const iconPath = path.join(__dirname, 'logo1.png')
 const dialog = app.dialog
 const ipc = electron.ipcMain
+const shell = require('electron').shell
 
 let tray = null
 let window = null
@@ -199,4 +200,19 @@ app.on('ready', () => {
     }
   })
 
+})
+
+ipc.on('print-to-pdf', event => {
+  const pdfPath = path.join(os.tmpdir(), 'Analisi Bilancio.pdf')
+
+  const win = BrowserWindow.fromWebContents(event.sender)
+
+  win.webContents.printToPDF({marginsType: 1, pageSize:'Tabloid'}, (error, data) => {
+    if (error) return console.log(error.message)
+
+    fs.writeFile(pdfPath, data, err => {
+      if (err) return console.log(err.message)
+      shell.openExternal('file://' + pdfPath)
+    })
+  })
 })

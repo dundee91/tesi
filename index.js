@@ -420,7 +420,7 @@ ipc.on('apri', function (ev, data) {
         }
     })
 })
-
+/*
 ipc.on('stampa', function (ev) {
     var doc = new pdf;
 
@@ -447,7 +447,7 @@ ipc.on('stampa', function (ev) {
     console.log("pdf salvato")
 
 })
-
+*/
 function array() {
     
     //creo array per json
@@ -836,94 +836,8 @@ function array() {
     return json;
 }
 
+const printPDFbutton = document.getElementById('print-pdf')
 
-function creazionePdf(doc) {
-console.log("creazione stampa")
-    // leggo il json
-    let testo = JSON.parse(array())
-
-    // inserissco immagini
-    doc.image('Logo.png', 50, 50, { scale: 0.75 })
-    doc.image('unicam-scudo.png', 415, 50, { scale: 0.15 })
-        .moveDown(15);
-
-    /* INTESTAZIONI */
-    // Professionista/Studio
-    doc.text('Professionista/Studio:')
-        .moveDown(1);
-    doc.text(testo[0].professionistaStudio)
-        .fontSize(18)
-        .moveDown(1);
-
-    // Azienda
-    doc.text('Azienda:')
-        .fontSize(18)
-        .moveDown(1);
-
-    doc.text(testo[0].ragioneSociale)
-        .fontSize(18)
-        .moveDown(6);
-
-    // Piè di pagina
-    doc.text('A cura della commissione interna ODCEC Ancona, rapporti con istituti di credito e Unicam')
-        .fontSize(16)
-
-doc.addPage();
-
-/*
-      doc.fillColor('red')
-      .fontSize(14)
-      .text('Ragione Sociale', 50, 60)      
-      
-      doc.fillColor('black')
-      .fontSize(12)
-      .text(testo[0].ragioneSociale, 200, 60)
-      doc.moveDown(1);
-*/
-      
-var posizioneDati = 90
-console.log(testo[0])
-console.log(testo[0].professionistaStudio)
-const professionista = testo[0];
-
-for(let prop in professionista){
-    if(professionista[prop] != undefined){
-        console.log(prop + ":" + professionista[prop])
-        doc.text(professionista[prop], 90)
-    }
-    posizioneDati += posizioneDati + 20;
-}
-
-
-      /* POPOLO TABELLA      
-
-      var posizioneDati = 90
-      var posizioneIntestazione = 100
-      var iterazioniPrimoFor = 1
-
-      for(var i in testo[0]){
-          console.log(i)
-          console.log(testo[0].i)
-          console.log("Iterazioni primo for " + iterazioniPrimoFor)
-          if(testo[0].i != undefined){
-              console.log("dentro if")
-              row(doc, testo[0].i, posizioneDati)
-          }
-          posizioneDati += posizioneDati + 20
-          iterazioniPrimoFor++;
-          i++;
-      }
-      
-      for(var i in testo[0]){
-        if(i != null){
-            textInRowFirst(doc, i, posizioneIntestazione)
-        }
-        posizioneIntestazione += posizioneIntestazione + 20
-        i++;
-    }
- */
-
-
-    doc.end();
-
-}
+printPDFbutton.addEventListener('click', event => {
+    ipc.send('print-to-pdf')
+})
