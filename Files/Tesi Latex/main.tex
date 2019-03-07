@@ -1,0 +1,151 @@
+\documentclass[12pt,a4paper]{report}
+
+% Packages
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{lipsum}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{tabulary}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage[acronym]{glossaries}
+\usepackage[backend=bibtex,
+style=numeric,
+defernumbers=true,
+%style=reading,
+%style=alphabetic,
+bibencoding=ascii,
+sorting=ynt
+]{biblatex}
+\usepackage{geometry}
+\geometry
+{
+    a4paper,
+    total={170mm,257mm},
+    left=35mm,
+    right=35mm,
+    top=40mm,
+    bottom=40mm
+}
+
+\restylefloat{table}
+
+% Interlinea 1,5
+\onehalfspacing
+
+% Crea il glossario
+\makeglossaries
+\input{glossary}
+
+% Imposta il percorso delle immagini
+\graphicspath{ {Immagini/} }
+
+% Crea la bibliografia
+\addbibresource{biblio}
+
+\begin{document}
+
+    \begin{titlepage}
+    
+    	\centering
+    	{\scshape\LARGE Università degli studi di Camerino \par}
+    	
+    	\vspace{0.5cm}
+    	{\scshape\Large Scuola di Scienze e Tecnologie\par}
+    	
+    	\vspace{0.5cm}
+    	{\scshape Corso di Laurea in Informatica (L-31)\par}
+    	
+    	\vspace{1cm}
+    	\includegraphics[width=4cm]{unicam-scudo.png}\par\vspace{1cm}
+    	{\huge\bfseries Analisi di bilancio: progettazione e sviluppo di un applicazione desktop per l'ordine dei commercialisti di Ancona\par}
+    	\vspace{2cm}
+    	
+    	{Laureando \hfill Relatrice \par}
+    	{\bfseries \large Danilo Paoletti \hfill Dr.ssa Barbara Re \par}
+    	{\small Matricola 085353 \hfill}
+    
+    	\vfill
+    	
+    	% Bottom of the page
+    	{\large Anno accademico 2017-2018\par}
+    	
+    \end{titlepage}
+    
+    % White page
+    \thispagestyle{empty}
+    \clearpage\null\newpage
+    
+    % Inizia la numerazione Romana delle pagine
+    \setcounter{page}{3}
+    \pagenumbering{Roman}
+    
+    \chapter*{Dediche}
+    
+	
+    \tableofcontents
+    
+    % White page
+    \clearpage\null\newpage
+    
+    % Inizia la numerazione Araba delle pagine
+    \pagenumbering{arabic}
+    
+    % Introduzione
+    \input{Capitoli/introduzione}
+    
+    % White page
+    \clearpage\null\newpage
+    
+    % Contesto normativo
+    \input{Capitoli/capitolo1}
+    
+    % White page
+    \clearpage\null\newpage
+    
+    % Analisi del progetto
+    \input{Capitoli/capitolo2}
+    
+    % White page
+    \clearpage\null\newpage
+    
+    % Sviluppo
+    \input{Capitoli/capitolo3}
+    
+    % Lavori simili
+    \input{Capitoli/capitolo4}
+    
+    % White page
+    \clearpage\null\newpage
+    
+    % Conclusione
+    \input{Capitoli/conclusione}
+         
+    \appendix
+        
+    % Versioning
+    %\input{Appendici/appendice1}
+        
+    % Glossario
+    \printglossary[type=\acronymtype]
+    \printglossary
+     
+    % Bibliografia
+    \printbibheading
+    \printbibliography[type=book,heading=subbibliography,title={Libri}]
+    \printbibliography[keyword=legal,heading=subbibliography,title={Normativa}]
+    \printbibliography[type=online,heading=subbibliography,title={Sitografia}]
+    %\printbibliography[title={Whole bibliography}]
+    %\printbibliography[type=article,title={Articles only}]
+    %\printbibliography[keyword=legal,heading=subbibliography,title={Fonti legali}]
+    %\printbibliography[type=book,title={Bibliografia}]
+    %\printbibliography[type=online,title={Sitografia}]
+    %\printbibliography[type=online,title={Sitografia}]
+    %\printbibliography[keyword={physics},title={Physics-related only}]
+    %\printbibliography[keyword={latex},title={\LaTeX-related only}]
+    %\printbibliography[keyword={knuth},title={Knuth's-related only}]
+
+\end{document}
