@@ -137,6 +137,9 @@ h3{
 		display: block !important;
 		color:rgb(100, 17, 17);
 	}
+	.tabcontent{
+		display: block !important;
+	}
 
 
 }
