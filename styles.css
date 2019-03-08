@@ -113,7 +113,8 @@ h3{
 }
 
 .bottoneStampaPdf{
-	margin-top: 20px;
+	margin-top: 30px;
+	margin-left: 30px;
 }
 
 /* Go from zero to full opacity */
@@ -128,10 +129,10 @@ h3{
 		background: transparent;
 	}
 	.bottoneStampaPdf{
-		visibility: hidden
+		display: none
 	}
 	.tab{
-		visibility: hidden
+		display: none
 	}
 	.tabcontent h2{
 		display: block !important;
@@ -140,6 +141,11 @@ h3{
 	.tabcontent{
 		display: block !important;
 	}
-
-
+	.form-group .totale{
+		background-color: rgb(204, 255, 51)
+	}
+	#FrontespizioPdf{
+		display: block !important;
+		page-break-after: always;
+	}
 }
