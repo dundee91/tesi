@@ -117,6 +117,20 @@ h3{
 	margin-left: 30px;
 }
 
+#FrontespizioPdf #logoCommercialisti{
+	margin-top: 30px;
+	margin-left: 30px;
+	width: 30%;
+	height: 30%;
+}
+
+#FrontespizioPdf #logoUnicam{
+	margin-top: 30px;
+	margin-left: 600px;
+	width: 25%;
+	height: 25%;
+}
+
 /* Go from zero to full opacity */
 @keyframes fadeEffect {
 	from {opacity: 0;}
