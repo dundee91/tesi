@@ -100,12 +100,16 @@ h3{
 	color:rgb(217, 217, 217);
 }
 
-/* Style the tab content */
+/* Stile del contenuto delle tab */
 .tabcontent {
 	display: none;
 	padding: 6px 12px;
 	border-top: none;
-	/*animation:  fadeEffect 0.5s; /* Fading effect takes 1 second */
+	/*animazione:  fadeEffect 0.5s; /* Fading effect in 1 secondo */
+}
+
+.bottoneStampaPdf{
+	margin-top: 20px;
 }
 
 /* Go from zero to full opacity */
@@ -119,5 +123,12 @@ h3{
 		width: 0px;
 		background: transparent;
 	}
+	.bottoneStampaPdf{
+		visibility: hidden
+	}
+	.tab{
+		visibility: hidden
+	}
+
 
 }
