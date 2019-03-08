@@ -59,6 +59,10 @@ width: 300px;
   margin: 25px;
 }
 
+h2{
+	display: none;
+}
+
 h3{
 	color:rgb(100, 17, 17);
 }
@@ -128,6 +132,10 @@ h3{
 	}
 	.tab{
 		visibility: hidden
+	}
+	.tabcontent h2{
+		display: block !important;
+		color:rgb(100, 17, 17);
 	}
 
 
