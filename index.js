@@ -839,5 +839,6 @@ function array() {
 const printPDFbutton = document.getElementById('print-pdf')
 
 printPDFbutton.addEventListener('click', event => {
+    document.getElementById('ragioneSocialeFrontespizio').value = document.getElementById('ragioneSociale').value
     ipc.send('print-to-pdf')
 })

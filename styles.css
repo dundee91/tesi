@@ -120,15 +120,32 @@ h3{
 #FrontespizioPdf #logoCommercialisti{
 	margin-top: 30px;
 	margin-left: 30px;
-	width: 30%;
-	height: 30%;
+	scale: 0.75;
 }
 
 #FrontespizioPdf #logoUnicam{
 	margin-top: 30px;
-	margin-left: 600px;
-	width: 25%;
-	height: 25%;
+	margin-left: 250px;
+}
+
+#aziendaFrontespizio{
+	margin-top: 300px;
+	margin-left: 30px;
+	font-size: 25px;
+	color:rgb(100, 17, 17);
+}
+
+#ragioneSocialeFrontespizio{
+	margin-top: 300px;
+	margin-left: 250px;
+	font-size: 25px;
+}
+
+#footerFrontespizio{
+	font-size: 25px;
+	text-align: center;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Go from zero to full opacity */
@@ -137,29 +154,46 @@ h3{
 	to {opacity: 1;}
 }
 
+/* Istruzioni per la stampa del pdf */
+
 @media print{
+	/* Per stampare tutto l'html */
+  body {
+    overflow: visible !important;
+	}
+	/* nascondo la scrollbar */
 	::-webkit-scrollbar{
 		width: 0px;
 		background: transparent;
 	}
+	/* nascondo il bottone per stampare il Pdf */
 	.bottoneStampaPdf{
 		display: none
 	}
+	/* nascondo le tab */
 	.tab{
 		display: none
 	}
+	/* rendo visibili le intestazioni delle tab, solo per stampa */
 	.tabcontent h2{
 		display: block !important;
 		color:rgb(100, 17, 17);
 	}
+	/* mostro il contenuto di tutte le tab nella stampa, e genero un'altra pagina alla fine di ognuna */
 	.tabcontent{
 		display: block !important;
+		page-break-after: always;
 	}
+	/* coloro totali nella stampa del pdf */
 	.form-group .totale{
 		background-color: rgb(204, 255, 51)
 	}
 	#FrontespizioPdf{
 		display: block !important;
 		page-break-after: always;
+	}
+	#aziendaFrontespizio{
+		-webkit-print-color-adjust: exact;
+		color-adjust: exact;
 	}
 }
