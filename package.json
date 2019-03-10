@@ -1,6 +1,6 @@
 {
-  "name": "programmariclassificazione",
-  "version": "1.0.0",
+  "name": "analisibilancio",
+  "version": "2.0.0",
   "description": "programma per ordine dei commercialisti provincia di Ancona, lavoro per tesi",
   "repository": "dundee91/tesi",
   "main": "app.js",
@@ -13,11 +13,8 @@
   },
   "dependencies": {
     "electron-packager": "^12.2.0",
-    "electron-pdf-window": "^1.0.12",
     "electron-scroller": "^0.6.2",
     "electron-storage": "^1.0.7",
-    "electron-tabs": "^0.9.4",
-    "jsreport-electron-pdf": "^3.0.0",
-    "pdfkit": "^0.9.0"
+    "electron-tabs": "^0.9.4"
   }
 }
