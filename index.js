@@ -46,7 +46,11 @@ ipc.on('apri', function (ev, data) {
                 }
                 let testo = JSON.parse(data)
 
-                // Leggo tutti i dati del json
+                /* LEGGO TUTTI I DATI DEL JSON */
+                // per frontespizio PDF
+                document.getElementById('ragioneSocialeFrontespizio').innerHTML = testo[0].ragioneSociale
+                document.getElementById('professionistaFrontespizio').innerHTML = testo[0].professionistaStudio
+
                 // Anagrafica Aziendale
                 document.getElementById('professionistaStudio').value = testo[0].professionistaStudio
                 document.getElementById('ragioneSociale').value = testo[0].ragioneSociale
@@ -839,6 +843,5 @@ function array() {
 const printPDFbutton = document.getElementById('print-pdf')
 
 printPDFbutton.addEventListener('click', event => {
-    document.getElementById('ragioneSocialeFrontespizio').value = document.getElementById('ragioneSociale').value
     ipc.send('print-to-pdf')
 })
