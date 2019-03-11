@@ -94,6 +94,8 @@ ipc.on('apri', function (ev, data) {
                 /* STATO PATRIMONIALE ATTIVO */
                 // A. Crediti verso soci
                 document.getElementById('creditiVersoSoci').value = testo[2].creditiVersoSoci
+                document.getElementById('creditiVersoSociRichiamati').value = testo[2].creditiVersoSociRichiamati
+                document.getElementById('creditiVersoSociDaRichiamare').value = testo[2].creditiVersoSociDaRichiamare
                 // B. Immobilizzazioni
                 // I. Immateriali
                 document.getElementById('costiImpiantoAmpliamento').value = testo[2].costiImpiantoAmpliamento
@@ -181,6 +183,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('riservaLegale').value = testo[2].riservaLegale
                 document.getElementById('riserveStatutarie').value = testo[2].riserveStatutarie
                 document.getElementById('altreRiserve').value = testo[2].altreRiserve
+                document.getElementById('altriRicaviProventiContributiContoEsercizio').value = testo[2].altriRicaviProventiContributiContoEsercizio
                 document.getElementById('utilePortatoNuovo').value = testo[2].utilePortatoNuovo
                 document.getElementById('utileEsercizio').value = testo[2].utileEsercizio
                 document.getElementById('riservaAzioniProprie').value = testo[2].riservaAzioniProprie
@@ -241,6 +244,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('variazioniLavoriInCorso').value = testo[3].variazioniLavoriInCorso
                 document.getElementById('incrementiImmobilizzazioniLavoriInterni').value = testo[3].incrementiImmobilizzazioniLavoriInterni
                 document.getElementById('altriRicaviProventi').value = testo[3].altriRicaviProventi
+                document.getElementById('altriRicaviProventiContributiContoEsercizio').value = testo[3].altriRicaviProventiContributiContoEsercizio
                 document.getElementById('totaleValoreProduzione').value = testo[3].totaleValoreProduzione
 
                 // B) Costi della produzione
@@ -483,6 +487,8 @@ function array() {
         {
             // A. Crediti verso soci
             "creditiVersoSoci": document.getElementById('creditiVersoSoci').value,
+            "creditiVersoSociRichiamati": document.getElementById('creditiVersoSociRichiamati').value,
+            "creditiVersoSociDaRichiamare": document.getElementById('creditiVersoSociDaRichiamare').value,
 
             // B. Immobilizzazioni
             // I. Immateriali
@@ -635,6 +641,7 @@ function array() {
             "variazioniLavoriInCorso": document.getElementById('variazioniLavoriInCorso').value,
             "incrementiImmobilizzazioniLavoriInterni": document.getElementById('incrementiImmobilizzazioniLavoriInterni').value,
             "altriRicaviProventi": document.getElementById('altriRicaviProventi').value,
+            "altriRicaviProventiContributiContoEsercizio" : document.getElementById('altriRicaviProventiContributiContoEsercizio').value,
             "totaleValoreProduzione": document.getElementById('totaleValoreProduzione').value,
 
             // B) Costi della produzione
@@ -818,11 +825,13 @@ function array() {
             "FCaccantonamenti": document.getElementById('FCaccantonamenti').value,
             "FCutilizziAltriFondi": document.getElementById('FCutilizziAltriFondi').value,
             // Tab. 2 - Capitale circolante
+            /*
             "FCcreditiVersoClienti" : document.getElementById('FCcreditiVersoClienti').value,
             "FCdevitiVersoFornitori" : document.getElementById('FCdevitiVersoFornitori').value,
             "FCmagazzinoMateriePrime" : document.getElementById('FCmagazzinoMateriePrime').value,
             "FCmagazzinoProdottiFiniti" : document.getElementById('FCmagazzinoProdottiFiniti').value,
             "FCaltriCreditiLiquidita" : document.getElementById('FCaltriCreditiLiquidita').value
+            */
 
         }
     ]

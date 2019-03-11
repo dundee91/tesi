@@ -145,7 +145,7 @@ app.on('ready', () => {
     role: 'undo', label: 'Annulla'
   }))
   ctxMenu.append(new MenuItem({
-    role: 'reload', label: 'Ricarica'
+    role: 'reload', label: 'Pulisci'
   }))
   ctxMenu.append(new MenuItem({
     type: 'separator'
