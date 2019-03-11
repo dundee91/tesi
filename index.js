@@ -351,6 +351,8 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('SPFimmobilizzazioniFinanziarie').value = testo[5].SPFimmobilizzazioniFinanziarie
                 document.getElementById('SPFtotaleImmobilizzazioniNette').value = testo[5].SPFtotaleImmobilizzazioniNette
                 document.getElementById('SPFmagazzino').value = testo[5].SPFmagazzino
+                document.getElementById('SPFprodottiFiniti').value = testo[5].SPFprodottiFiniti
+                document.getElementById('SPFmateriePrime').value = testo[5].SPFmateriePrime
                 document.getElementById('SPFcreditiCommerciali').value = testo[5].SPFcreditiCommerciali
                 document.getElementById('SPFaltriCrediti').value = testo[5].SPFaltriCrediti
                 document.getElementById('SPFrateiRiscontiAttivi').value = testo[5].SPFrateiRiscontiAttivi
@@ -403,6 +405,7 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('CEtotaleRisultatoNetto').value = testo[6].CEtotaleRisultatoNetto
 
                 /* FORECAST */
+                // Tab. 1 - Ricavi e costi operativi
                 document.getElementById('FCricaviVendite').value = testo[7].FCricaviVendite
                 document.getElementById('FCconsumiMerci').value = testo[7].FCconsumiMerci
                 document.getElementById('FCincValProdConsumiMerci').value = testo[7].FCincValProdConsumiMerci
@@ -417,6 +420,12 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('FCutilizziFondoTFR').value = testo[7].FCutilizziFondoTFR
                 document.getElementById('FCaccantonamenti').value = testo[7].FCaccantonamenti
                 document.getElementById('FCutilizziAltriFondi').value = testo[7].FCutilizziAltriFondi
+                // Tab. 2 - Capitale circolante
+                document.getElementById('FCcreditiVersoClienti').value = testo[7].FCcreditiVersoClienti
+                document.getElementById('FCdebitiVersoFornitori').value = testo[7].FCdebitiVersoFornitori
+                document.getElementById('FCmagazzinoMateriePrime').value = testo[7].FCmagazzinoMateriePrime
+                document.getElementById('FCmagazzinoProdottiFiniti').value = testo[7].FCmagazzinoProdottiFiniti
+                document.getElementById('FCaltriCreditiLiquidita').value = testo[7].FCaltriCreditiLiquidita
 
                 console.log("file aperto")
             })
@@ -737,6 +746,8 @@ function array() {
             "SPFimmobilizzazioniFinanziarie": document.getElementById('SPFimmobilizzazioniFinanziarie').value,
             "SPFtotaleImmobilizzazioniNette": document.getElementById('SPFtotaleImmobilizzazioniNette').value,
             "SPFmagazzino": document.getElementById('SPFmagazzino').value,
+            "SPFprodottiFiniti": document.getElementById('SPFprodottiFiniti').value,
+            "SPFmateriePrime": document.getElementById('SPFmateriePrime').value,
             "SPFcreditiCommerciali": document.getElementById('SPFcreditiCommerciali').value,
             "SPFaltriCrediti": document.getElementById('SPFaltriCrediti').value,
             "SPFrateiRiscontiAttivi": document.getElementById('SPFrateiRiscontiAttivi').value,
@@ -791,6 +802,7 @@ function array() {
         },
         /* FORECAST */
         {
+            // Tab. 1 - Ricavi e costi operativi
             "FCricaviVendite": document.getElementById('FCricaviVendite').value,
             "FCconsumiMerci": document.getElementById('FCconsumiMerci').value,
             "FCincValProdConsumiMerci": document.getElementById('FCincValProdConsumiMerci').value,
@@ -804,7 +816,14 @@ function array() {
             "FCincCostoPersonale": document.getElementById('FCincCostoPersonale').value,
             "FCutilizziFondoTFR": document.getElementById('FCutilizziFondoTFR').value,
             "FCaccantonamenti": document.getElementById('FCaccantonamenti').value,
-            "FCutilizziAltriFondi": document.getElementById('FCutilizziAltriFondi').value
+            "FCutilizziAltriFondi": document.getElementById('FCutilizziAltriFondi').value,
+            // Tab. 2 - Capitale circolante
+            "FCcreditiVersoClienti" : document.getElementById('FCcreditiVersoClienti').value,
+            "FCdevitiVersoFornitori" : document.getElementById('FCdevitiVersoFornitori').value,
+            "FCmagazzinoMateriePrime" : document.getElementById('FCmagazzinoMateriePrime').value,
+            "FCmagazzinoProdottiFiniti" : document.getElementById('FCmagazzinoProdottiFiniti').value,
+            "FCaltriCreditiLiquidita" : document.getElementById('FCaltriCreditiLiquidita').value
+
         }
     ]
 

@@ -46,7 +46,6 @@ function sommeRiclassificazioneSPF() {
     }
     // altri crediti
     try {
-        console.log("try")
         document.getElementById('SPFaltriCrediti').value =
             parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value) +
             parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value) +

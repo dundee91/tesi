@@ -1900,7 +1900,19 @@
           <label class="etichetta">Magazzino</label>
           <input id="SPFmagazzino" type="number" step="0.01" name="SPFattivoCircolante" class="form-control" readonly>
         </div>
+        
+        <!-- Prodotti finiti -->
+        <div class="form-group">
+          <label class="etichetta" style="margin-left:75px; font-style: italic">Prodotti finiti</label>
+          <input id="SPFprodottiFiniti" type="number" step="0.01" class="form-control" style="margin-left:-75px;" readonly>
+        </div>
 
+        <!-- Materie Prime -->
+        <div class="form-group">
+          <label class="etichetta" style="margin-left:75px; font-style: italic">Materie Prime</label>
+          <input id="SPFmateriePrime" type="number" step="0.01" class="form-control" style="margin-left:-75px;" readonly>
+        </div>
+        
         <!-- Crediti commerciali -->
         <div class="form-group">
           <label class="etichetta">Crediti commerciali</label>
@@ -2220,94 +2232,130 @@
   <div id="Forecast" class="tabcontent">
     <div class="bodyForm">
       <h2>Forecast</h2>
-      <div class="Tab.1 - Ricavi e costi operativi">
-        <h3>Tab.1 - Ricavi e costi operativi</h3>
-
-        <!-- Ricavi vendite -->
-        <div class="form-group">
-          <label class="etichetta">Ricavi vendite</label>
-          <input id="FCricaviVendite" type="number" step="0.01" name="" class="form-control" readonly>
+      <div class="forecast0">
+        <div class="Tab. 1 - Ricavi e costi operativi">
+          <h3>Tab. 1 - Ricavi e costi operativi</h3>
+  
+          <!-- Ricavi vendite -->
+          <div class="form-group">
+            <label class="etichetta">Ricavi vendite</label>
+            <input id="FCricaviVendite" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Consumi di merci -->
+          <div class="form-group">
+            <label class="etichetta">Consumi di merci</label>
+            <input id="FCconsumiMerci" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Inc. % sul valore produzione -->
+          <div class="form-group">
+            <label class="etichetta">Inc. % sul valore produzione</label>
+            <input id="FCincValProdConsumiMerci" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Acquisti di servizi -->
+          <div class="form-group">
+            <label class="etichetta">Acquisti di servizi</label>
+            <input id="FCacquistiServizi" type="number" step="0.01" name="" class="form-control" oninput="forecast(); validate(this)">
+          </div>
+  
+          <!-- Inc. % sul valore produzione -->
+          <div class="form-group">
+            <label class="etichetta">Inc. % sul valore produzione</label>
+            <input id="FCincValProdAcquistiServizi" type="number" step="0.01" name="" class="form-control"
+              oninput="forecast(); validate(this)">
+          </div>
+  
+          <!-- Costo godimento beni di terzi -->
+          <div class="form-group">
+            <label class="etichetta">Costo godimento beni di terzi</label>
+            <input id="FCcostoGodimentoBeniTerzi" type="number" step="0.01" name="" class="form-control"
+              oninput="forecast(); validate(this)">
+          </div>
+  
+          <!-- di cui canoni in leasing -->
+          <div class="form-group">
+            <label class="etichetta">di cui canoni in leasing</label>
+            <input id="FCdiCuiCanoniLeasing" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Costi del personale -->
+          <div class="form-group">
+            <label class="etichetta">Costi del personale</label>
+            <input id="FCcostiDelPersonale" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Inc. % sul valore produzione -->
+          <div class="form-group">
+            <label class="etichetta">Inc. % sul valore produzione</label>
+            <input id="FCincValProdCostiPersonale" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Accantonamento TFR -->
+          <div class="form-group">
+            <label class="etichetta">Accantonamento TFR</label>
+            <input id="FCaccantonamentoTFR" type="number" step="0.01" name="" class="form-control"
+              oninput="forecast(); validate(this)">
+          </div>
+  
+          <!-- Inc. % su costo personale -->
+          <div class="form-group">
+            <label class="etichetta">Inc. % su costo personale</label>
+            <input id="FCincCostoPersonale" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- utilizzi fondo TFR -->
+          <div class="form-group">
+            <label class="etichetta">utilizzi fondo TFR</label>
+            <input id="FCutilizziFondoTFR" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Accantonamenti -->
+          <div class="form-group">
+            <label class="etichetta">Accantonamenti</label>
+            <input id="FCaccantonamenti" type="number" step="0.01" name="" class="form-control" oninput="forecast(); validate(this)">
+          </div>
+  
+          <!-- utilizzi altri fondi -->
+          <div class="form-group">
+            <label class="etichetta">utilizzi altri fondi</label>
+            <input id="FCutilizziAltriFondi" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
         </div>
-
-        <!-- Consumi di merci -->
-        <div class="form-group">
-          <label class="etichetta">Consumi di merci</label>
-          <input id="FCconsumiMerci" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Inc. % sul valore produzione -->
-        <div class="form-group">
-          <label class="etichetta">Inc. % sul valore produzione</label>
-          <input id="FCincValProdConsumiMerci" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Acquisti di servizi -->
-        <div class="form-group">
-          <label class="etichetta">Acquisti di servizi</label>
-          <input id="FCacquistiServizi" type="number" step="0.01" name="" class="form-control" oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- Inc. % sul valore produzione -->
-        <div class="form-group">
-          <label class="etichetta">Inc. % sul valore produzione</label>
-          <input id="FCincValProdAcquistiServizi" type="number" step="0.01" name="" class="form-control"
-            oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- Costo godimento beni di terzi -->
-        <div class="form-group">
-          <label class="etichetta">Costo godimento beni di terzi</label>
-          <input id="FCcostoGodimentoBeniTerzi" type="number" step="0.01" name="" class="form-control"
-            oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- di cui canoni in leasing -->
-        <div class="form-group">
-          <label class="etichetta">di cui canoni in leasing</label>
-          <input id="FCdiCuiCanoniLeasing" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Costi del personale -->
-        <div class="form-group">
-          <label class="etichetta">Costi del personale</label>
-          <input id="FCcostiDelPersonale" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Inc. % sul valore produzione -->
-        <div class="form-group">
-          <label class="etichetta">Inc. % sul valore produzione</label>
-          <input id="FCincValProdCostiPersonale" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Accantonamento TFR -->
-        <div class="form-group">
-          <label class="etichetta">Accantonamento TFR</label>
-          <input id="FCaccantonamentoTFR" type="number" step="0.01" name="" class="form-control"
-            oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- Inc. % su costo personale -->
-        <div class="form-group">
-          <label class="etichetta">Inc. % su costo personale</label>
-          <input id="FCincCostoPersonale" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- utilizzi fondo TFR -->
-        <div class="form-group">
-          <label class="etichetta">utilizzi fondo TFR</label>
-          <input id="FCutilizziFondoTFR" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Accantonamenti -->
-        <div class="form-group">
-          <label class="etichetta">Accantonamenti</label>
-          <input id="FCaccantonamenti" type="number" step="0.01" name="" class="form-control" oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- utilizzi altri fondi -->
-        <div class="form-group">
-          <label class="etichetta">utilizzi altri fondi</label>
-          <input id="FCutilizziAltriFondi" type="number" step="0.01" name="" class="form-control" readonly>
+        <div class="Tab. 2 - Capitale circolante">
+          <h3>Tab. 2 - Capitale circolante</h3>
+  
+          <!-- Crediti verso clienti -->
+          <div class="form-group">
+            <label class="etichetta">Crediti verso clienti</label>
+            <input id="FCcreditiVersoClienti" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Debiti verso fornitori -->
+          <div class="form-group">
+            <label class="etichetta">Debiti verso fornitori</label>
+            <input id="FCdebitiVersoFornitori" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Magazzino materie prime -->
+          <div class="form-group">
+            <label class="etichetta">Magazzino materie prime</label>
+            <input id="FCmagazzinoMateriePrime" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Magazzino prodotti finiti -->
+          <div class="form-group">
+            <label class="etichetta">Magazzino prodotti finiti</label>
+            <input id="FCmagazzinoProdottiFiniti" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
+          <!-- Altri crediti e Liquidità -->
+          <div class="form-group">
+            <label class="etichetta">Altri crediti e Liquidità</label>
+            <input id="FCaltriCreditiLiquidita" type="number" step="0.01" name="" class="form-control" readonly>
+          </div>
+  
         </div>
       </div>
 
