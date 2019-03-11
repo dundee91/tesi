@@ -29,14 +29,55 @@
       Patrimoniale</button>
     <button class="tablinks" onclick="apriTab(event, 'Riclassificazione Conto Economico')">Riclassificazione Conto
       Economico al valore aggiunto</button>
-    <button class="tablinks" onclick="apriTab(event, 'Forecast')">Forecast</button>
+  </div>
+
+  <div class="bottoneStampaPdf">
+    <label id='pdf-path'> </label>
+    <button type="button" class="btn btn-primary" id='print-pdf'>Stampa PDF</button>
+  </div>
+
+  <div id="FrontespizioPdf" class="tabcontent">
+    <img id="logoCommercialisti" src="logo.png" alt="Logo Commercialisti">
+    <img id="logoUnicam" src="unicam-scudo.png" alt="Logo Unicam">
+  
+    <div class="centroFrontespizio">
+      <div class="aziendaFrontespizio">
+        <div id="labelAziendaFrontespizio"> Analisi di bilancio dell'azienda : </div>
+        <div id="ragioneSocialeFrontespizio"></div>
+      </div>
+      <br>
+      <br>
+  
+      <div class="studioFrontespizio">
+        <div id="labelProfessionistaFrontespizio"> Realizzato da : </div>
+        <div id="professionistaFrontespizio"></div>
+      </div>
+      <br>
+      <br>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+  
+    <p id="footerFrontespizio">
+      <span>A cura della commissione interna ODCEC Ancona,</span>
+      <span>rapporti con istituti di credito e Unicam</span>
+    </p>
   </div>
 
   <!-- Tab content -->
   <div id="Dati Anagrafici" class="tabcontent">
     <div class="bodyForm">
+      <h2>Dati Anagrafici</h2>
       <br>
       <form>
+        <!-- Professionista/Studio -->
+        <div class="form-group">
+          <div><label class="etichetta">Professionista/Studio</label></div>
+          <div class="text-input"><input id="professionistaStudio" type="text" class="form-control text-input"></div>
+        </div>
         <!-- Ragione Sociale -->
         <div class="form-group">
           <div><label class="etichetta">Ragione Sociale</label></div>
@@ -126,6 +167,7 @@
 
   <div id="Analisi Qualitativa" class="tabcontent">
     <div class="bodyForm">
+        <h2>Analisi Qualitativa</h2>
       <br>
       <form>
         <!-- Storia Azienda -->
@@ -145,7 +187,7 @@
         <!-- Organo di Controllo -->
         <div class="form-group">
           <div>
-            <label class="etichetta">Organo di Controlloo</label></div>
+            <label class="etichetta">Organo di Controllo</label></div>
           <div class="text-input"><textarea id="organoControllo" type="text" class="form-control text-area"></textarea>
           </div>
         </div>
@@ -258,6 +300,7 @@
 
   <div id="Stato Patrimoniale" class="tabcontent">
     <div class="bodyForm">
+        <h2>Stato Patrimoniale</h2>
       <h3>Stato Patrimoniale Attivo</h3>
       <h4>A) Crediti verso soci</h4>
       <!-- Crediti verso soci per versamenti ancora dovuti-->
@@ -1140,6 +1183,7 @@
 
   <div id="Conto Economico" class="tabcontent">
     <div class="bodyForm">
+        <h2>Conto Economico</h2>
       <h4>A) Valore della produzione</h4>
 
       <!-- 1) Ricavi delle vendite e delle prestazioni -->
@@ -1589,6 +1633,7 @@
   <div id="Riclassificazione Stato Patrimoniale" class="tabcontent">
 
     <div class="bodyForm">
+        <h2>Stato Patrimoniale Riclassificato</h2>
 
       <br>
       <div class="form-group">
@@ -2003,6 +2048,7 @@
 
   <div id="Riclassificazione Conto Economico" class="tabcontent">
     <div class="bodyForm">
+        <h2>Conto Economico Riclassificato</h2>
 
       <!-- Ricavi delle vendite -->
       <div class="form-group">
@@ -2169,104 +2215,6 @@
     </div>
   </div>
 
-  <div id="Forecast" class="tabcontent">
-    <div class="bodyForm">
-      <div class="Tab.1 - Ricavi e costi operativi">
-        <h3>Tab.1 - Ricavi e costi operativi</h3>
-
-        <!-- Ricavi vendite -->
-        <div class="form-group">
-          <label class="etichetta">Ricavi vendite</label>
-          <input id="FCricaviVendite" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Consumi di merci -->
-        <div class="form-group">
-          <label class="etichetta">Consumi di merci</label>
-          <input id="FCconsumiMerci" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Inc. % sul valore produzione -->
-        <div class="form-group">
-          <label class="etichetta">Inc. % sul valore produzione</label>
-          <input id="FCincValProdConsumiMerci" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Acquisti di servizi -->
-        <div class="form-group">
-          <label class="etichetta">Acquisti di servizi</label>
-          <input id="FCacquistiServizi" type="number" step="0.01" name="" class="form-control"
-            oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- Inc. % sul valore produzione -->
-        <div class="form-group">
-          <label class="etichetta">Inc. % sul valore produzione</label>
-          <input id="FCincValProdAcquistiServizi" type="number" step="0.01" name="" class="form-control"
-            oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- Costo godimento beni di terzi -->
-        <div class="form-group">
-          <label class="etichetta">Costo godimento beni di terzi</label>
-          <input id="FCcostoGodimentoBeniTerzi" type="number" step="0.01" name="" class="form-control"
-            oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- di cui canoni in leasing -->
-        <div class="form-group">
-          <label class="etichetta">di cui canoni in leasing</label>
-          <input id="FCdiCuiCanoniLeasing" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Costi del personale -->
-        <div class="form-group">
-          <label class="etichetta">Costi del personale</label>
-          <input id="FCcostiDelPersonale" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Inc. % sul valore produzione -->
-        <div class="form-group">
-          <label class="etichetta">Inc. % sul valore produzione</label>
-          <input id="FCincValProdCostiPersonale" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Accantonamento TFR -->
-        <div class="form-group">
-          <label class="etichetta">Accantonamento TFR</label>
-          <input id="FCaccantonamentoTFR" type="number" step="0.01" name="" class="form-control"
-            oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- Inc. % su costo personale -->
-        <div class="form-group">
-          <label class="etichetta">Inc. % su costo personale</label>
-          <input id="FCincCostoPersonale" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- utilizzi fondo TFR -->
-        <div class="form-group">
-          <label class="etichetta">utilizzi fondo TFR</label>
-          <input id="FCutilizziFondoTFR" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-
-        <!-- Accantonamenti -->
-        <div class="form-group">
-          <label class="etichetta">Accantonamenti</label>
-          <input id="FCaccantonamenti" type="number" step="0.01" name="" class="form-control"
-            oninput="forecast(); validate(this)">
-        </div>
-
-        <!-- utilizzi altri fondi -->
-        <div class="form-group">
-          <label class="etichetta">utilizzi altri fondi</label>
-          <input id="FCutilizziAltriFondi" type="number" step="0.01" name="" class="form-control" readonly>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
   <script>
     require('./index.js')
   </script>
@@ -2301,7 +2249,6 @@
   <script src="riclassificazioneSP.js"></script>
   <script src="contoEconomico.js"></script>
   <script src="riclassificazioneCE.js"></script>
-  <script src="forecast.js"></script>
   <script>
     $(document).ready(function () {
 

@@ -1,115 +1,225 @@
  html, body {
-  width: 100%;
-  height: 100%;
-  margin-top: 30px;
-  background-color: white;
-  overflow: scroll;
-}
+ 	width: 100%;
+ 	height: 100%;
+ 	margin-top: 30px;
+ 	background-color: white;
+ 	overflow: scroll;
+ }
 
-.form-group input{
-	width: 300px;
-}
+ .form-group input {
+ 	width: 300px;
+ }
 
-.dropdownRiclassificazioneSP{
-	width: 300px;
-	float: none;
-	display: inline-block;
-	vertical-align: middle;
-}
+ .dropdownRiclassificazioneSP {
+ 	width: 300px;
+ 	float: none;
+ 	display: inline-block;
+ 	vertical-align: middle;
+ }
 
-.dropdownRiclassificazioneSP tipologiaSP{
-	width: 300px;
-	float: none;
-	display: inline-block;
-	vertical-align: middle;
-}
+ .dropdownRiclassificazioneSP tipologiaSP {
+ 	width: 300px;
+ 	float: none;
+ 	display: inline-block;
+ 	vertical-align: middle;
+ }
 
-.form-group .text-area{
-	resize: none;
-	width: 40%;
-  }
+ .form-group .text-area {
+ 	resize: none;
+ 	width: 40%;
+ }
 
-h5{
-	font-weight: bold;
-	color:rgb(100, 17, 17);
+ h5 {
+ 	font-weight: bold;
+ 	color: rgb(100, 17, 17);
+ 	font-style: italic
+ }
+
+ .form-group textarea {
+ 	width: 300px;
+ }
+
+ .etichetta {
+ 	font-weight: normal !important;
+ 	width: 40%;
+ }
+
+ .form-group .totale {
+ 	background-color: rgb(204, 255, 51) !important
+ }
+
+ .etichetta, .form-group input {
+ 	float: none;
+ 	display: inline-block;
+ 	vertical-align: middle;
+ }
+
+ .bodyForm {
+ 	margin: 25px;
+ }
+
+ h2 {
+ 	display: none;
+ }
+
+ h3 {
+ 	color: rgb(100, 17, 17);
+ }
+
+ /*TAB*/
+
+ /* Stile della tab */
+
+ .tab {
+ 	overflow: hidden;
+ 	background-color: white;
+ 	position: fixed;
+ 	top: 0;
+ 	width: 95%;
+ 	color: rgb(65, 11, 11);
+ }
+
+ /* Stile dei bottoni delle tab*/
+
+ .tab button {
+ 	color: rgb(65, 11, 11);
+ 	border: 3px solid white;
+ 	background-color: rgb(217, 217, 217);
+ 	float: left;
+ 	border: 3px solid rgb(65, 11, 11);
+ 	cursor: grab;
+ 	padding: 7px 8px;
+ 	transition: 1s;
+ 	font-family: 'Segoe UI';
+ 	margin-right: 1px;
+ }
+
+ /* Cambia colore del bottone quando ci si passa sopra con il cursore */
+
+ .tab button:hover {
+ 	background-color: white;
+ 	color: rgb(65, 11, 11);
+ }
+
+ /* Stile del bottone della tab attiva */
+
+ .tab button.active {
+ 	background-color: rgb(65, 11, 11);
+ 	;
+ 	color: rgb(217, 217, 217);
+ }
+
+ /* Stile del contenuto delle tab */
+
+ .tabcontent {
+ 	display: none;
+ 	padding: 6px 12px;
+ 	border-top: none;
+ 	/*animazione:  fadeEffect 0.5s; /* Fading effect in 1 secondo */
+ }
+
+ .bottoneStampaPdf {
+ 	margin-top: 30px;
+ 	margin-left: 30px;
+ }
+
+ #FrontespizioPdf #logoCommercialisti {
+ 	margin-top: 30px;
+ 	margin-left: 30px;
+ 	scale: 0.75;
+ }
+
+ #FrontespizioPdf #logoUnicam {
+ 	margin-top: 30px;
+ 	margin-left: 250px;
+ }
+
+ #FrontespizioPdf .centroFrontespizio{
+	margin-top: 175px;
+ 	margin-left: 30px;
+ 	font-size: 35px;
+ 	text-align: center;
+ }
+
+ #labelAziendaFrontespizio {
+	color: rgb(100, 17, 17) !important;
+ }
+
+ #ragioneSocialeFrontespizio{
 	font-style: italic
-}
+ }
 
-.form-group textarea{
-width: 300px;
-}
+ #labelProfessionistaFrontespizio{
+	color: rgb(100, 17, 17) !important;
+ }
+ 
+ #professionistaFrontespizio{
+	font-style: italic
+ }
 
-.etichetta {
-	font-weight: normal !important;
-	width: 40%;
-}
+ #footerFrontespizio {
+ 	font-size: 35px;
+ 	text-align: center;
+ }
 
-.form-group .totale{
-	background-color: rgb(204, 255, 51)
-}
+/* divido in due blocchi il footer del frontespizio */
+ #footerFrontespizio span {
+ 	display: block;
+ }
 
-.etichetta, .form-group input
-{
-	float: none;
-	display: inline-block;
-	vertical-align: middle;
-}   
+ /* Go from zero to full opacity */
 
-.bodyForm{
-  margin: 25px;
-}
+ @keyframes fadeEffect {
+ 	from {
+ 		opacity: 0;
+ 	}
+ 	to {
+ 		opacity: 1;
+ 	}
+ }
 
-h3{
-	color:rgb(100, 17, 17);
-}
+ /* Istruzioni per la stampa del pdf */
 
-/*TAB*/
-/* Stile della tab */
-.tab {
-	overflow: hidden;
-	background-color:white;
-	position: fixed;
-	top: 0; 
-	width: 95%;
-	color: rgb(65, 11, 11);
-}
-
-/* Stile dei bottoni delle tab*/
-.tab button {
-	color: rgb(65, 11, 11);
-	border: 3px solid white;
-	background-color:rgb(217, 217, 217);
-	float: left;
-	border: 3px solid rgb(65, 11, 11);
-	cursor: grab;
-	padding: 7px 8px;
-	transition: 1s;
-	font-family: 'Segoe UI';
-	margin-right: 1px;
-}
-
-/* Cambia colore del bottone quando ci si passa sopra con il cursore */
-.tab button:hover {
-	background-color: white;
-	color:rgb(65, 11, 11);
-}
-
-/* Stile del bottone della tab attiva */
-.tab button.active {
-	background-color:rgb(65, 11, 11);;
-	color:rgb(217, 217, 217);
-}
-
-/* Style the tab content */
-.tabcontent {
-	display: none;
-	padding: 6px 12px;
-	border-top: none;
-	/*animation:  fadeEffect 0.5s; /* Fading effect takes 1 second */
-}
-
-/* Go from zero to full opacity */
-@keyframes fadeEffect {
-	from {opacity: 0;}
-	to {opacity: 1;}
-}
+ @media print {
+ 	/* Per stampare tutto l'html */
+ 	body {
+ 		overflow: visible !important;
+ 		-webkit-print-color-adjust: exact !important;
+ 	}
+ 	/* nascondo la scrollbar */
+ 	::-webkit-scrollbar {
+ 		width: 0px;
+ 		background: transparent;
+ 	}
+ 	/* nascondo il bottone per stampare il Pdf */
+ 	.bottoneStampaPdf {
+ 		display: none
+ 	}
+ 	/* nascondo le tab */
+ 	.tab {
+ 		display: none
+ 	}
+ 	/* rendo visibili le intestazioni delle tab, solo per stampa */
+ 	.tabcontent h2 {
+ 		display: block !important;
+ 		-webkit-print-color-adjust: exact !important;
+ 		color: rgb(100, 17, 17) !important;
+ 	}
+ 	/* mostro il contenuto di tutte le tab nella stampa, e genero un'altra pagina alla fine di ognuna */
+ 	.tabcontent {
+ 		display: block !important;
+ 		page-break-after: always;
+ 	}
+ 	/* coloro totali nella stampa del pdf */
+ 	.form-group .totale {
+ 		background-color: rgb(204, 255, 51) !important
+ 	}
+ 	#FrontespizioPdf {
+ 		-webkit-print-color-adjust: exact !important;
+ 		display: block !important;
+ 		page-break-after: always;
+ 	}
+ 	#labelAziendaFrontespizio {
+ 		-webkit-print-color-adjust: exact !important;
+ 	}
+ }
