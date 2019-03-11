@@ -483,7 +483,7 @@ function sommeRiclassificazioneSPFO() {
         document.getElementById('SPFOtotaleDebitoFinanziarioPatrimonioNetto').value = 0
     }
 
-    
+
     // ATTIVO FUNZIONE FORECAST
     forecast()
 }
