@@ -95,14 +95,16 @@ function sommeSP() {
 }
 
 function sommaImmobilizzazioniImmateriali() {
-    var arr = document.getElementsByName('immobilizzazioniImmateriali');
+    var arr = $(document.getElementsByName('immobilizzazioniImmateriali')).maskMoney('unmasked')
+    console.log("arr.lenght = " + arr.length)
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+      tot += arr[i];
     }
-    document.getElementById('totaleImmobilizzazioniImmateriali').value = tot.toFixed(2);
-}
+    console.log('tot = ' + tot)
+    $('#totaleImmobilizzazioniImmateriali').maskMoney('mask', tot);
+    console.log('tot finale = ' + $('#totaleImmobilizzazioniImmateriali').maskMoney('mask', tot))
+  }
 
 function sommaImmobilizzazioniMateriali() {
     var arr = document.getElementsByName('immobilizzazioniMateriali');
@@ -213,4 +215,3 @@ function sommaDebiti() {
     }
     document.getElementById('totaleDebiti').value = tot.toFixed(2);
 }
-
