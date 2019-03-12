@@ -96,14 +96,15 @@ function sommeSP() {
 
 function sommaImmobilizzazioniImmateriali() {
     var arr = $(document.getElementsByName('immobilizzazioniImmateriali')).maskMoney('unmasked')
-    console.log("arr.lenght = " + arr.length)
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
       tot += arr[i];
     }
     console.log('tot = ' + tot)
-    $('#totaleImmobilizzazioniImmateriali').maskMoney('mask', tot);
-    console.log('tot finale = ' + $('#totaleImmobilizzazioniImmateriali').maskMoney('mask', tot))
+    //$('#totaleImmobilizzazioniImmateriali').maskMoney('mask', tot);
+    var test = $('#totaleImmobilizzazioniImmateriali').maskMoney('mask', tot);
+    console.log('tot finale = ' + test)
+    $(document.getElementById('totaleImmobilizzazioniImmateriali')).maskMoney('mask', tot)
   }
 
 function sommaImmobilizzazioniMateriali() {
