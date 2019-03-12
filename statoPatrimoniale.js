@@ -89,9 +89,6 @@ function sommeSP() {
     
     document.getElementById('totalePassivo').value = totalePassivo.toFixed(2)
     
-    // richiamo funzioni per riclassificazione
-    sommeRiclassificazioneSPF()
-    sommeRiclassificazioneSPFO()
 }
 
 function sommaImmobilizzazioniImmateriali() {
@@ -108,111 +105,100 @@ function sommaImmobilizzazioniImmateriali() {
   }
 
 function sommaImmobilizzazioniMateriali() {
-    var arr = document.getElementsByName('immobilizzazioniMateriali');
+    var arr = $(document.getElementsByName('immobilizzazioniMateriali')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleImmobilizzazioniMateriali').value = tot.toFixed(2);
+    $(document.getElementById('totaleImmobilizzazioniMateriali')).maskMoney('mask', tot)
 }
 
 function sommaImmobilizzazioniFinanziarie() {
-    var arr = document.getElementsByName('immobilizzazioniFinanziarie');
+    var arr = $(document.getElementsByName('immobilizzazioniFinanziarie')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleImmobilizzazioniFinanziarie').value = tot.toFixed(2);
+    $(document.getElementById('totaleImmobilizzazioniFinanziarie')).maskMoney('mask', tot)
 }
 
 function sommaRimanenze() {
-    var arr = document.getElementsByName('rimanenze');
+    var arr = $(document.getElementsByName('rimanenze')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleRimanenze').value = tot.toFixed(2);
+    $(document.getElementById('totaleRimanenze')).maskMoney('mask', tot);
 }
 
 function sommaCrediti() {
-    var arr = document.getElementsByName('creditiAttivoCircolante');
+    var arr = $(document.getElementsByName('creditiAttivoCircolante')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i];
     }
-    document.getElementById('totaleCrediti').value = tot.toFixed(2);
+    $(document.getElementById('totaleCrediti')).maskMoney('mask', tot);
 }
 
 function sommaAttivitaFinanziarie() {
-    var arr = document.getElementsByName('attivitaFinanziarie');
+    var arr = $(document.getElementsByName('attivitaFinanziarie')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleAttivitaFinanziarie').value = tot.toFixed(2);
+    $(document.getElementById('totaleAttivitaFinanziarie')).maskMoney('mask', tot);
 }
 
 function sommaDisponibilitaLiquide() {
-    var arr = document.getElementsByName('disponibilitaLiquide');
+    var arr = $(document.getElementsByName('disponibilitaLiquide')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i];
     }
-    document.getElementById('totaleDisponibilitaLiquide').value = tot.toFixed(2);
+    $(document.getElementById('totaleDisponibilitaLiquide')).maskMoney('mask', tot);
 }
 
 function sommaRateiRiscontiAttivi() {
-    var arr = document.getElementsByName('rateiRiscontiAttivo');
+    var arr = $(document.getElementsByName('rateiRiscontiAttivo')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i];
     }
-    document.getElementById('totaleRateiRiscontiAttivi').value = tot.toFixed(2);
+    $(document.getElementById('totaleRateiRiscontiAttivi')).maskMoney('mask', tot);
 }
 
 function sommaPatrimonioNetto() {
-    var arr = document.getElementsByName('patrimonioNetto');
+    var arr = $(document.getElementsByName('patrimonioNetto')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totalePatrimonioNetto').value = tot.toFixed(2);
+    $(document.getElementById('totalePatrimonioNetto')).maskMoney('mask', tot);
 }
 
 function sommaFondiRischiOneri() {
-    var arr = document.getElementsByName('fondiRischiOneri');
+    var arr = $(document.getElementsByName('fondiRischiOneri')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleFondiRischiOneri').value = tot.toFixed(2);
+    $(document.getElementById('totaleFondiRischiOneri')).maskMoney('mask', tot);
 }
 
 function sommaRateiRiscontiPassivi() {
-    var arr = document.getElementsByName('rateiRiscontiPassivo');
+    var arr = $(document.getElementsByName('rateiRiscontiPassivo')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleRateiRiscontiPassivi').value = tot.toFixed(2);
+    $(document.getElementById('totaleRateiRiscontiPassivi')).maskMoney('mask', tot);
 }
 
 function sommaDebiti() {
-    var arr = document.getElementsByName('debiti');
+    var arr = $(document.getElementsByName('debiti')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleDebiti').value = tot.toFixed(2);
+    $(document.getElementById('totaleDebiti')).maskMoney('mask', tot);
 }

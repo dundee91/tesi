@@ -47,97 +47,75 @@ function sommeCE() {
     var utilePerditeEsercizio = parseFloat(risultatoPrimaDelleImposte) - parseFloat(totaleImposteRedditoEsercizio)
     document.getElementById('utilePerditeEsercizio').value = utilePerditeEsercizio.toFixed(2)
 
-    // richiamo funzioni per Riclassificazione
-    sommeRiclassificazioneCE()
 }
 
 function sommaValoreProduzione() {
-    var arr = document.getElementsByName('valoreProduzione');
+    var arr = $(document.getElementsByName('valoreProduzione')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleValoreProduzione').value = tot.toFixed(2)
+    $(document.getElementById('totaleValoreProduzione')).maskMoney('mask', tot)
 }
 
 function sommaCostiProduzione() {
-    var arr = document.getElementsByName('costiProduzione');
+    var arr = $(document.getElementsByName('costiProduzione')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
-    document.getElementById('totaleCostiProduzione').value = tot.toFixed(2)
+    $(document.getElementById('totaleCostiProduzione')).maskMoney('mask', tot)
 }
 
 function sommaProventiOneriFinanziari() {
-    var arr = document.getElementsByName('proventiOneriFinanziari');
+    var arr = $(document.getElementsByName('proventiOneriFinanziari')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i]
     }
 
-    var arrMeno = document.getElementsByName('proventiOneriFinanziariMeno');
+    var arrMeno = $(document.getElementsByName('proventiOneriFinanziariMeno')).maskMoney('unmasked');
     var totMeno = 0;
     for (var i = 0; i < arrMeno.length; i++) {
-        if (parseFloat(arrMeno[i].value))
-            totMeno += parseFloat(arrMeno[i].value);
+            totMeno += arrMeno[i]
     }
 
     var totale = parseFloat(tot) - parseFloat(totMeno)
-    document.getElementById('totaleProventiOneriFinanziari').value = totale.toFixed(2);
+    $(document.getElementById('totaleProventiOneriFinanziari')).maskMoney('mask', tot)
 }
 
 function sommaRettifiche() {
-    var arrRiv = document.getElementsByName('CErettificheRivalutazioni');
+    var arrRiv = $(document.getElementsByName('CErettificheRivalutazioni')).maskMoney('unmasked');
     var totRiv = 0;
     for (var i = 0; i < arrRiv.length; i++) {
-        if (parseFloat(arrRiv[i].value))
-        totRiv += parseFloat(arrRiv[i].value);
+        totRiv += arrRiv[i]
     }
 
-    var arrSva = document.getElementsByName('CErettificheSvalutazioni');
+    var arrSva = $(document.getElementsByName('CErettificheSvalutazioni')).maskMoney('unmasked');
     var totSva = 0;
     for (var i = 0; i < arrSva.length; i++) {
-        if (parseFloat(arrSva[i].value))
-        totSva += parseFloat(arrSva[i].value);
+        totSva += arrSva[i]
     }
 
     var tot = parseFloat(totRiv) - parseFloat(totSva)
-    document.getElementById('totaleRettifiche').value = tot.toFixed(2);
+    $(document.getElementById('totaleRettifiche')).maskMoney('mask', tot)
 }
 
 function sommaProventiOneriStraordinari() {
-    var arrProventi = document.getElementsByName('proventiStraordinari');
+    var arrProventi = $(document.getElementsByName('proventiStraordinari')).maskMoney('unmasked');
     var totProventi = 0;
     for (var i = 0; i < arrProventi.length; i++) {
-        if (parseFloat(arrProventi[i].value))
-        totProventi += parseFloat(arrProventi[i].value);
+        totProventi += arrProventi[i]
     }
-    document.getElementById('proventiStraordinari').value = totProventi.toFixed(2);
+    $(document.getElementById('proventiStraordinari')).maskMoney('mask', tot)
 
-    var arrOneri = document.getElementsByName('oneriStraordinari');
+    var arrOneri = $(document.getElementsByName('oneriStraordinari')).maskMoney('unmasked');
     var totOneri = 0;
     for (var i = 0; i < arrOneri.length; i++) {
-        if (parseFloat(arrOneri[i].value))
-        totOneri += parseFloat(arrOneri[i].value);
+        totOneri += arrOneri[i]
     }
-    document.getElementById('oneriStraordinari').value = totOneri.toFixed(2);
+    $(document.getElementById('oneriStraordinari')).maskMoney('mask', tot)
 
     var tot = parseFloat(totProventi) - parseFloat(totOneri)
-    document.getElementById('totalePartiteStraordinarie').value = tot.toFixed(2);
-}
-
-const formatter = new Intl.NumberFormat('de-DE', {
-    style:'currency', currency:'EUR'
-})
-
-function prova(e){
-console.log("e :" + e.value)
-console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(e.value));
-// expected output: "123.456,79 €"
-var t = e.value
-e.value = formatter.format(t)
+    $(document.getElementById('totalePartiteStraordinarie')).maskMoney('mask', tot)
 }
