@@ -30,7 +30,7 @@ function sommeSP() {
     var totaleCrediti = $('#totaleCrediti').maskMoney('unmasked')[0]
     var totaleAttivitaFinanziarie = $('#totaleAttivitaFinanziarie').maskMoney('unmasked')[0]
     var totaleDisponibilitaLiquide = $('#totaleDisponibilitaLiquide').maskMoney('unmasked')[0]
-    var totaleAttivoCircolante = totaleRimanenze + totaleCrediti + totaleAttivitaFinanziarie + totaleDisponibilitaLiquide
+    var totaleAttivoCircolante = parseFloat(totaleRimanenze) + parseFloat(totaleCrediti) + parseFloat(totaleAttivitaFinanziarie) + parseFloat(totaleDisponibilitaLiquide)
     $('#totaleAttivoCircolante').maskMoney('mask', totaleAttivoCircolante)[0]
     // per riclassificazione finanziario e funzionale
     $('#SPFmagazzino').maskMoney('mask', totaleRimanenze)[0]
@@ -42,7 +42,7 @@ function sommeSP() {
     var totaleRateiRiscontiAttivi = $('#totaleRateiRiscontiAttivi').maskMoney('unmasked')[0]
 
     // TOTALE ATTIVO
-    totaleAttivo = totaleCreditiVersoSoci + totaleImmobilizzazioni + totaleAttivoCircolante + totaleRateiRiscontiAttivi
+    totaleAttivo = parseFloat(totaleCreditiVersoSoci) + parseFloat(totaleImmobilizzazioni) + parseFloat(totaleAttivoCircolante) + parseFloat(totaleRateiRiscontiAttivi)
     $('#totaleAttivo').maskMoney('mask', totaleAttivo)[0]
 
     /* PASSIVO */
@@ -56,8 +56,7 @@ function sommeSP() {
     var totaleFondiRischiOneri = $('#totaleFondiRischiOneri').maskMoney('unmasked')[0]
 
     // C) Trattamento Fine Rapporto
-    var trattamentoFineRapportoSP = $('#trattamentoFineRapportoSP').maskMoney('unmasked')[0]
-    var totaleTrattamentoFineRapporto = trattamentoFineRapportoSP
+    var totaleTrattamentoFineRapporto = $('#trattamentoFineRapportoSP').maskMoney('unmasked')[0]
 
     // D) Debiti
     sommaDebiti()
@@ -68,7 +67,8 @@ function sommeSP() {
     var totaleRateiRiscontiAttivi = $('#totaleRateiRiscontiPassivi').maskMoney('unmasked')[0]
 
     // TOTALE PASSIVO
-    totalePassivo = totalePatrimonioNetto + totaleFondiRischiOneri + totaleTrattamentoFineRapporto + totaleDebiti + totaleRateiRiscontiAttivi
+    totalePassivo = parseFloat(totalePatrimonioNetto) + parseFloat(totaleFondiRischiOneri) + parseFloat(totaleTrattamentoFineRapporto) + 
+    parseFloat(totaleDebiti) + parseFloat(totaleRateiRiscontiAttivi)
     $('#totalePassivo').maskMoney('mask', totalePassivo)[0]    
 }
 

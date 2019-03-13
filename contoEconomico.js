@@ -8,7 +8,7 @@ function sommeCE() {
     var totaleCostiProduzione = $('#totaleCostiProduzione').maskMoney('unmasked')[0]
 
     // Differenza tra Valore e Costi di Produzione
-    var differenzaValoreCostiProduzione = totaleValoreProduzione - totaleCostiProduzione
+    var differenzaValoreCostiProduzione = parseFloat(totaleValoreProduzione) - parseFloat(totaleCostiProduzione)
     $('#differenzaValoreCostiProduzione').maskMoney('mask',differenzaValoreCostiProduzione)[0]
 
     // C) Proventi e oneri finanziari
@@ -24,14 +24,15 @@ function sommeCE() {
     var totalePartiteStraordinarie = $('#totalePartiteStraordinarie').maskMoney('unmasked')[0]
 
     // Risultato prima delle imposte
-    var risultatoPrimaDelleImposte = totaleValoreProduzione - totaleCostiProduzione + totaleProventiOneriFinanziari + totaleRettifiche + totalePartiteStraordinarie
+    var risultatoPrimaDelleImposte = parseFloat(totaleValoreProduzione) + parseFloat(totaleProventiOneriFinanziari) + 
+    parseFloat(totaleRettifiche) + parseFloat(totalePartiteStraordinarie) - parseFloat(totaleCostiProduzione)
     $('#risultatoPrimaImposte').maskMoney('mask',risultatoPrimaDelleImposte)[0]
 
     // Imposte
     var totaleImposteRedditoEsercizio = $('#imposteRedditoEsercizio').maskMoney('unmasked')[0]
 
     // Utile (perdite) dell'esercizio
-    var utilePerditeEsercizio = risultatoPrimaDelleImposte - totaleImposteRedditoEsercizio
+    var utilePerditeEsercizio = parseFloat(risultatoPrimaDelleImposte) - parseFloat(totaleImposteRedditoEsercizio)
     $('#utilePerditeEsercizio').maskMoney('mask', utilePerditeEsercizio)[0]
 }
 
@@ -67,7 +68,7 @@ function sommaProventiOneriFinanziari() {
     }
 
     var totale = tot - totMeno
-    $('#totaleProventiOneriFinanziari').maskMoney('mask', tot)[0]
+    $('#totaleProventiOneriFinanziari').maskMoney('mask', totale)[0]
 }
 
 function sommaRettifiche() {
@@ -93,14 +94,14 @@ function sommaProventiOneriStraordinari() {
     for (var i = 0; i < arrProventi.length; i++) {
         totProventi += arrProventi[i]
     }
-    $('#proventiStraordinari').maskMoney('mask', tot)[0]
+    $('#proventiStraordinari').maskMoney('mask', totProventi)[0]
 
     var arrOneri = $(document.getElementsByName('oneriStraordinari')).maskMoney('unmasked');
     var totOneri = 0;
     for (var i = 0; i < arrOneri.length; i++) {
         totOneri += arrOneri[i]
     }
-    $('#oneriStraordinari').maskMoney('mask', tot)[0]
+    $('#oneriStraordinari').maskMoney('mask', totOneri)[0]
 
     var tot = totProventi - totOneri
     $('#totalePartiteStraordinarie').maskMoney('mask', tot)[0]

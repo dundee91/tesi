@@ -5,83 +5,95 @@ function forecast() {
     /* Tab. 1 - Ricavi e costi operativi */
 
     // Ricavi vendite
-    document.getElementById('FCricaviVendite').value = parseFloat(document.getElementById('CEtotaleValoreProduzione').value)
+    var FCricaviVendite = $('#CEtotaleValoreProduzione').maskMoney('unmasked')[0]
+    $('#FCricaviVendite').maskMoney('mask',FCricaviVendite)[0]
 
     // Consumi di merci
-    document.getElementById('FCconsumiMerci').value = parseFloat(document.getElementById('CEconsumoMateriePrime').value)
+    var FCconsumiMerci = $('#CEconsumoMateriePrime').maskMoney('unmasked')[0]
+    $('#FCconsumiMerci').maskMoney('mask',FCconsumiMerci)[0]
 
     // Inc. % sul valore produzione
-    var incValProdConsumiMerci = 
+    var SPFfondoTFR = 
     (
-    parseFloat(document.getElementById('CEconsumoMateriePrime').value) / 
-    parseFloat(document.getElementById('CEtotaleValoreProduzione').value)
+        $('#CEconsumoMateriePrime').maskMoney('unmasked')[0] /
+        $('#CEtotaleValoreProduzione').maskMoney('unmasked')[0]
     ) * 100
 
-    document.getElementById('FCincValProdConsumiMerci').value = incValProdConsumiMerci.toFixed(2)
+    $('#SPFfondoTFR').maskMoney({suffix:" %"},SPFfondoTFR)[0]
 
     // di cui canoni in leasing
-    document.getElementById('FCdiCuiCanoniLeasing').value = - parseFloat(document.getElementById('CEcanoniLeasing').value)
+    var FCdiCuiCanoniLeasing = $('#CEcanoniLeasing').maskMoney('unmasked')[0]
+    $('#FCdiCuiCanoniLeasing').maskMoney('mask',FCdiCuiCanoniLeasing)[0]
 
     // Costi del personale
-    document.getElementById('FCcostiDelPersonale').value = - parseFloat(document.getElementById('CEcostiPersonale').value)
+    var FCcostiDelPersonale = $('#CEcostiPersonale').maskMoney('unmasked')[0]
+    $('#FCcostiDelPersonale').maskMoney('mask',FCcostiDelPersonale)[0]
 
-    // Inc. % sul valore produzione
+    // Inc. % sul valore produzione    
     var FCincValProdCostiPersonale = 
     (
-    parseFloat(document.getElementById('FCcostiDelPersonale').value) / 
-    parseFloat(document.getElementById('CEtotaleValoreProduzione').value)
+        $('#FCcostiDelPersonale').maskMoney('unmasked')[0] /
+        $('#CEtotaleValoreProduzione').maskMoney('unmasked')[0]
     ) * 100
 
-    document.getElementById('FCincValProdCostiPersonale').value = FCincValProdCostiPersonale.toFixed(2)
+    $('#FCincValProdCostiPersonale').maskMoney({suffix:" %"},FCincValProdCostiPersonale)[0]
 
     // Inc. % su costo personale
     var FCincCostoPersonale = 
     (
-    parseFloat(document.getElementById('FCaccantonamentoTFR').value) / 
-    parseFloat(document.getElementById('FCincValProdCostiPersonale').value)
+        $('#FCaccantonamentoTFR').maskMoney('unmasked')[0] /
+        $('#FCincValProdCostiPersonale').maskMoney('unmasked')[0]
     ) * 100
 
-    document.getElementById('FCincCostoPersonale').value = FCincCostoPersonale.toFixed(2)
+    $('#FCincCostoPersonale').maskMoney({suffix:" %"},FCincCostoPersonale)[0]
 
     // utilizzi fondo TFR
-    document.getElementById('FCutilizziFondoTFR').value = 
-    parseFloat(document.getElementById('FCaccantonamentoTFR').value) - 
-    parseFloat(document.getElementById('SPFfondoTFR').value) 
+    var FCutilizziFondoTFR =
+    $('#FCaccantonamentoTFR').maskMoney('unmasked')[0] -
+    $('#SPFfondoTFR').maskMoney('unmasked')[0]
+
+    $('#FCutilizziFondoTFR').maskMoney('mask',FCutilizziFondoTFR)[0]
 
     // utilizzi altri fondi
-    document.getElementById('FCutilizziAltriFondi').value = 
-    parseFloat(document.getElementById('FCaccantonamenti').value) - 
-    parseFloat(document.getElementById('SPFaltriFondi').value)   
+    var FCutilizziAltriFondi =
+    $('#FCaccantonamenti').maskMoney('unmasked')[0] -
+    $('#SPFaltriFondi').maskMoney('unmasked')[0]
+
+    $('#FCutilizziAltriFondi').maskMoney('mask',FCutilizziAltriFondi)[0]
 
     /* Tab. 2 - Capitale circolante */
     // crediti verso clienti
-    document.getElementById('FCcreditiVersoClienti').value =
-    (parseFloat(document.getElementById('SPFcreditiCommerciali').value) /
-    (parseFloat(document.getElementById('CEricaviVendite').value) / 365)).toFixed(2)  
+    var FCcreditiVersoClienti = 
+    $('#SPFcreditiCommerciali').maskMoney('unmasked')[0] /
+    ($('#CEricaviVendite').maskMoney('unmasked')[0] / 365)
+
+    $('#FCcreditiVersoClienti').maskMoney('mask',FCcreditiVersoClienti)[0]
     
     // Debiti verso fornitori
-    document.getElementById('FCdebitiVersoFornitori').value =
-    (parseFloat(document.getElementById('SPFdebitiCommercialiFornitori').value) /
-    ((parseFloat(document.getElementById('CEconsumoMateriePrime').value) + parseFloat(document.getElementById('CEtotaleConsumiEsterni').value)) / 365)).toFixed(2)
+    var FCdebitiVersoFornitori = 
+    $('#SPFdebitiCommercialiFornitori').maskMoney('unmasked')[0] /
+    (($('#CEconsumoMateriePrime').maskMoney('unmasked')[0] + $('#CEtotaleConsumiEsterni').maskMoney('unmasked')[0]) / 365)
+
+    $('#FCdebitiVersoFornitori').maskMoney('mask',FCdebitiVersoFornitori)[0]
 
     // Magazzino materie prime
-    try{
-        console.log(parseFloat(document.getElementById('SPFmateriePrime').value))
-        document.getElementById('FCmagazzinoMateriePrime').value =
-        (parseFloat(document.getElementById('SPFmateriePrime').value) /
-        (parseFloat(document.getElementById('CEconsumoMateriePrime').value) / 365)).toFixed(2)   
-    }
-    catch(error){
-        console.log("catch")
-        console.log(error)
-    }
+    var FCmagazzinoMateriePrime = 
+    $('#SPFmateriePrime').maskMoney('unmasked')[0] /
+    ($('#CEconsumoMateriePrime').maskMoney('unmasked')[0] / 365)
+
+    $('#FCmagazzinoMateriePrime').maskMoney('mask',FCmagazzinoMateriePrime)[0]
 
     // Magazzino prodotti finiti
-    document.getElementById('FCmagazzinoProdottiFiniti').value = 
-    (parseFloat(document.getElementById('SPFprodottiFiniti').value) /
-    (parseFloat(document.getElementById('CEproduzioneInterna').value) / 365)).toFixed(2) 
+    var FCmagazzinoProdottiFiniti = 
+    $('#SPFprodottiFiniti').maskMoney('unmasked')[0] /
+    ($('#CEproduzioneInterna').maskMoney('unmasked')[0] / 365)
+
+    $('#FCmagazzinoProdottiFiniti').maskMoney('mask',FCmagazzinoProdottiFiniti)[0]
     
     // Altri crediti e Liquidità
-    document.getElementById('FCaltriCreditiLiquidita').value =
-    (parseFloat(document.getElementById('SPFaltriCrediti').value) + parseFloat(document.getElementById('SPFliquidita').value)).toFixed(2)
+    var FCaltriCreditiLiquidita =
+    $('#SPFaltriCrediti').maskMoney('unmasked')[0] +
+    $('#SPFliquidita').maskMoney('unmasked')[0]
+
+    $('#FCaltriCreditiLiquidita').maskMoney('mask',FCaltriCreditiLiquidita)[0]
 }
