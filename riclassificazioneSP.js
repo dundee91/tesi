@@ -5,611 +5,519 @@ function sommeRiclassificazioneSPF() {
     // A) TOTALE IMMOBILIZZAZIONI NETTE
 
     // Immobilizzazioni finanziarie e crediti infragruppo a m/l termine
-    try {
-        document.getElementById('SPFimmobilizzazioniFinanziarie').value =
-            parseFloat(document.getElementById('impreseControllate').value) +
-            parseFloat(document.getElementById('impreseCollegate').value) +
-            parseFloat(document.getElementById('impreseControllanti').value) +
-            parseFloat(document.getElementById('altreImprese').value) +
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value) +
-            parseFloat(document.getElementById('altriTitoliImmobilizzazioni').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteClientiOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllateOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseCollegateOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllantiOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteCreditiTributariOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImposteAnticipateOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseOltre12Mesi').value) +
-            parseFloat(document.getElementById('accontiOltre12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFimmobilizzazioniFinanziarie').value = 0
-    }
+    var SPFimmobilizzazioniFinanziarie =
+        $('#impreseControllate').maskMoney('unmasked')[0] +
+        $('#impreseCollegate').maskMoney('unmasked')[0] +
+        $('#impreseControllanti').maskMoney('unmasked')[0] +
+        $('#altreImprese').maskMoney('unmasked')[0] +
+        $('#creditiImmobilizzazioniImpreseControllateOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiImmobilizzazioniImpreseCollegateOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiImmobilizzazioniImpreseControllantiOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiImmobilizzazioniAltreImpreseOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#altriTitoliImmobilizzazioni').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteClientiOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteImpreseControllateOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteImpreseCollegateOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteImpreseControllantiOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteCreditiTributariOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteImposteAnticipateOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteAltreImpreseOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#accontiOltre12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFimmobilizzazioniFinanziarie').maskMoney('mask', SPFimmobilizzazioniFinanziarie)[0]
 
     RFIsommaImmobilizzazioniNette()
-    var totaleImmobilizzazioniNette = document.getElementById('SPFtotaleImmobilizzazioniNette').value
+    var totaleImmobilizzazioniNette = $('#SPFtotaleImmobilizzazioniNette').maskMoney('unmasked')[0]
 
     // B) TOTALE ATTIVO CIRCOLANTE
 
     // crediti commerciali
-    if ((document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value) != null &&
-        (document.getElementById('accontiEntro12Mesi').value) != null) {
-        document.getElementById('SPFcreditiCommerciali').value =
-            parseFloat(document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value) -
-            parseFloat(document.getElementById('accontiEntro12Mesi').value)
-    }
-    else {
-        document.getElementById('SPFcreditiCommerciali').value = 0
-    }
-    // altri crediti
-    try {
-        document.getElementById('SPFaltriCrediti').value =
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFaltriCrediti').value = 0
-    }
-    // ratei e risconti attivi
-    document.getElementById('SPFrateiRiscontiAttivi').value = document.getElementById('rateiRiscontiAttivo').value
-    // liquidità
-    try {
-        document.getElementById('SPFliquidita').value =
-            parseFloat(document.getElementById('partecipazioniImpreseControllate').value) +
-            parseFloat(document.getElementById('partecipazioniImpreseCollegate').value) +
-            parseFloat(document.getElementById('partecipazioniImpreseControllanti').value) +
-            parseFloat(document.getElementById('altrePartecipazioni').value) +
-            parseFloat(document.getElementById('altriTitoliAttivoCircolante').value) +
-            parseFloat(document.getElementById('depositiBancariPostali').value) +
-            parseFloat(document.getElementById('assegni').value) +
-            parseFloat(document.getElementById('danaroValoriCassa').value)
-    }
-    catch (error) {
-        document.getElementById('SPFliquidita').value = 0
-        console.log(document.getElementById('SPFliquidita').value)
-    }
+    var SPFcreditiCommerciali = $('#creditiAttivoCircolanteClientiEntro12Mesi').maskMoney('unmasked')[0] - $('#accontiEntro12Mesi').maskMoney('unmasked')[0]
+    $('#SPFcreditiCommerciali').maskMoney('mask', SPFcreditiCommerciali)[0]
 
+    // altri crediti
+    var SPFaltriCrediti = $('#creditiImmobilizzazioniImpreseControllateEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiImmobilizzazioniImpreseCollegateEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiImmobilizzazioniImpreseControllantiEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiImmobilizzazioniAltreImpreseEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteImpreseControllateEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteImpreseCollegateEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteImpreseControllantiEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteCreditiTributariEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteImposteAnticipateEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#creditiAttivoCircolanteAltreImpreseEntro12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFaltriCrediti').maskMoney('mask', SPFaltriCrediti)[0]
+
+    // ratei e risconti attivi
+    var SPFrateiRiscontiAttivi = $('#rateiRiscontiAttivo').maskMoney('unmasked')[0]
+    $('#SPFrateiRiscontiAttivi').maskMoney('mask', SPFrateiRiscontiAttivi)[0]
+
+    // liquidità
+    var SPFliquidita =
+        $('#partecipazioniImpreseControllate').maskMoney('unmasked')[0] +
+        $('#partecipazioniImpreseCollegate').maskMoney('unmasked')[0] +
+        $('#partecipazioniImpreseControllanti').maskMoney('unmasked')[0] +
+        $('#altrePartecipazioni').maskMoney('unmasked')[0] +
+        $('#altriTitoliAttivoCircolante').maskMoney('unmasked')[0] +
+        $('#depositiBancariPostali').maskMoney('unmasked')[0] +
+        $('#assegni').maskMoney('unmasked')[0] +
+        $('#danaroValoriCassa').maskMoney('unmasked')[0]
+
+    $('#SPFliquidita').maskMoney('mask', SPFliquidita)[0]
 
     RFIsommaAttivoCircolante()
-    var totaleAttivoCircolante = document.getElementById('SPFtotaleAttivoCircolante').value
+    var totaleAttivoCircolante = $('#SPFtotaleAttivoCircolante').maskMoney('unmasked')[0]
 
     //  C) TOTALE ATTIVO (A+B)
-    var totaleAttivo = parseFloat(totaleImmobilizzazioniNette) + parseFloat(totaleAttivoCircolante)
-    document.getElementById('SPFtotaleAttivo').value = totaleAttivo.toFixed(2)
+    var totaleAttivo = totaleImmobilizzazioniNette + totaleAttivoCircolante
+    $('#SPFtotaleAttivo').maskMoney('mask', SPFtotaleAttivo)[0]
 
     // F) PATRIMONIO NETTO
 
     // capitale sociale
-    try {
-        document.getElementById('SPFcapitaleSociale').value =
-            parseFloat(document.getElementById('creditiVersoSoci').value) -
-            parseFloat(document.getElementById('azioniProprieImmobilizzazioniFinanziarie').value) -
-            parseFloat(document.getElementById('azioniProprieAttivitaFinanziarie').value) +
-            parseFloat(document.getElementById('capitale').value)
-    }
-    catch (error) {
-        document.getElementById('SPFcapitaleSociale').value = 0
-    }
+    var SPFcapitaleSociale =
+        $('#creditiVersoSoci').maskMoney('unmasked')[0] -
+        $('#azioniProprieImmobilizzazioniFinanziarie').maskMoney('unmasked')[0] -
+        $('#azioniProprieAttivitaFinanziarie').maskMoney('unmasked')[0] +
+        $('#capitale').maskMoney('unmasked')[0]
+
+    $('#SPFcapitaleSociale').maskMoney('mask', SPFcapitaleSociale)[0]
+
     // riserve
-    try {
-        document.getElementById('SPFriserve').value =
-            parseFloat(document.getElementById('riservaSovrapprezzoAzioni').value) +
-            parseFloat(document.getElementById('riserveRivalutazione').value) +
-            parseFloat(document.getElementById('riservaLegale').value) +
-            parseFloat(document.getElementById('riservaAzioniProprie').value) +
-            parseFloat(document.getElementById('riserveStatutarie').value) +
-            parseFloat(document.getElementById('altreRiserve').value) +
-            parseFloat(document.getElementById('utilePortatoNuovo').value)
-    }
-    catch (error) {
-        document.getElementById('SPFriserve').value = 0
-    }
+    var SPFriserve =
+        $('#riservaSovrapprezzoAzioni').maskMoney('unmasked')[0] +
+        $('#riserveRivalutazione').maskMoney('unmasked')[0] +
+        $('#riservaLegale').maskMoney('unmasked')[0] +
+        $('#riservaAzioniProprie').maskMoney('unmasked')[0] +
+        $('#riserveStatutarie').maskMoney('unmasked')[0] +
+        $('#altreRiserve').maskMoney('unmasked')[0] +
+        $('#utilePortatoNuovo').maskMoney('unmasked')[0]
+
+    $('#SPFriserve').maskMoney('mask', SPFriserve)[0]
+
     // reddito netto
-    document.getElementById('SPFredditoNetto').value = document.getElementById('utileEsercizio').value
+    var SPFredditoNetto = $('#utileEsercizio').maskMoney('unmasked')[0]
+    $('#SPFredditoNetto').maskMoney('mask', SPFredditoNetto)[0]
 
     RFIsommaPatrimonioNettoSPF()
-    var totalePatrimonioNetto = document.getElementById('SPFtotalePatrimonioNetto').value
+    var totalePatrimonioNetto = $('#SPFtotalePatrimonioNetto').maskMoney('unmasked')[0]
 
 
     // E) PASSIVO A M/L TERMINE
 
     // Debiti finanziari a medio - lungo termine
-    try {
-        document.getElementById('SPFdebitiFinanziariMlTermine').value =
-            parseFloat(document.getElementById('obbligazioniOltre12Mesi').value) +
-            parseFloat(document.getElementById('obbligazioniConvertibiliOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoBancheOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoAltriFinanziatoriOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoImpreseCollegateOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoControllantiOltre12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFdebitiFinanziariMlTermine').value = 0
-    }
+    var SPFdebitiFinanziariMlTermine =
+        $('#obbligazioniOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#obbligazioniConvertibiliOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoSociFinanziamentiOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoBancheOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoAltriFinanziatoriOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoImpreseControllateOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoImpreseCollegateOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoControllantiOltre12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFdebitiFinanziariMlTermine').maskMoney('mask', SPFdebitiFinanziariMlTermine)[0]
+
     // Altri debiti a medio - lungo termine
-    try {
-        document.getElementById('SPFaltriDebiti').value =
-            parseFloat(document.getElementById('debitiVersoFornitoriOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiRappresentatiTitoliCreditoOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiTributariOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoIstituiPrevidenzaOltre12Mesi').value) +
-            parseFloat(document.getElementById('altriDebitiOltre12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFaltriDebiti').value = 0
-    }
+    var SPFaltriDebiti =
+        $('#debitiVersoFornitoriOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiRappresentatiTitoliCreditoOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiTributariOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoIstituiPrevidenzaOltre12Mesi').maskMoney('unmasked')[0] +
+        $('#altriDebitiOltre12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFaltriDebiti').maskMoney('mask', SPFaltriDebiti)[0]
+
     // fondo tfr
-    document.getElementById('SPFfondoTFR').value = document.getElementById('trattamentoFineRapportoSP').value
+    var SPFfondoTFR = $('#trattamentoFineRapportoSP').maskMoney('unmasked')[0]
+    $('#SPFfondoTFR').maskMoney('mask', SPFfondoTFR)[0]
+
     // Altri fondi
-    try {
-        document.getElementById('SPFaltriFondi').value =
-            parseFloat(document.getElementById('trattamentoQuiescenzaObblighiSimili').value) +
-            parseFloat(document.getElementById('imposteAncheDifferite').value) +
-            parseFloat(document.getElementById('altriFondi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFaltriFondi').value = 0
-    }
+    var SPFaltriFondi =
+        $('#trattamentoQuiescenzaObblighiSimili').maskMoney('unmasked')[0] +
+        $('#imposteAncheDifferite').maskMoney('unmasked')[0] +
+        $('#altriFondi').maskMoney('unmasked')[0]
+
+    $('#SPFaltriFondi').maskMoney('mask', SPFaltriFondi)[0]
+
     RFIsommaPassivoMlTermine()
-    var totalePassivoMlTermine = document.getElementById('SPFtotalePassivoMlTermine').value
+    var totalePassivoMlTermine = $('#SPFtotalePassivoMlTermine').maskMoney('unmasked')[0]
 
     // D) PASSIVO A BREVE TERMINE
 
     // Debiti finanziari a breve termine
-    try {
-        document.getElementById('SPFdebitiFinanziariBreveTermine').value =
-            parseFloat(document.getElementById('obbligazioniEntro12Mesi').value) +
-            parseFloat(document.getElementById('obbligazioniConvertibiliEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoBancheEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoAltriFinanziatoriEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoControllantiEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFdebitiFinanziariBreveTermine').value = 0
-    }
-    // Debiti commerciali verso fornitori
-    try {
-        document.getElementById('SPFdebitiCommercialiFornitori').value =
-            parseFloat(document.getElementById('debitiVersoFornitoriEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFdebitiCommercialiFornitori').value = 0
-    }
-    // Altri debiti non finanziari
-    try {
-        document.getElementById('SPFaltriDebitiNonFinanziari').value =
-            parseFloat(document.getElementById('debitiTributariEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value) +
-            parseFloat(document.getElementById('altriDebitiEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFaltriDebitiNonFinanziari').value = 0
-    }
-    // Ratei e risconti passivi
-    document.getElementById('SPFrateiRiscontiPassivi').value = document.getElementById('rateiRiscontiPassivo').value
+    var SPFdebitiFinanziariBreveTermine =
+        $('#obbligazioniEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#obbligazioniConvertibiliEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoSociFinanziamentiEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoBancheEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoAltriFinanziatoriEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoImpreseControllateEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoImpreseCollegateEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoControllantiEntro12Mesi').maskMoney('unmasked')[0]
 
+    $('#SPFdebitiFinanziariBreveTermine').maskMoney('mask', SPFdebitiFinanziariBreveTermine)[0]
+
+    // Debiti commerciali verso fornitori
+    var SPFdebitiCommercialiFornitori =
+        $('#debitiVersoFornitoriEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiRappresentatiTitoliCreditoEntro12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFdebitiCommercialiFornitori').maskMoney('mask', SPFdebitiCommercialiFornitori)[0]
+
+    // Altri debiti non finanziari
+    var SPFaltriDebitiNonFinanziari =
+        $('#debitiTributariEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#debitiVersoIstituiPrevidenzaEntro12Mesi').maskMoney('unmasked')[0] +
+        $('#altriDebitiEntro12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFaltriDebitiNonFinanziari').maskMoney('mask', SPFaltriDebitiNonFinanziari)[0]
+
+    // Ratei e risconti passivi
+    var SPFrateiRiscontiPassivi = $('#rateiRiscontiPassivo').maskMoney('unmasked')[0]
+    $('#SPFrateiRiscontiPassivi').maskMoney('mask', SPFrateiRiscontiPassivi)[0]
 
     RFIsommaPassivoBreveTermine()
-    var totalePassivoBreveTermine = document.getElementById('SPFtotalePassivoBreveTermine').value
+    var totalePassivoBreveTermine = $('#SPFtotalePassivoBreveTermine').maskMoney('unmasked')[0]
+    $('#totalePassivoBreveTermine').maskMoney('mask', totalePassivoBreveTermine)[0]
 
     // (G) TOTALE PASSIVO E PATRIMONIO NETTO (D+E+F)
-    var totalePassivoPatrimonioNetto = parseFloat(totalePatrimonioNetto) + parseFloat(totalePassivoMlTermine) + parseFloat(totalePassivoBreveTermine)
-    document.getElementById('SPFtotalePassivoPatrimonioNetto').value = totalePassivoPatrimonioNetto.toFixed(2)
+    var totalePassivoPatrimonioNetto = totalePatrimonioNetto + totalePassivoMlTermine + totalePassivoBreveTermine
+    $('#SPFtotalePassivoPatrimonioNetto').maskMoney('mask', totalePassivoPatrimonioNetto)[0]
 
     // EVENTUALE SQUADRATURA ATTIVO/PASS
-    var eventualeSquadraturaAttivoPass = parseFloat(totaleAttivo) - parseFloat(totalePassivoPatrimonioNetto)
-    document.getElementById('SPFeventualeSquadraturaAttivoPass').value = eventualeSquadraturaAttivoPass.toFixed(2)
-
-
-    // ATTIVO FUNZIONE FORECAST
-    forecast()
+    var eventualeSquadraturaAttivoPass = totaleAttivo - totalePassivoPatrimonioNetto
+    $('#SPFeventualeSquadraturaAttivoPass').maskMoney('mask', eventualeSquadraturaAttivoPass)[0]
 }
 
 function sommeRiclassificazioneSPFO() {
 
     // Immobilizzazioni finanziarie nette
-    try {
-        document.getElementById('SPFOimmobilizzazioniFinanziarieNette').value =
-            parseFloat(document.getElementById('impreseControllate').value) +
-            parseFloat(document.getElementById('impreseCollegate').value) +
-            parseFloat(document.getElementById('impreseControllanti').value) +
-            parseFloat(document.getElementById('altreImprese').value) +
-            parseFloat(document.getElementById('altriTitoliImmobilizzazioni').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteClientiOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteCreditiTributariOltre12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseOltre12Mesi').value) -
-            parseFloat(document.getElementById('accontiOltre12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOimmobilizzazioniFinanziarieNette').value = 0
-    }
+    var SPFOimmobilizzazioniFinanziarieNette =
+    $('#impreseControllate').maskMoney('unmasked')[0] +
+    $('#impreseCollegate').maskMoney('unmasked')[0] +
+    $('#impreseControllanti').maskMoney('unmasked')[0] +
+    $('#altreImprese').maskMoney('unmasked')[0] +
+    $('#altriTitoliImmobilizzazioni').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteClientiOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteCreditiTributariOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteImposteAnticipateEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteAltreImpreseOltre12Mesi').maskMoney('unmasked')[0] -
+    $('#accontiOltre12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOimmobilizzazioniFinanziarieNette').maskMoney('mask',SPFOimmobilizzazioniFinanziarieNette )[0]
 
     // A) TOTALE IMMOBILIZZAZIONI NETTE
     RFOsommaImmobilizzazioniNette()
 
     // Crediti verso clienti
-    try {
-        document.getElementById('SPFOcreditiVersoClienti').value =
-            parseFloat(document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value) -
-            parseFloat(document.getElementById('accontiEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOcreditiVersoClienti').value = 0
-    }
+    var SPFOcreditiVersoClienti =
+    $('#creditiAttivoCircolanteClientiEntro12Mesi').maskMoney('unmasked')[0] -
+    $('#accontiEntro12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOcreditiVersoClienti').maskMoney('mask',SPFOcreditiVersoClienti)[0]    
 
     // Altri crediti
-    try {
-        document.getElementById('SPFOaltriCrediti').value =
-            parseFloat(document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOaltriCrediti').value = 0
-    }
+    var SPFOaltriCrediti =
+    $('#creditiAttivoCircolanteCreditiTributariEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteImposteAnticipateEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteAltreImpreseEntro12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOaltriCrediti').maskMoney('mask',SPFOaltriCrediti)[0]       
 
     // Ratei e risconti attivi
-    document.getElementById('SPFOrateiRiscontiAttivi').value = document.getElementById('totaleRateiRiscontiAttivi').value
+    var SPFOrateiRiscontiAttivi = $('#totaleRateiRiscontiAttivi').maskMoney('unmasked')[0]
+    $('#SPFOrateiRiscontiAttivi').maskMoney('mask',SPFOrateiRiscontiAttivi)[0]
 
     // B) ATTIVO COMMERCIALE
     RFOsommaAttivoCommerciale()
 
     // Altri crediti
-    try {
-        document.getElementById('SPFOaltriCrediti').value =
-            parseFloat(document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value) +
-            parseFloat(document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOaltriCrediti').value = 0
-    }
+    var SPFOaltriCrediti =
+    $('#creditiAttivoCircolanteCreditiTributariEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteImposteAnticipateEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteAltreImpreseEntro12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOaltriCrediti').maskMoney('mask',SPFOaltriCrediti )[0]
 
     // Debiti verso fornitori
-    try {
-        document.getElementById('SPFOdebitiVersoFornitori').value =
-            parseFloat(document.getElementById('debitiVersoFornitoriEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOdebitiVersoFornitori').value = 0
-    }
+    var SPFOdebitiVersoFornitori =
+    $('#debitiVersoFornitoriEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiRappresentatiTitoliCreditoEntro12Mesi').maskMoney('unmasked')[0]
 
+    $('#SPFOdebitiVersoFornitori').maskMoney('mask',SPFOdebitiVersoFornitori )[0]
+  
     // Altri debiti non finanziari
-    try {
-        document.getElementById('SPFOaltriDebitiNonFinanziari').value =
-            parseFloat(document.getElementById('debitiVersoFornitoriOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiRappresentatiTitoliCreditoOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiTributariEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiTributariOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoIstituiPrevidenzaOltre12Mesi').value) +
-            parseFloat(document.getElementById('altriDebitiEntro12Mesi').value) +
-            parseFloat(document.getElementById('altriDebitiOltre12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOaltriDebitiNonFinanziari').value = 0
-    }
+    var SPFOaltriDebitiNonFinanziari =
+    $('#debitiVersoFornitoriOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiRappresentatiTitoliCreditoOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiTributariEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiTributariOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoIstituiPrevidenzaEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoIstituiPrevidenzaOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#altriDebitiEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#altriDebitiOltre12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOaltriDebitiNonFinanziari').maskMoney('mask',SPFOaltriDebitiNonFinanziari)[0]
 
     // Ratei e risconti passivi
-    document.getElementById('SPFOrateiRiscontiPassivi').value = document.getElementById('totaleRateiRiscontiPassivi').value
+    var SPFOrateiRiscontiPassivi = $('#totaleRateiRiscontiPassivi').maskMoney('unmasked')[0]
+    $('#SPFOrateiRiscontiPassivi').maskMoney('mask',SPFOrateiRiscontiPassivi)[0]
 
     // C) PASSIVO COMMERCIALE
     RFOsommaPassivoCommerciale()
 
     // (D) CAPITALE D'ESERCIZIO (B-C)
-    try {
-        document.getElementById('SPFOcapitaleEsercizio').value =
-            parseFloat(document.getElementById('SPFOtotaleAttivoCommerciale').value) -
-            parseFloat(document.getElementById('SPFOtotalePassivoCommerciale').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOcapitaleEsercizio').value = 0
-    }
+    var SPFOcapitaleEsercizio =
+    $('#SPFOtotaleAttivoCommerciale').maskMoney('unmasked')[0] -
+    $('#SPFOtotalePassivoCommerciale').maskMoney('unmasked')[0]
+
+    $('#SPFOcapitaleEsercizio').maskMoney('mask',SPFOcapitaleEsercizio)[0]
 
     // Fondi rischi e oneri
+    var SPFOfondiRischiOneri = $('#totaleFondiRischiOneri').maskMoney('unmasked')[0]
+    $('#SPFOfondiRischiOneri').maskMoney('mask',SPFOfondiRischiOneri)[0]
 
-    document.getElementById('SPFOfondiRischiOneri').value = document.getElementById('totaleFondiRischiOneri').value
     // Fondo tfr
-    document.getElementById('SPFOfondoTfr').value = document.getElementById('trattamentoFineRapportoSP').value
+    var SPFOfondoTfr = $('#trattamentoFineRapportoSP').maskMoney('unmasked')[0]
+    $('#SPFOfondoTfr').maskMoney('mask',SPFOfondoTfr)[0]
 
     // (E) FONDI OPERATIVI
     RFOsommaFondiOperativi()
 
     // (F) CAPITALE INVESTITO NETTO (A+D-E)
-    try {
-        document.getElementById('SPFOcapitaleInvestitoNetto').value =
-            parseFloat(document.getElementById('SPFOtotaleImmobilizzazioniNette').value) +
-            parseFloat(document.getElementById('SPFOcapitaleEsercizio').value) -
-            parseFloat(document.getElementById('SPFOtotaleFondiOperativi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOcapitaleInvestitoNetto').value = 0
-    }
+    var SPFOcapitaleInvestitoNetto =
+    $('#SPFOtotaleImmobilizzazioniNette').maskMoney('unmasked')[0] +
+    $('#SPFOcapitaleEsercizio').maskMoney('unmasked')[0] -
+    $('#SPFOtotaleFondiOperativi').maskMoney('unmasked')[0]
+
+    $('#SPFOcapitaleInvestitoNetto').maskMoney('mask',SPFOcapitaleInvestitoNetto)[0]
 
     // Debiti finanziari a breve termine
-    try {
-        document.getElementById('SPFOdebitiFinanziariBreveTermine').value =
-            parseFloat(document.getElementById('obbligazioniEntro12Mesi').value) +
-            parseFloat(document.getElementById('obbligazioniConvertibiliEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoBancheEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoAltriFinanziatoriEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoControllantiEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOdebitiFinanziariBreveTermine').value = 0
-    }
+    var SPFOdebitiFinanziariBreveTermine =
+    $('#obbligazioniEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#obbligazioniConvertibiliEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoSociFinanziamentiEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoBancheEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoAltriFinanziatoriEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoImpreseControllateEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoImpreseCollegateEntro12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoControllantiEntro12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOdebitiFinanziariBreveTermine').maskMoney('mask',SPFOdebitiFinanziariBreveTermine)[0]
 
     // Disponibilità liquide
-    try {
-        document.getElementById('SPFOdisponibilitaLiquide').value = -
-            parseFloat(document.getElementById('partecipazioniImpreseControllate').value) -
-            parseFloat(document.getElementById('partecipazioniImpreseCollegate').value) -
-            parseFloat(document.getElementById('partecipazioniImpreseControllanti').value) -
-            parseFloat(document.getElementById('altrePartecipazioni').value) -
-            parseFloat(document.getElementById('altriTitoliAttivoCircolante').value) -
-            parseFloat(document.getElementById('depositiBancariPostali').value) -
-            parseFloat(document.getElementById('assegni').value) -
-            parseFloat(document.getElementById('danaroValoriCassa').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOdisponibilitaLiquide').value = 0
-    }
+    var SPFOdisponibilitaLiquide =
+    $('#partecipazioniImpreseControllate').maskMoney('unmasked')[0] -
+    $('#partecipazioniImpreseCollegate').maskMoney('unmasked')[0] -
+    $('#partecipazioniImpreseControllanti').maskMoney('unmasked')[0] -
+    $('#altrePartecipazioni').maskMoney('unmasked')[0] -
+    $('#altriTitoliAttivoCircolante').maskMoney('unmasked')[0] -
+    $('#depositiBancariPostali').maskMoney('unmasked')[0] -
+    $('#assegni').maskMoney('unmasked')[0] -
+    $('#danaroValoriCassa').maskMoney('unmasked')[0]
+
+    $('#SPFOdisponibilitaLiquide').maskMoney('mask',SPFOdisponibilitaLiquide)[0]
 
     // Crediti finanziari a breve termine
-    try {
-        document.getElementById('SPFOcreditiFinanziariBreveTermine').value = -
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value) -
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value) -
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value) -
-            parseFloat(document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value) -
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value) -
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value) -
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOcreditiFinanziariBreveTermine').value = 0
-    }
+    var SPFOcreditiFinanziariBreveTermine =
+    $('#creditiImmobilizzazioniImpreseControllateEntro12Mesi').maskMoney('unmasked')[0] -
+    $('#creditiImmobilizzazioniImpreseCollegateEntro12Mesi').maskMoney('unmasked')[0] -
+    $('#creditiImmobilizzazioniImpreseControllantiEntro12Mesi').maskMoney('unmasked')[0] -
+    $('#creditiImmobilizzazioniAltreImpreseEntro12Mesi').maskMoney('unmasked')[0] -
+    $('#creditiAttivoCircolanteImpreseControllateEntro12Mesi').maskMoney('unmasked')[0] -
+    $('#creditiAttivoCircolanteImpreseCollegateEntro12Mesi').maskMoney('unmasked')[0] -
+    $('#creditiAttivoCircolanteImpreseControllantiEntro12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOcreditiFinanziariBreveTermine').maskMoney('mask',SPFOcreditiFinanziariBreveTermine)[0]
 
     // (G) POSIZIONE FINANZIARIA A BREVE TERMINE
     RFOsommaPosizioneFinanziariaBreveTermine()
 
     // Debiti finanziari a m/l termine
-    try {
-        document.getElementById('SPFOdebitiFinanziariMedioLungoTermine').value =
-            parseFloat(document.getElementById('obbligazioniOltre12Mesi').value) +
-            parseFloat(document.getElementById('obbligazioniConvertibiliOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoBancheOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoAltriFinanziatoriOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoImpreseCollegateOltre12Mesi').value) +
-            parseFloat(document.getElementById('debitiVersoControllantiOltre12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOdebitiFinanziariMedioLungoTermine').value = 0
-    }
+    var SPFOdebitiFinanziariMedioLungoTermine =
+    $('#obbligazioniOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#obbligazioniConvertibiliOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoSociFinanziamentiOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoBancheOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoAltriFinanziatoriOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoImpreseControllateOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoImpreseCollegateOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#debitiVersoControllantiOltre12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOdebitiFinanziariMedioLungoTermine').maskMoney('mask',SPFOdebitiFinanziariMedioLungoTermine)[0]
 
     // Crediti finanziari a m/l termine
-    try {
-        document.getElementById('SPFOcreditiFinanziariMedioLungoTermine').value = -
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value) -
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value) -
-            parseFloat(document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value) -
-            parseFloat(document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value) -
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllateOltre12Mesi').value) -
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseCollegateOltre12Mesi').value) -
-            parseFloat(document.getElementById('creditiAttivoCircolanteImpreseControllantiOltre12Mesi').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOcreditiFinanziariMedioLungoTermine').value = 0
-    }
+    var SPFOcreditiFinanziariMedioLungoTermine =
+    $('#creditiImmobilizzazioniImpreseControllateOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiImmobilizzazioniImpreseCollegateOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiImmobilizzazioniImpreseControllantiOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiImmobilizzazioniAltreImpreseOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteImpreseControllateOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteImpreseCollegateOltre12Mesi').maskMoney('unmasked')[0] +
+    $('#creditiAttivoCircolanteImpreseControllantiOltre12Mesi').maskMoney('unmasked')[0]
+
+    $('#SPFOcreditiFinanziariMedioLungoTermine').maskMoney('mask',SPFOcreditiFinanziariMedioLungoTermine)[0]
 
     // (E) POSIZIONE FINANZIARIA A M/L TERMINE
     RFOsommaPosizioneFinanziariaMLTermine()
 
     // (F) TOTALE POSIZIONE FINANZIARIA
-    try {
-        document.getElementById('SPFOtotalePosizioneFinanziaria').value =
-            parseFloat(document.getElementById('SPFOtotalePosizioneFinanziariaBreveTermine').value) +
-            parseFloat(document.getElementById('SPFOtotalePosizioneFinanziariaMedioLungoTermine').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOtotalePosizioneFinanziaria').value = 0
-    }
+    var SPFOtotalePosizioneFinanziaria =
+    $('#SPFOtotalePosizioneFinanziariaBreveTermine').maskMoney('unmasked')[0] +
+    $('#SPFOtotalePosizioneFinanziariaMedioLungoTermine').maskMoney('unmasked')[0]
+
+    $('#SPFOtotalePosizioneFinanziaria').maskMoney('mask',SPFOtotalePosizioneFinanziaria)[0]
 
     // Capitale sociale e finanziamenti in conto capitale
-    try {
-        document.getElementById('SPFOcapitaleSocialeFinanziamentiContoCapitale').value =
-            parseFloat(document.getElementById('capitale').value) -
-            parseFloat(document.getElementById('creditiVersoSoci').value) -
-            parseFloat(document.getElementById('azioniProprieImmobilizzazioniFinanziarie').value) -
-            parseFloat(document.getElementById('azioniProprieAttivitaFinanziarie').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOcapitaleSocialeFinanziamentiContoCapitale').value = 0
-    }
+    var SPFOcapitaleSocialeFinanziamentiContoCapitale =
+    $('#capitale').maskMoney('unmasked')[0] -
+    $('#creditiVersoSoci').maskMoney('unmasked')[0] -
+    $('#azioniProprieImmobilizzazioniFinanziarie').maskMoney('unmasked')[0] -
+    $('#azioniProprieAttivitaFinanziarie').maskMoney('unmasked')[0]
+
+    $('#SPFOcapitaleSocialeFinanziamentiContoCapitale').maskMoney('mask',SPFOcapitaleSocialeFinanziamentiContoCapitale)[0]
 
     // Riserve
-    try {
-        document.getElementById('SPFOriserve').value =
-            parseFloat(document.getElementById('riservaSovrapprezzoAzioni').value) +
-            parseFloat(document.getElementById('riserveRivalutazione').value) +
-            parseFloat(document.getElementById('riservaLegale').value) +
-            parseFloat(document.getElementById('riservaAzioniProprie').value) +
-            parseFloat(document.getElementById('riserveStatutarie').value) +
-            parseFloat(document.getElementById('altreRiserve').value) +
-            parseFloat(document.getElementById('utilePortatoNuovo').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOriserve').value = 0
-    }
+    var SPFOriserve =
+    $('#riservaSovrapprezzoAzioni').maskMoney('unmasked')[0] +
+    $('#riserveRivalutazione').maskMoney('unmasked')[0] +
+    $('#riservaLegale').maskMoney('unmasked')[0] +
+    $('#riservaAzioniProprie').maskMoney('unmasked')[0] +
+    $('#riserveStatutarie').maskMoney('unmasked')[0] +
+    $('#altreRiserve').maskMoney('unmasked')[0] +
+    $('#utilePortatoNuovo').maskMoney('unmasked')[0]
 
+    $('#SPFOriserve').maskMoney('mask',SPFOriserve)[0]
+ 
     // Reddito netto
-    document.getElementById('SPFOredditonetto').value = document.getElementById('SPFredditoNetto').value
+    var SPFOredditonetto = $('#SPFredditoNetto').maskMoney('unmasked')[0]
+    $('#SPFOredditonetto').maskMoney('mask',SPFOredditonetto)[0]
 
     // (H) PATRIMONIO NETTO
     RFOsommaPatrimonioNetto()
 
     // (I) TOTALE DEBITO FINANZIARIO E PATRIMONIO NETTO (F+H)
-    try {
-        document.getElementById('SPFOtotaleDebitoFinanziarioPatrimonioNetto').value =
-            parseFloat(document.getElementById('SPFOtotalePosizioneFinanziaria').value) +
-            parseFloat(document.getElementById('SPFOtotalePatrimonioNetto').value)
-    }
-    catch (error) {
-        document.getElementById('SPFOtotaleDebitoFinanziarioPatrimonioNetto').value = 0
-    }
+    var SPFOtotaleDebitoFinanziarioPatrimonioNetto =
+    $('#SPFOtotalePosizioneFinanziaria').maskMoney('unmasked')[0] +
+    $('#SPFOtotalePatrimonioNetto').maskMoney('unmasked')[0]
 
-
-    // ATTIVO FUNZIONE FORECAST
-    forecast()
+    $('#SPFOtotaleDebitoFinanziarioPatrimonioNetto').maskMoney('mask',SPFOtotaleDebitoFinanziarioPatrimonioNetto)[0]
 }
 
 /* RICLASSIFICATO FINANZIARIO */
 
 function RFIsommaImmobilizzazioniNette() {
-    var arr = document.getElementsByName('SPFimmobilizzazioniNette');
+    var arr = $(document.getElementsByName('SPFimmobilizzazioniNette')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i];
     }
-    document.getElementById('SPFtotaleImmobilizzazioniNette').value = tot.toFixed(2)
+    $('#SPFtotaleImmobilizzazioniNette').maskMoney('mask',tot)[0]
 }
 
 function RFIsommaAttivoCircolante() {
-    var arr = document.getElementsByName('SPFattivoCircolante');
+    var arr = $(document.getElementsByName('SPFattivoCircolante')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+        
+            tot += arr[i];
     }
-    document.getElementById('SPFtotaleAttivoCircolante').value = tot.toFixed(2)
+    $('#SPFtotaleAttivoCircolante').maskMoney('mask',tot)[0]
 }
 
 function RFIsommaPatrimonioNettoSPF() {
-    var arr = document.getElementsByName('SPFpatrimonioNetto');
+    var arr = $(document.getElementsByName('SPFpatrimonioNetto')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+            tot += arr[i];
     }
-    document.getElementById('SPFtotalePatrimonioNetto').value = tot.toFixed(2)
+    $('#SPFtotalePatrimonioNetto').maskMoney('mask',tot)[0]
 }
 
 function RFIsommaPassivoMlTermine() {
-    var arr = document.getElementsByName('SPFpassivoMLTermine');
+    var arr = $(document.getElementsByName('SPFpassivoMLTermine')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFtotalePassivoMlTermine').value = tot.toFixed(2)
+    $('#SPFtotalePassivoMlTermine').maskMoney('mask',tot)[0]
 }
 
 function RFIsommaPassivoBreveTermine() {
-    var arr = document.getElementsByName('SPFpassivoBreveTermine');
+    var arr = $(document.getElementsByName('SPFpassivoBreveTermine')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFtotalePassivoBreveTermine').value = tot.toFixed(2)
+    $('#SPFtotalePassivoBreveTermine').maskMoney('mask',tot)[0]
 }
 
 
 /* RICLASSIFICATO FUNZIONALE (OPERATIVO) */
 
 function RFOsommaImmobilizzazioniNette() {
-    var arr = document.getElementsByName('SPFOimmobilizzazioniNette');
+    var arr = $(document.getElementsByName('SPFOimmobilizzazioniNette')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFOtotaleImmobilizzazioniNette').value = tot.toFixed(2)
+    $('#SPFOtotaleImmobilizzazioniNette').maskMoney('mask',tot)[0]
 }
 
 function RFOsommaAttivoCommerciale() {
-    var arr = document.getElementsByName('SPFOattivoCommerciale');
+    var arr = $(document.getElementsByName('SPFOattivoCommerciale')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFOtotaleAttivoCommerciale').value = tot.toFixed(2)
+    $('#SPFOtotaleAttivoCommerciale').maskMoney('mask',tot)[0]
 }
 
 function RFOsommaPassivoCommerciale() {
-    var arr = document.getElementsByName('SPFOpassivoCommerciale');
+    var arr = $(document.getElementsByName('SPFOpassivoCommerciale')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFOtotalePassivoCommerciale').value = tot.toFixed(2)
+    $('#SPFOtotalePassivoCommerciale').maskMoney('mask',tot)[0]
 }
 
 function RFOsommaFondiOperativi() {
-    var arr = document.getElementsByName('SPFOfondiOperativi');
+    var arr = $(document.getElementsByName('SPFOfondiOperativi')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFOtotaleFondiOperativi').value = tot.toFixed(2)
+    $('#SPFOtotaleFondiOperativi').maskMoney('mask',tot)[0]
 }
 
 function RFOsommaPosizioneFinanziariaBreveTermine() {
-    var arr = document.getElementsByName('SPFOPosizioneFinanziariaBreveTermine');
+    var arr = $(document.getElementsByName('SPFOPosizioneFinanziariaBreveTermine')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFOtotalePosizioneFinanziariaBreveTermine').value = tot.toFixed(2)
+    $('#SPFOtotalePosizioneFinanziariaBreveTermine').maskMoney('mask',tot)[0]
 }
 
 function RFOsommaPosizioneFinanziariaMLTermine() {
-    var arr = document.getElementsByName('SPFOPosizioneFinanziariaMedioLungoTermine');
+    var arr = $(document.getElementsByName('SPFOPosizioneFinanziariaMedioLungoTermine')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFOtotalePosizioneFinanziariaMedioLungoTermine').value = tot.toFixed(2)
+    $('#SPFOtotalePosizioneFinanziariaMedioLungoTermine').maskMoney('mask',tot)[0]
 }
 
 function RFOsommaPatrimonioNetto() {
-    var arr = document.getElementsByName('SPFOPatrimonioNetto');
+    var arr = $(document.getElementsByName('SPFOPatrimonioNetto')).maskMoney('unmasked');
     var tot = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+    for (var i = 0; i < arr.length; i++) {        
+            tot += arr[i];
     }
-    document.getElementById('SPFOtotalePatrimonioNetto').value = tot.toFixed(2)
+    $('#SPFOtotalePatrimonioNetto').maskMoney('mask',tot)[0]
 }
 
 

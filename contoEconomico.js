@@ -1,52 +1,38 @@
-
-var validate = function (e) {
-    var t = e.value;
-    e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
-}
-
 function sommeCE() {
     // A) Valore della produzione
     sommaValoreProduzione()
-    var totaleValoreProduzione = document.getElementById('totaleValoreProduzione').value
+    var totaleValoreProduzione = $('#totaleValoreProduzione').maskMoney('unmasked')[0]
 
     // B) Costo della produzione
     sommaCostiProduzione()
-    var totaleCostiProduzione = document.getElementById('totaleCostiProduzione').value
+    var totaleCostiProduzione = $('#totaleCostiProduzione').maskMoney('unmasked')[0]
 
     // Differenza tra Valore e Costi di Produzione
-    var differenzaValoreCostiProduzione = parseFloat(totaleValoreProduzione) - parseFloat(totaleCostiProduzione)
-    document.getElementById('differenzaValoreCostiProduzione').value = differenzaValoreCostiProduzione.toFixed(2)
+    var differenzaValoreCostiProduzione = totaleValoreProduzione - totaleCostiProduzione
+    $('#differenzaValoreCostiProduzione').maskMoney('mask',differenzaValoreCostiProduzione)[0]
 
     // C) Proventi e oneri finanziari
     sommaProventiOneriFinanziari()
-    var totaleProventiOneriFinanziari = document.getElementById('totaleProventiOneriFinanziari').value
+    var totaleProventiOneriFinanziari = $('#totaleProventiOneriFinanziari').maskMoney('unmasked')[0]
 
     // D) Rettifiche di valore di attività finanziarie
     sommaRettifiche()
-    var totaleRettifiche = document.getElementById('totaleRettifiche').value
+    var totaleRettifiche = $('#totaleRettifiche').maskMoney('unmasked')[0]
 
     // E) Proventi e oneri straordinari
     sommaProventiOneriStraordinari()
-    var totalePartiteStraordinarie = document.getElementById('totalePartiteStraordinarie').value
+    var totalePartiteStraordinarie = $('#totalePartiteStraordinarie').maskMoney('unmasked')[0]
 
     // Risultato prima delle imposte
-    var risultatoPrimaDelleImposte = parseFloat(totaleValoreProduzione) - parseFloat(totaleCostiProduzione) + 
-    parseFloat(totaleProventiOneriFinanziari) + parseFloat(totaleRettifiche) + parseFloat(totalePartiteStraordinarie)
-    document.getElementById('risultatoPrimaImposte').value = risultatoPrimaDelleImposte.toFixed(2)
+    var risultatoPrimaDelleImposte = totaleValoreProduzione - totaleCostiProduzione + totaleProventiOneriFinanziari + totaleRettifiche + totalePartiteStraordinarie
+    $('#risultatoPrimaImposte').maskMoney('mask',risultatoPrimaDelleImposte)[0]
 
     // Imposte
-    var imposteRedditoEsercizio = document.getElementById('imposteRedditoEsercizio').value
-    if(imposteRedditoEsercizio == ""){
-        var totaleImposteRedditoEsercizio = 0 
-    }
-    else{
-        var totaleImposteRedditoEsercizio = (parseFloat(imposteRedditoEsercizio)).toFixed(2)
-    }
+    var totaleImposteRedditoEsercizio = $('#imposteRedditoEsercizio').maskMoney('unmasked')[0]
 
     // Utile (perdite) dell'esercizio
-    var utilePerditeEsercizio = parseFloat(risultatoPrimaDelleImposte) - parseFloat(totaleImposteRedditoEsercizio)
-    document.getElementById('utilePerditeEsercizio').value = utilePerditeEsercizio.toFixed(2)
-
+    var utilePerditeEsercizio = risultatoPrimaDelleImposte - totaleImposteRedditoEsercizio
+    $('#utilePerditeEsercizio').maskMoney('mask', utilePerditeEsercizio)[0]
 }
 
 function sommaValoreProduzione() {
@@ -55,7 +41,7 @@ function sommaValoreProduzione() {
     for (var i = 0; i < arr.length; i++) {
             tot += arr[i]
     }
-    $(document.getElementById('totaleValoreProduzione')).maskMoney('mask', tot)
+    $('#totaleValoreProduzione').maskMoney('mask', tot)[0]
 }
 
 function sommaCostiProduzione() {
@@ -64,7 +50,7 @@ function sommaCostiProduzione() {
     for (var i = 0; i < arr.length; i++) {
             tot += arr[i]
     }
-    $(document.getElementById('totaleCostiProduzione')).maskMoney('mask', tot)
+    $('#totaleCostiProduzione').maskMoney('mask', tot)[0]
 }
 
 function sommaProventiOneriFinanziari() {
@@ -80,8 +66,8 @@ function sommaProventiOneriFinanziari() {
             totMeno += arrMeno[i]
     }
 
-    var totale = parseFloat(tot) - parseFloat(totMeno)
-    $(document.getElementById('totaleProventiOneriFinanziari')).maskMoney('mask', tot)
+    var totale = tot - totMeno
+    $('#totaleProventiOneriFinanziari').maskMoney('mask', tot)[0]
 }
 
 function sommaRettifiche() {
@@ -97,8 +83,8 @@ function sommaRettifiche() {
         totSva += arrSva[i]
     }
 
-    var tot = parseFloat(totRiv) - parseFloat(totSva)
-    $(document.getElementById('totaleRettifiche')).maskMoney('mask', tot)
+    var tot = totRiv - totSva
+    $('#totaleRettifiche').maskMoney('mask', tot)[0]
 }
 
 function sommaProventiOneriStraordinari() {
@@ -107,15 +93,15 @@ function sommaProventiOneriStraordinari() {
     for (var i = 0; i < arrProventi.length; i++) {
         totProventi += arrProventi[i]
     }
-    $(document.getElementById('proventiStraordinari')).maskMoney('mask', tot)
+    $('#proventiStraordinari').maskMoney('mask', tot)[0]
 
     var arrOneri = $(document.getElementsByName('oneriStraordinari')).maskMoney('unmasked');
     var totOneri = 0;
     for (var i = 0; i < arrOneri.length; i++) {
         totOneri += arrOneri[i]
     }
-    $(document.getElementById('oneriStraordinari')).maskMoney('mask', tot)
+    $('#oneriStraordinari').maskMoney('mask', tot)[0]
 
-    var tot = parseFloat(totProventi) - parseFloat(totOneri)
-    $(document.getElementById('totalePartiteStraordinarie')).maskMoney('mask', tot)
+    var tot = totProventi - totOneri
+    $('#totalePartiteStraordinarie').maskMoney('mask', tot)[0]
 }

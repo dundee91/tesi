@@ -164,10 +164,6 @@ function sommeRiclassificazioneCE() {
     // RISULTATO NETTO
     var risultatoNetto = parseFloat(risultatoAnteImposte) + parseFloat(totaleImposteReddito)
     document.getElementById('CEtotaleRisultatoNetto').value = risultatoNetto.toFixed(2)
-
-    
-    // ATTIVO FUNZIONE FORECAST
-    forecast()
 }
 
 
