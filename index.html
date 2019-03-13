@@ -30,7 +30,7 @@
       Patrimoniale</button>
     <button class="tablinks" onclick="apriTab(event, 'Riclassificazione Conto Economico')">Riclassificazione Conto
       Economico al valore aggiunto</button>
-    <button class="tablinks" onclick="apriTab(event, 'Forecast')">Forecast</button>
+    <!--<button class="tablinks" onclick="apriTab(event, 'Forecast')">Forecast</button>-->
   </div>
 
   <div class="bottoneStampaPdf">
@@ -2414,29 +2414,32 @@
     </div>
   </div>
 
-
   <script>
     require('./index.js')
   </script>
   <script>
     $(document).ready(function () {
+      // utilizzo la funzione maskMoney per impostare il formato della valuta, sia per i campi di input, sia per i totali
+      $('.currency').maskMoney();
       $('.totale').maskMoney();
+      // utilizzo la funzione maskMoney per impostare il formato della percentuale
+      $('.percentuale').maskMoney({suffix:" %"})
+      // impedisco l'inserimento dati nei campi con la proprietà readonly (totali, percentuali e altri campi calcolati)
       $('input[readonly]').keydown(function(){
         return false;
       })
-      $('.percentuale').maskMoney({suffix:" %"})
-      $('.currency').maskMoney();
+      // richiamo tutte le funzioni per le somme
       $(".currency").keyup(function(){
         // funzioni per somme stato patrimoniale
         sommeSP();
         // funzioni per somme conto economico
         sommeCE();
-        // richiamo funzioni per riclassificazione stato patrimoniale
+        // funzioni per riclassificazione stato patrimoniale
         sommeRiclassificazioneSPF()
         sommeRiclassificazioneSPFO()
-        // richiamo funzioni per Riclassificazione conto economico
+        // funzioni per Riclassificazione conto economico
         sommeRiclassificazioneCE()
-        // richiamo funzioni per forecast
+        // funzioni per forecast
         forecast()
       })
     })

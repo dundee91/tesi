@@ -85,7 +85,7 @@ app.on('ready', () => {
       label: 'Visualizza',
       submenu: [
         { role: 'reload', label: 'Pulisci' },
-        { role: 'toggledevtools', label: 'Ispeziona' },
+        //{ role: 'toggledevtools', label: 'Ispeziona' },
         { type: 'separator' },
         { role: 'resetzoom', label: 'Ripristina zoom' },
         { role: 'zoomin', label: 'Aumenta zoom' },
@@ -134,10 +134,11 @@ app.on('ready', () => {
 
   //menù per tasto destro
   const ctxMenu = new Menu()
-
+/*
   ctxMenu.append(new MenuItem({
     role: 'toggledevtools', label: 'Ispeziona'
   }))
+  */
   ctxMenu.append(new MenuItem({
     type: 'separator'
   }))
