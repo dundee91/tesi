@@ -32,7 +32,18 @@ app.on('ready', () => {
     },
     {
       label: 'Chiudi', click() {
-        app.quit()
+        var choice = require('electron').dialog.showMessageBox(
+          {
+            type: 'question',
+            buttons: ['Yes', 'No'],
+            title: 'Conferma',
+            message: 'Sei sicuro di voler uscire?'
+          }, (choice) => {
+            if (choice == '0') {
+              app.quit()
+            }
+          }
+        );
       }
     }
   ]
@@ -76,7 +87,18 @@ app.on('ready', () => {
         { type: "separator" },
         {
           label: 'Esci', click() {
-            app.quit()
+            var choice = require('electron').dialog.showMessageBox(
+              {
+                type: 'question',
+                buttons: ['Yes', 'No'],
+                title: 'Conferma',
+                message: 'Sei sicuro di voler uscire?'
+              }, (choice) => {
+                if (choice == '0') {
+                  app.quit()
+                }
+              }
+            );
           }
         },
       ]
@@ -181,16 +203,8 @@ app.on('ready', () => {
   })
 
   window.on('close', function (e) {
-    var choice = require('electron').dialog.showMessageBox(this,
-      {
-        type: 'question',
-        buttons: ['Yes', 'No'],
-        title: 'Conferma',
-        message: 'Sei sicuro di voler uscire?'
-      });
-    if (choice == 1) {
-      e.preventDefault();
-    }
+    window = null
+    app.quit()
   })
 
 })
