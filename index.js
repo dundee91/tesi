@@ -1,5 +1,4 @@
 const fs = require('fs')
-const pdf = require('pdfkit')
 const app = require('electron').remote
 const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
