@@ -10,29 +10,8 @@ Lo sviluppo di un software web come questo richiede l'utilizzo di diverse tecnol
 	\item Web Service, l'insieme dei software che permettono la comunicazione e lo scambio dati tra la nostra applicazione web e gli altri programmi.
 \end{itemize}
 
+
 % 4.1
-
-\section{Sviluppo del Database}
-
-Prima di scrivere la prima riga di codice è necessario procedere con la definizione dello schema del database, partendo dal modello Entità Relazioni definito in fase di analisi.
-A questo punto è necessario scegliere un \Gls{dbms} che implementi il modello, nel nostro caso abbiamo scelto Microsoft SQL Server un \Gls{dbms} relazionale che usa T-SQL come linguaggio di query.
-Una volta definito il linguaggio possiamo procedere alla codifica in \Gls{sql} delle tabelle.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{sql-fattura.png}
-    \caption{SQL per la creazione della tabella Fattura}
-    \label{fig:SqlFattura}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{sql-utenteruolouo.png}
-    \caption{SQL per la creazione delle tabelle Utente, Ruolo e UO}
-    \label{fig:SqlUtenteRuoloUo}
-\end{figure}
-
-% 4.2
 
 \section{Sviluppo del Back-End}
 
@@ -42,9 +21,9 @@ Un framework è una serie di librerie di codice utilizzabili in fase di linking 
 
 Per realizzare il back-end, è stato scelto di utilizzare il .NET Framework, dato che la maggior parte dei software dell'Ente sono web application in ASP.NET Web Forms, ma si è scelta l'ultima versione del framework allora disponibile e la più recente tecnologia di sviluppo web, ASP.NET MVC.
 
-% 4.2.1
+% 4.1.1
 
-\subsection{.NET Framework}
+\subsection{Node.js}
 
 Il .NET Framework (si pronuncia dot net) è un framework sviluppato da Microsoft eseguibile principalemente su Microsoft Windows.
 Include una grande libreria di classi, interfacce e tipi di dato chiamata \Gls{fcl} e garantisce interoperabilità tra i linguaggi di programmazione (ogni linguaggio può usare codice scritto in un altro linguaggio).
@@ -65,9 +44,9 @@ Oltre al \Gls{clr} e \Gls{fcl} .NET possiede un insieme di tecnologie per lo svi
     \item Web API
 \end{itemize}
 
-% 4.2.2
+% 4.1.2
 
-\subsection{ASP.NET}
+\subsection{Electron}
 
 ASP.NET è un insieme di tecnologie software per lo sviluppo di web application e web services, si appoggia sul .NET Framework e offre tre frameworks per la creazione di web application: 
 \begin{itemize}
@@ -118,9 +97,9 @@ Nel nostro caso è stato necessario creare un nuovo Filter che ereditasse Author
     \label{fig:Filter1}
 \end{figure}
 
-% 4.2.3
+% 4.1.3
 
-\subsection{Entity Framework}
+\subsection{Json}
 
 La generazione delle classi del Model e i metodi per accedere al database possono essere gestiti da \Gls{ef}.
 Entity Framework è un framework open-source \Gls{orm} per ADO.NET, una parte del .NET Framework: il compito svolto dagli \Gls{orm} è quello di nasconderci il funzionamento di un database relazionale, permettendoci di pensare al nostro modello dei dati come ad un insieme di oggetti.
@@ -133,7 +112,24 @@ Entity Framework mette a disposizione tre differenti modalità per interagire co
 \end{itemize}
 Nel nostro progetto abbiamo utilizzato l'approccio Database-first.
 
-% 4.3
+
+% 4.1.4
+
+\subsection{Creazione Pdf}
+
+La generazione delle classi del Model e i metodi per accedere al database possono essere gestiti da \Gls{ef}.
+Entity Framework è un framework open-source \Gls{orm} per ADO.NET, una parte del .NET Framework: il compito svolto dagli \Gls{orm} è quello di nasconderci il funzionamento di un database relazionale, permettendoci di pensare al nostro modello dei dati come ad un insieme di oggetti.
+Mediante l'uso di \Gls{ef} è possibile interrogare il database facendo uso di \Gls{linq}, componente del .NET Framework costituito interamente da "extension methods", ovvero metodi che consentono di estendere le funzionalità di determinati tipi senza dover appositamente definire specifici tipi derivati; esso aggiunge la possibilità di effettuare query su collezioni di dati, con una sintassi simile alla sintassi di SQL oppure simile a quella della programmazione ad oggetti (Lamda Expression).
+Entity Framework mette a disposizione tre differenti modalità per interagire con i dati:
+\begin{itemize}
+    \item Database first, è previsto nel caso in cui il database sia già disponibile, verrà generato in automatico il Data Model che consiste nell'insieme di classi e proprietà che corrispondono alle tabelle ed alle colonne del database. La corrispondenza tra il Data Model così generato e lo schema del database è descritto in formato XML in un file di estensione .edmx. Questo approccio permette modifiche dirette sul database, seguite poi da un'aggiornamento del file edmx.
+    \item Model first, consiste nell'uso di uno strumento grafico per la creazione di Data Models chiamato Entity Framework Designer. Analogamente al caso precedente, la corrispondenza tra il database ed il Data Model è descritta mediante un file edmx. Questo approccio non permette modifiche né lato codice né lato database, ma solo tramite lo strumento grafico.
+    \item Code first, è un approccio applicabile sia nel caso in cui si disponga già del database, sia in caso contrario. Attraverso la creazione di classi si definiscono le tabelle e loro relazioni, non necessita di un file .edmx e permette di eseguire delle migrazioni di dati da una versione all'altra del database.
+\end{itemize}
+Nel nostro progetto abbiamo utilizzato l'approccio Database-first.
+
+
+% 4.2
 
 \newpage
 
@@ -180,7 +176,7 @@ In generale i requisiti di accessibilità contenuti nella Legge Stanca e success
     \item Compatibilità, il sito deve essere accessibile da tutte le piattaforme e deve utilizzare tecnologie standard.
 \end{itemize}
 
-% 4.3.1
+% 4.2.1
 
 \subsection{Tecnologie usate nello sviluppo del front-end}
 
@@ -231,53 +227,50 @@ Questo linguaggio può utilizzare molte delle classi del framework, semplicement
     \label{fig:Razor}
 \end{figure}
 
-% 4.4
 
-\section{Sviluppo dei Web Service}
+% 4.3
 
-Lo scambio dati tra diversi programmi può avvenire sostanzialmente in diversi modi:
+\newpage
+
+\section{Packaging dell'applicazione}
+
+Per lo sviluppo di un interfaccia utente efficace si deve tener conto di due aspetti oltre a quello tecnico, che sono:
 \begin{itemize}
-    \item Salvando dati in un database comune
-    \item Salvando dati sottoforma di file in una locazione di memoria comune
-    \item Scambiandosi i dati tra applicazione attraverso web service
-\end{itemize}
-La soluzione più utilizzata, e nel nostro caso l'unica percorribile, è quella di esporre web service o utilizzare quelli messi a disposizione dalle altre applicazioni web.
-
-% 4.4.1
-
-\subsection{REST e SOAP}
-
-Un web service è un metodo di comunicazione tra due applicazioni o dispositivi elettronici in rete.
-I web service possono essere di due tipi:
-\begin{itemize}
-    \item \Gls{soap}
-    \item \Gls{rest}
+\item Accessibilità
+\item Usabilità
 \end{itemize}
 
-\textbf{\Gls{soap}} \cite{soap} definisce un protocollo (insieme di regole) tra le due applicazioni per la comunicazione mediante lo scambio di messaggi \Gls{xml}.
-Tale protocollo è descritto da un file chiamato \Gls{wsdl} che descrive i tipi di dato e i metodi che un client può richiamare per utilizzare il web service.
-\Gls{soap} utilizza \Gls{http} come protocollo per lo scambio di messaggi, ma non è limitato né vincolato ad esso, dal momento che può benissimo usare altri protocolli, come \Gls{smtp}.
-%A differenza di \Gls{http}, le specifiche di \Gls{soap} non affrontano argomenti come la sicurezza o l’indirizzamento, per i quali sono stati definiti standard a parte, nello specifico WS-Security e WS-Addressing.
+L'\textbf{usabilità} è un approccio alla progettazione volto a rendere l'interazione tra il prodotto e l'utente migliore sotto i seguenti aspetti:
+\begin{itemize}
+    \item Efficacia, cioè permettere agli utenti di raggiungere i loro obiettivi in maniera precisa e completa;
+    \item Efficienza, cioè l'ottimizzazione delle risorse impiegate;
+    \item Soddisfazione, come libertà dal disagio e attitudine positiva con cui gli utenti raggiungono specifici obiettivi attraverso l’uso del prodotto.
+\end{itemize}
+Nel web, l'usabilità si pone i seguenti obiettivi:
+\begin{itemize}
+    \item Presentare l'informazione all'utente in modo chiaro e conciso, evitando termini tecnici o specialistici;
+    \item Semplificare la struttura del compito;
+    \item Offrire all'utente le scelte corrette, in una maniera che risulti ovvia;
+    \item Organizzare ogni pagina in modo che l'utente riconosca la posizione e le azioni da compiere;
+    \item Eliminare ogni ambiguità relativa alle conseguenze di un'azione (es. fare clic su cancella/rimuovi/compra);
+    \item Mettere la cosa più importante nella posizione giusta della pagina web o dell'applicazione web;
+    \item Fare in modo che l'utente abbia un rapido feedback ad ogni azione compiuta, ad esempio la comparsa di un messaggio di successo o errore all'invio di dati con una form;
+    \item Rendere la grafica accattivante ed interessante dal punto di vista visivo attraverso l'uso di diagrammi, tabelle, sezioni informative e coordinando bene i colori;
+    \item Ridurre gli sforzi cognitivi dell'utente.
+\end{itemize}
+In generale cercare di rendere il sistema il più semplice possibile da usare, in modo da ridurre al minimo gli sforzi sull'utilizzo del mezzo.
 
-\textbf{\Gls{rest}} descrive un insieme di principi architetturali con i quali i dati possono essere trasmessi attraverso un'interfaccia standard (come \Gls{http}).
-Alla base di un servizio RESTful c'è il concetto di risorsa, cioè un oggetto o una collection, a cui il client può accedere tramite un \Gls{uri}.
-I metodi con i quali il client può accedere sono quelli del protocollo \Gls{http} (GET, POST, PUT, DELETE e HEAD) e il content-type è definito da chi espone il web service, tipicamente \Gls{json} o \Gls{xml}.
-
-% 4.4.2
-
-\subsection{Web API 2}
-
-ASP.NET Web API \cite{web-api} è un framework che rende semplice la costruzione di web service \Gls{http} in grado di raggiungere un gran numero di client, tra i quali browser e dispositivi mobili.
-È la piattaforma ideale per creare applicazioni \Gls{rest} in \Gls{net}, in quanto utilizza lo stesso modello architetturale di ASP.NET MVC.
-Per creare un nuovo Web Service bisogna creare un controller riferito a una specifica risorsa, ad esempio la fattura, e creare la Action corrispondente al metodo con il quale si vuole consentire l'accesso alla risorsa, ad esempio GET.
-Come parametri del metodo Action si possono indicare parametri singoli, come ad esempio l'ID che costituirà l'\Gls{uri} della richiesta, oppure oggetti che andranno a comporre il payload (tipicamente di una richiesta POST o PUT).
-Attraverso i filter è possibile gestire delle politiche di sicurezza come la Basic Authentication.
-La versione utilizzata per i web service del nostro software è chiamata Web API 2.
-Di seguito in Figura ~\ref{fig:Api1} vediamo parte del \Gls{ws} chiamato da \Gls{imm} per aggiornare lo stato fattura quando arriva dallo \Gls{sdi} la notifica di accettazione per decorrenza termini oppure la notifica di scarto.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.6]{api-1.png}
-    \caption{StatoFattura API Controller - PUT Stato }
-    \label{fig:Api1}
-\end{figure}
+L'\textbf{accessibilità} è un aspetto di fontamentale importanza, specialmente per un gestionale web di una \Gls{pa}; il suo scopo è garantire l'accesso alle risorse (prodotti e servizi) da parte di chiunque, siano essi soggetti con disabilità, con scarse competenze informatiche o con dispositivi diversi.
+I criteri dell'accessibilità sono quelli delle linee guida del \Gls{w3c} che attraverso una sua sezione denominata \Gls{wai} \cite{w3c-wai} ha definito i linguaggi e le procedure standard per rendere il Web uno strumento realmente democratico e universale.
+Queste direttive sono state percepite in Italia con la Legge "Stanca" (Legge 4/2004) che sancisce obblighi e sanzioni per la \Gls{pa} e le aziende appaltate.
+In generale i requisiti di accessibilità contenuti nella Legge Stanca e successive modificazioni, contenuti anche in un documento online sul sito del governo \cite{agid-access}, sono i seguenti:
+\begin{itemize}
+    \item Alternative testuali, obbligatorie per tutte i contenuti non testuali (come immagini, filmati e audio);
+    \item Adattabilità, cioè prevedere che i contenuti si adattino a diversi layout in base alla grandezza e al formato dello schermo utente (responsive web design);
+    \item Distinguibile, rendere più semplice agli utenti la visione e l'ascolto dei contenuti, separando i contenuti in primo piano dallo sfondo;
+    \item Accessibile da tastiera, cioè garantire una buona navigabilità prevedendo un percorso di TAB;
+    \item Colori, il contrasto tra le scritte e lo sfondo deve essere chiaro, ma non si devono usare colori discordanti tra loro o lampeggianti che possano causare crisi epilettiche;
+    \item Navigabile, fornire una struttura del sito chiara, dove l'utente possa orientarsi e raggiungire qualsiasi sezione attraverso links;
+    \item Assistenza per l'inserimento, fornire gli aiuti e le spiegazioni necessarie affinché l'utente sia in grado di compilare correttamente le form del sito;
+    \item Compatibilità, il sito deve essere accessibile da tutte le piattaforme e deve utilizzare tecnologie standard.
+\end{itemize}

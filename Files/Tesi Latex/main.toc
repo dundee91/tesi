@@ -28,38 +28,34 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Requisiti non funzionali}{13}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Requisiti di dominio}{14}% 
+\contentsline {section}{\numberline {2.3}Use case diagram}{14}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Use case diagram}{15}% 
+\contentsline {section}{\numberline {2.4}Activity diagram}{15}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Activity diagram}{17}% 
+\contentsline {section}{\numberline {2.5}Sequence diagram}{17}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Sequence diagram}{19}% 
+\contentsline {chapter}{\numberline {3}Sviluppo}{20}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Modello Entit\IeC {\`a}-Relazione (E-R)}{21}% 
+\contentsline {section}{\numberline {3.1}Sviluppo del Database}{21}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Sviluppo}{25}% 
+\contentsline {section}{\numberline {3.2}Sviluppo del Back-End}{22}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Sviluppo del Database}{26}% 
+\contentsline {subsection}{\numberline {3.2.1}.NET Framework}{23}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Sviluppo del Back-End}{27}% 
+\contentsline {subsection}{\numberline {3.2.2}ASP.NET}{25}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}.NET Framework}{28}% 
+\contentsline {subsection}{\numberline {3.2.3}Entity Framework}{28}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}ASP.NET}{30}% 
+\contentsline {section}{\numberline {3.3}Sviluppo del Front-End}{30}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Entity Framework}{33}% 
+\contentsline {subsection}{\numberline {3.3.1}Tecnologie usate nello sviluppo del front-end}{32}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Sviluppo del Front-End}{35}% 
+\contentsline {section}{\numberline {3.4}Sviluppo dei Web Service}{35}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Tecnologie usate nello sviluppo del front-end}{37}% 
+\contentsline {subsection}{\numberline {3.4.1}REST e SOAP}{36}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Sviluppo dei Web Service}{40}% 
+\contentsline {subsection}{\numberline {3.4.2}Web API 2}{36}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}REST e SOAP}{41}% 
+\contentsline {chapter}{\numberline {4}Possibili futuri sviluppi}{38}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.2}Web API 2}{41}% 
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Lavori simili}{43}% 
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusione}{45}% 
+\contentsline {chapter}{Conclusione}{40}% 
