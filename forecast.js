@@ -2,7 +2,6 @@
 // FUNZIONI FORECAST
 
 function calcoloForecast() {
-    console.log("forecast")
     /* Tab. 1 - Ricavi e costi operativi */
 
     // Ricavi vendite
