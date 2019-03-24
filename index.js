@@ -429,6 +429,24 @@ ipc.on('apri', function (ev, data) {
                 document.getElementById('FCmagazzinoMateriePrime').value = testo[7].FCmagazzinoMateriePrime
                 document.getElementById('FCmagazzinoProdottiFiniti').value = testo[7].FCmagazzinoProdottiFiniti
                 document.getElementById('FCaltriCreditiLiquidita').value = testo[7].FCaltriCreditiLiquidita
+                // Tab. 3  - Investimenti
+                document.getElementById('FCacquistoNettoImmMateriali').value = testo[7].FCacquistoNettoImmMateriali
+                document.getElementById('FCammortamentoImmTecniche').value = testo[7].FCammortamentoImmTecniche
+                document.getElementById('FCacquistoNettoImmImmateriali').value = testo[7].FCacquistoNettoImmImmateriali
+                document.getElementById('FCquotaAmmortamentoImmImmateriali').value = testo[7].FCquotaAmmortamentoImmImmateriali
+                document.getElementById('FCacquistoNettoImmobFinanziarie').value = testo[7].FCacquistoNettoImmobFinanziarie
+                // Tab. 4  - Gestione accessoria
+                document.getElementById('FCinteressiAttiviAltriProvFinanziari').value = testo[7].FCinteressiAttiviAltriProvFinanziari
+                document.getElementById('FCaltriRicaviProventi').value = testo[7].FCaltriRicaviProventi
+                document.getElementById('FCproventiOneriStraordinari').value = testo[7].FCproventiOneriStraordinari
+                document.getElementById('FCaliquotaImposte').value = testo[7].FCaliquotaImposte
+                // Tab. 5  - Gestione finanziaria
+                document.getElementById('FCcapitaleSocialeRiserve').value = testo[7].FCcapitaleSocialeRiserve
+                document.getElementById('FCmutuiPrestiti').value = testo[7].FCmutuiPrestiti
+                document.getElementById('FCtassoInteresseMutuiPrestiti').value = testo[7].FCtassoInteresseMutuiPrestiti
+                document.getElementById('FCdebitiNonFinanziariLT').value = testo[7].FCdebitiNonFinanziariLT
+                document.getElementById('FCdebitiNonFinanziariBT').value = testo[7].FCdebitiNonFinanziariBT
+                document.getElementById('FCaltriInteressiPassivi').value = testo[7].FCaltriInteressiPassivi
 
                 console.log("file aperto")
             })
@@ -824,14 +842,30 @@ function array() {
             "FCaccantonamenti": document.getElementById('FCaccantonamenti').value,
             "FCutilizziAltriFondi": document.getElementById('FCutilizziAltriFondi').value,
             // Tab. 2 - Capitale circolante
-            /*
             "FCcreditiVersoClienti" : document.getElementById('FCcreditiVersoClienti').value,
             "FCdevitiVersoFornitori" : document.getElementById('FCdevitiVersoFornitori').value,
             "FCmagazzinoMateriePrime" : document.getElementById('FCmagazzinoMateriePrime').value,
             "FCmagazzinoProdottiFiniti" : document.getElementById('FCmagazzinoProdottiFiniti').value,
-            "FCaltriCreditiLiquidita" : document.getElementById('FCaltriCreditiLiquidita').value
-            */
-
+            "FCaltriCreditiLiquidita" : document.getElementById('FCaltriCreditiLiquidita').value,
+            // Tab. 3  - Investimenti
+            "FCacquistoNettoImmMateriali" : document.getElementById('FCacquistoNettoImmMateriali').value,
+            "FCammortamentoImmTecniche" : document.getElementById('FCammortamentoImmTecniche').value,
+            "FCacquistoNettoImmImmateriali" : document.getElementById('FCacquistoNettoImmImmateriali').value,
+            "FCquotaAmmortamentoImmImmateriali" : document.getElementById('FCquotaAmmortamentoImmImmateriali').value,
+            "FCacquistoNettoImmobFinanziarie" : document.getElementById('FCacquistoNettoImmobFinanziarie').value,
+            // Tab. 4  - Gestione accessoria
+            "FCinteressiAttiviAltriProvFinanziari" : document.getElementById('FCinteressiAttiviAltriProvFinanziari').value,
+            "FCaltriRicaviProventi" : document.getElementById('FCaltriRicaviProventi').value,
+            "FCproventiOneriStraordinari" : document.getElementById('FCproventiOneriStraordinari').value,
+            "FCaliquotaImposte" : document.getElementById('FCaliquotaImposte').value,
+            // Tab. 5  - Gestione finanziaria
+            "FCcapitaleSocialeRiserve" : document.getElementById('FCcapitaleSocialeRiserve').value,
+            "FCmutuiPrestiti" : document.getElementById('FCmutuiPrestiti').value,
+            "FCproventiOneriStraordinari" : document.getElementById('FCproventiOneriStraordinari').value,
+            "FCtassoInteresseMutuiPrestiti" : document.getElementById('FCtassoInteresseMutuiPrestiti').value,
+            "FCdebitiNonFinanziariLT" : document.getElementById('FCdebitiNonFinanziariLT').value,
+            "FCdebitiNonFinanziariBT" : document.getElementById('FCdebitiNonFinanziariBT').value,
+            "FCaltriInteressiPassivi" : document.getElementById('FCaltriInteressiPassivi').value
         }
     ]
 

@@ -207,14 +207,14 @@
                     if (settings.precision > 0) {
 						if(decimalPointIndex < 0){
 							value += settings.decimal + new Array(settings.precision + 1).join(0);
-						}
+                        }/*
 						else {
 							// If the following decimal part dosen't have enough length against the precision, it needs to be filled with zeros.
 							var integerPart = value.slice(0, decimalPointIndex),
 								decimalPart = value.slice(decimalPointIndex + 1);
 							value = integerPart + settings.decimal + decimalPart +
 									new Array((settings.precision + 1) - decimalPart.length).join(0);
-						}
+						}*/
                     } else if (decimalPointIndex > 0) {
                         // if the precision is 0, discard the decimal part
                         value = value.slice(0, decimalPointIndex);

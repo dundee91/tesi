@@ -1,4 +1,5 @@
 function sommeCE() {
+    console.log("somme ce")
     // A) Valore della produzione
     sommaValoreProduzione()
     var totaleValoreProduzione = $('#totaleValoreProduzione').maskMoney('unmasked')[0]

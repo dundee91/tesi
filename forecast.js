@@ -1,7 +1,8 @@
 
 // FUNZIONI FORECAST
 
-function forecast() {
+function calcoloForecast() {
+    console.log("forecast")
     /* Tab. 1 - Ricavi e costi operativi */
 
     // Ricavi vendite
@@ -73,7 +74,6 @@ function forecast() {
     var FCdebitiVersoFornitori = 
     $('#SPFdebitiCommercialiFornitori').maskMoney('unmasked')[0] /
     (($('#CEconsumoMateriePrime').maskMoney('unmasked')[0] + $('#CEtotaleConsumiEsterni').maskMoney('unmasked')[0]) / 365)
-
     $('#FCdebitiVersoFornitori').maskMoney('mask',FCdebitiVersoFornitori)[0]
 
     // Magazzino materie prime
@@ -96,4 +96,16 @@ function forecast() {
     $('#SPFliquidita').maskMoney('unmasked')[0]
 
     $('#FCaltriCreditiLiquidita').maskMoney('mask',FCaltriCreditiLiquidita)[0]
+
+    // Acquisto netto di immob. Finaziarie
+    var FCacquistoNettoImmobFinanziarie = $('#SPFimmobilizzazioniFinanziarie').maskMoney('unmasked')[0]
+    $('#FCacquistoNettoImmobFinanziarie').maskMoney('mask',FCacquistoNettoImmobFinanziarie)[0]
+
+    // Debiti non finanziari a L.T.
+    var FCdebitiNonFinanziariLT = 
+    $('#SPFaltriDebiti').maskMoney('unmasked')[0] +
+    $('#SPFrateiRiscontiPassivi').maskMoney('unmasked')[0]
+    
+    $('#FCdebitiNonFinanziariLT').maskMoney('mask',FCdebitiNonFinanziariLT)[0]
+    
 }
