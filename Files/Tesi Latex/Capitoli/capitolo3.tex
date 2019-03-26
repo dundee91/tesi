@@ -38,27 +38,12 @@ Nella struttura di un app basata su Electron, bisogna discutere di due tipi di p
 
 \subsection{Utilizzo delle API Electron}
 
-Il .NET Framework (si pronuncia dot net) è un framework sviluppato da Microsoft eseguibile principalemente su Microsoft Windows.
-Include una grande libreria di classi, interfacce e tipi di dato chiamata e garantisce interoperabilità tra i linguaggi di programmazione (ogni linguaggio può usare codice scritto in un altro linguaggio).
-I programmi scritti in .NET sono eseguiti in un ambiente software (invece che in un ambiente hardware), conosciuto come , una virtual machine che fornisce servizi di sicurezza, gestione della memoria e gestione delle eccezioni.
- insieme compongono il .NET Framework.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.35]{dot-net.png}
-    \caption{.NET Framework - Pila dei componenti}
-    \label{fig:DotNet}
-\end{figure}
-
-Oltre al  .NET possiede un insieme di tecnologie per lo sviluppo su diverse piattaforme, alcune di queste tecnologie sono state utilizzate nel nostro progetto, tra le quali:
-\begin{itemize}
-    \item ASP.NET
-    \item Entity Framework
-    \item Web API
-\end{itemize}
-
 
 % 4.1.1.1
+
+\paragraph {Creazione Pdf}
+
+% 4.1.1.2
 
 \paragraph {Creazione Pdf}
 
@@ -66,58 +51,17 @@ Oltre al  .NET possiede un insieme di tecnologie per lo sviluppo su diverse piat
 
 \subsection{Utilizzo API Node.js}
 
-ASP.NET è un insieme di tecnologie software per lo sviluppo di web application e web services, si appoggia sul .NET Framework e offre tre frameworks per la creazione di web application: 
-\begin{itemize}
-	\item ASP.NET Web Pages, pagine dinamiche dove il markup HTML e il codice sono insieme nello stesso file
-	\item Web Forms, che offre una libreria di controlli che incapsulano markup HTML, script javascript e logiche lato server per garantire una gestione ad eventi simile a quella delle applicazioni desktop
-	\item ASP.NET MVC, alta separazione delle logiche di controllo, da quelle di presentazione e dai dati grazie al paradigm MVC, tipico anche di altri framework moderni
-\end{itemize}
-
-\textbf{ASP.NET MVC} fa uso dell'architettura multi-tier chiamata  che prevede la separazione del codice in 3 livelli:
-\begin{itemize}
-    \item Model (Modello), gestisce l'accesso ai dati dell'applicazione
-    \item View (Vista), gestisce la visualizzazione dei dati all'utente
-    \item Controller (Controllore), gestisce le interazioni dell'utente
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=1]{mvc-pattern.png}
-    \caption{Architettura MVC}
-    \label{fig:Mvc}
-\end{figure}
-
-Il modo in cui questi 3 livelli interagiscono può cambiare da linguaggio a linguaggio, ma nel caso specifico di ASP.NET MVC funziona così:
-\begin{enumerate}
-    \item l'utente invia una richiesta al browser (può essere una GET o una POST);
-    \item la richiesta viene intercettata dal web server ( nel nostro caso);
-    \item il web server fa gestire la richiesta al controller appropriato;
-    \item il controller la analizza e decide a quale specifico metodo farla gestire (nel nostro caso i metodi del controller si chiamano Action);
-    \item il controller può scegliere se lavorare o meno con il Model, in ogni caso alla fine del metodo ritornerà all'utente una View, cioè una pagina web di risposta.
-\end{enumerate}
-Nel caso in cui il controller dovesse interfacciarsi con il database chiamerebbe il Model, il quale ha accesso diretto al database e colloquia con esso attraverso query .
-Di seguito in Figura ~\ref{fig:Action1} vediamo un esempio di Action per la visualizzazione dei Dettagli: tra i parametri del metodo c'è l'ID, passato al metodo tramite URL, e come valore di ritorno c'è la View specifica per Dettagli, a cui viene passato l'oggetto vmFattura.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.6]{action-1.png}
-    \caption{Fattura Controller - Action }
-    \label{fig:Action1}
-\end{figure}
-
-A volte può essere necessario aggiungere alcuni controlli ricorrenti all'inizio di alcune Actions o sul Controller stesso (in modo che valgano per tutte le Action del Controller), come ad esempio un metodo che controlli se l'utente è autenticato, in quel caso è possibile creare dei Filters o utilizzare quelli di base forniti dal framework (come Authorize).
-Nel nostro caso è stato necessario creare un nuovo Filter che ereditasse Authorize, ma che gestisse l'autenticazione Cohesion, richiamando quindi il  in caso di mancata autenticazione, come in Figura ~\ref{fig:Filter1}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.6]{filter-1.png}
-    \caption{MyAuthorize Filter}
-    \label{fig:Filter1}
-\end{figure}
-
 % 4.1.2.1
 
 \paragraph {Salvataggio Json file}
+
+% 4.1.2.2
+
+\paragraph {Apertura Json file}
+
+% 4.1.2.3
+
+\paragraph {Calcolo riclassificazioni e forecast}
 
 
 % 4.2

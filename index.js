@@ -4,6 +4,425 @@ const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
 
 
+function array() {
+
+    //creo array per json
+    let contenuto = [
+        /* ANAGRAFICA AZIENDALE */
+        {
+            "professionistaStudio": document.getElementById('professionistaStudio').value,
+            "ragioneSociale": document.getElementById('ragioneSociale').value,
+            "partitaIVA": document.getElementById('partitaIVA').value,
+            "settoreProduzione": document.getElementById('settoreProduzione').value,
+            "contrattoCollettivo": document.getElementById('contrattoCollettivo').value,
+            "numeroDipendenti": document.getElementById('numeroDipendenti').value,
+            "indirizzo": document.getElementById('indirizzo').value,
+            "comune": document.getElementById('comune').value,
+            "provincia": document.getElementById('provincia').value,
+            "cap": document.getElementById('cap').value,
+            "referente": document.getElementById('referente').value,
+            "telefono": document.getElementById('telefono').value,
+            "fax": document.getElementById('fax').value,
+            "email": document.getElementById('email').value,
+            "sitoWeb": document.getElementById('sitoWeb').value,
+            "note": document.getElementById('note').value
+        },
+        /* ANALISI QUANTITATIVA */
+        {
+            "storiaAzienda": document.getElementById('storiaAzienda').value,
+            "titolari": document.getElementById('titolari').value,
+            "organoControllo": document.getElementById('organoControllo').value,
+            "descrizioneAttuale": document.getElementById('descrizioneAttuale').value,
+            "prodottiCommercializzati": document.getElementById('prodottiCommercializzati').value,
+            "mercatoRiferimento": document.getElementById('mercatoRiferimento').value,
+            "politicheProduzione": document.getElementById('politicheProduzione').value,
+            "politicheDistribuzione": document.getElementById('politicheDistribuzione').value,
+            "principaliFornitori": document.getElementById('principaliFornitori').value,
+            "principaliClienti": document.getElementById('principaliClienti').value,
+            "rapportiContrattuali": document.getElementById('rapportiContrattuali').value,
+            "internazionalizzazione": document.getElementById('internazionalizzazione').value,
+            "personale": document.getElementById('personale').value,
+            "strutturaInvestimenti": document.getElementById('strutturaInvestimenti').value,
+            "marchiBrevetti": document.getElementById('marchiBrevetti').value,
+            "tipologiaRischi": document.getElementById('tipologiaRischi').value,
+            "informazioniUtili": document.getElementById('informazioniUtili').value,
+            "finalitaRichiesta": document.getElementById('finalitaRichiesta').value,
+            "fidiEdUtilizzi": document.getElementById('fidiEdUtilizzi').value,
+            "conclusioni": document.getElementById('conclusioni').value
+        },
+        /* STATO PATRIMONIALE ATTIVO */
+        {
+            // A. Crediti verso soci
+            "creditiVersoSoci": document.getElementById('creditiVersoSoci').value,
+            "creditiVersoSociRichiamati": document.getElementById('creditiVersoSociRichiamati').value,
+            "creditiVersoSociDaRichiamare": document.getElementById('creditiVersoSociDaRichiamare').value,
+
+            // B. Immobilizzazioni
+            // I. Immateriali
+            "costiImpiantoAmpliamento": document.getElementById('costiImpiantoAmpliamento').value,
+            "costiRicercaSviluppo": document.getElementById('costiRicercaSviluppo').value,
+            "dirittiBrevetto": document.getElementById('dirittiBrevetto').value,
+            "concessioniLicenzeMarchi": document.getElementById('concessioniLicenzeMarchi').value,
+            "avviamento": document.getElementById('avviamento').value,
+            "immobilizzazioniCorso": document.getElementById('immobilizzazioniCorso').value,
+            "immobilizzazioniAltro": document.getElementById('immobilizzazioniAltro').value,
+            "totaleImmobilizzazioniImmateriali": document.getElementById('totaleImmobilizzazioniImmateriali').value,
+            // II. Materiali
+            "terreniFabbricati": document.getElementById('terreniFabbricati').value,
+            "impiantiMacchinario": document.getElementById('impiantiMacchinario').value,
+            "attrezzatureIndustriali": document.getElementById('attrezzatureIndustriali').value,
+            "altriBeni": document.getElementById('altriBeni').value,
+            "immobilizzazioniCorsoAcconti": document.getElementById('immobilizzazioniCorsoAcconti').value,
+            "totaleImmobilizzazioniMateriali": document.getElementById('totaleImmobilizzazioniMateriali').value,
+            // III. Finanziarie
+            "impreseControllate": document.getElementById('impreseControllate').value,
+            "impreseCollegate": document.getElementById('impreseCollegate').value,
+            "impreseControllanti": document.getElementById('impreseControllanti').value,
+            "altreImprese": document.getElementById('altreImprese').value,
+            "creditiImmobilizzazioniImpreseControllateEntro12Mesi": document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value,
+            "creditiImmobilizzazioniImpreseControllateOltre12Mesi": document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value,
+            "creditiImmobilizzazioniImpreseCollegateEntro12Mesi": document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value,
+            "creditiImmobilizzazioniImpreseCollegateOltre12Mesi": document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value,
+            "creditiImmobilizzazioniImpreseControllantiEntro12Mesi": document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value,
+            "creditiImmobilizzazioniImpreseControllantiOltre12Mesi": document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value,
+            "creditiImmobilizzazioniAltreImpreseEntro12Mesi": document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value,
+            "creditiImmobilizzazioniAltreImpreseOltre12Mesi": document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value,
+            "altriTitoliImmobilizzazioni": document.getElementById('altriTitoliImmobilizzazioni').value,
+            "azioniProprieImmobilizzazioniFinanziarie": document.getElementById('azioniProprieImmobilizzazioniFinanziarie').value,
+            "totaleImmobilizzazioniFinanziarie": document.getElementById('totaleImmobilizzazioniFinanziarie').value,
+            "totaleImmobilizzazioni": document.getElementById('totaleImmobilizzazioni').value,
+
+            // C. Attivo Circolante
+            // I. Rimanenze
+            "materiePrime": document.getElementById('materiePrime').value,
+            "prodottiCorsoLavorazione": document.getElementById('prodottiCorsoLavorazione').value,
+            "lavoriCorsoOrdinazione": document.getElementById('lavoriCorsoOrdinazione').value,
+            "prodottiFinitiMerci": document.getElementById('prodottiFinitiMerci').value,
+            "acconti": document.getElementById('acconti').value,
+            "totaleRimanenze": document.getElementById('totaleRimanenze').value,
+            // II. Crediti
+            "creditiAttivoCircolanteClientiEntro12Mesi": document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value,
+            "creditiAttivoCircolanteClientiOltre12Mesi": document.getElementById('creditiAttivoCircolanteClientiOltre12Mesi').value,
+            "creditiAttivoCircolanteImpreseControllateEntro12Mesi": document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value,
+            "creditiAttivoCircolanteImpreseControllateOltre12Mesi": document.getElementById('creditiAttivoCircolanteImpreseControllateOltre12Mesi').value,
+            "creditiAttivoCircolanteImpreseCollegateEntro12Mesi": document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value,
+            "creditiAttivoCircolanteImpreseCollegateOltre12Mesi": document.getElementById('creditiAttivoCircolanteImpreseCollegateOltre12Mesi').value,
+            "creditiAttivoCircolanteImpreseControllantiEntro12Mesi": document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value,
+            "creditiAttivoCircolanteImpreseControllantiOltre12Mesi": document.getElementById('creditiAttivoCircolanteImpreseControllantiOltre12Mesi').value,
+            "creditiAttivoCircolanteCreditiTributariEntro12Mesi": document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value,
+            "creditiAttivoCircolanteCreditiTributariOltre12Mesi": document.getElementById('creditiAttivoCircolanteCreditiTributariOltre12Mesi').value,
+            "creditiAttivoCircolanteImposteAnticipateEntro12Mesi": document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value,
+            "creditiAttivoCircolanteImposteAnticipateOltre12Mesi": document.getElementById('creditiAttivoCircolanteImposteAnticipateOltre12Mesi').value,
+            "creditiAttivoCircolanteAltreImpreseEntro12Mesi": document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value,
+            "creditiAttivoCircolanteAltreImpreseOltre12Mesi": document.getElementById('creditiAttivoCircolanteAltreImpreseOltre12Mesi').value,
+            "totaleCrediti": document.getElementById('totaleCrediti').value,
+            // III. Attività finanziarie che non costituiscono immobilizzazioni
+            "partecipazioniImpreseControllate": document.getElementById('partecipazioniImpreseControllate').value,
+            "partecipazioniImpreseCollegate": document.getElementById('partecipazioniImpreseCollegate').value,
+            "partecipazioniImpreseControllanti": document.getElementById('partecipazioniImpreseControllanti').value,
+            "altrePartecipazioni": document.getElementById('altrePartecipazioni').value,
+            "azioniProprieAttivitaFinanziarie": document.getElementById('azioniProprieAttivitaFinanziarie').value,
+            "altriTitoliAttivoCircolante": document.getElementById('altriTitoliAttivoCircolante').value,
+            "totaleAttivitaFinanziarie": document.getElementById('totaleAttivitaFinanziarie').value,
+            // IV. Disponibilità liquide
+            "depositiBancariPostali": document.getElementById('depositiBancariPostali').value,
+            "assegni": document.getElementById('assegni').value,
+            "danaroValoriCassa": document.getElementById('danaroValoriCassa').value,
+            "totaleDisponibilitaLiquide": document.getElementById('totaleDisponibilitaLiquide').value,
+            "totaleAttivoCircolante": document.getElementById('totaleAttivoCircolante').value,
+
+            // D) Ratei e Risconti
+            "rateiRiscontiAttivo": document.getElementById('rateiRiscontiAttivo').value,
+            "disaggioPrestiti": document.getElementById('disaggioPrestiti').value,
+            "totaleRateiRiscontiAttivi": document.getElementById('totaleRateiRiscontiAttivi').value,
+
+            // TOTALE ATTIVO
+            "totaleAttivo": document.getElementById('totaleAttivo').value,
+
+            /* STATO PATRIMONIALE PASSIVO */
+            // A. Patrimonio Netto
+            "capitale": document.getElementById('capitale').value,
+            "riservaSovrapprezzoAzioni": document.getElementById('riservaSovrapprezzoAzioni').value,
+            "riserveRivalutazione": document.getElementById('riserveRivalutazione').value,
+            "riservaLegale": document.getElementById('riservaLegale').value,
+            "riserveStatutarie": document.getElementById('riserveStatutarie').value,
+            "altreRiserve": document.getElementById('altreRiserve').value,
+            "utilePortatoNuovo": document.getElementById('utilePortatoNuovo').value,
+            "utileEsercizio": document.getElementById('utileEsercizio').value,
+            "riservaAzioniProprie": document.getElementById('riservaAzioniProprie').value,
+            "totalePatrimonioNetto": document.getElementById('totalePatrimonioNetto').value,
+
+            // B. Fondi per rischi e oneri
+            "trattamentoQuiescenzaObblighiSimili": document.getElementById('trattamentoQuiescenzaObblighiSimili').value,
+            "imposteAncheDifferite": document.getElementById('imposteAncheDifferite').value,
+            "altriFondi": document.getElementById('altriFondi').value,
+            "totaleFondiRischiOneri": document.getElementById('totaleFondiRischiOneri').value,
+
+            // C. Trattamento fine rapporto
+            "trattamentoFineRapportoSP": document.getElementById('trattamentoFineRapportoSP').value,
+
+            // D. Debiti
+            "obbligazioniEntro12Mesi": document.getElementById('obbligazioniEntro12Mesi').value,
+            "obbligazioniOltre12Mesi": document.getElementById('obbligazioniOltre12Mesi').value,
+            "obbligazioniConvertibiliEntro12Mesi": document.getElementById('obbligazioniConvertibiliEntro12Mesi').value,
+            "obbligazioniConvertibiliOltre12Mesi": document.getElementById('obbligazioniConvertibiliOltre12Mesi').value,
+            "debitiVersoSociFinanziamentiEntro12Mesi": document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value,
+            "debitiVersoSociFinanziamentiOltre12Mesi": document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value,
+            "debitiVersoBancheEntro12Mesi": document.getElementById('debitiVersoBancheEntro12Mesi').value,
+            "debitiVersoBancheOltre12Mesi": document.getElementById('debitiVersoBancheOltre12Mesi').value,
+            "debitiVersoAltriFinanziatoriEntro12Mesi": document.getElementById('debitiVersoAltriFinanziatoriEntro12Mesi').value,
+            "debitiVersoAltriFinanziatoriOltre12Mesi": document.getElementById('debitiVersoAltriFinanziatoriOltre12Mesi').value,
+            "accontiEntro12Mesi": document.getElementById('accontiEntro12Mesi').value,
+            "accontiOltre12Mesi": document.getElementById('accontiOltre12Mesi').value,
+            "debitiVersoFornitoriEntro12Mesi": document.getElementById('debitiVersoFornitoriEntro12Mesi').value,
+            "debitiVersoFornitoriOltre12Mesi": document.getElementById('debitiVersoFornitoriOltre12Mesi').value,
+            "debitiRappresentatiTitoliCreditoEntro12Mesi": document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value,
+            "debitiRappresentatiTitoliCreditoOltre12Mesi": document.getElementById('debitiRappresentatiTitoliCreditoOltre12Mesi').value,
+            "debitiVersoImpreseControllateEntro12Mesi": document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value,
+            "debitiVersoImpreseControllateOltre12Mesi": document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value,
+            "debitiVersoImpreseCollegateEntro12Mesi": document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value,
+            "debitiVersoImpreseCollegateOltre12Mesi": document.getElementById('debitiVersoImpreseCollegateOltre12Mesi').value,
+            "debitiVersoControllantiEntro12Mesi": document.getElementById('debitiVersoControllantiEntro12Mesi').value,
+            "debitiVersoControllantiOltre12Mesi": document.getElementById('debitiVersoControllantiOltre12Mesi').value,
+            "debitiTributariEntro12Mesi": document.getElementById('debitiTributariEntro12Mesi').value,
+            "debitiTributariOltre12Mesi": document.getElementById('debitiTributariOltre12Mesi').value,
+            "debitiVersoIstituiPrevidenzaEntro12Mesi": document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value,
+            "debitiVersoIstituiPrevidenzaOltre12Mesi": document.getElementById('debitiVersoIstituiPrevidenzaOltre12Mesi').value,
+            "altriDebitiEntro12Mesi": document.getElementById('altriDebitiEntro12Mesi').value,
+            "altriDebitiOltre12Mesi": document.getElementById('altriDebitiOltre12Mesi').value,
+            "totaleDebiti": document.getElementById('totaleDebiti').value,
+
+            // E. ratei e risconti
+            "rateiRiscontiPassivo": document.getElementById('rateiRiscontiPassivo').value,
+            "aggioPrestiti": document.getElementById('aggioPrestiti').value,
+            "totaleRateiRiscontiPassivi": document.getElementById('totaleRateiRiscontiPassivi').value,
+
+            // TOTALE PASSIVO
+            "totalePassivo": document.getElementById('totalePassivo').value
+        },
+        /* CONTO ECONOMICO */
+        {
+            // A) Valore della produzione
+            "ricaviVendite": document.getElementById('ricaviVendite').value,
+            "variazioniRimanenze": document.getElementById('variazioniRimanenze').value,
+            "variazioniLavoriInCorso": document.getElementById('variazioniLavoriInCorso').value,
+            "incrementiImmobilizzazioniLavoriInterni": document.getElementById('incrementiImmobilizzazioniLavoriInterni').value,
+            "altriRicaviProventi": document.getElementById('altriRicaviProventi').value,
+            "altriRicaviProventiContributiContoEsercizio" : document.getElementById('altriRicaviProventiContributiContoEsercizio').value,
+            "totaleValoreProduzione": document.getElementById('totaleValoreProduzione').value,
+
+            // B) Costi della produzione
+            "materiePrimeCE": document.getElementById('materiePrimeCE').value,
+            "servizi": document.getElementById('servizi').value,
+            "godimentoBeniTerzi": document.getElementById('godimentoBeniTerzi').value,
+            "diCuiCanoniLeasing": document.getElementById('diCuiCanoniLeasing').value,
+            "salariStipendi": document.getElementById('salariStipendi').value,
+            "oneriSociali": document.getElementById('oneriSociali').value,
+            "trattamentoFineRapportoCE": document.getElementById('trattamentoFineRapportoCE').value,
+            "trattamentoQuiescenzaSimili": document.getElementById('trattamentoQuiescenzaSimili').value,
+            "altriCosti": document.getElementById('altriCosti').value,
+            "ammortamentoImmobilizzazioniImmateriali": document.getElementById('ammortamentoImmobilizzazioniImmateriali').value,
+            "ammortamentoImmobilizzazioniMateriali": document.getElementById('ammortamentoImmobilizzazioniMateriali').value,
+            "altreSvalutazioniImmobilizzazioni": document.getElementById('altreSvalutazioniImmobilizzazioni').value,
+            "svalutazioniCreditiCompresiAttivoCircolante": document.getElementById('svalutazioniCreditiCompresiAttivoCircolante').value,
+            "variazioneRimanenzeMateriePrime": document.getElementById('variazioneRimanenzeMateriePrime').value,
+            "accantonamentiPerRischi": document.getElementById('accantonamentiPerRischi').value,
+            "altriAccantonamenti": document.getElementById('altriAccantonamenti').value,
+            "oneriDiversiGestione": document.getElementById('oneriDiversiGestione').value,
+            "totaleCostiProduzione": document.getElementById('totaleCostiProduzione').value,
+
+            // Differenza tra Valore e Costi della produzione
+            "differenzaValoreCostiProduzione": document.getElementById('differenzaValoreCostiProduzione').value,
+
+            // C) Proventi e oneri finanziari
+            "proventiDaControllate": document.getElementById('proventiDaControllate').value,
+            "proventiDaCollegate": document.getElementById('proventiDaCollegate').value,
+            "proventiDaControllanti": document.getElementById('proventiDaControllanti').value,
+            "proventiCreditiIscrittiImmobilizzazioniControllate": document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value,
+            "proventiCreditiIscrittiImmobilizzazioniCollegate": document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value,
+            "proventiCreditiIscrittiImmobilizzazioniControllanti": document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value,
+            "proventiTitoliIscrittiImmobilizzazioni": document.getElementById('proventiTitoliIscrittiImmobilizzazioni').value,
+            "proventiTitoliIscrittiAttivoCircolante": document.getElementById('proventiTitoliIscrittiAttivoCircolante').value,
+            "proventiDiversiDaiPrecedentiControllate": document.getElementById('proventiDiversiDaiPrecedentiControllate').value,
+            "proventiDiversiDaiPrecedentiCollegate": document.getElementById('proventiDiversiDaiPrecedentiCollegate').value,
+            "proventiDiversiDaiPrecedentiControllanti": document.getElementById('proventiDiversiDaiPrecedentiControllanti').value,
+            "interessiAltriOneriFinanziariDaControllate": document.getElementById('interessiAltriOneriFinanziariDaControllate').value,
+            "interessiAltriOneriFinanziariDaCollegate": document.getElementById('interessiAltriOneriFinanziariDaCollegate').value,
+            "interessiAltriOneriFinanziariDaControllanti": document.getElementById('interessiAltriOneriFinanziariDaControllanti').value,
+            "utiliPerditesuCambi": document.getElementById('utiliPerditesuCambi').value,
+            "totaleProventiOneriFinanziari": document.getElementById('totaleProventiOneriFinanziari').value,
+
+            // D) Rettifiche di valore di attività finanziarie
+            "rivalutazioniPartecipazioni": document.getElementById('rivalutazioniPartecipazioni').value,
+            "rivalutazioniImmobilizzazioniFinanziarie": document.getElementById('rivalutazioniImmobilizzazioniFinanziarie').value,
+            "rivalutazioniTitoliIscrittiAttivoCircolante": document.getElementById('rivalutazioniTitoliIscrittiAttivoCircolante').value,
+            "rivalutazioniStrumentiFinanziariDerivati": document.getElementById('rivalutazioniStrumentiFinanziariDerivati').value,
+            "svalutazioniPartecipazioni": document.getElementById('svalutazioniPartecipazioni').value,
+            "svalutazioniImmobilizzazioniFinanziarie": document.getElementById('svalutazioniImmobilizzazioniFinanziarie').value,
+            "svalutazioniTitoliIscrittiAttivoCircolante": document.getElementById('svalutazioniTitoliIscrittiAttivoCircolante').value,
+            "svalutazioniStrumentiFinanziariDerivati": document.getElementById('svalutazioniStrumentiFinanziariDerivati').value,
+            "totaleRettifiche": document.getElementById('totaleRettifiche').value,
+
+            // E) Proventi e oneri straordinari
+            "proventiStraordinari": document.getElementById('proventiStraordinari').value,
+            "plusvalenzeAlienazioni": document.getElementById('plusvalenzeAlienazioni').value,
+            "altriProventi": document.getElementById('altriProventi').value,
+            "oneriStraordinari": document.getElementById('oneriStraordinari').value,
+            "minusvalenzeAlienazioni": document.getElementById('minusvalenzeAlienazioni').value,
+            "altriOneri": document.getElementById('altriOneri').value,
+            "totalePartiteStraordinarie": document.getElementById('totalePartiteStraordinarie').value,
+
+            // Risultato prima delle imposte
+            "risultatoPrimaImposte": document.getElementById('risultatoPrimaImposte').value,
+            // Imposte
+            "imposteRedditoEsercizio": document.getElementById('imposteRedditoEsercizio').value,
+            // Utile (perdite) dell'esercizio
+            "utilePerditeEsercizio": document.getElementById('utilePerditeEsercizio').value
+        },
+        /* RICLASSIFICAZIONE STATO PATRIMONIALE FUNZIONALE (OPERATIVO) */
+        {
+            "SPFOimmobilizzazioniImmateriali": document.getElementById('SPFOimmobilizzazioniImmateriali').value,
+            "SPFOimmobilizzazioniMateriali": document.getElementById('SPFOimmobilizzazioniMateriali').value,
+            "SPFOimmobilizzazioniFinanziarieNette": document.getElementById('SPFOimmobilizzazioniFinanziarieNette').value,
+            "SPFOtotaleImmobilizzazioniNette": document.getElementById('SPFOtotaleImmobilizzazioniNette').value,
+            "SPFOmagazzino": document.getElementById('SPFOmagazzino').value,
+            "SPFOcreditiVersoClienti": document.getElementById('SPFOcreditiVersoClienti').value,
+            "SPFOaltriCrediti": document.getElementById('SPFOaltriCrediti').value,
+            "SPFOrateiRiscontiAttivi": document.getElementById('SPFOrateiRiscontiAttivi').value,
+            "SPFOtotaleAttivoCommerciale": document.getElementById('SPFOtotaleAttivoCommerciale').value,
+            "SPFOdebitiVersoFornitori": document.getElementById('SPFOdebitiVersoFornitori').value,
+            "SPFOaltriDebitiNonFinanziari": document.getElementById('SPFOaltriDebitiNonFinanziari').value,
+            "SPFOrateiRiscontiPassivi": document.getElementById('SPFOrateiRiscontiPassivi').value,
+            "SPFOtotalePassivoCommerciale": document.getElementById('SPFOtotalePassivoCommerciale').value,
+            "SPFOcapitaleEsercizio": document.getElementById('SPFOcapitaleEsercizio').value,
+            "SPFOfondiRischiOneri": document.getElementById('SPFOfondiRischiOneri').value,
+            "SPFOfondoTfr": document.getElementById('SPFOfondoTfr').value,
+            "SPFOtotaleFondiOperativi": document.getElementById('SPFOtotaleFondiOperativi').value,
+            "SPFOcapitaleInvestitoNetto": document.getElementById('SPFOcapitaleInvestitoNetto').value,
+            "SPFOdebitiFinanziariBreveTermine": document.getElementById('SPFOdebitiFinanziariBreveTermine').value,
+            "SPFOdisponibilitaLiquide": document.getElementById('SPFOdisponibilitaLiquide').value,
+            "SPFOcreditiFinanziariBreveTermine": document.getElementById('SPFOcreditiFinanziariBreveTermine').value,
+            "SPFOtotalePosizioneFinanziariaBreveTermine": document.getElementById('SPFOtotalePosizioneFinanziariaBreveTermine').value,
+            "SPFOdebitiFinanziariMedioLungoTermine": document.getElementById('SPFOdebitiFinanziariMedioLungoTermine').value,
+            "SPFOcreditiFinanziariMedioLungoTermine": document.getElementById('SPFOcreditiFinanziariMedioLungoTermine').value,
+            "SPFOtotalePosizioneFinanziariaMedioLungoTermine": document.getElementById('SPFOtotalePosizioneFinanziariaMedioLungoTermine').value,
+            "SPFOtotalePosizioneFinanziaria": document.getElementById('SPFOtotalePosizioneFinanziaria').value,
+            "SPFOcapitaleSocialeFinanziamentiContoCapitale": document.getElementById('SPFOcapitaleSocialeFinanziamentiContoCapitale').value,
+            "SPFOriserve": document.getElementById('SPFOriserve').value,
+            "SPFOredditonetto": document.getElementById('SPFOredditonetto').value,
+            "SPFOtotalePatrimonioNetto": document.getElementById('SPFOtotalePatrimonioNetto').value,
+            "SPFOtotaleDebitoFinanziarioPatrimonioNetto": document.getElementById('SPFOtotaleDebitoFinanziarioPatrimonioNetto').value
+        },
+        /* RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO */
+        {
+            "SPFimmobilizzazioniImmateriali": document.getElementById('SPFimmobilizzazioniImmateriali').value,
+            "SPFimmobilizzazioniMateriali": document.getElementById('SPFimmobilizzazioniMateriali').value,
+            "SPFimmobilizzazioniFinanziarie": document.getElementById('SPFimmobilizzazioniFinanziarie').value,
+            "SPFtotaleImmobilizzazioniNette": document.getElementById('SPFtotaleImmobilizzazioniNette').value,
+            "SPFmagazzino": document.getElementById('SPFmagazzino').value,
+            "SPFprodottiFiniti": document.getElementById('SPFprodottiFiniti').value,
+            "SPFmateriePrime": document.getElementById('SPFmateriePrime').value,
+            "SPFcreditiCommerciali": document.getElementById('SPFcreditiCommerciali').value,
+            "SPFaltriCrediti": document.getElementById('SPFaltriCrediti').value,
+            "SPFrateiRiscontiAttivi": document.getElementById('SPFrateiRiscontiAttivi').value,
+            "SPFliquidita": document.getElementById('SPFliquidita').value,
+            "SPFtotaleAttivoCircolante": document.getElementById('SPFtotaleAttivoCircolante').value,
+            "SPFtotaleAttivo": document.getElementById('SPFtotaleAttivo').value,
+            "SPFcapitaleSociale": document.getElementById('SPFcapitaleSociale').value,
+            "SPFriserve": document.getElementById('SPFriserve').value,
+            "SPFredditoNetto": document.getElementById('SPFredditoNetto').value,
+            "SPFtotalePatrimonioNetto": document.getElementById('SPFtotalePatrimonioNetto').value,
+            "SPFdebitiFinanziariMlTermine": document.getElementById('SPFdebitiFinanziariMlTermine').value,
+            "SPFaltriDebiti": document.getElementById('SPFaltriDebiti').value,
+            "SPFfondoTFR": document.getElementById('SPFfondoTFR').value,
+            "SPFaltriFondi": document.getElementById('SPFaltriFondi').value,
+            "SPFtotalePassivoMlTermine": document.getElementById('SPFtotalePassivoMlTermine').value,
+            "SPFdebitiFinanziariBreveTermine": document.getElementById('SPFdebitiFinanziariBreveTermine').value,
+            "SPFdebitiCommercialiFornitori": document.getElementById('SPFdebitiCommercialiFornitori').value,
+            "SPFaltriDebitiNonFinanziari": document.getElementById('SPFaltriDebitiNonFinanziari').value,
+            "SPFrateiRiscontiPassivi": document.getElementById('SPFrateiRiscontiPassivi').value,
+            "SPFtotalePassivoBreveTermine": document.getElementById('SPFtotalePassivoBreveTermine').value,
+            "SPFtotalePassivoPatrimonioNetto": document.getElementById('SPFtotalePassivoPatrimonioNetto').value,
+            "SPFeventualeSquadraturaAttivoPass": document.getElementById('SPFeventualeSquadraturaAttivoPass').value
+        },
+        /* RICLASSIFICAZIONE CONTO ECONOMICO VALORE AGGIUNTO */
+        {
+            "CEricaviVendite": document.getElementById('CEricaviVendite').value,
+            "CEproduzioneInterna": document.getElementById('CEproduzioneInterna').value,
+            "CEtotaleValoreProduzione": document.getElementById('CEtotaleValoreProduzione').value,
+            "CEconsumoMateriePrime": document.getElementById('CEconsumoMateriePrime').value,
+            "CEcostiServizi": document.getElementById('CEcostiServizi').value,
+            "CEaltriCostiOperativiEsterni": document.getElementById('CEaltriCostiOperativiEsterni').value,
+            "CEtotaleConsumiEsterni": document.getElementById('CEtotaleConsumiEsterni').value,
+            "CEvaloreAggiunto": document.getElementById('CEvaloreAggiunto').value,
+            "CEcostiPersonale": document.getElementById('CEcostiPersonale').value,
+            "CEtotaleMargineOperativoLordo": document.getElementById('CEtotaleMargineOperativoLordo').value,
+            "CEammortamenti": document.getElementById('CEammortamenti').value,
+            "CEcanoniLeasing": document.getElementById('CEcanoniLeasing').value,
+            "CEaccantonamentiSvalutazioni": document.getElementById('CEaccantonamentiSvalutazioni').value,
+            "CEtotaleAmmortamentiSvalutazioni": document.getElementById('CEtotaleAmmortamentiSvalutazioni').value,
+            "CEaltriProventiOperativi": document.getElementById('CEaltriProventiOperativi').value,
+            "CEproventiFinanziari": document.getElementById('CEproventiFinanziari').value,
+            "CEsaldoGestioneMobiliare": document.getElementById('CEsaldoGestioneMobiliare').value,
+            "CEtotaleRisultatoOperativo": document.getElementById('CEtotaleRisultatoOperativo').value,
+            "CEoneriFinanziari": document.getElementById('CEoneriFinanziari').value,
+            "CEtotaleRisultatoLordo": document.getElementById('CEtotaleRisultatoLordo').value,
+            "CEproventiStraordinari": document.getElementById('CEproventiStraordinari').value,
+            "CEoneriStraordinari": document.getElementById('CEoneriStraordinari').value,
+            "CErisultatoAreaStraordinaria": document.getElementById('CErisultatoAreaStraordinaria').value,
+            "CEtotaleRisultatoAnteImposte": document.getElementById('CEtotaleRisultatoAnteImposte').value,
+            "CEimposteReddito": document.getElementById('CEimposteReddito').value,
+            "CEtotaleRisultatoNetto": document.getElementById('CEtotaleRisultatoNetto').value
+        },
+        /* FORECAST */
+        {
+            // Tab. 1 - Ricavi e costi operativi
+            "FCricaviVendite": document.getElementById('FCricaviVendite').value,
+            "FCconsumiMerci": document.getElementById('FCconsumiMerci').value,
+            "FCincValProdConsumiMerci": document.getElementById('FCincValProdConsumiMerci').value,
+            "FCacquistiServizi": document.getElementById('FCacquistiServizi').value,
+            "FCincValProdAcquistiServizi": document.getElementById('FCincValProdAcquistiServizi').value,
+            "FCcostoGodimentoBeniTerzi": document.getElementById('FCcostoGodimentoBeniTerzi').value,
+            "FCdiCuiCanoniLeasing": document.getElementById('FCdiCuiCanoniLeasing').value,
+            "FCcostiDelPersonale": document.getElementById('FCcostiDelPersonale').value,
+            "FCincValProdCostiPersonale": document.getElementById('FCincValProdCostiPersonale').value,
+            "FCaccantonamentoTFR": document.getElementById('FCaccantonamentoTFR').value,
+            "FCincCostoPersonale": document.getElementById('FCincCostoPersonale').value,
+            "FCutilizziFondoTFR": document.getElementById('FCutilizziFondoTFR').value,
+            "FCaccantonamenti": document.getElementById('FCaccantonamenti').value,
+            "FCutilizziAltriFondi": document.getElementById('FCutilizziAltriFondi').value,
+            // Tab. 2 - Capitale circolante
+            "FCcreditiVersoClienti" : document.getElementById('FCcreditiVersoClienti').value,
+            "FCdevitiVersoFornitori" : document.getElementById('FCdevitiVersoFornitori').value,
+            "FCmagazzinoMateriePrime" : document.getElementById('FCmagazzinoMateriePrime').value,
+            "FCmagazzinoProdottiFiniti" : document.getElementById('FCmagazzinoProdottiFiniti').value,
+            "FCaltriCreditiLiquidita" : document.getElementById('FCaltriCreditiLiquidita').value,
+            // Tab. 3  - Investimenti
+            "FCacquistoNettoImmMateriali" : document.getElementById('FCacquistoNettoImmMateriali').value,
+            "FCammortamentoImmTecniche" : document.getElementById('FCammortamentoImmTecniche').value,
+            "FCacquistoNettoImmImmateriali" : document.getElementById('FCacquistoNettoImmImmateriali').value,
+            "FCquotaAmmortamentoImmImmateriali" : document.getElementById('FCquotaAmmortamentoImmImmateriali').value,
+            "FCacquistoNettoImmobFinanziarie" : document.getElementById('FCacquistoNettoImmobFinanziarie').value,
+            // Tab. 4  - Gestione accessoria
+            "FCinteressiAttiviAltriProvFinanziari" : document.getElementById('FCinteressiAttiviAltriProvFinanziari').value,
+            "FCaltriRicaviProventi" : document.getElementById('FCaltriRicaviProventi').value,
+            "FCproventiOneriStraordinari" : document.getElementById('FCproventiOneriStraordinari').value,
+            "FCaliquotaImposte" : document.getElementById('FCaliquotaImposte').value,
+            // Tab. 5  - Gestione finanziaria
+            "FCcapitaleSocialeRiserve" : document.getElementById('FCcapitaleSocialeRiserve').value,
+            "FCmutuiPrestiti" : document.getElementById('FCmutuiPrestiti').value,
+            "FCproventiOneriStraordinari" : document.getElementById('FCproventiOneriStraordinari').value,
+            "FCtassoInteresseMutuiPrestiti" : document.getElementById('FCtassoInteresseMutuiPrestiti').value,
+            "FCdebitiNonFinanziariLT" : document.getElementById('FCdebitiNonFinanziariLT').value,
+            "FCdebitiNonFinanziariBT" : document.getElementById('FCdebitiNonFinanziariBT').value,
+            "FCaltriInteressiPassivi" : document.getElementById('FCaltriInteressiPassivi').value
+        }
+    ]
+
+    var json = JSON.stringify(contenuto);
+    return json;
+}
+
 // salvataggio progetto
 ipc.on('salva', function (ev, data) {
 
@@ -453,425 +872,6 @@ ipc.on('apri', function (ev, data) {
         }
     })
 })
-
-function array() {
-
-    //creo array per json
-    let contenuto = [
-        /* ANAGRAFICA AZIENDALE */
-        {
-            "professionistaStudio": document.getElementById('professionistaStudio').value,
-            "ragioneSociale": document.getElementById('ragioneSociale').value,
-            "partitaIVA": document.getElementById('partitaIVA').value,
-            "settoreProduzione": document.getElementById('settoreProduzione').value,
-            "contrattoCollettivo": document.getElementById('contrattoCollettivo').value,
-            "numeroDipendenti": document.getElementById('numeroDipendenti').value,
-            "indirizzo": document.getElementById('indirizzo').value,
-            "comune": document.getElementById('comune').value,
-            "provincia": document.getElementById('provincia').value,
-            "cap": document.getElementById('cap').value,
-            "referente": document.getElementById('referente').value,
-            "telefono": document.getElementById('telefono').value,
-            "fax": document.getElementById('fax').value,
-            "email": document.getElementById('email').value,
-            "sitoWeb": document.getElementById('sitoWeb').value,
-            "note": document.getElementById('note').value
-        },
-        /* ANALISI QUANTITATIVA */
-        {
-            "storiaAzienda": document.getElementById('storiaAzienda').value,
-            "titolari": document.getElementById('titolari').value,
-            "organoControllo": document.getElementById('organoControllo').value,
-            "descrizioneAttuale": document.getElementById('descrizioneAttuale').value,
-            "prodottiCommercializzati": document.getElementById('prodottiCommercializzati').value,
-            "mercatoRiferimento": document.getElementById('mercatoRiferimento').value,
-            "politicheProduzione": document.getElementById('politicheProduzione').value,
-            "politicheDistribuzione": document.getElementById('politicheDistribuzione').value,
-            "principaliFornitori": document.getElementById('principaliFornitori').value,
-            "principaliClienti": document.getElementById('principaliClienti').value,
-            "rapportiContrattuali": document.getElementById('rapportiContrattuali').value,
-            "internazionalizzazione": document.getElementById('internazionalizzazione').value,
-            "personale": document.getElementById('personale').value,
-            "strutturaInvestimenti": document.getElementById('strutturaInvestimenti').value,
-            "marchiBrevetti": document.getElementById('marchiBrevetti').value,
-            "tipologiaRischi": document.getElementById('tipologiaRischi').value,
-            "informazioniUtili": document.getElementById('informazioniUtili').value,
-            "finalitaRichiesta": document.getElementById('finalitaRichiesta').value,
-            "fidiEdUtilizzi": document.getElementById('fidiEdUtilizzi').value,
-            "conclusioni": document.getElementById('conclusioni').value
-        },
-        /* STATO PATRIMONIALE ATTIVO */
-        {
-            // A. Crediti verso soci
-            "creditiVersoSoci": document.getElementById('creditiVersoSoci').value,
-            "creditiVersoSociRichiamati": document.getElementById('creditiVersoSociRichiamati').value,
-            "creditiVersoSociDaRichiamare": document.getElementById('creditiVersoSociDaRichiamare').value,
-
-            // B. Immobilizzazioni
-            // I. Immateriali
-            "costiImpiantoAmpliamento": document.getElementById('costiImpiantoAmpliamento').value,
-            "costiRicercaSviluppo": document.getElementById('costiRicercaSviluppo').value,
-            "dirittiBrevetto": document.getElementById('dirittiBrevetto').value,
-            "concessioniLicenzeMarchi": document.getElementById('concessioniLicenzeMarchi').value,
-            "avviamento": document.getElementById('avviamento').value,
-            "immobilizzazioniCorso": document.getElementById('immobilizzazioniCorso').value,
-            "immobilizzazioniAltro": document.getElementById('immobilizzazioniAltro').value,
-            "totaleImmobilizzazioniImmateriali": document.getElementById('totaleImmobilizzazioniImmateriali').value,
-            // II. Materiali
-            "terreniFabbricati": document.getElementById('terreniFabbricati').value,
-            "impiantiMacchinario": document.getElementById('impiantiMacchinario').value,
-            "attrezzatureIndustriali": document.getElementById('attrezzatureIndustriali').value,
-            "altriBeni": document.getElementById('altriBeni').value,
-            "immobilizzazioniCorsoAcconti": document.getElementById('immobilizzazioniCorsoAcconti').value,
-            "totaleImmobilizzazioniMateriali": document.getElementById('totaleImmobilizzazioniMateriali').value,
-            // III. Finanziarie
-            "impreseControllate": document.getElementById('impreseControllate').value,
-            "impreseCollegate": document.getElementById('impreseCollegate').value,
-            "impreseControllanti": document.getElementById('impreseControllanti').value,
-            "altreImprese": document.getElementById('altreImprese').value,
-            "creditiImmobilizzazioniImpreseControllateEntro12Mesi": document.getElementById('creditiImmobilizzazioniImpreseControllateEntro12Mesi').value,
-            "creditiImmobilizzazioniImpreseControllateOltre12Mesi": document.getElementById('creditiImmobilizzazioniImpreseControllateOltre12Mesi').value,
-            "creditiImmobilizzazioniImpreseCollegateEntro12Mesi": document.getElementById('creditiImmobilizzazioniImpreseCollegateEntro12Mesi').value,
-            "creditiImmobilizzazioniImpreseCollegateOltre12Mesi": document.getElementById('creditiImmobilizzazioniImpreseCollegateOltre12Mesi').value,
-            "creditiImmobilizzazioniImpreseControllantiEntro12Mesi": document.getElementById('creditiImmobilizzazioniImpreseControllantiEntro12Mesi').value,
-            "creditiImmobilizzazioniImpreseControllantiOltre12Mesi": document.getElementById('creditiImmobilizzazioniImpreseControllantiOltre12Mesi').value,
-            "creditiImmobilizzazioniAltreImpreseEntro12Mesi": document.getElementById('creditiImmobilizzazioniAltreImpreseEntro12Mesi').value,
-            "creditiImmobilizzazioniAltreImpreseOltre12Mesi": document.getElementById('creditiImmobilizzazioniAltreImpreseOltre12Mesi').value,
-            "altriTitoliImmobilizzazioni": document.getElementById('altriTitoliImmobilizzazioni').value,
-            "azioniProprieImmobilizzazioniFinanziarie": document.getElementById('azioniProprieImmobilizzazioniFinanziarie').value,
-            "totaleImmobilizzazioniFinanziarie": document.getElementById('totaleImmobilizzazioniFinanziarie').value,
-            "totaleImmobilizzazioni": document.getElementById('totaleImmobilizzazioni').value,
-
-            // C. Attivo Circolante
-            // I. Rimanenze
-            "materiePrime": document.getElementById('materiePrime').value,
-            "prodottiCorsoLavorazione": document.getElementById('prodottiCorsoLavorazione').value,
-            "lavoriCorsoOrdinazione": document.getElementById('lavoriCorsoOrdinazione').value,
-            "prodottiFinitiMerci": document.getElementById('prodottiFinitiMerci').value,
-            "acconti": document.getElementById('acconti').value,
-            "totaleRimanenze": document.getElementById('totaleRimanenze').value,
-            // II. Crediti
-            "creditiAttivoCircolanteClientiEntro12Mesi": document.getElementById('creditiAttivoCircolanteClientiEntro12Mesi').value,
-            "creditiAttivoCircolanteClientiOltre12Mesi": document.getElementById('creditiAttivoCircolanteClientiOltre12Mesi').value,
-            "creditiAttivoCircolanteImpreseControllateEntro12Mesi": document.getElementById('creditiAttivoCircolanteImpreseControllateEntro12Mesi').value,
-            "creditiAttivoCircolanteImpreseControllateOltre12Mesi": document.getElementById('creditiAttivoCircolanteImpreseControllateOltre12Mesi').value,
-            "creditiAttivoCircolanteImpreseCollegateEntro12Mesi": document.getElementById('creditiAttivoCircolanteImpreseCollegateEntro12Mesi').value,
-            "creditiAttivoCircolanteImpreseCollegateOltre12Mesi": document.getElementById('creditiAttivoCircolanteImpreseCollegateOltre12Mesi').value,
-            "creditiAttivoCircolanteImpreseControllantiEntro12Mesi": document.getElementById('creditiAttivoCircolanteImpreseControllantiEntro12Mesi').value,
-            "creditiAttivoCircolanteImpreseControllantiOltre12Mesi": document.getElementById('creditiAttivoCircolanteImpreseControllantiOltre12Mesi').value,
-            "creditiAttivoCircolanteCreditiTributariEntro12Mesi": document.getElementById('creditiAttivoCircolanteCreditiTributariEntro12Mesi').value,
-            "creditiAttivoCircolanteCreditiTributariOltre12Mesi": document.getElementById('creditiAttivoCircolanteCreditiTributariOltre12Mesi').value,
-            "creditiAttivoCircolanteImposteAnticipateEntro12Mesi": document.getElementById('creditiAttivoCircolanteImposteAnticipateEntro12Mesi').value,
-            "creditiAttivoCircolanteImposteAnticipateOltre12Mesi": document.getElementById('creditiAttivoCircolanteImposteAnticipateOltre12Mesi').value,
-            "creditiAttivoCircolanteAltreImpreseEntro12Mesi": document.getElementById('creditiAttivoCircolanteAltreImpreseEntro12Mesi').value,
-            "creditiAttivoCircolanteAltreImpreseOltre12Mesi": document.getElementById('creditiAttivoCircolanteAltreImpreseOltre12Mesi').value,
-            "totaleCrediti": document.getElementById('totaleCrediti').value,
-            // III. Attività finanziarie che non costituiscono immobilizzazioni
-            "partecipazioniImpreseControllate": document.getElementById('partecipazioniImpreseControllate').value,
-            "partecipazioniImpreseCollegate": document.getElementById('partecipazioniImpreseCollegate').value,
-            "partecipazioniImpreseControllanti": document.getElementById('partecipazioniImpreseControllanti').value,
-            "altrePartecipazioni": document.getElementById('altrePartecipazioni').value,
-            "azioniProprieAttivitaFinanziarie": document.getElementById('azioniProprieAttivitaFinanziarie').value,
-            "altriTitoliAttivoCircolante": document.getElementById('altriTitoliAttivoCircolante').value,
-            "totaleAttivitaFinanziarie": document.getElementById('totaleAttivitaFinanziarie').value,
-            // IV. Disponibilità liquide
-            "depositiBancariPostali": document.getElementById('depositiBancariPostali').value,
-            "assegni": document.getElementById('assegni').value,
-            "danaroValoriCassa": document.getElementById('danaroValoriCassa').value,
-            "totaleDisponibilitaLiquide": document.getElementById('totaleDisponibilitaLiquide').value,
-            "totaleAttivoCircolante": document.getElementById('totaleAttivoCircolante').value,
-
-            // D) Ratei e Risconti
-            "rateiRiscontiAttivo": document.getElementById('rateiRiscontiAttivo').value,
-            "disaggioPrestiti": document.getElementById('disaggioPrestiti').value,
-            "totaleRateiRiscontiAttivi": document.getElementById('totaleRateiRiscontiAttivi').value,
-
-            // TOTALE ATTIVO
-            "totaleAttivo": document.getElementById('totaleAttivo').value,
-
-            /* STATO PATRIMONIALE PASSIVO */
-            // A. Patrimonio Netto
-            "capitale": document.getElementById('capitale').value,
-            "riservaSovrapprezzoAzioni": document.getElementById('riservaSovrapprezzoAzioni').value,
-            "riserveRivalutazione": document.getElementById('riserveRivalutazione').value,
-            "riservaLegale": document.getElementById('riservaLegale').value,
-            "riserveStatutarie": document.getElementById('riserveStatutarie').value,
-            "altreRiserve": document.getElementById('altreRiserve').value,
-            "utilePortatoNuovo": document.getElementById('utilePortatoNuovo').value,
-            "utileEsercizio": document.getElementById('utileEsercizio').value,
-            "riservaAzioniProprie": document.getElementById('riservaAzioniProprie').value,
-            "totalePatrimonioNetto": document.getElementById('totalePatrimonioNetto').value,
-
-            // B. Fondi per rischi e oneri
-            "trattamentoQuiescenzaObblighiSimili": document.getElementById('trattamentoQuiescenzaObblighiSimili').value,
-            "imposteAncheDifferite": document.getElementById('imposteAncheDifferite').value,
-            "altriFondi": document.getElementById('altriFondi').value,
-            "totaleFondiRischiOneri": document.getElementById('totaleFondiRischiOneri').value,
-
-            // C. Trattamento fine rapporto
-            "trattamentoFineRapportoSP": document.getElementById('trattamentoFineRapportoSP').value,
-
-            // D. Debiti
-            "obbligazioniEntro12Mesi": document.getElementById('obbligazioniEntro12Mesi').value,
-            "obbligazioniOltre12Mesi": document.getElementById('obbligazioniOltre12Mesi').value,
-            "obbligazioniConvertibiliEntro12Mesi": document.getElementById('obbligazioniConvertibiliEntro12Mesi').value,
-            "obbligazioniConvertibiliOltre12Mesi": document.getElementById('obbligazioniConvertibiliOltre12Mesi').value,
-            "debitiVersoSociFinanziamentiEntro12Mesi": document.getElementById('debitiVersoSociFinanziamentiEntro12Mesi').value,
-            "debitiVersoSociFinanziamentiOltre12Mesi": document.getElementById('debitiVersoSociFinanziamentiOltre12Mesi').value,
-            "debitiVersoBancheEntro12Mesi": document.getElementById('debitiVersoBancheEntro12Mesi').value,
-            "debitiVersoBancheOltre12Mesi": document.getElementById('debitiVersoBancheOltre12Mesi').value,
-            "debitiVersoAltriFinanziatoriEntro12Mesi": document.getElementById('debitiVersoAltriFinanziatoriEntro12Mesi').value,
-            "debitiVersoAltriFinanziatoriOltre12Mesi": document.getElementById('debitiVersoAltriFinanziatoriOltre12Mesi').value,
-            "accontiEntro12Mesi": document.getElementById('accontiEntro12Mesi').value,
-            "accontiOltre12Mesi": document.getElementById('accontiOltre12Mesi').value,
-            "debitiVersoFornitoriEntro12Mesi": document.getElementById('debitiVersoFornitoriEntro12Mesi').value,
-            "debitiVersoFornitoriOltre12Mesi": document.getElementById('debitiVersoFornitoriOltre12Mesi').value,
-            "debitiRappresentatiTitoliCreditoEntro12Mesi": document.getElementById('debitiRappresentatiTitoliCreditoEntro12Mesi').value,
-            "debitiRappresentatiTitoliCreditoOltre12Mesi": document.getElementById('debitiRappresentatiTitoliCreditoOltre12Mesi').value,
-            "debitiVersoImpreseControllateEntro12Mesi": document.getElementById('debitiVersoImpreseControllateEntro12Mesi').value,
-            "debitiVersoImpreseControllateOltre12Mesi": document.getElementById('debitiVersoImpreseControllateOltre12Mesi').value,
-            "debitiVersoImpreseCollegateEntro12Mesi": document.getElementById('debitiVersoImpreseCollegateEntro12Mesi').value,
-            "debitiVersoImpreseCollegateOltre12Mesi": document.getElementById('debitiVersoImpreseCollegateOltre12Mesi').value,
-            "debitiVersoControllantiEntro12Mesi": document.getElementById('debitiVersoControllantiEntro12Mesi').value,
-            "debitiVersoControllantiOltre12Mesi": document.getElementById('debitiVersoControllantiOltre12Mesi').value,
-            "debitiTributariEntro12Mesi": document.getElementById('debitiTributariEntro12Mesi').value,
-            "debitiTributariOltre12Mesi": document.getElementById('debitiTributariOltre12Mesi').value,
-            "debitiVersoIstituiPrevidenzaEntro12Mesi": document.getElementById('debitiVersoIstituiPrevidenzaEntro12Mesi').value,
-            "debitiVersoIstituiPrevidenzaOltre12Mesi": document.getElementById('debitiVersoIstituiPrevidenzaOltre12Mesi').value,
-            "altriDebitiEntro12Mesi": document.getElementById('altriDebitiEntro12Mesi').value,
-            "altriDebitiOltre12Mesi": document.getElementById('altriDebitiOltre12Mesi').value,
-            "totaleDebiti": document.getElementById('totaleDebiti').value,
-
-            // E. ratei e risconti
-            "rateiRiscontiPassivo": document.getElementById('rateiRiscontiPassivo').value,
-            "aggioPrestiti": document.getElementById('aggioPrestiti').value,
-            "totaleRateiRiscontiPassivi": document.getElementById('totaleRateiRiscontiPassivi').value,
-
-            // TOTALE PASSIVO
-            "totalePassivo": document.getElementById('totalePassivo').value
-        },
-        /* CONTO ECONOMICO */
-        {
-            // A) Valore della produzione
-            "ricaviVendite": document.getElementById('ricaviVendite').value,
-            "variazioniRimanenze": document.getElementById('variazioniRimanenze').value,
-            "variazioniLavoriInCorso": document.getElementById('variazioniLavoriInCorso').value,
-            "incrementiImmobilizzazioniLavoriInterni": document.getElementById('incrementiImmobilizzazioniLavoriInterni').value,
-            "altriRicaviProventi": document.getElementById('altriRicaviProventi').value,
-            "altriRicaviProventiContributiContoEsercizio" : document.getElementById('altriRicaviProventiContributiContoEsercizio').value,
-            "totaleValoreProduzione": document.getElementById('totaleValoreProduzione').value,
-
-            // B) Costi della produzione
-            "materiePrimeCE": document.getElementById('materiePrimeCE').value,
-            "servizi": document.getElementById('servizi').value,
-            "godimentoBeniTerzi": document.getElementById('godimentoBeniTerzi').value,
-            "diCuiCanoniLeasing": document.getElementById('diCuiCanoniLeasing').value,
-            "salariStipendi": document.getElementById('salariStipendi').value,
-            "oneriSociali": document.getElementById('oneriSociali').value,
-            "trattamentoFineRapportoCE": document.getElementById('trattamentoFineRapportoCE').value,
-            "trattamentoQuiescenzaSimili": document.getElementById('trattamentoQuiescenzaSimili').value,
-            "altriCosti": document.getElementById('altriCosti').value,
-            "ammortamentoImmobilizzazioniImmateriali": document.getElementById('ammortamentoImmobilizzazioniImmateriali').value,
-            "ammortamentoImmobilizzazioniMateriali": document.getElementById('ammortamentoImmobilizzazioniMateriali').value,
-            "altreSvalutazioniImmobilizzazioni": document.getElementById('altreSvalutazioniImmobilizzazioni').value,
-            "svalutazioniCreditiCompresiAttivoCircolante": document.getElementById('svalutazioniCreditiCompresiAttivoCircolante').value,
-            "variazioneRimanenzeMateriePrime": document.getElementById('variazioneRimanenzeMateriePrime').value,
-            "accantonamentiPerRischi": document.getElementById('accantonamentiPerRischi').value,
-            "altriAccantonamenti": document.getElementById('altriAccantonamenti').value,
-            "oneriDiversiGestione": document.getElementById('oneriDiversiGestione').value,
-            "totaleCostiProduzione": document.getElementById('totaleCostiProduzione').value,
-
-            // Differenza tra Valore e Costi della produzione
-            "differenzaValoreCostiProduzione": document.getElementById('differenzaValoreCostiProduzione').value,
-
-            // C) Proventi e oneri finanziari
-            "proventiDaControllate": document.getElementById('proventiDaControllate').value,
-            "proventiDaCollegate": document.getElementById('proventiDaCollegate').value,
-            "proventiDaControllanti": document.getElementById('proventiDaControllanti').value,
-            "proventiCreditiIscrittiImmobilizzazioniControllate": document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value,
-            "proventiCreditiIscrittiImmobilizzazioniCollegate": document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value,
-            "proventiCreditiIscrittiImmobilizzazioniControllanti": document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value,
-            "proventiTitoliIscrittiImmobilizzazioni": document.getElementById('proventiTitoliIscrittiImmobilizzazioni').value,
-            "proventiTitoliIscrittiAttivoCircolante": document.getElementById('proventiTitoliIscrittiAttivoCircolante').value,
-            "proventiDiversiDaiPrecedentiControllate": document.getElementById('proventiDiversiDaiPrecedentiControllate').value,
-            "proventiDiversiDaiPrecedentiCollegate": document.getElementById('proventiDiversiDaiPrecedentiCollegate').value,
-            "proventiDiversiDaiPrecedentiControllanti": document.getElementById('proventiDiversiDaiPrecedentiControllanti').value,
-            "interessiAltriOneriFinanziariDaControllate": document.getElementById('interessiAltriOneriFinanziariDaControllate').value,
-            "interessiAltriOneriFinanziariDaCollegate": document.getElementById('interessiAltriOneriFinanziariDaCollegate').value,
-            "interessiAltriOneriFinanziariDaControllanti": document.getElementById('interessiAltriOneriFinanziariDaControllanti').value,
-            "utiliPerditesuCambi": document.getElementById('utiliPerditesuCambi').value,
-            "totaleProventiOneriFinanziari": document.getElementById('totaleProventiOneriFinanziari').value,
-
-            // D) Rettifiche di valore di attività finanziarie
-            "rivalutazioniPartecipazioni": document.getElementById('rivalutazioniPartecipazioni').value,
-            "rivalutazioniImmobilizzazioniFinanziarie": document.getElementById('rivalutazioniImmobilizzazioniFinanziarie').value,
-            "rivalutazioniTitoliIscrittiAttivoCircolante": document.getElementById('rivalutazioniTitoliIscrittiAttivoCircolante').value,
-            "rivalutazioniStrumentiFinanziariDerivati": document.getElementById('rivalutazioniStrumentiFinanziariDerivati').value,
-            "svalutazioniPartecipazioni": document.getElementById('svalutazioniPartecipazioni').value,
-            "svalutazioniImmobilizzazioniFinanziarie": document.getElementById('svalutazioniImmobilizzazioniFinanziarie').value,
-            "svalutazioniTitoliIscrittiAttivoCircolante": document.getElementById('svalutazioniTitoliIscrittiAttivoCircolante').value,
-            "svalutazioniStrumentiFinanziariDerivati": document.getElementById('svalutazioniStrumentiFinanziariDerivati').value,
-            "totaleRettifiche": document.getElementById('totaleRettifiche').value,
-
-            // E) Proventi e oneri straordinari
-            "proventiStraordinari": document.getElementById('proventiStraordinari').value,
-            "plusvalenzeAlienazioni": document.getElementById('plusvalenzeAlienazioni').value,
-            "altriProventi": document.getElementById('altriProventi').value,
-            "oneriStraordinari": document.getElementById('oneriStraordinari').value,
-            "minusvalenzeAlienazioni": document.getElementById('minusvalenzeAlienazioni').value,
-            "altriOneri": document.getElementById('altriOneri').value,
-            "totalePartiteStraordinarie": document.getElementById('totalePartiteStraordinarie').value,
-
-            // Risultato prima delle imposte
-            "risultatoPrimaImposte": document.getElementById('risultatoPrimaImposte').value,
-            // Imposte
-            "imposteRedditoEsercizio": document.getElementById('imposteRedditoEsercizio').value,
-            // Utile (perdite) dell'esercizio
-            "utilePerditeEsercizio": document.getElementById('utilePerditeEsercizio').value
-        },
-        /* RICLASSIFICAZIONE STATO PATRIMONIALE FUNZIONALE (OPERATIVO) */
-        {
-            "SPFOimmobilizzazioniImmateriali": document.getElementById('SPFOimmobilizzazioniImmateriali').value,
-            "SPFOimmobilizzazioniMateriali": document.getElementById('SPFOimmobilizzazioniMateriali').value,
-            "SPFOimmobilizzazioniFinanziarieNette": document.getElementById('SPFOimmobilizzazioniFinanziarieNette').value,
-            "SPFOtotaleImmobilizzazioniNette": document.getElementById('SPFOtotaleImmobilizzazioniNette').value,
-            "SPFOmagazzino": document.getElementById('SPFOmagazzino').value,
-            "SPFOcreditiVersoClienti": document.getElementById('SPFOcreditiVersoClienti').value,
-            "SPFOaltriCrediti": document.getElementById('SPFOaltriCrediti').value,
-            "SPFOrateiRiscontiAttivi": document.getElementById('SPFOrateiRiscontiAttivi').value,
-            "SPFOtotaleAttivoCommerciale": document.getElementById('SPFOtotaleAttivoCommerciale').value,
-            "SPFOdebitiVersoFornitori": document.getElementById('SPFOdebitiVersoFornitori').value,
-            "SPFOaltriDebitiNonFinanziari": document.getElementById('SPFOaltriDebitiNonFinanziari').value,
-            "SPFOrateiRiscontiPassivi": document.getElementById('SPFOrateiRiscontiPassivi').value,
-            "SPFOtotalePassivoCommerciale": document.getElementById('SPFOtotalePassivoCommerciale').value,
-            "SPFOcapitaleEsercizio": document.getElementById('SPFOcapitaleEsercizio').value,
-            "SPFOfondiRischiOneri": document.getElementById('SPFOfondiRischiOneri').value,
-            "SPFOfondoTfr": document.getElementById('SPFOfondoTfr').value,
-            "SPFOtotaleFondiOperativi": document.getElementById('SPFOtotaleFondiOperativi').value,
-            "SPFOcapitaleInvestitoNetto": document.getElementById('SPFOcapitaleInvestitoNetto').value,
-            "SPFOdebitiFinanziariBreveTermine": document.getElementById('SPFOdebitiFinanziariBreveTermine').value,
-            "SPFOdisponibilitaLiquide": document.getElementById('SPFOdisponibilitaLiquide').value,
-            "SPFOcreditiFinanziariBreveTermine": document.getElementById('SPFOcreditiFinanziariBreveTermine').value,
-            "SPFOtotalePosizioneFinanziariaBreveTermine": document.getElementById('SPFOtotalePosizioneFinanziariaBreveTermine').value,
-            "SPFOdebitiFinanziariMedioLungoTermine": document.getElementById('SPFOdebitiFinanziariMedioLungoTermine').value,
-            "SPFOcreditiFinanziariMedioLungoTermine": document.getElementById('SPFOcreditiFinanziariMedioLungoTermine').value,
-            "SPFOtotalePosizioneFinanziariaMedioLungoTermine": document.getElementById('SPFOtotalePosizioneFinanziariaMedioLungoTermine').value,
-            "SPFOtotalePosizioneFinanziaria": document.getElementById('SPFOtotalePosizioneFinanziaria').value,
-            "SPFOcapitaleSocialeFinanziamentiContoCapitale": document.getElementById('SPFOcapitaleSocialeFinanziamentiContoCapitale').value,
-            "SPFOriserve": document.getElementById('SPFOriserve').value,
-            "SPFOredditonetto": document.getElementById('SPFOredditonetto').value,
-            "SPFOtotalePatrimonioNetto": document.getElementById('SPFOtotalePatrimonioNetto').value,
-            "SPFOtotaleDebitoFinanziarioPatrimonioNetto": document.getElementById('SPFOtotaleDebitoFinanziarioPatrimonioNetto').value
-        },
-        /* RICLASSIFICAZIONE STATO PATRIMONIALE FINANZIARIO */
-        {
-            "SPFimmobilizzazioniImmateriali": document.getElementById('SPFimmobilizzazioniImmateriali').value,
-            "SPFimmobilizzazioniMateriali": document.getElementById('SPFimmobilizzazioniMateriali').value,
-            "SPFimmobilizzazioniFinanziarie": document.getElementById('SPFimmobilizzazioniFinanziarie').value,
-            "SPFtotaleImmobilizzazioniNette": document.getElementById('SPFtotaleImmobilizzazioniNette').value,
-            "SPFmagazzino": document.getElementById('SPFmagazzino').value,
-            "SPFprodottiFiniti": document.getElementById('SPFprodottiFiniti').value,
-            "SPFmateriePrime": document.getElementById('SPFmateriePrime').value,
-            "SPFcreditiCommerciali": document.getElementById('SPFcreditiCommerciali').value,
-            "SPFaltriCrediti": document.getElementById('SPFaltriCrediti').value,
-            "SPFrateiRiscontiAttivi": document.getElementById('SPFrateiRiscontiAttivi').value,
-            "SPFliquidita": document.getElementById('SPFliquidita').value,
-            "SPFtotaleAttivoCircolante": document.getElementById('SPFtotaleAttivoCircolante').value,
-            "SPFtotaleAttivo": document.getElementById('SPFtotaleAttivo').value,
-            "SPFcapitaleSociale": document.getElementById('SPFcapitaleSociale').value,
-            "SPFriserve": document.getElementById('SPFriserve').value,
-            "SPFredditoNetto": document.getElementById('SPFredditoNetto').value,
-            "SPFtotalePatrimonioNetto": document.getElementById('SPFtotalePatrimonioNetto').value,
-            "SPFdebitiFinanziariMlTermine": document.getElementById('SPFdebitiFinanziariMlTermine').value,
-            "SPFaltriDebiti": document.getElementById('SPFaltriDebiti').value,
-            "SPFfondoTFR": document.getElementById('SPFfondoTFR').value,
-            "SPFaltriFondi": document.getElementById('SPFaltriFondi').value,
-            "SPFtotalePassivoMlTermine": document.getElementById('SPFtotalePassivoMlTermine').value,
-            "SPFdebitiFinanziariBreveTermine": document.getElementById('SPFdebitiFinanziariBreveTermine').value,
-            "SPFdebitiCommercialiFornitori": document.getElementById('SPFdebitiCommercialiFornitori').value,
-            "SPFaltriDebitiNonFinanziari": document.getElementById('SPFaltriDebitiNonFinanziari').value,
-            "SPFrateiRiscontiPassivi": document.getElementById('SPFrateiRiscontiPassivi').value,
-            "SPFtotalePassivoBreveTermine": document.getElementById('SPFtotalePassivoBreveTermine').value,
-            "SPFtotalePassivoPatrimonioNetto": document.getElementById('SPFtotalePassivoPatrimonioNetto').value,
-            "SPFeventualeSquadraturaAttivoPass": document.getElementById('SPFeventualeSquadraturaAttivoPass').value
-        },
-        /* RICLASSIFICAZIONE CONTO ECONOMICO VALORE AGGIUNTO */
-        {
-            "CEricaviVendite": document.getElementById('CEricaviVendite').value,
-            "CEproduzioneInterna": document.getElementById('CEproduzioneInterna').value,
-            "CEtotaleValoreProduzione": document.getElementById('CEtotaleValoreProduzione').value,
-            "CEconsumoMateriePrime": document.getElementById('CEconsumoMateriePrime').value,
-            "CEcostiServizi": document.getElementById('CEcostiServizi').value,
-            "CEaltriCostiOperativiEsterni": document.getElementById('CEaltriCostiOperativiEsterni').value,
-            "CEtotaleConsumiEsterni": document.getElementById('CEtotaleConsumiEsterni').value,
-            "CEvaloreAggiunto": document.getElementById('CEvaloreAggiunto').value,
-            "CEcostiPersonale": document.getElementById('CEcostiPersonale').value,
-            "CEtotaleMargineOperativoLordo": document.getElementById('CEtotaleMargineOperativoLordo').value,
-            "CEammortamenti": document.getElementById('CEammortamenti').value,
-            "CEcanoniLeasing": document.getElementById('CEcanoniLeasing').value,
-            "CEaccantonamentiSvalutazioni": document.getElementById('CEaccantonamentiSvalutazioni').value,
-            "CEtotaleAmmortamentiSvalutazioni": document.getElementById('CEtotaleAmmortamentiSvalutazioni').value,
-            "CEaltriProventiOperativi": document.getElementById('CEaltriProventiOperativi').value,
-            "CEproventiFinanziari": document.getElementById('CEproventiFinanziari').value,
-            "CEsaldoGestioneMobiliare": document.getElementById('CEsaldoGestioneMobiliare').value,
-            "CEtotaleRisultatoOperativo": document.getElementById('CEtotaleRisultatoOperativo').value,
-            "CEoneriFinanziari": document.getElementById('CEoneriFinanziari').value,
-            "CEtotaleRisultatoLordo": document.getElementById('CEtotaleRisultatoLordo').value,
-            "CEproventiStraordinari": document.getElementById('CEproventiStraordinari').value,
-            "CEoneriStraordinari": document.getElementById('CEoneriStraordinari').value,
-            "CErisultatoAreaStraordinaria": document.getElementById('CErisultatoAreaStraordinaria').value,
-            "CEtotaleRisultatoAnteImposte": document.getElementById('CEtotaleRisultatoAnteImposte').value,
-            "CEimposteReddito": document.getElementById('CEimposteReddito').value,
-            "CEtotaleRisultatoNetto": document.getElementById('CEtotaleRisultatoNetto').value
-        },
-        /* FORECAST */
-        {
-            // Tab. 1 - Ricavi e costi operativi
-            "FCricaviVendite": document.getElementById('FCricaviVendite').value,
-            "FCconsumiMerci": document.getElementById('FCconsumiMerci').value,
-            "FCincValProdConsumiMerci": document.getElementById('FCincValProdConsumiMerci').value,
-            "FCacquistiServizi": document.getElementById('FCacquistiServizi').value,
-            "FCincValProdAcquistiServizi": document.getElementById('FCincValProdAcquistiServizi').value,
-            "FCcostoGodimentoBeniTerzi": document.getElementById('FCcostoGodimentoBeniTerzi').value,
-            "FCdiCuiCanoniLeasing": document.getElementById('FCdiCuiCanoniLeasing').value,
-            "FCcostiDelPersonale": document.getElementById('FCcostiDelPersonale').value,
-            "FCincValProdCostiPersonale": document.getElementById('FCincValProdCostiPersonale').value,
-            "FCaccantonamentoTFR": document.getElementById('FCaccantonamentoTFR').value,
-            "FCincCostoPersonale": document.getElementById('FCincCostoPersonale').value,
-            "FCutilizziFondoTFR": document.getElementById('FCutilizziFondoTFR').value,
-            "FCaccantonamenti": document.getElementById('FCaccantonamenti').value,
-            "FCutilizziAltriFondi": document.getElementById('FCutilizziAltriFondi').value,
-            // Tab. 2 - Capitale circolante
-            "FCcreditiVersoClienti" : document.getElementById('FCcreditiVersoClienti').value,
-            "FCdevitiVersoFornitori" : document.getElementById('FCdevitiVersoFornitori').value,
-            "FCmagazzinoMateriePrime" : document.getElementById('FCmagazzinoMateriePrime').value,
-            "FCmagazzinoProdottiFiniti" : document.getElementById('FCmagazzinoProdottiFiniti').value,
-            "FCaltriCreditiLiquidita" : document.getElementById('FCaltriCreditiLiquidita').value,
-            // Tab. 3  - Investimenti
-            "FCacquistoNettoImmMateriali" : document.getElementById('FCacquistoNettoImmMateriali').value,
-            "FCammortamentoImmTecniche" : document.getElementById('FCammortamentoImmTecniche').value,
-            "FCacquistoNettoImmImmateriali" : document.getElementById('FCacquistoNettoImmImmateriali').value,
-            "FCquotaAmmortamentoImmImmateriali" : document.getElementById('FCquotaAmmortamentoImmImmateriali').value,
-            "FCacquistoNettoImmobFinanziarie" : document.getElementById('FCacquistoNettoImmobFinanziarie').value,
-            // Tab. 4  - Gestione accessoria
-            "FCinteressiAttiviAltriProvFinanziari" : document.getElementById('FCinteressiAttiviAltriProvFinanziari').value,
-            "FCaltriRicaviProventi" : document.getElementById('FCaltriRicaviProventi').value,
-            "FCproventiOneriStraordinari" : document.getElementById('FCproventiOneriStraordinari').value,
-            "FCaliquotaImposte" : document.getElementById('FCaliquotaImposte').value,
-            // Tab. 5  - Gestione finanziaria
-            "FCcapitaleSocialeRiserve" : document.getElementById('FCcapitaleSocialeRiserve').value,
-            "FCmutuiPrestiti" : document.getElementById('FCmutuiPrestiti').value,
-            "FCproventiOneriStraordinari" : document.getElementById('FCproventiOneriStraordinari').value,
-            "FCtassoInteresseMutuiPrestiti" : document.getElementById('FCtassoInteresseMutuiPrestiti').value,
-            "FCdebitiNonFinanziariLT" : document.getElementById('FCdebitiNonFinanziariLT').value,
-            "FCdebitiNonFinanziariBT" : document.getElementById('FCdebitiNonFinanziariBT').value,
-            "FCaltriInteressiPassivi" : document.getElementById('FCaltriInteressiPassivi').value
-        }
-    ]
-
-    var json = JSON.stringify(contenuto);
-    return json;
-}
 
 const printPDFbutton = document.getElementById('print-pdf')
 
