@@ -42,15 +42,27 @@ Electron offre una serie di API che supportano lo sviluppo di un'applicazione de
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{apiElectron.png}
+    \includegraphics{apiElectron.png}
     \caption{importazione API Electron}
     \label{fig:ApiElectron}
 \end{figure}
 
+A tutte le API Electron viene assegnato un tipo di processo. Molti di essi possono essere utilizzati solo dal main, alcuni solo da un processo di rendering, alcuni da entrambi. Ad esempio, una finestra in Electron viene creata utilizzando la classe BrowserWindow, disponibile solo nel processo principale.
 
-A tutte le API Electron viene assegnato un tipo di processo. Molti di essi possono essere utilizzati solo dal processo principale, alcuni solo da un processo di rendering, alcuni da entrambi. La documentazione per ogni singola API indicherà da quale processo può essere utilizzata.
+\begin{figure}[H]
+    \centering
+    \includegraphics{browserWindow.png}
+    \caption{importazione classe BrowserWindow}
+    \label{fig:BrowserWindow}
+\end{figure}
 
-Ad esempio, una finestra in Electron viene creata utilizzando la BrowserWindowclasse. È disponibile solo nel processo principale.
+\begin{figure}[H]
+    \centering
+    \includegraphics{browserWindow2.png}
+    \caption{Creazione BrowserWindow}
+    \label{fig:BrowserWindow2}
+\end{figure}
+
 
 % 4.1.2
 

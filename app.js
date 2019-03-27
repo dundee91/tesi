@@ -57,9 +57,9 @@ app.on('ready', () => {
   window = new BrowserWindow({
     // Imposto il colore di sfondo
     backgroundColor: "#D6D8DC",
-    // non mostra la finestra fino a che non è pronta
     show: false
   })
+  // visualizzo finestra in fullscreen
   window.maximize()
   
 
