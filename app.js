@@ -55,16 +55,13 @@ app.on('ready', () => {
 
   // Creo la finestra iniziale
   window = new BrowserWindow({
-    height: 715,
-    width: 1200,
-    minWidth: 600,
-    minHeight: 200,
-    center: true,
     // Imposto il colore di sfondo
     backgroundColor: "#D6D8DC",
     // non mostra la finestra fino a che non è pronta
     show: false
   })
+  window.maximize()
+  
 
   //Creo il menù
   var menu = Menu.buildFromTemplate([

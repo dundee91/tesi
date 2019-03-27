@@ -38,6 +38,19 @@ Nella struttura di un app basata su Electron, bisogna discutere di due tipi di p
 
 \subsection{Utilizzo delle API Electron}
 
+Electron offre una serie di API che supportano lo sviluppo di un'applicazione desktop sia nel processo principale che nel processo di rendering. In entrambi i processi, devi accedere alle API di Electron richiedendo il relativo modulo incluso:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25]{apiElectron.png}
+    \caption{importazione API Electron}
+    \label{fig:ApiElectron}
+\end{figure}
+
+
+A tutte le API Electron viene assegnato un tipo di processo. Molti di essi possono essere utilizzati solo dal processo principale, alcuni solo da un processo di rendering, alcuni da entrambi. La documentazione per ogni singola API indicherà da quale processo può essere utilizzata.
+
+Ad esempio, una finestra in Electron viene creata utilizzando la BrowserWindowclasse. È disponibile solo nel processo principale.
 
 % 4.1.2
 
