@@ -69,11 +69,8 @@ ipc.on('apri', function (ev, data) {
                 }
 
                 for (var j in prog) {
-                    console.log(j)
-                    console.log(prog[j])
                     document.getElementById(j).value = prog[j]
                 }
-
                 console.log("file aperto")
             })
         }

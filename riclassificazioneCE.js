@@ -1,218 +1,209 @@
 function sommeRiclassificazioneCE() {
-    
+
     // Ricavi delle vendite
-    document.getElementById('CEricaviVendite').value = document.getElementById('ricaviVendite').value
+    var CEricaviVendite = $('#ricaviVendite').maskMoney('unmasked')[0]
+    $('#CEricaviVendite').maskMoney('mask', CEricaviVendite)[0]
+
     // Produzione interna 
-    try{
-        document.getElementById('CEproduzioneInterna').value = 
-        parseFloat(document.getElementById('variazioniRimanenze').value) +
-        parseFloat(document.getElementById('variazioniLavoriInCorso').value) +
-        parseFloat(document.getElementById('incrementiImmobilizzazioniLavoriInterni').value)
-    }
-    catch(error){
-        document.getElementById('CEproduzioneInterna').value = 0
-    }    
+
+    var CEproduzioneInterna =
+        $('#variazioniRimanenze').maskMoney('unmasked')[0] +
+        $('#variazioniLavoriInCorso').maskMoney('unmasked')[0] +
+        $('#incrementiImmobilizzazioniLavoriInterni').maskMoney('unmasked')[0]
+
+    $('#CEproduzioneInterna').maskMoney('mask', CEproduzioneInterna)[0]
+
+
     // VALORE DELLA PRODUZIONE
     sommaValoreProduzioneCE()
-    var totaleValoreProduzione = document.getElementById('CEtotaleValoreProduzione').value
+    var totaleValoreProduzione = $('#CEtotaleValoreProduzione').maskMoney('unmasked')[0]
 
     // Consumo materie prime, sussidiarie di consumo e merci
-    try{
-        document.getElementById('CEconsumoMateriePrime').value = -
-        parseFloat(document.getElementById('materiePrimeCE').value) -
-        parseFloat(document.getElementById('variazioneRimanenzeMateriePrime').value)
-    }
-    catch(error){
-        document.getElementById('CEconsumoMateriePrime').value = 0
-    }
+
+    var CEconsumoMateriePrime = - $('#materiePrimeCE').maskMoney('unmasked')[0] - $('#variazioneRimanenzeMateriePrime').maskMoney('unmasked')[0]
+    $('#CEconsumoMateriePrime').maskMoney('mask', CEconsumoMateriePrime)[0]
+
     // Costi per servizi
-    document.getElementById('CEcostiServizi').value = - parseFloat(document.getElementById('servizi').value)
+    var CEcostiServizi = $('#servizi').maskMoney('unmasked')[0]
+    $('#CEcostiServizi').maskMoney('mask', CEcostiServizi)[0]
+
     // Altri costi operativi esterni
-    try{
-        document.getElementById('CEaltriCostiOperativiEsterni').value = -
-        parseFloat(document.getElementById('godimentoBeniTerzi').value) -
-        parseFloat(document.getElementById('oneriDiversiGestione').value)
-    }
-    catch(error){
-        document.getElementById('CEaltriCostiOperativiEsterni').value = 0
-    }
+
+    var CEaltriCostiOperativiEsterni = - $('#godimentoBeniTerzi').maskMoney('unmasked')[0] - $('#oneriDiversiGestione').maskMoney('unmasked')[0]
+    $('#CEaltriCostiOperativiEsterni').maskMoney('mask', CEaltriCostiOperativiEsterni)[0]
+
     // CONSUMI ESTERNI
     sommaConsumiEsterni()
-    var totaleConsumiEsterni = document.getElementById('CEtotaleConsumiEsterni').value
-    // VALORE AGGIUNTO (VP - CONS)
-    var valoreAggiunto = parseFloat(totaleValoreProduzione) + parseFloat(totaleConsumiEsterni)
-    document.getElementById('CEvaloreAggiunto').value = valoreAggiunto.toFixed(2)
+    var totaleConsumiEsterni = $('#CEtotaleConsumiEsterni').maskMoney('unmasked')[0]
 
-    // Costi del personale 
-    try{
-        document.getElementById('CEcostiPersonale').value = -
-        parseFloat(document.getElementById('salariStipendi').value) -
-        parseFloat(document.getElementById('oneriSociali').value) -
-        parseFloat(document.getElementById('trattamentoFineRapportoCE').value)  -
-        parseFloat(document.getElementById('trattamentoQuiescenzaSimili').value) -
-        parseFloat(document.getElementById('altriCosti').value)
-    }
-    catch(error){
-        document.getElementById('CEcostiPersonale').value = 0
-    }
-    var totaleCostiPersonale = document.getElementById('CEcostiPersonale').value
+    // VALORE AGGIUNTO (VP - CONS)
+    var valoreAggiunto = totaleValoreProduzione + totaleConsumiEsterni
+    $('#CEvaloreAggiunto').maskMoney('mask', valoreAggiunto)[0]
+
+    // Costi del personale
+    var CEcostiPersonale = - $('#salariStipendi').maskMoney('unmasked')[0] -
+        $('#oneriSociali').maskMoney('unmasked')[0] -
+        $('#trattamentoFineRapportoCE').maskMoney('unmasked')[0] -
+        $('#trattamentoQuiescenzaSimili').maskMoney('unmasked')[0] -
+        $('#altriCosti').maskMoney('unmasked')[0]
+
+    $('#CEcostiPersonale').maskMoney('mask',CEcostiPersonale)[0]
 
     // MARGINE OPERATIVO LORDO (VA - CP)
-    var margineOperativoLordo = parseFloat(valoreAggiunto) + parseFloat(totaleCostiPersonale)
-    document.getElementById('CEtotaleMargineOperativoLordo').value = margineOperativoLordo.toFixed(2)   
-    
+
+    var CEtotaleMargineOperativoLordo = - valoreAggiunto - CEcostiPersonale
+    $('#CEtotaleMargineOperativoLordo').maskMoney('mask', CEtotaleMargineOperativoLordo)[0]
+
     // Ammortamenti 
-    try{
-        document.getElementById('CEammortamenti').value = -
-        parseFloat(document.getElementById('ammortamentoImmobilizzazioniImmateriali').value) -
-        parseFloat(document.getElementById('ammortamentoImmobilizzazioniMateriali').value)
-    }
-    catch(error){
-        document.getElementById('CEammortamenti').value = 0
-    }
+
+    var CEammortamenti = - $('#ammortamentoImmobilizzazioniImmateriali').maskMoney('unmasked')[0] -
+        $('#ammortamentoImmobilizzazioniMateriali').maskMoney('unmasked')[0]
+
+    $('#CEammortamenti').maskMoney('mask', CEammortamenti)[0]
+
     // Canoni leasing
-    document.getElementById('CEcanoniLeasing').value = - document.getElementById('diCuiCanoniLeasing').value
+    var CEcanoniLeasing = - $('#diCuiCanoniLeasing').maskMoney('unmasked')[0]
+    $('#CEcanoniLeasing').maskMoney('mask', CEcanoniLeasing)[0]
+
     // Accantonamenti e svalutazioni 
-    try{
-        document.getElementById('CEaccantonamentiSvalutazioni').value = -
-        parseFloat(document.getElementById('altreSvalutazioniImmobilizzazioni').value) -
-        parseFloat(document.getElementById('svalutazioniCreditiCompresiAttivoCircolante').value) -
-        parseFloat(document.getElementById('accantonamentiPerRischi').value) -
-        parseFloat(document.getElementById('altriAccantonamenti').value)
-    }
-    catch(error){
-        document.getElementById('CEaccantonamentiSvalutazioni').value = 0
-    } 
+    var CEaccantonamentiSvalutazioni = -
+        $('#altreSvalutazioniImmobilizzazioni').maskMoney('unmasked')[0] -
+        $('#svalutazioniCreditiCompresiAttivoCircolante').maskMoney('unmasked')[0] -
+        $('#accantonamentiPerRischi').maskMoney('unmasked')[0] -
+        $('#altriAccantonamenti').maskMoney('unmasked')[0]
+
+    $('#CEaccantonamentiSvalutazioni').maskMoney('mask', CEaccantonamentiSvalutazioni)[0]
 
     // Ammortamenti e svalutazioni
     sommaAmmortamentiSvalutazioni()
-    var ammortamentiSvalutazioni = document.getElementById('CEtotaleAmmortamentiSvalutazioni').value
-    
+    var CEtotaleAmmortamentiSvalutazioni = $('#CEtotaleAmmortamentiSvalutazioni').maskMoney('unmasked')[0]
+
     // Altri proventi operativi
-    document.getElementById('CEaltriProventiOperativi').value = document.getElementById('altriRicaviProventi').value
+    var CEaltriProventiOperativi = $('#altriRicaviProventi').maskMoney('unmasked')[0]
+    $('#CEaltriProventiOperativi').maskMoney('mask', CEaltriProventiOperativi)[0]
+
     // Proventi finanziari
-    try{
-        document.getElementById('CEproventiFinanziari').value = 
+    var CEproventiFinanziari =
         //15) Proventi da partecipazioni
-        parseFloat(document.getElementById('proventiDaControllate').value) +
-        parseFloat(document.getElementById('proventiDaCollegate').value) +
-        parseFloat(document.getElementById('proventiDaControllanti').value) +
+        $('#proventiDaControllate').maskMoney('unmasked')[0] +
+        $('#proventiDaCollegate').maskMoney('unmasked')[0] +
+        $('#proventiDaControllanti').maskMoney('unmasked')[0] +
         //16) Altri proventi finanziari
         //a)
-        parseFloat(document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllate').value) +
-        parseFloat(document.getElementById('proventiCreditiIscrittiImmobilizzazioniCollegate').value) +
-        parseFloat(document.getElementById('proventiCreditiIscrittiImmobilizzazioniControllanti').value) +
+        $('#proventiCreditiIscrittiImmobilizzazioniControllate').maskMoney('unmasked')[0] +
+        $('#proventiCreditiIscrittiImmobilizzazioniCollegate').maskMoney('unmasked')[0] +
+        $('#proventiCreditiIscrittiImmobilizzazioniControllanti').maskMoney('unmasked')[0] +
         //b)
-        parseFloat(document.getElementById('proventiTitoliIscrittiImmobilizzazioni').value) +
+        $('#proventiTitoliIscrittiImmobilizzazioni').maskMoney('unmasked')[0] +
         //c)
-        parseFloat(document.getElementById('proventiTitoliIscrittiAttivoCircolante').value) +
+        $('#proventiTitoliIscrittiAttivoCircolante').maskMoney('unmasked')[0] +
         //d)
-        parseFloat(document.getElementById('proventiDiversiDaiPrecedentiControllate').value) +
-        parseFloat(document.getElementById('proventiDiversiDaiPrecedentiCollegate').value) +
-        parseFloat(document.getElementById('proventiDiversiDaiPrecedentiControllanti').value) +
+        $('#proventiDiversiDaiPrecedentiControllate').maskMoney('unmasked')[0] +
+        $('#proventiDiversiDaiPrecedentiCollegate').maskMoney('unmasked')[0] +
+        $('#proventiDiversiDaiPrecedentiControllanti').maskMoney('unmasked')[0] +
         //17bis) Utili e perdite su cambi 
-        parseFloat(document.getElementById('utiliPerditesuCambi').value)
-      }
-    catch(error){
-        document.getElementById('CEproventiFinanziari').value = 0
-    } 
-    // Saldo gestione mobiliare
-    document.getElementById('CEsaldoGestioneMobiliare').value = document.getElementById('totaleRettifiche').value   
+        $('#utiliPerditesuCambi').maskMoney('unmasked')[0]
 
-    var totaleAltriProventiOperativiFinanziari = 
-    parseFloat(document.getElementById('CEaltriProventiOperativi').value) + 
-    parseFloat(document.getElementById('CEproventiFinanziari').value) + 
-    parseFloat(document.getElementById('CEsaldoGestioneMobiliare').value)
+    $('#CEproventiFinanziari').maskMoney('mask', CEproventiFinanziari)[0]
+
+    // Saldo gestione mobiliare
+    var CEsaldoGestioneMobiliare = $('#totaleRettifiche').maskMoney('unmasked')[0]
+    $('#CEsaldoGestioneMobiliare').maskMoney('mask', CEsaldoGestioneMobiliare)[0]
+
+    var totaleAltriProventiOperativiFinanziari =
+        $('#CEaltriProventiOperativi').maskMoney('unmasked')[0] +
+        $('#CEproventiFinanziari').maskMoney('unmasked')[0] +
+        $('#CEsaldoGestioneMobiliare').maskMoney('unmasked')[0]
 
     // RISULTATO OPERATIVO
-    var risultatoOperativo = parseFloat(margineOperativoLordo) + parseFloat(ammortamentiSvalutazioni) + parseFloat(totaleAltriProventiOperativiFinanziari)
-    document.getElementById('CEtotaleRisultatoOperativo').value = risultatoOperativo.toFixed(2)
-     
+    var CEtotaleRisultatoOperativo = CEtotaleMargineOperativoLordo + CEtotaleAmmortamentiSvalutazioni + totaleAltriProventiOperativiFinanziari
+    $('#CEtotaleRisultatoOperativo').maskMoney('mask', CEtotaleRisultatoOperativo)[0]
+
     // Oneri finanziari 
-    try{
-        document.getElementById('CEoneriFinanziari').value = -
-        (
-            parseFloat(document.getElementById('interessiAltriOneriFinanziariDaControllate').value) +
-            parseFloat(document.getElementById('interessiAltriOneriFinanziariDaCollegate').value) +
-            parseFloat(document.getElementById('interessiAltriOneriFinanziariDaControllanti').value)
-        )
-    }
-    catch(error){
-        document.getElementById('CEoneriFinanziari').value = 0
-    }
-    var totaleOneriFinanziari = document.getElementById('CEoneriFinanziari').value
-    
+    var CEoneriFinanziari =
+        $('#interessiAltriOneriFinanziariDaControllate').maskMoney('unmasked')[0] +
+        $('#interessiAltriOneriFinanziariDaCollegate').maskMoney('unmasked')[0] +
+        $('#interessiAltriOneriFinanziariDaControllanti').maskMoney('unmasked')[0]
+
+    $('#CEoneriFinanziari').maskMoney('mask', CEoneriFinanziari)[0]
+
     // RISULTATO LORDO
-    var risultatoLordo = parseFloat(risultatoOperativo) + parseFloat(totaleOneriFinanziari)
-    document.getElementById('CEtotaleRisultatoLordo').value = risultatoLordo.toFixed(2)
+    var CEtotaleRisultatoLordo =
+        $('#risultatoOperativo').maskMoney('unmasked')[0] +
+        $('#totaleOneriFinanziari').maskMoney('unmasked')[0]
+
+    $('#CEtotaleRisultatoLordo').maskMoney('mask', CEtotaleRisultatoLordo)[0]
 
     //Proventi straordinari 
-    document.getElementById('CEproventiStraordinari').value = document.getElementById('proventiStraordinari').value 
+    var CEproventiStraordinari = $('#proventiStraordinari').maskMoney('unmasked')[0]
+    $('#CEproventiStraordinari').maskMoney('mask', CEproventiStraordinari)[0]
+
     //Oneri straordinari 
-    document.getElementById('CEoneriStraordinari').value = document.getElementById('oneriStraordinari').value 
+    var CEoneriStraordinari = $('#oneriStraordinari').maskMoney('unmasked')[0]
+    $('#CEoneriStraordinari').maskMoney('mask', CEoneriStraordinari)[0]
+
     // RISULTATO DELL'AREA STRAORDINARIA
-    document.getElementById('CErisultatoAreaStraordinaria').value = document.getElementById('totalePartiteStraordinarie').value
-    var totaleRisultatoAreaStraordinaria = document.getElementById('CErisultatoAreaStraordinaria').value
-    
+    var CErisultatoAreaStraordinaria = $('#totalePartiteStraordinarie').maskMoney('unmasked')[0]
+    $('#CErisultatoAreaStraordinaria').maskMoney('mask', CErisultatoAreaStraordinaria)[0]
+
     // RISULTATO ANTE IMPOSTE
-    var risultatoAnteImposte = parseFloat(risultatoLordo) + parseFloat(totaleRisultatoAreaStraordinaria)
-    document.getElementById('CEtotaleRisultatoAnteImposte').value = risultatoAnteImposte.toFixed(2)
-    
+    var CEtotaleRisultatoAnteImposte =
+        $('#CEtotaleRisultatoLordo').maskMoney('unmasked')[0] +
+        $('#CErisultatoAreaStraordinaria').maskMoney('unmasked')[0]
+
+    $('#CEtotaleRisultatoAnteImposte').maskMoney('mask', CEtotaleRisultatoAnteImposte)[0]
+
     // Imposte sul reddito
-    document.getElementById('CEimposteReddito').value = - document.getElementById('imposteRedditoEsercizio').value 
-    var totaleImposteReddito = document.getElementById('CEimposteReddito').value    
+    var CEimposteReddito = - $('#imposteRedditoEsercizio').maskMoney('unmasked')[0]
+    $('#CEimposteReddito').maskMoney('mask', CEimposteReddito)[0]
+
     // RISULTATO NETTO
-    var risultatoNetto = parseFloat(risultatoAnteImposte) + parseFloat(totaleImposteReddito)
-    document.getElementById('CEtotaleRisultatoNetto').value = risultatoNetto.toFixed(2)
+    var CEtotaleRisultatoNetto = CEtotaleRisultatoAnteImposte + CEimposteReddito
+    $('#CEtotaleRisultatoNetto').maskMoney('mask', CEtotaleRisultatoNetto)[0]
 }
 
 
 function sommaValoreProduzioneCE() {
-    var arr = document.getElementsByName('CEvaloreProduzione');
+    var arr = $(document.getElementsByName('CEvaloreProduzione')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+        tot += arr[i];
     }
-    document.getElementById('CEtotaleValoreProduzione').value = tot.toFixed(2)
+    $('#CEtotaleValoreProduzione').maskMoney('mask', tot)[0]
 }
 
 function sommaConsumiEsterni() {
-    var arr = document.getElementsByName('CEconsumiEsterni');
+    var arr = $(document.getElementsByName('CEconsumiEsterni')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+        tot += arr[i];
     }
-    document.getElementById('CEtotaleConsumiEsterni').value = tot.toFixed(2)
+    $('#CEtotaleConsumiEsterni').maskMoney('mask', tot)[0]
 }
 
 function sommaAmmortamentiSvalutazioni() {
-    var arr = document.getElementsByName('CEammortamentiSvalutazioni');
+    var arr = $(document.getElementsByName('CEammortamentiSvalutazioni')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+        tot += arr[i];
     }
-    document.getElementById('CEtotaleAmmortamentiSvalutazioni').value = tot.toFixed(2)
+    $('#CEtotaleAmmortamentiSvalutazioni').maskMoney('mask', tot)[0]
 }
 
 function sommaRettificheRivalutazioni() {
-    var arr = document.getElementsByName('CErettificheRivalutazioni');
+    var arr = $(document.getElementsByName('CErettificheRivalutazioni')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+        tot += arr[i];
     }
-    document.getElementById('totaleRivalutazioni').value = tot.toFixed(2)
+    $('#totaleRivalutazioni').maskMoney('mask', tot)[0]
 }
 
 function sommaRettificheSvalutazioni() {
-    var arr = document.getElementsByName('CErettificheSvalutazioni');
+    var arr = $(document.getElementsByName('CErettificheSvalutazioni')).maskMoney('unmasked');
     var tot = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (parseFloat(arr[i].value))
-            tot += parseFloat(arr[i].value);
+        tot += arr[i];
     }
-    document.getElementById('CEtotaleAmmortamentiSvalutazioni').value = tot.toFixed(2)
+    $('#CEtotaleAmmortamentiSvalutazioni').maskMoney('mask', tot)[0]
 }
