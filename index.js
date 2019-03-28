@@ -4,21 +4,23 @@ const dialog = app.dialog
 const ipc = require('electron').ipcRenderer
 
 
-function array() {
+function json() {
 
     //creo array per json
-    let contenutoArray = []
-    let testArray = {}
+    let array = []
+    let testoProgetto = {}
+    // seleziono tutti gli id presenti nell'html
     let listaId = document.querySelectorAll("[id]")
 
     for (var i = 0; i < listaId.length; i++) {
         var newName = listaId[i].id
         var newValue = listaId[i].value
-        testArray[newName] = newValue
+        testoProgetto[newName] = newValue
     }
-    contenutoArray.push(testArray)
+    // inserisco i valori del progetto nell'array per il json
+    array.push(testoProgetto)
 
-    var json = JSON.stringify(contenutoArray);
+    var json = JSON.stringify(array);
     return json;
 }
 
@@ -32,7 +34,7 @@ ipc.on('salva', function (ev, data) {
             return console.log("progetto non salvato")
         }
         //salvo file
-        fs.writeFile(filename, array(), function (err) {
+        fs.writeFile(filename, json(), function (err) {
             if (err) {
                 window.alert("Errore: " + err.message)
                 alert.name()
