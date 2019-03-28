@@ -17,7 +17,7 @@ function json() {
         var newValue = listaId[i].value
         testoProgetto[newName] = newValue
     }
-    // inserisco i valori del progetto nell'array per il json
+    // inserisco i valori nell'array per il json
     array.push(testoProgetto)
 
     var json = JSON.stringify(array);
@@ -31,24 +31,21 @@ ipc.on('salva', function (ev, data) {
     dialog.showSaveDialog((filename) => {
         if (filename == undefined) {
             window.alert("non hai salvato il progetto...")
-            return console.log("progetto non salvato")
         }
         //salvo file
         fs.writeFile(filename, json(), function (err) {
             if (err) {
                 window.alert("Errore: " + err.message)
                 alert.name()
-                return console.log("Errore: " + err.message)
             }
 
             window.alert("Progetto Salvato!")
-            console.log("progetto salvato")
         })
     })
 })
 
 
-// apertura progetto salvato
+// apertura progetto salvato cr
 ipc.on('apri', function (ev, data) {
 
     //mostro finestra per apertura file
