@@ -189,7 +189,7 @@ app.on('ready', () => {
     ctxMenu.popup(window, params.x, params.y)
   })
 
-  // Carica un URL nella finestra al locale index.html
+  // Carica un URL nella finestra index.html
   window.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
