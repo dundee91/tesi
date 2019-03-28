@@ -66,11 +66,12 @@ ipc.on('apri', function (ev, data) {
 
                 for (var i in progetto) {
                     var prog = progetto[i]
+                    for (var j in prog) {
+                        // assegno i valori salvati nel progetto agli id presenti nel sistema
+                        document.getElementById(j).value = prog[j]
+                    }
                 }
 
-                for (var j in prog) {
-                    document.getElementById(j).value = prog[j]
-                }
                 console.log("file aperto")
             })
         }
