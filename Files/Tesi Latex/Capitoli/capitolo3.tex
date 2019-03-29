@@ -6,7 +6,7 @@ Quando si vuole sviluppare un’applicazione desktop la prima cosa a cui si pens
 In questo caso la scelta è caduta su Electron, un framework Open Source sviluppato dal team di GitHub che permette lo sviluppo di app cross platform utilizzando il medesimo approccio di Apache Cordova, ovvero attraverso JavaScript, HTML, e CSS.
 Si tratta di un modulo Npm, quindi eredita tutte le API e le funzionalità di Node.js.
 \\
-Electron, è ormai considerato un package stabile, arrivato alla versione 1.3.9, dispone di molti plugin già pronti all’uso e realizzati specificamente per la piattaforma. Tuttavia, il vero potenziale di Electron è dato dal fatto che si può costruire una desktop app utilizzando qualsiasi libreria scritta in Node.js, rendendolo di fatto uno strumento molto potente anche per interagire con il sistema operativo.
+Il vero potenziale di Electron è dato dal fatto che si può costruire una desktop app utilizzando qualsiasi libreria scritta in Node.js, rendendolo di fatto uno strumento molto potente anche per interagire con il sistema operativo.
 \\
 Nello specifico dello sviluppo del sofware, si possono distinguere tre specifiche aree:
 \begin{itemize}
@@ -22,7 +22,7 @@ Nello specifico dello sviluppo del sofware, si possono distinguere tre specifich
 
 Nella struttura di un app basata su Electron, bisogna discutere di due tipi di processo esistenti:
 \begin{itemize}
-	\item  il processo chiamato \textbf{main} che esegue lo script indicato nel file package.json è il processo principale. Lo script che viene eseguito nel processo principale può visualizzare una \Gls{gui} tramite la creazione di pagine web. Una applicazione Electron ha sempre un processo principale, ma mai più di uno. Il processo principale crea pagine web mediante la creazione di istanze di BrowserWindow, dove viene eseguita la pagina web nel proprio processo di rendering. Quando viene eliminata un'istanza di BrowserWindow, il processo di rendering corrispondente viene anch'esso terminato. Il processo principale gestisce tutte le pagine web e il corrispondente processo di rendering.
+	\item  il processo chiamato \textbf{main} che esegue lo script indicato nel file package.json è il processo principale. Lo script che viene eseguito nel processo principale può visualizzare una \Gls{gui} tramite la creazione di pagine web. Il processo principale crea pagine web mediante la creazione di istanze di BrowserWindow, dove vengono eseguite nel proprio processo di rendering. Quando viene eliminata un'istanza di BrowserWindow, il processo di rendering corrispondente viene anch'esso terminato. Il processo principale quindi, gestisce tutte le pagine web e il corrispondente processo di rendering.
 	\item il processo di \textbf{rendering}, invece è il processo che gestisce ogni pagina web, visualizzata tramite Chromium con la sua architettura multi-processo, tale processo è isolato e può occuparsi solo delle pagine web in esecuzione in esso.
 	Pertanto nelle pagine web chiamare le API dell'interfaccia grafica nativa non è consentito perché la gestione delle risorse di sistema nelle pagine web è molto pericolosa ed è facile perdere risorse. Se si desidera eseguire operazioni di \Gls{gui} in una pagina web, il processo di rendering della pagina web deve comunicare con il processo principale per richiedere che il processo principale esegua tali operazioni.
 \end{itemize}
@@ -70,7 +70,7 @@ A tutte le API Electron viene assegnato un tipo di processo. Molti di essi posso
 
 Durante l'utilizzo del software l'utente deve avere la possibilità attraverso una funzione apposita, di poter salvare un progetto in stato d'opera e/o di leggere un progetto precedentemente salvato.
 Per la realizzazione di questa funzionalità, si è scelto di non utilizzare un database ma di un semplice salvataggio dei dati attraverso un file \Gls{json} nel file system della piattaforma di elaborazione in uso.
-JSON è un modo per archiviare le informazioni in modo organizzato e di facile accesso per l'utilizzo delle stesse all'interno di una applicazione (web, mobile o di qualsiasi altro tipo). Permette poi la possibilità di salvare i dati dichiarati all'interno di un array
+JSON è un modo per archiviare le informazioni in modo organizzato e di facile accesso per l'utilizzo delle stesse all'interno di una applicazione (web, mobile o di qualsiasi altro tipo).
 
 \begin{figure}[H]
     \centering
@@ -88,12 +88,18 @@ Nella figura ~\ref{fig:json} viene mostrata l'implementazione della funzione "js
     \label{fig:salvataggio}
 \end{figure}
 
-Electron per comunicare tra processi renderer e main, in entrambe le direzioni, utilizza la comunicazione interprocesso (\Gls{ipc}).\\  Come mostrato nella figura ~\ref{fig:salvataggio} la funzione relativa al salvataggio del progetto viene richiamata tramite IPC al messaggio 'salva', e grazie all'utilizzo delle API di Node.js, viene creato all'interno del file system, il file JSON passatoi dalla funzione "json()" precedentemente illustrata.
+Electron per comunicare tra processi renderer e main, in entrambe le direzioni, utilizza la comunicazione interprocesso \Gls{ipc}.\\  Come mostrato nella figura ~\ref{fig:salvataggio} la funzione relativa al salvataggio del progetto viene richiamata tramite IPC al messaggio 'salva', e grazie all'utilizzo delle API di Node.js, viene creato all'interno del file system, il file JSON passato dalla funzione "json()" precedentemente illustrata.
 
 
 % 4.1.3
 
+\newpage
+
 \subsection {Calcolo riclassificazioni e forecast}
+
+Come già visto precedentemente, per l'analisi di bilancio di un'azienda spesso si utilizzano diverse tipologie di riclassificazione, sia per lo stato patrimoniale che per il conto economico. Nel software realizzato si è deciso di mettere a disposizione all'utente, per quanto riguarda lo stato patrimoniale la scelta tra la riclassificazione finanziario, funzionale o entrambe, mentre per il conto economico viene calcolata solo la riclassificazione al valore aggiunto.
+Le riclassificazioni calcolate vengono poi usate per calcolare gli indici per il forecast per l'anno di riferimento del progetto.
+Per il calcolo delle varie riclassificazioni e forecast sono state realizzate delle specifiche classi Javascript, in cui attraverso l'utilizzo di Jquery per l'acceso al \Gls{dom} e attraverso la funzione importata con la libreria del MaskMoney illustrata precedentemente, vengono applicate tutte le formule del caso.
 
 
 % 4.1.4

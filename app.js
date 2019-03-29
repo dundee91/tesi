@@ -78,7 +78,6 @@ app.on('ready', () => {
         { type: "separator" },
         {
           label: 'Salva con nome',
-          //passo alla classe index.js dove c'è la funzione di salvataggio
           click: function (menuItem, currentWindow) {
             currentWindow.webContents.send('salva')
           }
