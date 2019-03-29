@@ -10,107 +10,13 @@ Il vero potenziale di Electron è dato dal fatto che si può costruire una deskt
 \\
 Nello specifico dello sviluppo del sofware, si possono distinguere tre specifiche aree:
 \begin{itemize}
-	\item Back-End, comprende tutto ciò che riguarda lo sviluppo della logica del software, ovvero cosa fare con i dati, come trattare quelli ricevuti, cosa restituire all'utente.
 	\item Front-End, comprende tutto ciò che riguarda l'interfaccia utente, quindi come presentare i dati passati dal Back-End, la grafica, il template, il typewriting, l’accessibilità e l’usabilità.
+	\item Back-End, comprende tutto ciò che riguarda lo sviluppo della logica del software, ovvero cosa fare con i dati, come trattare quelli ricevuti, cosa restituire all'utente.
 	\item Packaging dell'App, la creazione del prodotto finale, ovvero il software in versione eseguibile per tutte le tipologie di piattaforme di elaborazione.
 \end{itemize}
 
 
 % 4.1
-
-\section{Sviluppo del Back-End}
-
-Nella struttura di un app basata su Electron, bisogna discutere di due tipi di processo esistenti:
-\begin{itemize}
-	\item  il processo chiamato \textbf{main} che esegue lo script indicato nel file package.json è il processo principale. Lo script che viene eseguito nel processo principale può visualizzare una \Gls{gui} tramite la creazione di pagine web. Il processo principale crea pagine web mediante la creazione di istanze di BrowserWindow, dove vengono eseguite nel proprio processo di rendering. Quando viene eliminata un'istanza di BrowserWindow, il processo di rendering corrispondente viene anch'esso terminato. Il processo principale quindi, gestisce tutte le pagine web e il corrispondente processo di rendering.
-	\item il processo di \textbf{rendering}, invece è il processo che gestisce ogni pagina web, visualizzata tramite Chromium con la sua architettura multi-processo, tale processo è isolato e può occuparsi solo delle pagine web in esecuzione in esso.
-	Pertanto nelle pagine web chiamare le API dell'interfaccia grafica nativa non è consentito perché la gestione delle risorse di sistema nelle pagine web è molto pericolosa ed è facile perdere risorse. Se si desidera eseguire operazioni di \Gls{gui} in una pagina web, il processo di rendering della pagina web deve comunicare con il processo principale per richiedere che il processo principale esegua tali operazioni.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.25]{electron-architecture.png}
-    \caption{Electron - Architettura di un app}
-    \label{fig:ElectronArch}
-\end{figure}
-
-% 4.1.1
-
-\subsection{Utilizzo delle API Electron}
-
-Electron offre una serie di API che supportano lo sviluppo di un'applicazione desktop sia nel processo principale che nel processo di rendering. In entrambi i processi, devi accedere alle API di Electron richiedendo il relativo modulo incluso:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{apiElectron.png}
-    \caption{importazione API Electron}
-    \label{fig:ApiElectron}
-\end{figure}
-
-A tutte le API Electron viene assegnato un tipo di processo. Molti di essi possono essere utilizzati solo dal main, alcuni solo da un processo di rendering, alcuni da entrambi. Ad esempio, una finestra in Electron viene creata utilizzando la classe BrowserWindow, disponibile solo nel processo principale.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{browserWindow.png}
-    \caption{importazione classe BrowserWindow}
-    \label{fig:BrowserWindow}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{browserWindow2.png}
-    \caption{Creazione BrowserWindow}
-    \label{fig:BrowserWindow2}
-\end{figure}
-
-
-% 4.1.2
-
-\subsection {Apertura e salvataggio del progetto}
-
-Durante l'utilizzo del software l'utente deve avere la possibilità attraverso una funzione apposita, di poter salvare un progetto in stato d'opera e/o di leggere un progetto precedentemente salvato.
-Per la realizzazione di questa funzionalità, si è scelto di non utilizzare un database ma di un semplice salvataggio dei dati attraverso un file \Gls{json} nel file system della piattaforma di elaborazione in uso.
-JSON è un modo per archiviare le informazioni in modo organizzato e di facile accesso per l'utilizzo delle stesse all'interno di una applicazione (web, mobile o di qualsiasi altro tipo).
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{json.png}
-    \caption{Creazione Json}
-    \label{fig:json}
-\end{figure}
-
-Nella figura ~\ref{fig:json} viene mostrata l'implementazione della funzione "json" per la creazione del file JSON contenente i valori inseriti nel progetto. Inizialmente, utilizzando la funzione querySelectorAll vengono selezionati tutti gli Id contenuti nell'html del main, successivamente, attraverso un ciclo for per l'iterazione degli stessi, vengono inseriti nell'array contenuto nel JSON.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{salvataggio.png}
-    \caption{funzione salvataggio}
-    \label{fig:salvataggio}
-\end{figure}
-
-Electron per comunicare tra processi renderer e main, in entrambe le direzioni, utilizza la comunicazione interprocesso \Gls{ipc}.\\  Come mostrato nella figura ~\ref{fig:salvataggio} la funzione relativa al salvataggio del progetto viene richiamata tramite IPC al messaggio 'salva', e grazie all'utilizzo delle API di Node.js, viene creato all'interno del file system, il file JSON passato dalla funzione "json()" precedentemente illustrata.
-
-
-% 4.1.3
-
-\newpage
-
-\subsection {Calcolo riclassificazioni e forecast}
-
-Come già visto precedentemente, per l'analisi di bilancio di un'azienda spesso si utilizzano diverse tipologie di riclassificazione, sia per lo stato patrimoniale che per il conto economico. Nel software realizzato si è deciso di mettere a disposizione all'utente, per quanto riguarda lo stato patrimoniale la scelta tra la riclassificazione finanziario, funzionale o entrambe, mentre per il conto economico viene calcolata solo la riclassificazione al valore aggiunto.
-Le riclassificazioni calcolate vengono poi usate per calcolare gli indici per il forecast per l'anno di riferimento del progetto.
-Per il calcolo delle varie riclassificazioni e forecast sono state realizzate delle specifiche classi Javascript, in cui attraverso l'utilizzo di Jquery per l'acceso al \Gls{dom} e attraverso la funzione importata con la libreria del MaskMoney illustrata precedentemente, vengono applicate tutte le formule del caso.
-
-
-% 4.1.4
-
-\subsection {Creazione pdf}
-
-
-
-% 4.2
-
-\newpage
 
 \section{Sviluppo del Front-End}
 
@@ -119,6 +25,23 @@ Per lo sviluppo di un interfaccia utente efficace si deve tener conto di due asp
 \item Accessibilità
 \item Usabilità
 \end{itemize}
+
+
+L'\textbf{accessibilità} è un aspetto di fontamentale importanza, il suo scopo è garantire l'accesso alle risorse (prodotti e servizi) da parte di chiunque, siano essi soggetti con disabilità, con scarse competenze informatiche o con dispositivi diversi.
+I criteri dell'accessibilità sono quelli delle linee guida del  che attraverso una sua sezione denominata  ha definito i linguaggi e le procedure standard per rendere il Web uno strumento realmente democratico e universale.
+Queste direttive sono state percepite in Italia con la Legge "Stanca" (Legge 4/2004) che sancisce obblighi e sanzioni per la  e le aziende appaltate.
+In generale i requisiti di accessibilità contenuti nella Legge Stanca e successive modificazioni, contenuti anche in un documento online sul sito del governo , sono i seguenti:
+\begin{itemize}
+    \item Alternative testuali, obbligatorie per tutte i contenuti non testuali (come immagini, filmati e audio);
+    \item Adattabilità, cioè prevedere che i contenuti si adattino a diversi layout in base alla grandezza e al formato dello schermo utente (responsive web design);
+    \item Distinguibile, rendere più semplice agli utenti la visione e l'ascolto dei contenuti, separando i contenuti in primo piano dallo sfondo;
+    \item Accessibile da tastiera, cioè garantire una buona navigabilità prevedendo un percorso di TAB;
+    \item Colori, il contrasto tra le scritte e lo sfondo deve essere chiaro, ma non si devono usare colori discordanti tra loro o lampeggianti che possano causare crisi epilettiche;
+    \item Navigabile, fornire una struttura del sito chiara, dove l'utente possa orientarsi e raggiungire qualsiasi sezione attraverso links;
+    \item Assistenza per l'inserimento, fornire gli aiuti e le spiegazioni necessarie affinché l'utente sia in grado di compilare correttamente le form del sito;
+    \item Compatibilità, il sito deve essere accessibile da tutte le piattaforme e deve utilizzare tecnologie standard.
+\end{itemize}
+
 
 L'\textbf{usabilità} è un approccio alla progettazione volto a rendere l'interazione tra il prodotto e l'utente migliore sotto i seguenti aspetti:
 \begin{itemize}
@@ -140,22 +63,7 @@ Nel web, l'usabilità si pone i seguenti obiettivi:
 \end{itemize}
 In generale cercare di rendere il sistema il più semplice possibile da usare, in modo da ridurre al minimo gli sforzi sull'utilizzo del mezzo.
 
-L'\textbf{accessibilità} è un aspetto di fontamentale importanza, specialmente per un gestionale web di una ; il suo scopo è garantire l'accesso alle risorse (prodotti e servizi) da parte di chiunque, siano essi soggetti con disabilità, con scarse competenze informatiche o con dispositivi diversi.
-I criteri dell'accessibilità sono quelli delle linee guida del  che attraverso una sua sezione denominata  ha definito i linguaggi e le procedure standard per rendere il Web uno strumento realmente democratico e universale.
-Queste direttive sono state percepite in Italia con la Legge "Stanca" (Legge 4/2004) che sancisce obblighi e sanzioni per la  e le aziende appaltate.
-In generale i requisiti di accessibilità contenuti nella Legge Stanca e successive modificazioni, contenuti anche in un documento online sul sito del governo , sono i seguenti:
-\begin{itemize}
-    \item Alternative testuali, obbligatorie per tutte i contenuti non testuali (come immagini, filmati e audio);
-    \item Adattabilità, cioè prevedere che i contenuti si adattino a diversi layout in base alla grandezza e al formato dello schermo utente (responsive web design);
-    \item Distinguibile, rendere più semplice agli utenti la visione e l'ascolto dei contenuti, separando i contenuti in primo piano dallo sfondo;
-    \item Accessibile da tastiera, cioè garantire una buona navigabilità prevedendo un percorso di TAB;
-    \item Colori, il contrasto tra le scritte e lo sfondo deve essere chiaro, ma non si devono usare colori discordanti tra loro o lampeggianti che possano causare crisi epilettiche;
-    \item Navigabile, fornire una struttura del sito chiara, dove l'utente possa orientarsi e raggiungire qualsiasi sezione attraverso links;
-    \item Assistenza per l'inserimento, fornire gli aiuti e le spiegazioni necessarie affinché l'utente sia in grado di compilare correttamente le form del sito;
-    \item Compatibilità, il sito deve essere accessibile da tutte le piattaforme e deve utilizzare tecnologie standard.
-\end{itemize}
-
-% 4.2.1
+% 4.1.1
 
 \subsection{Tecnologie usate nello sviluppo del front-end}
 
@@ -207,49 +115,171 @@ Questo linguaggio può utilizzare molte delle classi del framework, semplicement
 \end{figure}
 
 
+% 4.2
+
+\newpage
+
+\section{Sviluppo del Back-End}
+
+Nella struttura di un app basata su Electron, bisogna discutere di due tipi di processo esistenti:
+\begin{itemize}
+	\item  il processo chiamato \textbf{main} che esegue lo script indicato nel file package.json è il processo principale. Lo script che viene eseguito nel processo principale può visualizzare una \Gls{gui} tramite la creazione di pagine web. Il processo principale crea pagine web mediante la creazione di istanze di BrowserWindow, dove vengono eseguite nel proprio processo di rendering. Quando viene eliminata un'istanza di BrowserWindow, il processo di rendering corrispondente viene anch'esso terminato. Il processo principale quindi, gestisce tutte le pagine web e il corrispondente processo di rendering.
+	\item il processo di \textbf{rendering}, invece è il processo che gestisce ogni pagina web, visualizzata tramite Chromium con la sua architettura multi-processo, tale processo è isolato e può occuparsi solo delle pagine web in esecuzione in esso.
+	Pertanto nelle pagine web chiamare le API dell'interfaccia grafica nativa non è consentito perché la gestione delle risorse di sistema nelle pagine web è molto pericolosa ed è facile perdere risorse. Se si desidera eseguire operazioni di \Gls{gui} in una pagina web, il processo di rendering della pagina web deve comunicare con il processo principale per richiedere che il processo principale esegua tali operazioni.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25]{electron-architecture.png}
+    \caption{Electron - Architettura di un app}
+    \label{fig:ElectronArch}
+\end{figure}
+
+% 4.2.1
+
+\subsection{Utilizzo delle API Electron}
+
+Electron offre una serie di API che supportano lo sviluppo di un'applicazione desktop sia nel processo principale che nel processo di rendering. In entrambi i processi, devi accedere alle API di Electron richiedendo il relativo modulo incluso:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{apiElectron.png}
+    \caption{importazione API Electron}
+    \label{fig:ApiElectron}
+\end{figure}
+
+A tutte le API Electron viene assegnato un tipo di processo. Molti di essi possono essere utilizzati solo dal main, alcuni solo da un processo di rendering, alcuni da entrambi. Ad esempio, una finestra in Electron viene creata utilizzando la classe BrowserWindow, disponibile solo nel processo principale.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{browserWindow.png}
+    \caption{importazione classe BrowserWindow}
+    \label{fig:BrowserWindow}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{browserWindow2.png}
+    \caption{Creazione BrowserWindow}
+    \label{fig:BrowserWindow2}
+\end{figure}
+
+
+% 4.2.2
+
+\subsection {Apertura e salvataggio del progetto}
+
+Durante l'utilizzo del software l'utente deve avere la possibilità attraverso una funzione apposita, di poter salvare un progetto in stato d'opera e/o di leggere un progetto precedentemente salvato.
+Per la realizzazione di questa funzionalità, si è scelto di non utilizzare un database ma di un semplice salvataggio dei dati attraverso un file \Gls{json} nel file system della piattaforma di elaborazione in uso.
+JSON è un modo per archiviare le informazioni in modo organizzato e di facile accesso per l'utilizzo delle stesse all'interno di una applicazione (web, mobile o di qualsiasi altro tipo).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{json.png}
+    \caption{Creazione Json}
+    \label{fig:json}
+\end{figure}
+
+Nella figura ~\ref{fig:json} viene mostrata l'implementazione della funzione "json" per la creazione del file JSON contenente i valori inseriti nel progetto. Inizialmente, utilizzando la funzione querySelectorAll vengono selezionati tutti gli Id contenuti nell'html del main, successivamente, attraverso un ciclo for per l'iterazione degli stessi, vengono inseriti nell'array contenuto nel JSON.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{salvataggio.png}
+    \caption{funzione salvataggio}
+    \label{fig:salvataggio}
+\end{figure}
+
+Electron per comunicare tra processi renderer e main, in entrambe le direzioni, utilizza la comunicazione interprocesso \Gls{ipc}.\\  Come mostrato nella figura ~\ref{fig:salvataggio} la funzione relativa al salvataggio del progetto viene richiamata tramite IPC al messaggio 'salva', e grazie all'utilizzo delle API di Node.js, viene creato all'interno del file system, il file JSON passato dalla funzione "json()" precedentemente illustrata.
+
+
+% 4.2.3
+
+\newpage
+
+\subsection {Calcolo riclassificazioni e forecast}
+
+Come già visto precedentemente, per l'analisi di bilancio di un'azienda spesso si utilizzano diverse tipologie di riclassificazione, sia per lo stato patrimoniale che per il conto economico. Nel software realizzato si è deciso di mettere a disposizione all'utente, per quanto riguarda lo stato patrimoniale la scelta tra la riclassificazione finanziario, funzionale o entrambe, mentre per il conto economico viene calcolata solo la riclassificazione al valore aggiunto.
+Le riclassificazioni calcolate vengono poi usate per calcolare gli indici per il forecast per l'anno di riferimento del progetto.
+Per il calcolo delle varie riclassificazioni e forecast sono state realizzate delle specifiche classi Javascript, in cui attraverso l'utilizzo di Jquery per l'acceso al \Gls{dom} e attraverso la funzione importata con la libreria del MaskMoney illustrata precedentemente, vengono applicate tutte le formule del caso.
+Dove c'è la necessità di una sommatoria di più valori, ove possibile, è stato utilizzato l'attributo name del \Gls{dom} e attraverso un ciclo for calcolato il totale. Come in figura ~\ref{fig:riclassificazione}, dove viene mostrato l'esempio per il Totale patrimonio netto, calcolato prendendo tutti gli elementi che hannno l'attributo name all'interno dei vari tag impostato a SPFOPatrimonioNetto \\
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{riclassificazione.png}
+    \caption{for per somma riclassificazione}
+    \label{fig:riclassificazione}
+\end{figure}
+
+\newpage
+
+Altrimenti, come nel caso specifico del forecast, in cui non poteva essere usato l'attributo name, si fa riferimento all'attributo id. Un esempio in figura ~\ref{fig:forecast}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{forecast.png}
+    \caption{esempio di calcolo per il forecast}
+    \label{fig:forecast}
+\end{figure}
+
+% 4.2.4
+
+\subsection {Creazione pdf}
+
+Per la creazione di un report dei dati inseriti e calcolati, è stata utilizzata la comunicazione interprocesso \Gls{ipc}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{pdf1.png}
+    \caption{input da pulsante}
+    \label{fig:pdf1}
+\end{figure}
+
+Nel processo di rendering viene impostato un handler atrraverso la funzione addEventListener() per poter inviare al processo principale il messaggio 'print-to-pdf', non appena l'utente che utilizza il sistema clicca sul bottone per la stampa del pdf, come da figura ~\ref{fig:pdf1}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{pdf2.png}
+    \caption{creazione e apertura del pdf}
+    \label{fig:pdf2}
+\end{figure}
+
+Il processo principale, ricevuto il messaggio 'print-to-pdf' dal processo render, genera il file pdf in un percorso temporaneo del sistema operativo in uso e lo apre non appena creato.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{pdfCss.png}
+    \caption{specifica Css per stampa documenti}
+    \label{fig:pdfCss}
+\end{figure}
+
+Il pdf viene generato grazie all'aiuto della specifica \Gls{css} per la stampa dei documenti, mostrato in ~\ref{fig:pdfCss}, dove tra le varie istruzioni, vengono nascosti alcune parti del front end, come la scrollbar o i pulsanti delle tab, per mostrare invece tutta la parte del frontespizio del pdf generato.
+
+
 % 4.3
 
 \newpage
 
 \section{Packaging dell'applicazione}
 
-Per lo sviluppo di un interfaccia utente efficace si deve tener conto di due aspetti oltre a quello tecnico, che sono:
+L'imballaggio e la distribuzione di app sono parte integrante del processo di sviluppo di un'applicazione desktop, poiché Electron è un framework di sviluppo di applicazioni desktop multipiattaforma, anche l'imballaggio e la distribuzione di app per tutte le piattaforme dovrebbero essere un'esperienza senza soluzione di continuità.
+Per questo scopo, è stato utilizzato uno strumento da riga di comando e una libreria Node.js che ci consente di confezionare e distribuire la nostra app Electron con pacchetti specifici del sistema operativo (.app, .exe, ecc.), tramite \Gls{cli}, chiamato Electron Packager. Electron Packager funziona per le seguenti piattaforme:
 \begin{itemize}
-\item Accessibilità
-\item Usabilità
+	\item Windows (32/64 bit)
+	\item OS X (noto anche come macOS)
+	\item Linux (x86/ x86_64)
 \end{itemize}
 
-L'\textbf{usabilità} è un approccio alla progettazione volto a rendere l'interazione tra il prodotto e l'utente migliore sotto i seguenti aspetti:
-\begin{itemize}
-    \item Efficacia, cioè permettere agli utenti di raggiungere i loro obiettivi in maniera precisa e completa;
-    \item Efficienza, cioè l'ottimizzazione delle risorse impiegate;
-    \item Soddisfazione, come libertà dal disagio e attitudine positiva con cui gli utenti raggiungono specifici obiettivi attraverso l’uso del prodotto.
-\end{itemize}
-Nel web, l'usabilità si pone i seguenti obiettivi:
-\begin{itemize}
-    \item Presentare l'informazione all'utente in modo chiaro e conciso, evitando termini tecnici o specialistici;
-    \item Semplificare la struttura del compito;
-    \item Offrire all'utente le scelte corrette, in una maniera che risulti ovvia;
-    \item Organizzare ogni pagina in modo che l'utente riconosca la posizione e le azioni da compiere;
-    \item Eliminare ogni ambiguità relativa alle conseguenze di un'azione (es. fare clic su cancella/rimuovi/compra);
-    \item Mettere la cosa più importante nella posizione giusta della pagina web o dell'applicazione web;
-    \item Fare in modo che l'utente abbia un rapido feedback ad ogni azione compiuta, ad esempio la comparsa di un messaggio di successo o errore all'invio di dati con una form;
-    \item Rendere la grafica accattivante ed interessante dal punto di vista visivo attraverso l'uso di diagrammi, tabelle, sezioni informative e coordinando bene i colori;
-    \item Ridurre gli sforzi cognitivi dell'utente.
-\end{itemize}
-In generale cercare di rendere il sistema il più semplice possibile da usare, in modo da ridurre al minimo gli sforzi sull'utilizzo del mezzo.
 
-L'\textbf{accessibilità} è un aspetto di fontamentale importanza, specialmente per un gestionale web di una ; il suo scopo è garantire l'accesso alle risorse (prodotti e servizi) da parte di chiunque, siano essi soggetti con disabilità, con scarse competenze informatiche o con dispositivi diversi.
-I criteri dell'accessibilità sono quelli delle linee guida dche attraverso una sua sezione denominata ha definito i linguaggi e le procedure standard per rendere il Web uno strumento realmente democratico e universale.
-Queste direttive sono state percepite in Italia con la Legge "Stanca" (Legge 4/2004) che sancisce obblighi e sanzioni per e le aziende appaltate.
-In generale i requisiti di accessibilità contenuti nella Legge Stanca e successive modificazioni, contenuti anche in un documento online sul sito del governsono i seguenti:
+Per utilizzare il pacchetto è necessario prima installarlo, usando all'interno della cartella del proprio progetto la riga di comando: "npm install electron-packager --save-dev".
+Per creare il risultato finale del software il comando da eseguire è "electron-packager <dir> <nome_app> --platform=<platform> --arch=<arch>" dove:
 \begin{itemize}
-    \item Alternative testuali, obbligatorie per tutte i contenuti non testuali (come immagini, filmati e audio);
-    \item Adattabilità, cioè prevedere che i contenuti si adattino a diversi layout in base alla grandezza e al formato dello schermo utente (responsive web design);
-    \item Distinguibile, rendere più semplice agli utenti la visione e l'ascolto dei contenuti, separando i contenuti in primo piano dallo sfondo;
-    \item Accessibile da tastiera, cioè garantire una buona navigabilità prevedendo un percorso di TAB;
-    \item Colori, il contrasto tra le scritte e lo sfondo deve essere chiaro, ma non si devono usare colori discordanti tra loro o lampeggianti che possano causare crisi epilettiche;
-    \item Navigabile, fornire una struttura del sito chiara, dove l'utente possa orientarsi e raggiungire qualsiasi sezione attraverso links;
-    \item Assistenza per l'inserimento, fornire gli aiuti e le spiegazioni necessarie affinché l'utente sia in grado di compilare correttamente le form del sito;
-    \item Compatibilità, il sito deve essere accessibile da tutte le piattaforme e deve utilizzare tecnologie standard.
+	\item <dir> è il percorso dove viene creata l'applicazione
+	\item <nome_app> è il nome dell'applicazione
+	\item <platform> è la piattaforma di destinazione
+	\item <arch> è la specifica dell'architettura del sistema operativo
 \end{itemize}
+
+
+
+
