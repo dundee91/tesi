@@ -2576,9 +2576,7 @@
   <script src="forecast.js"></script>
   <script>
     $(document).ready(function () {
-
       function switchRiclassificazioneSP() {
-
         var selectedOption = $(".dropdownRiclassificazioneSP  option:selected").val();
         if (selectedOption == 'funzionale') {
           $(".grpRiclassificazioneSPFunzionale").show();
@@ -2593,12 +2591,9 @@
           $(".grpRiclassificazioneSPFinanziario").show();
         }
       }
-
       $(".dropdownRiclassificazioneSP").change(function () {
-        console.log("cambio tipologia SP");
         switchRiclassificazioneSP();
       });
-
       switchRiclassificazioneSP();
     });
   </script>
