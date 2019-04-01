@@ -80,6 +80,8 @@ ipc.on('apri', function (ev, data) {
 
 const printPDFbutton = document.getElementById('print-pdf')
 
-printPDFbutton.addEventListener('click', event => {
+printPDFbutton.addEventListener('click', event => {  
+    $('#ragioneSocialeFrontespizio')[0].innerHTML = $('#ragioneSociale')[0].value
+    $('#professionistaFrontespizio')[0].innerHTML = $('#professionistaStudio')[0].value
     ipc.send('print-to-pdf')
 })
