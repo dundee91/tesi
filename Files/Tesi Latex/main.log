@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.27)  20 MAR 2019 12:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.27)  30 MAR 2019 23:00
 entering extended mode
 **./main.tex
 (main.tex
@@ -915,11 +915,12 @@ Package biblatex Info: Data encoding 'ascii' specified.
 \openout3 = `main-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
+Package biblatex Info: ... file 'main.bbl' found.
 
-No file main.bbl.
+(main.bbl)
 Package biblatex Info: Reference section=0 on input line 49.
 Package biblatex Info: Reference segment=0 on input line 49.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -966,21 +967,16 @@ Package pdftex.def Info: Immagini/unicam-scudo.png  used on input line 63.
 {C:/Users/Danilo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Immagini
 /unicam-scudo.png>] [1
 
-] [1
-
-] (main.toc [2
+] (main.toc [1
 
 ])
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
- [3] [4
+ [2] [3
 
-] (Capitoli/introduzione.tex
-
-LaTeX Warning: Citation 'uml' on page 1 undefined on input line 8.
-
-) [1
+] (Capitoli/introduzione.tex)
+[1
 
 ] [2
 
@@ -1026,209 +1022,226 @@ Overfull \hbox (1.25002pt too wide) in paragraph at lines 98--98
  []
 
 [13]
-<Immagini/use-case-diagram.png, id=69, 782.925pt x 552.0625pt>
+<Immagini/use-case-diagram.png, id=65, 782.925pt x 552.0625pt>
 File: Immagini/use-case-diagram.png Graphic file (type png)
 <use Immagini/use-case-diagram.png>
 Package pdftex.def Info: Immagini/use-case-diagram.png  used on input line 112.
 
 (pdftex.def)             Requested size: 391.46155pt x 276.03056pt.
  [14 <./Immagini/use-case-diagram.png (PNG copy)>]
-<Immagini/activity-diagram.png, id=73, 426.59375pt x 597.23125pt>
+<Immagini/activity-diagram.png, id=70, 426.59375pt x 597.23125pt>
 File: Immagini/activity-diagram.png Graphic file (type png)
 <use Immagini/activity-diagram.png>
 Package pdftex.def Info: Immagini/activity-diagram.png  used on input line 130.
 
 (pdftex.def)             Requested size: 255.95822pt x 358.3415pt.
  [15 <./Immagini/activity-diagram.png (PNG copy)>] [16]
-<Immagini/sequence-diagram-v2.png, id=80, 661.72218pt x 426.09187pt>
-File: Immagini/sequence-diagram-v2.png Graphic file (type png)
-<use Immagini/sequence-diagram-v2.png>
-Package pdftex.def Info: Immagini/sequence-diagram-v2.png  used on input line 1
-51.
-(pdftex.def)             Requested size: 397.03638pt x 255.65709pt.
-) [17 <./Immagini/sequence-diagram-v2.png>]
-[18] [19
+<Immagini/sequence-diagram.png, id=77, 677.53125pt x 567.11874pt>
+File: Immagini/sequence-diagram.png Graphic file (type png)
+<use Immagini/sequence-diagram.png>
+Package pdftex.def Info: Immagini/sequence-diagram.png  used on input line 151.
 
-] (Capitoli/capitolo3.tex
-Capitolo 3.
+(pdftex.def)             Requested size: 406.52188pt x 340.27386pt.
 
-Overfull \hbox (17.8946pt too wide) in paragraph at lines 8--9
-[]\OT1/cmr/m/n/12 Back-End, com-pren-de tut-to cio che ri-guar-da la map-pa-tu
--ra []Object-Relational
- []
-
-[20
-
-]
-<Immagini/sql-fattura.png, id=94, 387.69844pt x 520.19344pt>
-File: Immagini/sql-fattura.png Graphic file (type png)
-<use Immagini/sql-fattura.png>
-Package pdftex.def Info: Immagini/sql-fattura.png  used on input line 23.
-(pdftex.def)             Requested size: 271.38704pt x 364.13292pt.
-<Immagini/sql-utenteruolouo.png, id=96, 397.485pt x 554.82281pt>
-File: Immagini/sql-utenteruolouo.png Graphic file (type png)
-<use Immagini/sql-utenteruolouo.png>
-Package pdftex.def Info: Immagini/sql-utenteruolouo.png  used on input line 30.
-
-(pdftex.def)             Requested size: 278.2376pt x 388.37332pt.
- [21 <./Immagini/sql-fattura.png>] [22 <./Immagini/sql-utenteruolouo.png>]
-<Immagini/dot-net.png, id=105, 807.015pt x 1154.3125pt>
-File: Immagini/dot-net.png Graphic file (type png)
-<use Immagini/dot-net.png>
-Package pdftex.def Info: Immagini/dot-net.png  used on input line 56.
-(pdftex.def)             Requested size: 282.45947pt x 404.01543pt.
-
-[23] [24 <./Immagini/dot-net.png>]
-
-LaTeX Warning: Citation 'mvc' on page 25 undefined on input line 79.
-
-<Immagini/mvc-pattern.png, id=113, 269.50688pt x 244.915pt>
-File: Immagini/mvc-pattern.png Graphic file (type png)
-<use Immagini/mvc-pattern.png>
-Package pdftex.def Info: Immagini/mvc-pattern.png  used on input line 88.
-(pdftex.def)             Requested size: 269.50621pt x 244.91438pt.
-[25]
-<Immagini/action-1.png, id=118, 552.56438pt x 591.71063pt>
-File: Immagini/action-1.png Graphic file (type png)
-<use Immagini/action-1.png>
-Package pdftex.def Info: Immagini/action-1.png  used on input line 106.
-(pdftex.def)             Requested size: 331.54118pt x 355.02911pt.
- [26 <./Immagini/mvc-pattern.png>]
-<Immagini/filter-1.png, id=122, 605.26125pt x 453.94594pt>
-File: Immagini/filter-1.png Graphic file (type png)
-<use Immagini/filter-1.png>
-Package pdftex.def Info: Immagini/filter-1.png  used on input line 116.
-(pdftex.def)             Requested size: 363.15953pt x 272.36966pt.
- [27 <./Immagini/action-1.png>] [28 <./Immagini/filter-1.png>] [29] [30]
-
-LaTeX Warning: Citation 'w3c-wai' on page 31 undefined on input line 169.
-
-
-LaTeX Warning: Citation 'agid-access' on page 31 undefined on input line 171.
-
-[31]
-
-LaTeX Warning: Citation 'w3c-html' on page 32 undefined on input line 189.
-
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 190.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\omlcmr.fd"
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 190.
-
-
-LaTeX Warning: Citation 'w3c-css' on page 32 undefined on input line 193.
-
-<Immagini/css3-1.png, id=141, 715.67375pt x 264.99pt>
-File: Immagini/css3-1.png Graphic file (type png)
-<use Immagini/css3-1.png>
-Package pdftex.def Info: Immagini/css3-1.png  used on input line 199.
-(pdftex.def)             Requested size: 357.836pt x 132.49467pt.
-[32]
-<Immagini/css3-2.png, id=146, 603.25375pt x 174.6525pt>
-File: Immagini/css3-2.png Graphic file (type png)
-<use Immagini/css3-2.png>
-Package pdftex.def Info: Immagini/css3-2.png  used on input line 206.
-(pdftex.def)             Requested size: 301.62613pt x 87.32603pt.
-
-
-LaTeX Warning: Citation 'javascript' on page 33 undefined on input line 211.
-
-
-LaTeX Warning: Citation 'jquery' on page 33 undefined on input line 215.
-
-[33 <./Immagini/css3-1.png> <./Immagini/css3-2.png>]
-
-LaTeX Warning: Citation 'razor' on page 34 undefined on input line 223.
-
-<Immagini/razor-1.png, id=152, 853.68938pt x 563.10374pt>
-File: Immagini/razor-1.png Graphic file (type png)
-<use Immagini/razor-1.png>
-Package pdftex.def Info: Immagini/razor-1.png  used on input line 229.
-(pdftex.def)             Requested size: 426.84364pt x 281.55118pt.
-
-Overfull \hbox (28.50505pt too wide) in paragraph at lines 229--230
+Overfull \hbox (8.18329pt too wide) in paragraph at lines 151--152
  [][] 
  []
 
-[34] [35 <./Immagini/razor-1.png>]
+) [17 <./Immagini/sequence-diagram.png (PNG copy)>] [18] [19
 
-LaTeX Warning: Citation 'soap' on page 36 undefined on input line 257.
+]
+(Capitoli/capitolo3.tex
+Capitolo 3.
+[20
 
+] [21]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 69.
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/base\omlcmr.fd"
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 69.
+ [22]
+<Immagini/css.png, id=97, 345.54094pt x 293.59688pt>
+File: Immagini/css.png Graphic file (type png)
+<use Immagini/css.png>
+Package pdftex.def Info: Immagini/css.png  used on input line 76.
+(pdftex.def)             Requested size: 345.54008pt x 293.59615pt.
 
-LaTeX Warning: Citation 'web-api' on page 36 undefined on input line 270.
+[23]
+<Immagini/javascript.png, id=103, 498.36188pt x 303.38344pt>
+File: Immagini/javascript.png Graphic file (type png)
+<use Immagini/javascript.png>
+Package pdftex.def Info: Immagini/javascript.png  used on input line 85.
+(pdftex.def)             Requested size: 398.69003pt x 242.70708pt.
+ [24 <./Immagini/css.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
-[36]
-<Immagini/api-1.png, id=163, 584.1825pt x 575.14874pt>
-File: Immagini/api-1.png Graphic file (type png)
-<use Immagini/api-1.png>
-Package pdftex.def Info: Immagini/api-1.png  used on input line 280.
-(pdftex.def)             Requested size: 350.51219pt x 345.0919pt.
-) (Capitoli/capitolo4.tex [37 <./Immagini/api-1.png>]
+ []
+
+<Immagini/jquery1.png, id=108, 533.74406pt x 331.99031pt>
+File: Immagini/jquery1.png Graphic file (type png)
+<use Immagini/jquery1.png>
+Package pdftex.def Info: Immagini/jquery1.png  used on input line 98.
+(pdftex.def)             Requested size: 426.99582pt x 265.59259pt.
+
+Overfull \hbox (28.65723pt too wide) in paragraph at lines 98--99
+ [][] 
+ []
+
+[25 <./Immagini/javascript.png>]
+<Immagini/jquery2.png, id=113, 536.0025pt x 176.91093pt>
+File: Immagini/jquery2.png Graphic file (type png)
+<use Immagini/jquery2.png>
+Package pdftex.def Info: Immagini/jquery2.png  used on input line 105.
+(pdftex.def)             Requested size: 428.80258pt x 141.52893pt.
+
+Overfull \hbox (30.46399pt too wide) in paragraph at lines 105--106
+ [][] 
+ []
+
+[26 <./Immagini/jquery1.png> <./Immagini/jquery2.png>]
+<Immagini/electron-architecture.png, id=120, 1324.95pt x 678.535pt>
+File: Immagini/electron-architecture.png Graphic file (type png)
+<use Immagini/electron-architecture.png>
+Package pdftex.def Info: Immagini/electron-architecture.png  used on input line
+ 127.
+(pdftex.def)             Requested size: 331.2367pt x 169.63333pt.
+ [27 <./Immagini/electron-architecture.png>]
+<Immagini/apiElectron.png, id=125, 278.54062pt x 41.4047pt>
+File: Immagini/apiElectron.png Graphic file (type png)
+<use Immagini/apiElectron.png>
+Package pdftex.def Info: Immagini/apiElectron.png  used on input line 140.
+(pdftex.def)             Requested size: 278.53993pt x 41.40457pt.
+<Immagini/browserWindow.png, id=126, 389.20406pt x 45.16875pt>
+File: Immagini/browserWindow.png Graphic file (type png)
+<use Immagini/browserWindow.png>
+Package pdftex.def Info: Immagini/browserWindow.png  used on input line 149.
+(pdftex.def)             Requested size: 389.20311pt x 45.16862pt.
+<Immagini/browserWindow2.png, id=127, 330.48468pt x 147.55125pt>
+File: Immagini/browserWindow2.png Graphic file (type png)
+<use Immagini/browserWindow2.png>
+Package pdftex.def Info: Immagini/browserWindow2.png  used on input line 156.
+(pdftex.def)             Requested size: 330.48387pt x 147.55087pt.
+ [28 <./Immagini/apiElectron.png> <./Immagini/browserWindow.png> <./Immagini/br
+owserWindow2.png>]
+<Immagini/json.png, id=133, 341.02406pt x 276.28218pt>
+File: Immagini/json.png Graphic file (type png)
+<use Immagini/json.png>
+Package pdftex.def Info: Immagini/json.png  used on input line 172.
+(pdftex.def)             Requested size: 341.02322pt x 276.2815pt.
+<Immagini/salvataggio.png, id=134, 389.95688pt x 301.125pt>
+File: Immagini/salvataggio.png Graphic file (type png)
+<use Immagini/salvataggio.png>
+Package pdftex.def Info: Immagini/salvataggio.png  used on input line 181.
+(pdftex.def)             Requested size: 389.95592pt x 301.12425pt.
+ [29 <./Immagini/json.png>] [30 <./Immagini/salvataggio.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 195--199
+
+ []
+
+<Immagini/riclassificazione.png, id=143, 532.99126pt x 124.21407pt>
+File: Immagini/riclassificazione.png Graphic file (type png)
+<use Immagini/riclassificazione.png>
+Package pdftex.def Info: Immagini/riclassificazione.png  used on input line 203
+.
+(pdftex.def)             Requested size: 426.39359pt x 99.37137pt.
+
+Overfull \hbox (28.055pt too wide) in paragraph at lines 203--204
+ [][] 
+ []
+
+[31 <./Immagini/riclassificazione.png>]
+<Immagini/forecast.png, id=148, 470.50781pt x 106.89937pt>
+File: Immagini/forecast.png Graphic file (type png)
+<use Immagini/forecast.png>
+Package pdftex.def Info: Immagini/forecast.png  used on input line 214.
+(pdftex.def)             Requested size: 376.40675pt x 85.51959pt.
+<Immagini/pdf1.png, id=149, 385.44pt x 81.30376pt>
+File: Immagini/pdf1.png Graphic file (type png)
+<use Immagini/pdf1.png>
+Package pdftex.def Info: Immagini/pdf1.png  used on input line 227.
+(pdftex.def)             Requested size: 385.43906pt x 81.30354pt.
+<Immagini/pdf2.png, id=150, 544.28343pt x 219.06844pt>
+File: Immagini/pdf2.png Graphic file (type png)
+<use Immagini/pdf2.png>
+Package pdftex.def Info: Immagini/pdf2.png  used on input line 236.
+(pdftex.def)             Requested size: 435.42734pt x 175.25497pt.
+
+Overfull \hbox (37.08875pt too wide) in paragraph at lines 236--237
+ [][] 
+ []
+
+[32 <./Immagini/forecast.png> <./Immagini/pdf1.png>]
+<Immagini/pdfCss.png, id=157, 614.295pt x 434.37282pt>
+File: Immagini/pdfCss.png Graphic file (type png)
+<use Immagini/pdfCss.png>
+Package pdftex.def Info: Immagini/pdfCss.png  used on input line 245.
+(pdftex.def)             Requested size: 430.00356pt x 304.0589pt.
+
+Overfull \hbox (31.66496pt too wide) in paragraph at lines 245--246
+ [][] 
+ []
+
+[33 <./Immagini/pdf2.png> <./Immagini/pdfCss.png>] [34])
+(Capitoli/capitolo4.tex [35]
 Capitolo 4.
 
-LaTeX Warning: Citation 'hub' on page 38 undefined on input line 4.
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
+
+ []
+
+[36
+
+]) [37] [38] [39
+
+] (Capitoli/conclusione.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--7
+
+ []
 
 
-LaTeX Warning: Citation 'notier' on page 38 undefined on input line 5.
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
+ []
 
-LaTeX Warning: Citation 'peppol' on page 38 undefined on input line 5.
+) [40
 
+]
+Underfull \hbox (badness 10000) in paragraph at lines 131--133
 
-LaTeX Warning: Citation 'intermedia' on page 38 undefined on input line 7.
+ []
 
-) [38
-
-] [39
-
-] (Capitoli/conclusione.tex [40
-
-])
 No file main.acr.
 No file main.gls.
-[41]
+[41
 
-Package biblatex Warning: Type 'book' not found on input line 134.
+]
 
-
-LaTeX Warning: Empty bibliography on input line 134.
-
-
-Package biblatex Warning: Keyword 'legal' not found on input line 135.
+Package biblatex Warning: Keyword 'legal' not found on input line 146.
 
 
-LaTeX Warning: Empty bibliography on input line 135.
+LaTeX Warning: Empty bibliography on input line 146.
 
 
-Package biblatex Warning: Type 'online' not found on input line 136.
+Package biblatex Warning: Type 'online' not found on input line 147.
 
 
-LaTeX Warning: Empty bibliography on input line 136.
+LaTeX Warning: Empty bibliography on input line 147.
 
 [42
 
 ] (main.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27162 strings out of 492946
- 497950 string characters out of 3135524
- 934147 words of memory out of 3000000
- 30741 multiletter control sequences out of 15000+200000
- 539529 words of font info for 49 fonts, out of 3000000 for 9000
+ 26373 strings out of 492946
+ 487030 string characters out of 3135524
+ 926384 words of memory out of 3000000
+ 29943 multiletter control sequences out of 15000+200000
+ 539876 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,11n,63p,1999b,1325s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
@@ -1236,10 +1249,11 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (48 pages, 679798 bytes).
+1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmti12.pfb>
+Output written on main.pdf (47 pages, 534161 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
+ 217 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

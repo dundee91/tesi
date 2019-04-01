@@ -1,18 +1,36 @@
-\chapter{Possibili sviluppi futuri}
+% 4
 
-Ogni regione è stata chiamata per legge a sviluppare il proprio sistema di fatturazione e, eventualmente, a porsi come nodo locale di interscambio per le fatture degli enti locali.
-In Regione Lazio il sistema \textbf{HUB}  svolge appunto questo ruolo, esso prevede un sito per l'adesione al sistema da parte delle e dei privati a tre tipi di servizio: fattura attiva, fattura passiva, conservazione.
-La Regione Emilia-Romagna predispone anch'essa un sistema di interscambio regionale chiamato \textbf{NoTI-ER}, il quale una volta ricevuta la fattura dalloprima la converte nel formato europeo PEPPOL, poi la invia al software \textbf{SICIPA-ER} (l'equivalente del nostro Fatto) e al sistema di conservazione Par-ER.
-Troviamo un sistema di interscambio anche per la Regione Toscana, chiamato \textbf{fERT}, che oltre alla comunicazione tr e Ente, si occupa anche della comunicazione con la
-In Regione Marche il ruolo di intermediario svolto da  è quello di mettere in comunicazione lo con Fatto e Fatto con il sistema di protocollo, quindi presiede a tutto il processo di fatturazione fino al momento dell'accettazione/rifiuto.
-Successivamente le comunicazioni con la passano per il software della contabilità Siagi, il quale prima di inviare i dati relativi ai pagamenti, preleva le informazioni necessarie (associazioni tra fatture e decreti, tempi di accettazione e contabilizzazione, etc) da Fatto.
+\chapter{Possibili implementazioni future}
 
-%\chapter{Deploy e manutenzione}
+L'analisi di bilancio di un'azienda non viene valutata solo attraverso le riclassificazioni e il forecast proposti dal software realizzato, perciò si potrebbero già delineare futuri sviluppi ed implementazioni per altre funzionalità.
+Sulla base di quanto già realizzato nel sistema, una prima implementazione dello stesso potrebbe essere quella che permette il calcolo di ulteriori tipologie di riclassificazione del Conto Economico, che oltre alla riclassificazione al valore aggiunto, può essere calcolato attraverso la riclassificazione a margine di contribuzione e la riclassificazione a costo del venduto, anch'esse molto utilizzate per l'analisi di bilancio d'esercizio di un'azienda. Una seconda implementazione, invece, potrebbe riguardare l'ampliamento del calcolo del forecast. Attualmente calcolato per la singola annualità di riferimento, andrebbe ampliato con il calcolo delle annualità successive a quella di riferimento essendo una tabella con dati di natura previsionale. \\
+Ulteriori funzionalità non presenti nel sistema e utili ai fini dell'analisi di un'azienda sono:
 
-%\section{Le fasi di produzione}
+\begin{itemize}
+ \item Indici di composizione e di correlazione;
+ \item Cash Flow;
+ \item Break Even Point
+\end{itemize}
 
-%\section{Compilazione}
 
-%\section{Pubblicazione}
+% 4.1
 
-%\section{Cattura e gestione degli errori}
+\section{Indici di composizione e di correlazione}
+
+Un ulteriore funzionalità per l'esame della solidità e della liquidità aziendale da parte dell'analista, è la determinazione e l'esaminazione degli indicatori di composizione e di correlazione.
+Gli indici di composizione misurano il peso percentuale delle grandezze di stato patrimoniale. Il calcolo di tali indicatori permette, quindi, di configurare lo stato patrimoniale riclassificato in termini percentuali, realizzando la cosiddetta fase di percentualizzazione del bilancio.
+Mentre gli indici di correlazione patrimonialfinanziaria consentono di comprendere il livello di compatibilità tra investimenti e mezzi finanziari, ciò in base ad uno dei principi cardine dell'analisi di bilancio in base al quale gli impieghi e le fonti di finanziamento devono essere tra loro sincronizzati sotto un triplice profilo: quantitativo (importo), qualitativo (tipologia) e temporale (tempi di scadenza). \\
+
+% 4.2
+
+\section{Cash Flow}
+
+
+Una volta fatta l’analisi di bilancio, c’è un’altra grandezza fondamentale nel processo di valutazione della banca che è il cash flow o “flusso di cassa”, fondamentale a tal punto da poter condizionare il successo o il fallimento della richiesta di credito. Il cash flow è un importante indicatore che consente di valutare la capacità finanziaria e la redditività dell'impresa e mostra se le risorse disponibili sono sufficienti per autofinanziare l'attività aziendale.
+Per calcolare un primo indicatore di cash flow si può partire dall’utile netto, a cui aggiungere tutti i costi che non danno luogo a effettivi esborsi monetari (ammortamenti, quota di Tfr, accantonamenti a riserve ordinarie e straordinarie, etc.). Si arriva così a capire che se il valore è positivo, significa che hai generato liquidità con la tua attività economica durante l’anno, mentre se negativo segnala che la gestione ha consumato maggiori risorse di quante ne siano entrate.
+
+% 4.3
+
+\section{Break Even Point}
+
+Un altro fondamentale aspetto nell'analisi di un'azienda è il Break Even Point, un’analisi che studia la relazione che c’è tra i costi di struttura, i costi variabili e i volumi di produzione e serve per identificare il cosiddetto punto di equilibrio, ossia il punto in cui i ricavi totali sono uguali ai costi totali. Per l’analisi del Break Even Point bisogna partire dalla definizione, anche grafica, dei costi fissi e dei costi variabili. I costi fissi sono quei costi aziendali che non variano al variare delle quantità prodotte, mentre i costi variabili  sono, per definizione,  quei costi aziendali che variano al variare delle quantità prodotte.
