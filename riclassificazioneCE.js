@@ -41,10 +41,11 @@ function sommeRiclassificazioneCE() {
     $('#CEvaloreAggiunto').maskMoney('mask', valoreAggiunto)[0]
 
     // Costi del personale
-    var CEcostiPersonale = $('#salariStipendi').maskMoney('unmasked')[0] +
-        $('#oneriSociali').maskMoney('unmasked')[0] +
-        $('#trattamentoFineRapportoCE').maskMoney('unmasked')[0] +
-        $('#trattamentoQuiescenzaSimili').maskMoney('unmasked')[0] +
+    var CEcostiPersonale = -
+        $('#salariStipendi').maskMoney('unmasked')[0] -
+        $('#oneriSociali').maskMoney('unmasked')[0] -
+        $('#trattamentoFineRapportoCE').maskMoney('unmasked')[0] -
+        $('#trattamentoQuiescenzaSimili').maskMoney('unmasked')[0] -
         $('#altriCosti').maskMoney('unmasked')[0]
 
     $('#CEcostiPersonale').maskMoney('mask',CEcostiPersonale)[0]
